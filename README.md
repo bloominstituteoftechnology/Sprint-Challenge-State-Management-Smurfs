@@ -1,12 +1,14 @@
 # Assessing your Redux Fu
 
-* The objective of this challenge is to get you used to answering a few questions about Redux that are commonly asked in interviews.
+* The objective of this challenge is to get you used to answering a few questions about `Redux/Immutability` that are commonly asked in interviews.
 * We also have some more reps for you to help hammer in the knowledge you've thus far learned.
 * Answers to your written questions will be recorded in _Answers.md_
 * This is to be worked on alone but you can use outside resources. You can _reference_ any old code you may have, and the React Documentation, however, please refrain from copying and pasting any of your answers. Try and understand the question and put your responses in your own words. Be as thorough as possible when explaining something.
 * **Just a friendly Reminder** Don't fret or get anxious about this, this is a no-pressure assessment that is only going to help guide you here in the near future. This is NOT a pass/fail situation.
-  ## Start by forking and cloning this repository.
-  ## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
+
+## Start by forking and cloning this repository.
+
+## Questions - Self Study - You can exercise your Google-Fu for this and any other _Sprint Challenge_ in the future.
 
 1. Name 3 JavaScript Array/Object Methods that do not produce side-effects? Which method do we use to create a new object while extending the properties of another object?
 1. Describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
@@ -17,25 +19,46 @@
 
 ## Initializing Project - READ THIS CAREFULLY, you have two apps here. A server, and a client.
 
-* Start by Forking and Cloning this Repo.
-* `cd` into the forked copy.
-* _RUN_ `npm install` to retrieve all `server-side` the dependencies.
-* _LOOK_ at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
-* _RUN_ `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
+* `cd` into the forked copy of this repo.
+* **RUN** `npm install` to retrieve all `server-side` the dependencies.
+* **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
+* **RUN** `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
 * After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is an array that your **API** will be using to store our Smurf Data.
-* _LOOK_ at your `smurfs` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
-* _cd_ into `smurfs` and run `npm install` to retrieve the client side dependencies.
-* _RUN_ `npm start` to fire up your React application, you should see an error that reads: `TypeError: Cannot read property 'smurfs' of null`.
+* **LOOK** at your `smurfs` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
+* We've added a typical `redux` file structure for:
+
+```
+src
+  - components
+  - reducers
+    - index.js
+  - actions
+    - index.js
+```
+
+* **Open** `src/index.js` to make sure that your app is ready to roll with the proper middleware.
+* **cd** into `smurfs` and run `npm install` to retrieve the client side dependencies.
+* **RUN** `npm start` to fire up your React application, you should see an error that reads: `TypeError: Cannot read property 'smurfs' of null`.
 
 ## Project Description
 
-* For today's challenge you're going to be building a `React/Redux` application that interfaces with the same `smurfs` api you played with last week. The key differences here is that you don't need any routes.
+* For today's challenge you're going to be building a `React/Redux` application that interfaces with the same `smurfs` api you played with last week. The key differences here are that you're going to be wiring up Redux. and `redux-thunk`
 
 ## API Design - This is how you'll interface with the API and what is required from every endpoint.
 
 ### GET '/smurfs'
 
-* To retreive an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`
+* To retrieve an array all the smurfs in the Smurf DB simply write a get to the endpoint `'/smurfs'`.
+* Because `Redux-Thunk` is wired up as a middleware for this project. Be sure to utilize thunks when appropriate:
+
+```
+return (dispatch) => {
+	dipsatch({type: FOO_ACTION_TYPE});
+	promise.then(({data}) => {
+		dispatch({type: ANOTHER_ACTION_TYPE, payload: data});
+	});
+};
+```
 
 ### POST '/smurfs'
 
