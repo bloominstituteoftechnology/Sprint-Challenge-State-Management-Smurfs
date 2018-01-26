@@ -74,7 +74,7 @@ return (dispatch) => {
 ```
 
 * If a smurf is created correctly, you should see a response that is an array of smurfs with uniqe id's assigned to each smurf.
-* **HINT** if you are going to be working on Extra Credit, you'll need to use that unique `id`.
+* **HINT** if you are going to be working on Stretch Problem, you'll need to use that unique `id`.
 * Example of object created in Smurf DB:
 
 ```
@@ -94,10 +94,12 @@ return (dispatch) => {
 ]
 ```
 
-## STRETCH PROBLEM - Extra Credit!
+## STRETCH PROBLEM
 
 * The following two endpoints are here for you if you'd like to push yourselves a little further.
-  ### PUT '/smurfs/123', where 123 is the Id of the smurf you want to modify
+
+### PUT '/smurfs/123', where 123 is the Id of the smurf you want to modify
+
 * For this endpoint to work, you'll need an `id` added to the URL, and at least one field to update on the Smurf object. `name` `age` `height`.
 * Example:
 
@@ -133,14 +135,4 @@ output:
         "id": 1
     }
 }
-```
-
-### Action Types
-
-* You'll need actions to handle all of these different types.
-
-### Remember you can use any resources you want to solve these problems, but avoid copying/pasting solutions you've previously written. Also if you don't finish all of the challenges, that's fine! Just do what you can and submit your challenges in the end! HAVE FUN!
-
-```
-
 ```
