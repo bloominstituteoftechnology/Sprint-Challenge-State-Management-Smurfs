@@ -38,7 +38,7 @@ src
 
 * **Open** `src/index.js` to make sure that your app is ready to roll with the proper middleware.
 * **cd** into `smurfs` and run `npm install` to retrieve the client side dependencies.
-* **RUN** `npm start` to fire up your React application, you should see an error that reads: `TypeError: Cannot read property 'smurfs' of null`.
+* **RUN** `npm start` to fire up your React application. There ought to be a pretty little message awaiting you welcoming you to the app. `Follow` the prompting.
 
 ## Project Description
 
@@ -53,10 +53,10 @@ src
 
 ```
 return (dispatch) => {
-	dipsatch({type: FOO_ACTION_TYPE});
-	promise.then(({data}) => {
-		dispatch({type: ANOTHER_ACTION_TYPE, payload: data});
-	});
+  dipsatch({type: FOO_ACTION_TYPE});
+  promise.then(({data}) => {
+    dispatch({type: ANOTHER_ACTION_TYPE, payload: data});
+  });
 };
 ```
 
