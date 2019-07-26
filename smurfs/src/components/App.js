@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect} from "react";
+import React, { useState, useEffect} from "react";
 import "./App.css";
 import {SmurfList} from './SmurfList'
 import {Route, Link} from "react-router-dom"
@@ -25,12 +25,10 @@ function App() {
       age: age,
       height: height
     }
-    console.log(newSmurf)
     event.preventDefault();
     axios 
       .post('http://localhost:3333/smurfs', newSmurf)
       .then (res => {
-        console.log(res)
         setSmurfs(res.data)
       })
       .catch(err => {
@@ -43,7 +41,6 @@ function App() {
     axios
       .delete(`http://localhost:3333/smurfs/${smurf.id}`)
       .then(res => {
-        console.log(res.data);
         setSmurfs(res.data)
       })
       .catch(err => {

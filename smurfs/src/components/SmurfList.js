@@ -3,7 +3,6 @@ import { SmurfContext } from "./contexts/smurfContext"
 
 export const SmurfList = () => {
   const {smurfs, deleteSmurf} = useContext(SmurfContext)
-  console.log(smurfs)
 
 
   return ( 
