@@ -3,12 +3,15 @@ import "../styles/App.scss";
 
 //components
 import GridContainer from './GridContainer'
+import { Container } from "semantic-ui-react";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <GridContainer />
+        <Container>
+          <GridContainer />
+        </Container>
       </div>
     );
   }

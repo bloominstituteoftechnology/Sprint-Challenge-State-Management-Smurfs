@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Header } from 'semantic-ui-react';
 import axios from 'axios'
 
 //components
 import Smurf from './Smurf'
+import SmurfForm from './SmurfForm'
 
 //actions
 import {
@@ -11,7 +12,6 @@ import {
     FETCH_DATA_START,
     FETCH_DATA_SUCCESS,
     FETCH_DATA_FAIL,
-    getSmurfData
     
 } from '../store/actions'
 
@@ -45,9 +45,10 @@ const GridContainer = () => {
             <Grid.Row columns={2}>
 
                 <Grid.Column width={6}>
-                    <h1> FORM WILL GO HERE!!</h1>
+                    <Header size='large'>Smurf Village</Header>
+                    <SmurfForm />
                 </Grid.Column>
-
+                
                 <Grid.Column width={10}>
                     
                     {smurfs.map(sm => <Smurf sm={sm} key={sm.id}/>)}
