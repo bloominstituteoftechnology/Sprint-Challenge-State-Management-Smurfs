@@ -18,25 +18,57 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 In this challenge, you are to build the Smurfs village once again, only this time, you will utilize context or Redux as your state management. Don't use any old code from your previous Smurfs Sprint Challenge. Build this challenge from the ground up using what you have learned about state management.
 
+
+
+
+
+
+
 ## Self-Study/Essay Questions
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] What problem does the context API help solve?
-- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-- [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
-- [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
-- [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+- [x] What problem does the context API help solve?
+Removes the need for prop drilling!        Here is the data===>this is where i want to consume it...
+
+
+- [x] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+The Store is where all global state lives extracted from the components in a single area retrievable by any connected component.
+The Store is the single source of truth because this is where the immutable state lives. it is pulled from this source.
+
+Actions creators return an action that will be passed into the reducer to modify the data passed in.
+Reducers take in old state from store and an action creator to return the next state, 2 go in, only one returns...
+
+
+- [x] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+app state is state that is to be used throughout the app in different or multiple components, onponent state is only needed within the component it is created and stored in. it should not be given to global state, there is no need.
+
+- [x] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+Thunk allows us to have our action creators return a function instead of an action, it is a middle ware that actions are passed through to see if they meet the criteria to be passed to the reducer, if it is an object it will pass through, if its a function, it will be invoked and the object returned will be passed to the reducer.
+
+
+- [x] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+I absolutely love hooks.... I am weak on vanilla redux and it will likely be more prevalent in the job market, its hard to pick a favorite. but I need more practice with redux, thats why I am choosing it for this sprint.
+
+
+
+
+
+
+
 
 ## Project Set Up
 
 Follow these steps to set up your project:
 
-- [ ] `fork & clone` this repository.
-- [ ] `cd` into the forked copy of this repository.
-- [ ] **RUN** `yarn` to retrieve all `server-side` the dependencies.
-- [ ] **RUN** `yarn start` or `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
-- [ ] After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is an array that your **API** will be using to store our Smurf Data.
+- [x] `fork & clone` this repository.
+- [x] `cd` into the forked copy of this repository.
+- [x] **RUN** `yarn` to retrieve all `server-side` the dependencies.
+- [x] **RUN** `yarn start` or `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
+- [x] After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is an array that your **API** will be using to store our Smurf Data.
 - [ ] **LOOK** at your `smurfs` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
 - [ ] **Open** `src/index.js` to make sure that your app is ready to roll with the proper middleware.
 - [ ] **cd** into `smurfs` and run `yarn` to retrieve the client side dependencies.
@@ -44,12 +76,7 @@ Follow these steps to set up your project:
 
 **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
 
-## Minimum Viable Product
 
-- [ ] Plan and implement how you are going to manage your state for your application
-- [ ] You _must_ use either context or Redux as your state management system
-- [ ] Once you have planned out your state management system, fetch data from the smurf server
-- [ ] Add a form to collect info for a new smurf, and make a POST request to the server to add a new smurf to your village
 
 ## API documentation
 
@@ -107,6 +134,38 @@ Example of object created in Smurf DB:
   }
 ];
 ```
+
+
+
+
+
+
+
+## Minimum Viable Product
+
+- [ ] Plan and implement how you are going to manage your state for your application
+
+- [ ] You _must_ use either context or Redux as your state management system
+
+- [ ] Once you have planned out your state management system, fetch data from the smurf server
+
+- [ ] Add a form to collect info for a new smurf, and make a POST request to the server to add a new smurf to your village
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## STRETCH PROBLEM
 
