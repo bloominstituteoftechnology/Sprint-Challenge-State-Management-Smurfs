@@ -14,10 +14,12 @@ const sendUserError = (msg, res) => {
 
 let smurfs = [
   {
+    id: 0,
     name: 'Brainey',
+    image: "https://i.ibb.co/fN17khr/image.png",
     age: 200,
     height: '5cm',
-    id: 0
+    description: `Brainy is the village intellectual who's not afraid to share his "wisdom" with his fellow Smurfs, even though it usually results in his being booted to the village limits or whacked in the head with a mallet.`
   }
 ];
 server.get('/smurfs', (req, res) => {
