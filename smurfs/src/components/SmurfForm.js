@@ -7,11 +7,19 @@ import axios from 'axios'
 //redux
 import { useDispatch, useSelector} from 'react-redux'
 
+//ACTIONS
+import {
+
+    ADD_SMURF_START,  
+    ADD_SMURF_SUCCESS,
+    ADD_SMURF_FAIL   
+    
+} from '../store/actions'
+
 
 const SmurfForm = (props) => {
     console.log(props)
-    // const[token, SetToken] = useLocalStorage('token')
-    // const[error, setError] = useState(false)
+    const dispatch = useDispatch()
 
     return (
 
@@ -26,6 +34,21 @@ const SmurfForm = (props) => {
             }}
             onSubmit={(values, actions,) => {
                 console.log(values)
+                actions.resetForm()
+
+                dispatch({ type: ADD_SMURF_START })
+
+                axios.post('http://localhost:3333/smurfs', values)
+                .then(res => {
+                    console.log(res.data)
+                    dispatch({ type: ADD_SMURF_SUCCESS, payload: res.data })
+                    actions.setSubmitting(false)
+                })
+                .catch(err => {
+                    console.log(err.response)
+                    dispatch({ type: ADD_SMURF_FAIL })
+                })
+
             }}
 
             // validationSchema={UserSignUpSchema}
