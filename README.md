@@ -23,10 +23,24 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+  Context API helps avoid prop-drilling by giving all the components access to  logic and state.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+The store holds all the application level state - it can't be changed without being manipulated by a reducer, therefore is the source of truth for the current state. Actions tell reducers what to change in the state. Reducers actually change the state as needed.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is state that is needed by the whole application, or several components - think user, cart, theme etc. Component state is the state that only a component cares about - most often used with form state, because forms need to handle their own input state but other components don't care/need to know the state changes that happen while a user is typing in an input.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Thunk is a middleware - it changes our actions so they can perform async API calls. It allows our actions to accept both regular actions and functions, and when Thunk identifies a function it will invoke the function and pass the dispatch function as an argument.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+I think I like context API - less boilerplate than redux, but still cuts out a lot of prop-drilling. I was sick all week so didn't get a ton of practice with both, but that's my take rn.
 
 ## Project Set Up
 
