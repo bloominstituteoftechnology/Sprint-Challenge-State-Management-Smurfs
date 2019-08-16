@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import { SmurfContext } from '../contexts/SmurfContext.js'
 
 //componenets
-import SmurfsCs from './SmurfsC.js'
+import SmurfsC from './SmurfsC.js'
 
 function App() {
   const [smurf, setSmurf] = useState([])
