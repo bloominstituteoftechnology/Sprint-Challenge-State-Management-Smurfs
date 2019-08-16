@@ -1,5 +1,5 @@
 import axios from 'axios';
-export const FETCH_SMURF_START = "FETCH_SMURF_START";
-export const FETCH_SMURF_SUCCESS = "FETCH_SMURF_SUCCESS";
-export const FETCH_SMURF_FAILURE = "FETCH_SMURF_FAILURE";
 
+export const GET_SMURFS = "GET_SMURFS";
+export const GET_SMURFS_SUCCESS = "GET_SMURFS_SUCCESS";
+export const GET_SMURFS_FAILURE = "GET_SMURFS_FAILURE";
