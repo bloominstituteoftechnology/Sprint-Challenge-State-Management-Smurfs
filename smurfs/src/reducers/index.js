@@ -10,7 +10,31 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  return null
+    switch (action.type) {
+        case GET_SMURFS:
+            
+    return {
+        ...state,
+        fetchingSmurfs: true,
+        error: null
+    }
+
+case GET_SMURFS_SUCCESS:
+return {
+    ...state,
+    smurfs: action.payload,
+    fetchingSmurfs: false
+}
+
+case GET_SMURFS_FAILURE:
+    return {
+        ...state,
+        fetchingSmurfs: false,
+        error: action.payload
+    }
+    default:
+        return state;
+}
 };
 
 export default reducer;
