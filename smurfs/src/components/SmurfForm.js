@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-//import form from 'formik';
+import { connect } from 'react-redux';
+import { addSmurf } from '../actions';
 
-//will come back to formik
-
- class SmurfForm extends Component {
+class SmurfForm extends Component {
   state = {
     smurf: {
       name: '',
@@ -14,10 +13,12 @@ import './App.css';
   }
 
   addSmurf = (e, smurf) => {
-      return null
+    e.preventDefault();
+    this.props.addSmurf(smurf)
+    this.props.history.push("/")
   }
 
-   handleInputChange = e => {
+  handleInputChange = e => {
     e.persist();
     this.setState(prevState => ({
       smurf: {
@@ -28,7 +29,7 @@ import './App.css';
     console.log(this.state);
   };
 
-   render() {
+  render() {
     return (
       <div className="SmurfForm">
         <form onSubmit={e => this.addSmurf(e, this.state.smurf)}>
@@ -61,4 +62,4 @@ import './App.css';
   }
 }
 
- export default SmurfForm;
+export default connect(null, { addSmurf })(SmurfForm)
