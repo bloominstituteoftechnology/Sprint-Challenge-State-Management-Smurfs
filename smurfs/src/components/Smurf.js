@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Smurf.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteSmurf } from '../actions';
