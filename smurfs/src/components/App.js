@@ -9,7 +9,6 @@ class App extends Component {
       <div className="App">
          <SmurfContext.Provider value={{ Smurfs}}>
 			<Route exact path="/" component={Smurfs} />
-			/>
 			</SmurfContext.Provider>
       </div>
     );
