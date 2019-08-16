@@ -1,26 +1,28 @@
 import React from 'react';
 import { useContext } from 'react'
 import { SmurfContext } from '../contexts/SmurfContext.js'
-import axios from 'axios'
+
 
 
 
 const SmurfsC = () => {
-    const { smurf, setSmurf } = useContext(SmurfContext);
+    const { smurf } = useContext(SmurfContext);
 
-    axios.get('http://localhost:3333/smurfs')
-    .then(response => {
-        // console.log(response.data)
-        setSmurf(response.data)
-    })
-    .catch((err) => {console.log("error in smurf axios")})
 
+    // console.log("in SmursC", smurf)
 
 
     return (
         <div>
             <h1>Hello!</h1>
-        
+            {smurf.map(sm => (
+                <div>
+                    <h1>{sm.name}</h1>
+                    <h2>{sm.age}</h2>
+                    <h2>{sm.height}</h2>
+                </div>
+            ))}
+            {/* {console.log("in return", smurf.name)} */}
         </div>
     )
 }
