@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './Smurf.css';
+import { Link } from 'react-router-dom';
+import './App.css';
 
  class Smurf extends Component {
   render() {
