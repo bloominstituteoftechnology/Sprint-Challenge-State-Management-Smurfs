@@ -21,7 +21,7 @@ const MainForm = () => {
                 <input
                     className="age"
                     placeholder="enter Smurf age"
-                    type="text"
+                    type="number"
                     value={newsmurf.age}
                     name="age"
                     onChange={changeHandler}
@@ -39,3 +39,5 @@ const MainForm = () => {
         </div>
     )
 }
+
+export default MainForm;
