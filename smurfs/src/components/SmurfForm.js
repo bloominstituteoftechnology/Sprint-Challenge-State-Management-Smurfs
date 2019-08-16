@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SmurfForm.css';
+import './App.css';
 //import form from 'formik';
 
 //will come back to formik
@@ -11,6 +11,10 @@ import './SmurfForm.css';
       age: '',
       height: ''
     }
+  }
+
+  addSmurf = (e, smurf) => {
+      return null
   }
 
    handleInputChange = e => {
