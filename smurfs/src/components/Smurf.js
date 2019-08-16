@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import './App.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteSmurf } from '../actions';
-import './App.css';
 
 class Smurf extends Component {
   deleteSmurf = (e, id) => {
@@ -31,10 +31,10 @@ class Smurf extends Component {
 
       <div className="edit">
         <Link to={{ pathname: "/edit-form", state: {
-          name: this.props.name,
-          age: this.props.age,
-          height: this.props.height,
-          id: this.props.id
+          name: this.props.smurf.name,
+          age: this.props.smurf.age,
+          height: this.props.smurf.height,
+          id: this.props.smurf.id
         } }}>
           <button>Edit Smurf</button>
         </Link>
