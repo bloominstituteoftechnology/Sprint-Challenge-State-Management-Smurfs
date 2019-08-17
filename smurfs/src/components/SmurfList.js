@@ -1,5 +1,6 @@
 import React from 'react'
 import Smurf from './Smurf';
+import { connect } from 'react-redux';
 
 const SmurfList = props => {
     return (
@@ -12,5 +13,10 @@ const SmurfList = props => {
         </div>
     )
 }
+const mapStateToProps = state => {
+    return {
+      smurfs: state.smurfs
+    };
+  };
 
-export default SmurfList
+export default connect(mapStateToProps, { })(SmurfList);

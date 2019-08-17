@@ -5,18 +5,26 @@ import { addSmurfs } from '../actions/index';
 //try to find usestate forms
 // forms with hooks
 const SmurfForm = props => {
+    const defaultState = {
+        name: "",
+        age: 0,
+        height: 0
+    }
 
-    const [smurf, setSmurf] = useState({})
+    const [smurf, setSmurf] = useState(defaultState)
 
     //this is not the right syntax for handle submit???
 
     const handleSubmit = event => {
         event.preventDefault();
-        props.addSmurfs();
+        props.addSmurfs(smurf);
       }
 
     const handleChange = event => {
-        this.setSmurf({ smurfs: event.target.value });
+        setSmurf({ 
+            ...smurf,
+            [event.target.name]: event.target.value
+        });
     }
 
     return (
@@ -25,26 +33,39 @@ const SmurfForm = props => {
             <input 
                 type="text" 
                 name="name" 
+                value={smurf.name}
                 onChange={handleChange}
                 // onChange={e => setSmurf(e.target.value)} 
             />
              <input 
                 type="text" 
                 name="age" 
+                value={smurf.age}
                 onChange={handleChange} 
             />
              <input 
                 type="text" 
                 name="height" 
+                value={smurf.height}
                 onChange={handleChange} 
             />
             <button type="submit">Add a Smurf</button>
+            {/* <button onClick={() => props.addSmurfs()}>Add a Smurf</button> */}
           </form>
         </div>
     )
 }
 
-export default connect({}, { addSmurfs })(SmurfForm);  
+// const mapStateToProps = state => {
+//     return {
+//       smurfs: state.smurfs,
+//       error: state.error,
+//       isLoading: state.isLoading
+//     };
+//   };
+  
+
+export default connect(() => {}, { addSmurfs })(SmurfForm);  
 
 
 
