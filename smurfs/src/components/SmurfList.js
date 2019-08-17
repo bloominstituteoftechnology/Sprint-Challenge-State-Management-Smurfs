@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Smurfs from "./Smurfs";
-import { getSmurfs } from "../actions";
+import { postSmurfs } from "../actions";
 
 const SmurfList = props => {
   console.log("list test:", props);
 
-  useEffect(() => {
-    props.getSmurfs();
-  }, []);
+  //   useEffect(() => {
+  //     props.postSmurfs();
+  //   }, []);
 
   return (
     <div className="list-box">
@@ -18,9 +18,9 @@ const SmurfList = props => {
       </button> */}
       {props.isLoading
         ? "error"
-        : props.data.map(item => {
-            return <Smurfs item={item} key={item.name} />;
-          })}
+        : props.data.map(item => <Smurfs data={item} key={item.name} />)}
+      {/* {props.data &&
+        props.data.map(item => <Smurfs key={item.name} data={item} />)} */}
     </div>
   );
 };
@@ -34,5 +34,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getSmurfs }
+  { postSmurfs }
 )(SmurfList);

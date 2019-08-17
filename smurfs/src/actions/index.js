@@ -12,22 +12,28 @@ export const getSmurfs = () => dispatch => {
   axios
     .get("http://localhost:3333/smurfs")
     .then(res => {
+      console.log("fetch test:", res);
       dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
+      console.log("fetch test:", res);
     })
     .catch(err => {
       dispatch({ type: FETCH_DATA_FAILURE, payload: err });
+      console.log("error test:", err);
     });
 };
 
-export const postSmurfs = data => dispatch => {
+export const postSmurfs = smurf => dispatch => {
   dispatch({ type: POST_DATA_START });
+  smurf = { ...smurf, age: parseInt(smurf.age) };
+  console.log("data pass test:", smurf);
   axios
-    .post("http://localhost:3333/smurfs", { ...data })
+    .post("http://localhost:3333/smurfs", smurf)
     .then(res => {
       console.log("successful add:", res);
-      dispatch({ type: POST_DATA_SUCCESS, payload: res });
+      dispatch({ type: POST_DATA_SUCCESS, payload: res.data });
     })
     .catch(err => {
+      console.log("error test:", err);
       dispatch({ type: POST_DATA_FAILURE, payload: err });
     });
 };

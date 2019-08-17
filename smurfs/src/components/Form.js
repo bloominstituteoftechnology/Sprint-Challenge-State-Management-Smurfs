@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { getSmurfs } from "../actions";
+import { postSmurfs } from "../actions";
 
 const Form = props => {
   console.log("form props:", props);
@@ -12,7 +12,7 @@ const Form = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.getSmurfs(smurf);
+    props.postSmurfs(smurf);
   };
 
   return (
@@ -37,17 +37,21 @@ const Form = props => {
           placeholder="height"
           value={smurf.height}
         />
-        <button type="submit">Add Smurf</button>
+        {/* <button type="submit">Add Smurf</button> */}
+        <button onClick={handleSubmit}>Add Smurf</button>
       </form>
     </div>
   );
 };
 
 const mapStateToProps = state => {
-  return state;
+  return {
+    data: state.data,
+    isLoading: state.isLoading
+  };
 };
 
 export default connect(
   mapStateToProps,
-  { getSmurfs }
+  { postSmurfs }
 )(Form);

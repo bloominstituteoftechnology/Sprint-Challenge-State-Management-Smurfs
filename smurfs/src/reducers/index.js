@@ -8,12 +8,20 @@ import {
 } from "../actions";
 
 const initialState = {
-  data: [],
+  data: [
+    // {
+    //   name: "Brainey",
+    //   age: 200,
+    //   height: "5cm",
+    //   id: 0
+    // }
+  ],
   isLoading: false,
   error: ""
 };
 
 export const reducer = (state = initialState, action) => {
+  console.log("reduce test:", state);
   switch (action.type) {
     case FETCH_DATA_START:
       return {
@@ -24,7 +32,7 @@ export const reducer = (state = initialState, action) => {
     case FETCH_DATA_SUCCESS:
       return {
         ...state,
-        data: [action.payload],
+        data: action.payload,
         isLoading: false,
         error: ""
       };
@@ -43,7 +51,7 @@ export const reducer = (state = initialState, action) => {
     case POST_DATA_SUCCESS:
       return {
         ...state,
-        data: [action.payload],
+        data: action.payload,
         isLoading: false,
         error: ""
       };
