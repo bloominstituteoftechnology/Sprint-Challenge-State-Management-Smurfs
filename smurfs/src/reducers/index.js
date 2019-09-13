@@ -1,8 +1,5 @@
 const initialState = {
-    value: 'no value yet',
-    suit: 'no suit yet',
-    imgSrc: 'no image source yet',
-    isGetting: false
+    smurfs: []
 };
 
 export const reducer = (state = initialState, action) => {
