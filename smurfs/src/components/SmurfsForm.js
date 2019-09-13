@@ -8,6 +8,7 @@ const SmurfForm = () => {
                 <Field type="text" name='name'/>
                 <Field type="text" name='age'/>
                 <Field type='text' name="height"/>
+                <button type="submit">Add the Smurf</button>
             </Form>
         </div>
     )

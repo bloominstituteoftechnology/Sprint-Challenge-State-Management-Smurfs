@@ -8,11 +8,13 @@ const SmurfsList = (props) => {
     return ( 
         <div className='container'>
             <div className="header">
+                <button onClick={props.getData}>
                 {props.loading ? (
                     'Loading...'
                 ) : (
                     'Smurf Village'
                 )}
+                </button>
             </div>
             <div className='smurfs-display'>
                 {props.smurfs.map(smurf => {
