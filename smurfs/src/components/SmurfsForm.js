@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Field, withFormik } from 'formik';
-
+import axios from 'axios';
 const SmurfForm = () => {
     return (
         <div className="form-container">
@@ -22,7 +22,7 @@ const FormikSmurfForm = withFormik({
         }
     },
 
-    handleSubmit(value, {resetForm}) {
+    handleSubmit(values, {resetForm}) {
         console.log(values);
         axios.post('http://localhost:3333/smurfs', values)
         .then(res => {
