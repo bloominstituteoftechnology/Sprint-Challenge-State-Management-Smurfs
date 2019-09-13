@@ -4,13 +4,16 @@ import { useSelector } from 'react-redux'
 import Smurf from './Smurf'
 
 export default function SmurfList() {
-    const smurfs = useSelector(state => state.smurfs)
+    const {smurfs, fetching} = useSelector(state => ({ ...state }))
     
     return (
         <div>
-            {smurfs.map(function renderSmurf(smurf) {
-                return <Smurf key={smurf.id} {...smurf} />
-            })}
+            { (fetching) 
+                ? 'Loading village...'
+                : smurfs.map(function renderSmurf(smurf) {
+                    return <Smurf key={smurf.id} {...smurf} />
+                })
+            }
         </div>
     )
 }
