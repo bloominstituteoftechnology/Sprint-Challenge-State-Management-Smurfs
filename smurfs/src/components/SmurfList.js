@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { addSmurf } from '../actions';
+
+
 class SmurfList extends React.Component {
-state = {
-    newSmurf: ''
-}
+
 
 
 //HANDLE CHANGES
@@ -16,8 +17,8 @@ handleChanges = e => {
 //ADD SMURF
 addSmurf = e => {
     e.preventDefault();
-    this.props.addNewSmurf(this.state.newSmurf);
-    this.setState({ newSmurf: '' });
+    this.props.addNewSmurf(this.state.addSmurf);
+    this.setState({ addSmurf: '' });
   };
 
 
@@ -25,15 +26,16 @@ addSmurf = e => {
   render() {
     return (
         <>
-
+        {/* INPUT BOX */}
         <input
           type="text"
           value={this.state.newSmurf}
           onChange={this.handleChanges}
           placeholder="Add new Smurf"
         />
-        <button onClick={this.addSmurf}>Add Smurf</button>
-
+        {/* BUTTON ADD SMURF */}
+        <button onClick={() => props.addSmurf(props.smurf)}>Add Smurf</button>
+        
         </>
 
         )
@@ -42,7 +44,7 @@ addSmurf = e => {
 
 const mapStateToProps = state => {
     return{
-        members: state.smurfList.members
+        name: state.name
     };
 };
 
@@ -50,3 +52,5 @@ export default connect(
     mapStateToProps,
     {}
 )(SmurfList);
+
+//export default SmurfList;

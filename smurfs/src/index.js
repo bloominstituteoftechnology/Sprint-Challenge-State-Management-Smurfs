@@ -5,14 +5,16 @@ import App from "./components/App";
 
 //Import CreateStore and Provider
 
-import { CreateStore } from 'redux';
+import { createStore, applyMiddleware, compose  } from 'redux';
 import { Provider } from 'react-redux';
-
-//Import SmurfList
-import SmurfList from './components/SmurfList';
+import thunk from 'redux-thunk';
 
 
+import { reducer } from './store/reducers';
 
+
+
+const composeEnhancers = compose;
 
 // STORE
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
