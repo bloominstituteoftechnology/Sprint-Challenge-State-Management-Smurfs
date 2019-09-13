@@ -1,10 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
+import axios from 'axios';
 import "./App.css";
 import SmurfList from './SmurfList';
+import { SmurfContext } from '../contexts/SmurfContext';
 
+const App = () => {
+  let smurfs = [];
+  axios.get('http://localhost:3333/smurfs')
+    .then(res => {
+      smurfs = [...res.data];
+      console.log("smurfs in axios: ", smurfs);
+    })
 
-class App extends Component {
-  render() {
     return (
       <div className="App">
         <h1>SMURFS!</h1>
@@ -12,7 +19,7 @@ class App extends Component {
       </div>
     );
   }
-}
+
 
 export default App;
  
