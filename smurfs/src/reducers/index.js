@@ -12,14 +12,14 @@ const initialState = {
   
   export const reducer = (state = initialState, action) => {
     switch (action.type) {
-      case "FETCH_DATA_START":
+      case FETCH_DATA_START:
         return {
           ...state,
           error: '',
           loading: true
     };
   
-      case "FETCH_DATA_SUCCESS":
+      case FETCH_DATA_SUCCESS:
         return {
             ...state,
             error: '',
