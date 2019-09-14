@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 
 import SmurfList from "./SmurfList";
+import SmurfForm from "./SmurfForm";
+
 import { connect } from 'react-redux';
 
 class App extends Component {
@@ -14,19 +16,16 @@ class App extends Component {
         <div>Have fun!</div> */}
 
         <SmurfList/>
+        <SmurfForm/>
+         
       </div>
     );
   }
 }
 
 
-const mapStateToProps = state => {
-  console.log('mSTP app', state);
-  return{
-   state:state
-  };
-};
 
-export default connect(mapStateToProps,{}) (App);
+
+export default App;
 
 //export default App;

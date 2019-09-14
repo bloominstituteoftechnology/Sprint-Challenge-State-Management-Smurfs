@@ -12,17 +12,20 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_SMURF_START:
+
+                // state.map(item => { });
+                
             return{
                 ...state,
-                error: '',
-                fetchingSmurfs: true
+                fetchingSmurfs: true,
+                error: ''   
             }
 
         case FETCH_SMURF_SUCCESS:
             return{
                 ...state,
-                error: '',
                 fetchingSmurfs: false,
+                error: '',
                 smurfs: action.payload
             }
 
@@ -41,6 +44,9 @@ export const reducer = (state = initialState, action) => {
                 addingSmurfs: false,
                 smurfs: action.payload
             }
+
+
+
 
 
 

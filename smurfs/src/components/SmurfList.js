@@ -1,26 +1,79 @@
-import React from 'react';
+import React, { useState, useReducer } from "react";
 import { connect } from 'react-redux';
 
-import { getSmurfs } from '../store/actions';
+import { getSmurfs} from '../store/actions';
+import { reducer } from "../store/reducers"
+
+// const SmurfList = ({ getSmurfs, smurfs, fetchingSmurfs, error }) => {
+//    useEffect (()=> {
+//           getSmurfs();
+//    },[getSmurfs])
+   
+//need add | this on load- so smurf Brainey shows up.
+
+    //getSmurfs
 
 
-class SmurfList extends React.Component {
+const SmurfList = (props) => {
+
+    const [state, dispatch] = useReducer(reducer);
+
+    const [newTitleText, setNewTitleText,] = useState("");
+
+
+    // dispatch({ type: "FETCH_SMURF_START", payload: state.id })
+
+    // {state.map(state=> {
+    //     return( 
+        
+
+    //          <div onClick={() => {
+    //              dispatch({ type: "FETCH_SMURF_START", payload: state.id });
+                
+    //           }} >
+
+    //            { state.smurf }
+              
+    //            </div>   
+    //     )
+         
+    // }
+    //     )}  
 
 
 
 
+console.log(props)
 
+//  if(fetchingSmurfs){
+//     return <h2>fetching Smurf</h2>;
+//  }
 
+        return(
 
- 
-}
+        <div>
+            <h1>SMURF YA</h1>
+         {props.smurfs.map(smurf => {
+           return (  
+           <div>
+             <h3>{smurf.name}</h3>
+             <p>{smurf.age}</p>
+             <p>{smurf.height}</p>
+            </div>)
+         } )}
+            
+        </div>
+
+      )
+
+        }
+
 
 const mapStateToProps = state => {
     return{
-        name: state.name,
-        age: state.age,
-        height: state.height,
-        id: state.id
+      smurfs: state.smurfs,
+      fetchingSmurfs: state.fetchingSmurfs,
+      error: state.error
     };
 };
 
