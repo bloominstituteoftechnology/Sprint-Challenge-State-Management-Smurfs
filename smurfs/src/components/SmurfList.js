@@ -49,6 +49,9 @@ console.log(props)
 //     return <h2>fetching Smurf</h2>;
 //  }
 
+//FETCH_SMURF_START
+//FETCH_SMURF_SUCCESS
+
         return(
 
         <div>

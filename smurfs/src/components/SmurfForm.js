@@ -29,7 +29,7 @@ return (
     <h2>Smurfs</h2>
 
    
-    {/* INPUT BOX */}
+    {/* INPUT NAME */}
     
     <input
       type="text"
@@ -37,6 +37,25 @@ return (
        onChange={handleChanges}
       placeholder="Add new Smurf"
     />
+
+{/* INPUT AGE */}
+    <input
+      type="text"
+       value={newTitleText}
+       onChange={handleChanges}
+      placeholder="Add new Smurf"
+    />
+{/* INPUT Height */}
+    <input
+      type="text"
+       value={newTitleText}
+       onChange={handleChanges}
+      placeholder="Add new Smurf"
+    />
+
+
+
+
     {/* BUTTON ADD SMURF */}
    
 
