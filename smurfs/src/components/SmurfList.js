@@ -1,75 +1,77 @@
 import React, { useState, useReducer } from "react";
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { getSmurfs} from '../store/actions';
 import { reducer } from "../store/reducers"
 
-// const SmurfList = ({ getSmurfs, smurfs, fetchingSmurfs, error }) => {
-//    useEffect (()=> {
-//           getSmurfs();
-//    },[getSmurfs])
-   
-//need add | this on load- so smurf Brainey shows up.
-
-    //getSmurfs
+import SmurfForm from "./SmurfForm";
 
 
-const SmurfList = (props) => {
 
-    const [state, dispatch] = useReducer(reducer);
+// const SmurfList = (props) => {
 
-    const [newTitleText, setNewTitleText,] = useState("");
+//     const [state, dispatch] = useReducer(reducer);
+
+//     const [newTitleText, setNewTitleText,] = useState("");
+//     console.log(props)
 
 
-    // dispatch({ type: "FETCH_SMURF_START", payload: state.id })
+    class SmurfList extends React.Component {
 
-    // {state.map(state=> {
-    //     return( 
-        
-
-    //          <div onClick={() => {
-    //              dispatch({ type: "FETCH_SMURF_START", payload: state.id });
-                
-    //           }} >
-
-    //            { state.smurf }
-              
-    //            </div>   
-    //     )
-         
-    // }
-    //     )}  
+        constructor(){
+          super()
+          this.state = {
+            smurf: {},
+            
+          };
+        }
+      
+      
+          componentDidMount() {
+            console.log("first rendre(mounting)");
+            axios
+            .get('http://localhost:3333/smurfs')
+            .then(res => this.setState({ smurf: res.data }))
+            //.catch(err => console.log("error")); 
+          }
 
 
 
 
-console.log(props)
+
+
 
 //  if(fetchingSmurfs){
 //     return <h2>fetching Smurf</h2>;
 //  }
 
-//FETCH_SMURF_START
-//FETCH_SMURF_SUCCESS
-
-        return(
+render() {
+    return(
 
         <div>
+
+            
             <h1>SMURF YA</h1>
-         {props.smurfs.map(smurf => {
+         {this.state.smurfs.map(smurf => {
            return (  
-           <div>
-             <h3>{smurf.name}</h3>
+            
+            <div>
+           
+           <h3>{smurf.name}</h3>
              <p>{smurf.age}</p>
-             <p>{smurf.height}</p>
+             <p>{smurf.height}</p> 
+
             </div>)
          } )}
             
         </div>
+    )
+}
 
-      )
+        
 
-        }
+    }
 
 
 const mapStateToProps = state => {

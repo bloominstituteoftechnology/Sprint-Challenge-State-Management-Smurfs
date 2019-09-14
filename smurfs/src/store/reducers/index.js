@@ -14,7 +14,7 @@ export const reducer = (state = initialState, action) => {
         case FETCH_SMURF_START:
 
                 // state.map(item => { });
-                
+
             return{
                 ...state,
                 fetchingSmurfs: true,
@@ -24,25 +24,25 @@ export const reducer = (state = initialState, action) => {
         case FETCH_SMURF_SUCCESS:
             return{
                 ...state,
+                smurfs: action.payload,
                 fetchingSmurfs: false,
-                error: '',
-                smurfs: action.payload
+                error: ''
+                
             }
 
         case ADD_SMURF_START:
             return{
                 ...state,
-                 error: '',
-                 addingSmurfs: true
-                
+                 addingSmurfs: true,
+                 error: ''
             }
 
         case ADD_SMURF_SUCCESS:
             return{
                ...state,
-                error: '',
+               smurfs: action.payload,
                 addingSmurfs: false,
-                smurfs: action.payload
+                error: ''
             }
 
 
