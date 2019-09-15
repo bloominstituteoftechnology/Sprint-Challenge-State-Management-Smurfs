@@ -17,24 +17,44 @@ import SmurfForm from "./SmurfForm";
 //     console.log(props)
 
 
+const smurfArray = [
+    {
+    name:'bena',
+    age: 25,
+    height: 5
+  },
+  
+  {
+    name:'paul',
+    age: 28,
+    height: 4
+  },
+  
+  ]
+
+
+
     class SmurfList extends React.Component {
 
-        constructor(){
-          super()
+        constructor(props){
+          super(props)
+          console.log("test", props)
           this.state = {
-            smurf: {},
+            //smurfs: [],
+            smurfs: smurfArray
+            //props.smurfs
             
           };
         }
       
       
-          componentDidMount() {
-            console.log("first rendre(mounting)");
-            axios
-            .get('http://localhost:3333/smurfs')
-            .then(res => this.setState({ smurf: res.data }))
-            //.catch(err => console.log("error")); 
-          }
+        //   componentDidMount() {
+        //     console.log("first render(mounting)");
+        //     axios
+        //     .get('http://localhost:3333/smurfs')
+        //     .then(res => this.setState({ smurf: res.data }))
+        //     //.catch(err => console.log("error")); 
+        //   }
 
 
 
@@ -47,17 +67,17 @@ import SmurfForm from "./SmurfForm";
 //  }
 
 render() {
+    console.log('state', this.state)
     return(
 
         <div>
+            <h2>SMURFS</h2>
 
-            
-            <h1>SMURF YA</h1>
          {this.state.smurfs.map(smurf => {
            return (  
             
             <div>
-           
+          
            <h3>{smurf.name}</h3>
              <p>{smurf.age}</p>
              <p>{smurf.height}</p> 

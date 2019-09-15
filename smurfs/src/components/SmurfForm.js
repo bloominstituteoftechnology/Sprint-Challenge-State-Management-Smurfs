@@ -25,8 +25,9 @@ const SmurfForm = props => {
           ...smurf,
           id: Date.now()
         };
-        props.addNewSmurf(newSmurf)
-        setSmurf({name:'', age:'', height:''});
+        console.log(props)
+         props.addSmurfs(newSmurf)
+         setSmurf({name:'', age:'', height:''});
     };
 
 
