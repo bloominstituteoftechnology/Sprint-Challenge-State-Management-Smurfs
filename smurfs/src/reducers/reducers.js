@@ -1,4 +1,4 @@
-import { FETCHING_SMURFS_START, FETCHING_SMURFS_SUCCESS, FETCHING_SMURFS_FAILURE } from "../actions/actions"
+import { FETCHING_SMURFS_START, FETCHING_SMURFS_SUCCESS, FETCHING_SMURFS_FAILURE, ADDING_SMURF_SUCCESS } from "../actions/actions"
 
 const initialState = {
     smurfs: [],
@@ -16,7 +16,7 @@ export const reducer = (state = initialState, action) => {
             }
 
         case FETCHING_SMURFS_SUCCESS:
-            console.log("suc")
+            console.log("success")
             return {
                 ...state,
                 smurfs: action.payload.data,
@@ -31,6 +31,11 @@ export const reducer = (state = initialState, action) => {
                 error: action.payload.error
             }
 
+        case ADDING_SMURF_SUCCESS:
+            return {
+                ...state,
+                smurfs: action.payload.data
+            }
         default:
             return state
     }
