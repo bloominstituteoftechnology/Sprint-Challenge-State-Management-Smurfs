@@ -32,6 +32,7 @@ export const reducer = (state = initialState, action) => {
             }
 
         case ADDING_SMURF_SUCCESS:
+            console.log(action)
             return {
                 ...state,
                 smurfs: action.payload.data
