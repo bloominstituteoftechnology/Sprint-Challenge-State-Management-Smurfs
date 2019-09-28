@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  color: white;
+  background: linear-gradient(
+    to bottom right,
+    #00d4ff,
+    #080895
+  )
+}
+
+
+
