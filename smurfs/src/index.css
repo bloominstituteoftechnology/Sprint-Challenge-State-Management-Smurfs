@@ -31,17 +31,19 @@ form {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 20%;
+  width: 15%;
   margin: 0 auto;
 }
 
 input {
   margin-bottom: 5px;
-  border-radius: 5px;
+  border-radius: 3px;
+  height: 20px;
+  border: solid 0px white;
 }
 
 button {
   width: 50%;
   margin: 0 auto;
-  height: 30px;
+  height: 45px;
 }

@@ -13,6 +13,11 @@ const Form = (props) => {
         e.preventDefault()
         console.log(newSmurf)
         props.addSmurf(newSmurf)
+        setNewSmurf({
+            name: "",
+            age: "",
+            height: ""
+        })
     }
 
     const handleChanges = (e) => {
