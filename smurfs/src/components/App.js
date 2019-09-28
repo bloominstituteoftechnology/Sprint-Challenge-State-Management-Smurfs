@@ -3,7 +3,6 @@ import axios from "axios"
 import "./App.css";
 import SmurfList from "./SmurfList"
 
-
 const App = () => {
   axios
     .get("http://localhost:3333/smurfs")
