@@ -32,12 +32,15 @@ function SmurfForm({ postSmurf }) {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Name</label>
         <input
           name="name"
           placeholder="Name"
           onChange={handleName}
           value={name}
         />
+        <br />
+        <label htmlFor="age">Age</label>
         <input
           name="age"
           type="number"
@@ -45,9 +48,11 @@ function SmurfForm({ postSmurf }) {
           onChange={handleAge}
           value={age}
         />
+        <br />
+        <label htmlFor="height">Height</label>
         <input
           name="height"
-          placeholder="Height in cm..."
+          placeholder="Height in cm"
           onChange={handleHeight}
           value={height}
         />

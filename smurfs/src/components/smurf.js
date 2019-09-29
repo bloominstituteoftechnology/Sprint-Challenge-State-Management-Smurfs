@@ -3,21 +3,31 @@ import { connect } from "react-redux";
 
 import { fetchSmurfs } from "../actions";
 
-const Smurf = ({ name, age, height, id, isLoading, fetchSmurfs }) => {
+const Smurf = ({ smurf, fetchSmurfs }) => {
   useEffect(() => {
     fetchSmurfs();
   }, [fetchSmurfs]);
-  return <></>;
+  return (
+    <>
+      <div className="smurf-container">
+        {smurf.map(smurf => {
+          return (
+            <div className="smurf-card">
+              <h2>Name: {smurf.name}</h2> <br />
+              <p>Age: {smurf.age}</p> <br />
+              <p>Height: {smurf.height}</p>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
 };
 
 const mapStateToProps = state => {
-  console.log(state);
+  console.log("state MSTP", state);
   return {
-    name: state.name,
-    age: state.age,
-    height: state.height,
-    id: state.id,
-    isLoading: state.isLoading
+    smurf: state.smurf
   };
 };
 

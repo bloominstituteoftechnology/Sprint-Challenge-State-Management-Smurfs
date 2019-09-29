@@ -1,14 +1,18 @@
 import {
-  FETCH_SMURFS_START,
   FETCH_SMURFS_SUCCESS,
-  POST_SMURF
+  FETCH_SMURFS_START,
+  FETCH_SMURFS_NAME,
+  POST_SMURF,
+  FETCH_SMURFS_AGE,
+  FETCH_SMURFS_HEIGHT
 } from "../actions";
 
 const initialState = {
-  name: "",
-  age: 0,
-  height: "",
-  isLoading: false
+  smurf: [{}]
+  // name: "",
+  // age: 0,
+  // height: "",
+  // isLoading: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,11 +26,26 @@ const reducer = (state = initialState, action) => {
       console.log("state", action.payload);
       return {
         ...state,
-        name: action.payload.map(smurf => smurf),
-        age: action.age,
-        height: action.height,
-        isLoading: false
+        smurf: action.payload
       };
+    // case FETCH_SMURFS_NAME:
+    //   console.log("state", action.payload);
+    //   return {
+    //     ...state,
+    //     name: action.payload
+    //   };
+    // case FETCH_SMURFS_AGE:
+    //   console.log("state", action.payload);
+    //   return {
+    //     ...state,
+    //     age: action.payload
+    //   };
+    // case FETCH_SMURFS_HEIGHT:
+    //   console.log("state", action.payload);
+    //   return {
+    //     ...state,
+    //     height: action.payload
+    //   };
     case POST_SMURF:
       return {
         ...state
