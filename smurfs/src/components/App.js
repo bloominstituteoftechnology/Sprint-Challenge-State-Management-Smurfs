@@ -1,36 +1,67 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from 'react';
+import './App.css';
 import "./App.css";
-import axios from "axios";
-import SmurfContext from "./Context";
+import { connect } from "react-redux";
+import { addSmurf, getSmurfs, /*updateSmurf*/ } from "../actions";
 import SmurfForm from "./SmurfForm";
 
+class App extends Component {
+  state = {
+    update: false,
+    id: ""
+  };
 
-const App = () => {
-  const { smurfs, setBlueSmurf } = useState([]);
+  componentDidMount() {
+    this.props.getSmurfs();
+  }
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:3333/")
-      .then(res => {
-        setBlueSmurf(res.data);
-      })
-      .catch(error => {
-        console.log(error, "the smurf has been eaten");
-      });
-  }, [setBlueSmurf]);
+  toggleForm = e => {
+    const id = e.target.id;
+    this.state.update
+      ? this.setState({ update: false, id: "" })
+      : this.setState({ update: true, id: id });
+    // this.setState({ update: !this.state.hidden, id: id });
+  };
 
-  return (
-    <div className="App">
-      <SmurfContext.Provider value={{ smurfs }}>
+  
+  render() {
+    console.log(this.state.id);
+    const { smurfs, addSmurf } = this.props;
+    return (
+      <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+        <div className="content-container">
+          <div className="smurf-list">
+            {smurfs.map((smurf, index) => {
+              return (
+                <div className="smurf-card" key={index}>
+                  <h2>{smurf.name}</h2>
+                  <p>{smurf.age}</p>
+                  <p>{smurf.height}</p>
+                </div>
+              );
+            })}
+          </div>
+          <div className="form-container">
+            <SmurfForm add={addSmurf} />
+          </div>
+        </div>
 
-        <SmurfForm />
-      </SmurfContext.Provider>
-    </div>
-  );
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    smurfs: state.smurfs,
+    fetchingSmurfs: state.fetchingSmurfs,
+    addingSmurf: state.addingSmurf,
+    error: state.error
+  };
 };
 
-export default App;
+export default connect(
+  mapStateToProps,
+  { addSmurf, getSmurfs, }
+)(App);
