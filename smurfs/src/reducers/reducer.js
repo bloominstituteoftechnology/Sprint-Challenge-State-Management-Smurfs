@@ -47,12 +47,12 @@ function reducerForSmurf(state = initialState, action) {
         case ADD_SMURFS_START:
             return {
                 ...state,
-                isPosting: true,
+                isPosting: false,
             }
         case ADD_SMURFS_SUCCESS:
             return {
                 ...state,
-                isPosting: false,
+                isPosting: true,
             }
         case ADD_SMURFS_FAIL:
             return {

@@ -37,7 +37,7 @@ export const newSmurfs = (createSmurf) => {
        
     axios.post("http://localhost:3333/smurfs", createSmurf)
     .then(res => {
-        console.log(res.data);
+        console.log("POST", res.data);
         dispatch({ type: ADD_SMURFS_SUCCESS})
     })
     .catch(error => {

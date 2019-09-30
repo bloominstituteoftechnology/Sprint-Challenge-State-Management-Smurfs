@@ -9,7 +9,7 @@ function SmurfForm(props) {
         props.getSmurfs()
     }, [count])
 
-    const [val, setVal] = useState({name: "", age: "", height: ""})
+    const [val, setVal] = useState({name: "", age: "", height: "", id: ""})
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -20,14 +20,14 @@ function SmurfForm(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         props.newSmurfs(val);
-        setCount(count + 1) 
+        setCount(count + 1) ;
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <input name='name' onChange={handleChange}></input>
-            <input age='age' onChange={handleChange}></input>
-            <input height='height' onChange={handleChange}></input>
+            <input name='name' placeholder="Smurf Name" onChange={handleChange}></input>
+            <input age='age' placeholder="Smurf Age" onChange={handleChange}></input>
+            <input height='height' placeholder="Smurf Height" onChange={handleChange}></input>
             <button type="submit">Add New Smurf</button>
         </form>
 
@@ -36,7 +36,8 @@ function SmurfForm(props) {
 
 const mapStateToProps = state => {
     return {
-        isPosting: state.isPosting
+        isPosting: state.isPosting,
+        smurfs: state.smurfs
     }
 }
 
