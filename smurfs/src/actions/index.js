@@ -36,15 +36,15 @@ export const getSmurfs = () => {
 export const newSmurf = (createSmurf) => {
     dispatch( {type: ADD_SMURFS_START});
        
-    axios.get("http://localhost:3333/smurfs", createSmurf)
+    axios.post("http://localhost:3333/smurfs", createSmurf)
     .then(res => {
         console.log(res.data);
-        dispatch({ type: ADD_SMURFS_SUCCESS, payload: res.data})
+        dispatch({ type: ADD_SMURFS_SUCCESS})
     })
     .catch(err => {
         console.log( "actions/index.js ADD SMURFS ERR", err);
         dispatch({type: ADD_SMURFS_FAIL,
-                 payload: error + "Error Loading Smurfs"})
+                 payload: error + "Error Posting Smurfs"})
     });
 
 };

@@ -30,15 +30,12 @@ export const reducer = (state = initialState, action) => {
                 isFetching: true,
                 error: ''
             }
-        case GET_SMURFS:
+        case GET_SMURFS_SUCCESS:
             return {
                 ...state,
-                name: action.payload,
+                isFetching: false,
                 error: "",
-                name: action.payload,
-                age: action.payload,
-                height: action.payload,
-                id: action.payload
+                smurfs: action.payload
 
             }
         case GET_SMURFS_FAIL:
@@ -47,13 +44,22 @@ export const reducer = (state = initialState, action) => {
                 error: action.payload,
                 isFetching: false
         }
-        case ADD_SMURFS:
-        return {
-            ...state,
-            name: action.payload,
-            age: action.payload,
-            height: action.payload,
-            id: action.payload
+        case ADD_SMURFS_START:
+            return {
+                ...state,
+                isPosting: true,
+            }
+        case ADD_SMURFS_SUCCESS:
+            return {
+                ...state,
+                isPosting: false,
+
+            }
+        case ADD_SMURFS_FAIL:
+            return {
+                ...state,
+                error: action.payload,
+                isPosting: false
         }
         
         default: 
