@@ -10,7 +10,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3333/")
+      .get("http://localhost:3333/smurfs")
       .then(res => {
         setBlueSmurf(res.data);
       })
@@ -21,12 +21,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <SmurfContext.Provider value={{ smurfs }}>
+      <SmurfContext.Provider value={{ smurfs, setBlueSmurf }}>
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <div>Welcome to your state management version of Smurfs!</div>
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
-
+        {/* <SmurfData /> */}
         <SmurfForm />
       </SmurfContext.Provider>
     </div>
