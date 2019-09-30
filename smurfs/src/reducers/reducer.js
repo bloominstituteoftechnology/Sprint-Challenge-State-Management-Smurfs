@@ -1,24 +1,34 @@
-import {FETCH_SMURFS, GET_SMURFS, GET_SMURFS_FAIL, ADD_SMURFS} from "../actions/index";
-export const initialState = [
-   {
+import {
+    GET_SMURFS_START, 
+    GET_SMURFS_SUCCESS, 
+    GET_SMURFS_FAIL, 
+    ADD_SMURFS_START, 
+    ADD_SMURFS_SUCCESS, 
+    ADD_SMURFS_FAIL
+
+} from "../actions/index";
+
+export const initialState = {
+   
     isFetching: false,
     error: "",
-    name: "Brainey",
-    age: 200,
-    height: "5cm",
-    id: 0
-   }
-];
+    smurfs: [],
+    isPosting: false
+   
+   
+};
 
 
 
 
 export const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case FETCH_SMURFS:
+        case GET_SMURFS_START:
             return {
                 ...state,
-                isFetching: true
+                smurfs: [],
+                isFetching: true,
+                error: ''
             }
         case GET_SMURFS:
             return {
@@ -48,8 +58,6 @@ export const reducer = (state = initialState, action) => {
         
         default: 
             return state
-
-
     }
 
 }
