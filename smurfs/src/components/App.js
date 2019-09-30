@@ -1,7 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
-class App extends Component {
-  render() {
+
+
+function App() {
+ 
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
@@ -11,6 +13,6 @@ class App extends Component {
       </div>
     );
   }
-}
+
 
 export default App;
