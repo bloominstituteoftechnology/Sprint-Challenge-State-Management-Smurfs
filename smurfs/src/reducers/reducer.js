@@ -8,7 +8,7 @@ import {
 
 } from "../actions/index";
 
-export const initialState = {
+const initialState = {
    
     isFetching: false,
     error: "",
@@ -21,7 +21,7 @@ export const initialState = {
 
 
 
-export const reducer = (state = initialState, action) => {
+function reducerForSmurf(state = initialState, action) {
     switch(action.type) {
         case GET_SMURFS_START:
             return {
@@ -53,7 +53,6 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isPosting: false,
-
             }
         case ADD_SMURFS_FAIL:
             return {
@@ -68,4 +67,4 @@ export const reducer = (state = initialState, action) => {
 
 }
 
-export default reducer
+export default reducerForSmurf
