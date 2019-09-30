@@ -6,9 +6,9 @@ export const SmurfProvider = props => {
   const [smurf, setSmurf] = useState();
 
   return (
-    <SmurfContext.Provider value={[smurf, setSmurf]}>
+    <Context.Provider value={[smurf, setSmurf]}>
       {props.children}
-    </SmurfContext.Provider>
+    </Context.Provider>
   );
 };
 
