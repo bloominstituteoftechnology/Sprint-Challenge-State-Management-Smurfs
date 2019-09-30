@@ -2,6 +2,7 @@ import React from "react";
 
 function SmurfCard(props) {
     console.log(props.smurf)
+    
     return (
         <div>
             <h1>{props.smurf.name} Smurf</h1>
