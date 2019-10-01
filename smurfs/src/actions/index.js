@@ -14,12 +14,9 @@ export const fetchSmurfData = () => {
             axios
             .get('http://localhost:3333/smurfs')
             .then(res => {
-                console.log("Smurf Data: ",res);
-                const smurfData = {};
-                smurfData.name = res.data.name;
                 dispatch({
                     type: SMURF_DATA_SUCCESS,
-                    payload: smurfData
+                    payload: res.data
             });
             })
             .catch(err => {
@@ -28,3 +25,4 @@ export const fetchSmurfData = () => {
             })
     };
 };
+
