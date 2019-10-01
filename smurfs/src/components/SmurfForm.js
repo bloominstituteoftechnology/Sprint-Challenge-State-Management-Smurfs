@@ -62,7 +62,7 @@ export default class extends React.Component {
             value={this.state.height}
             onChange={this.smurfHandler}
           />
-          <button type="submit">Join!</button>
+          <button type="submit">Add Smurf!</button>
         </form>
       </div>
     );
