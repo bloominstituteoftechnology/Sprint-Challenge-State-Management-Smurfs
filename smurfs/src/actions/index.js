@@ -32,6 +32,7 @@ export const getSmurfs = () => {
     }
 
 export const newSmurfs = (createSmurf) => {
+    console.log("CREATE SMURF", createSmurf)
     return (dispatch) => {
     dispatch( {type: ADD_SMURFS_START});
        

@@ -9,11 +9,11 @@ function SmurfForm(props) {
         props.getSmurfs()
     }, [count])
 
-    const [val, setVal] = useState({name: "", age: "", height: "", id: ""})
+    const [val, setVal] = useState({name: "", age: "", height: ""})
 
     const handleChange = (e) => {
         e.preventDefault();
-        setVal({...val, [e.target.name] : e.target.value})
+        setVal({...val, [e.target.name] : e.target.value, [e.target.age] : e.target.value, [e.target.height] : e.target.value})
         console.log(val)
     }
 
