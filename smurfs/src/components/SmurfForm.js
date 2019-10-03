@@ -18,28 +18,28 @@ const [smurfs, setSmurfs] = useState([]);
                 <Field
                     component='input'
                     type='text'
-                    name='smurfName'
+                    name='name'
                     placeholder='Enter Smurf Name'
                     />
-                    {touched.smurfName && errors.smurfName && (<p>{errors.smurfName}</p>)}
+                    {touched.name&& errors.name&& (<p>{errors.name}</p>)}
                 <Field
                     component='input'
-                    type = 'text'
-                    name = 'smurfAge'
+                    type = 'number'
+                    name = 'age'
                     placeholder = 'Enter Smurf Age'
                     />
-                    {touched.smurfAge && errors.smurfAge && (<p>{errors.smurfAge}</p>)}
+                    {touched.age && errors.age && (<p>{errors.age}</p>)}
                 <Field
                     component='input'
                     type = 'text'
-                    name = 'smurfHeight'
+                    name = 'height'
                     placeholder = 'Enter Smurf Height'
                     />
-                    {touched.smurfHeight && errors.smurfHeight &&(<p>{errors.smurfHeight}</p>)}
+                    {touched.height && errors.height &&(<p>{errors.height}</p>)}
                     <button type='submit'>Submit Smurf</button>
             </Form>  
             {smurfs.map(smurf => (
-                <p>{smurfs.smurfName}</p>
+                <p>{smurfs.name}</p>
             ))}
         </div>
     )
@@ -47,19 +47,19 @@ const [smurfs, setSmurfs] = useState([]);
 
 
 const formicHOC = withFormik({
-    mapPropsToValues({smurfName, smurfAge, smurfHeight}){
+    mapPropsToValues({name, age, height}){
         return{
-            smurfName: smurfName || "",
-            smurfAge: smurfAge || "",
-            smurfHeight: smurfHeight || ""
+            name: name || "",
+            age: age || "",
+            height: height || ""
         };
     },
     validationSchema: Yup.object().shape({
-        smurfName: Yup.string()
+        name: Yup.string()
         .required("Smurf Name is required"),
-        smurfAge: Yup.string()
+        age: Yup.number()
         .required("Smurf Age is required"),
-        smurfHeight: Yup.string()
+        height: Yup.string()
         .required("Smurf Height is required")
     }),
     handleSubmit(values, {setSmurfs, resetForm}){
