@@ -18,7 +18,7 @@ const AddUserForm = props => {
 
     return(
     <div>
-
+<div><h3>Add a smurf</h3></div>
     
         <form onSubmit={submitUser}>
            <input placeholder='Name' 
