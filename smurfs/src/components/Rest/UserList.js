@@ -12,7 +12,7 @@ const UserList = props => {
     
     const postItems = props.posts.map(post =>  (
        
-          <div className="list-item" key={post.length}>
+          <div className="list-item" key={post.id}>
               <span> NAME: {post.name} AGE: {post.age} HEIGHT: {post.height}   <button>Delete</button></span> 
         </div>
       )) 

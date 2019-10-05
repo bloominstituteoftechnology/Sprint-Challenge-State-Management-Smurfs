@@ -8,8 +8,7 @@ export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
 export const ADD_POST_FAIL = 'ADD_POST_FAIL';
 export const DELETE_POST = 'DELETE_POST'
 
-export const fetchPosts = () => (dispatch, getState) => {
-  dispatch({ type: FETCH_POSTS_START });
+export const fetchPosts = () => (dispatch) => {
   axios
     .get('http://localhost:3333/smurfs')
     .then(res => 
@@ -18,8 +17,8 @@ export const fetchPosts = () => (dispatch, getState) => {
     .catch(err => dispatch({ type: FETCH_POSTS_FAIL, payload: err }));
 };
 
-export const addPost = (post) => (dispatch, getState) => {
-  dispatch({ type: ADD_POST });
+export const addPost = (post) => (dispatch) => {
+ 
   axios 
     .post('http://localhost:3333/smurfs', post)
     .then (res => {

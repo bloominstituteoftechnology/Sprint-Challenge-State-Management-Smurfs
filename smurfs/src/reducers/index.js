@@ -17,6 +17,20 @@ import {
   function reducer(state = initialState, action) {
     console.log('reducer', action);
     switch (action.type) {
+      case ADD_POST_SUCCESS:
+            console.log(action.payload)
+            return {
+              ...state,
+              posts: action.payload,
+              isFetching: false,
+              error: ''
+              
+            };
+      case ADD_POST_FAIL:
+            return {
+              ...state, 
+              error: action.payload
+            };
       
       case FETCH_POSTS_START:
         return {
@@ -44,20 +58,7 @@ import {
           ...state, 
           posts: [...state.posts, action.payload]
           };
-      case ADD_POST_SUCCESS:
-            console.log(action.payload)
-            return {
-              ...state,
-              posts: action.payload,
-              isFetching: false,
-              error: ''
-              
-            };
-      case ADD_POST_FAIL:
-            return {
-              ...state, 
-              error: action.payload
-            };
+      
       default:
         return state;
     }
