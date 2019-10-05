@@ -29,7 +29,7 @@ export const addPost = (post) => (dispatch) => {
   }
   
   export const deletePost = (post) => dispatch => {
-    dispatch({ type: DELETE_POST });
+    
     axios 
       .post('http://localhost:3333/smurfs', post)
       .then (res => {
