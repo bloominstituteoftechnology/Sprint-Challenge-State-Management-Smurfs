@@ -10,7 +10,7 @@ class App extends Component {
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <br />
         <AddUserForm />
-        <UserList />
+     <UserList />
       </div>
     );
   }

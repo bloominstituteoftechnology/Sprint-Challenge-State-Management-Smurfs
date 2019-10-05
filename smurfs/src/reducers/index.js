@@ -17,6 +17,7 @@ import {
   function reducer(state = initialState, action) {
     console.log('reducer', action);
     switch (action.type) {
+      
       case FETCH_POSTS_START:
         return {
           ...state,
