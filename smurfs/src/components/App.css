@@ -9,6 +9,8 @@ body{
 .App{
   width: 800px;
   margin: 0 auto;
+  height: auto;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -29,4 +31,17 @@ button{
   margin-bottom: 20px;
   height: 25px;
   width: 100px;
+}
+.list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.smurf{
+  width: 25%;
+  background-color: white;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  line-height: 2;
 }

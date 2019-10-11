@@ -11,21 +11,20 @@ export const fetchPosts = () => (dispatch) => {
     dispatch({ type: FETCH_POSTS });
     axios
       .get('http://localhost:3333/smurfs')
-      .then(res => 
-      dispatch({ type: FETCH_POSTS_SUCCESS, payload: res.data})
-      )
-      .catch(err => dispatch({ type: FETCH_POSTS_FAIL, payload: err }));
+      .then(res => { console.log(`ACTION INDEX`,res)
+      dispatch({ type: FETCH_POSTS_SUCCESS, payload: res})
+      })
+      .catch(err => console.log(err))
   };
   
   export const addPost = (post) => (dispatch) => {
-    dispatch({ type: ADD_POST });
     axios 
       .post('http://localhost:3333/smurfs', post)
       .then (res => {
         dispatch({ 
-          type: ADD_POST_SUCCESS, payload: res.data});
+          type: ADD_POST, payload: res});
       })
-      .catch(err => dispatch({ type: ADD_POST_FAIL, payload: err }));
+      .catch(err => console.log(err))
     }
   
     // export const deletePost = (post) => dispatch => {
