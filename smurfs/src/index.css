@@ -2,4 +2,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+ 
+  background-image: url('https://images.unsplash.com/photo-1559951407-5195d454e11b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=60')
 }

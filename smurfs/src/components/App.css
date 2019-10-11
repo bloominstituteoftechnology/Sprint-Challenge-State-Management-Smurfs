@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -16,6 +17,7 @@
 
 .App-title {
   font-size: 1.5em;
+  color: white;
 }
 
 .App-intro {
@@ -25,4 +27,28 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+h1 {
+  font-size: 1.75rem;
+  color: white;
+}
+.list {
+  margin:  10px;
+}
+
+button {
+  margin: 10px;
+  background-color: dodgerblue;
+  border-radius: 5px;
+  color:  white;
+}
+h3 {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.list {
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
 }
