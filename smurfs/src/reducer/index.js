@@ -1,4 +1,11 @@
-import { START_FETCHING, FETCH_FAILURE, FETCH_SUCCESS } from '../actions';
+import {
+  START_FETCHING,
+  FETCH_FAILURE,
+  FETCH_SUCCESS,
+  POSTING,
+  POST_SUCCES,
+  POST_FAILURE
+} from '../actions';
 
 export const initialState = {
   characters: [],
@@ -26,6 +33,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         error: action.payload
+      };
+
+    case POST_SUCCES:
+      return {
+        ...state,
+        characters: action.payload,
+        error: ''
       };
 
     default:
