@@ -27,7 +27,7 @@ const Form = (props) => {
                 <input name="name" type="text" placeholder="name" onChange={handleChanges}></input>
                 <input name="age" type="text" placeholder="age" onChange={handleChanges}></input>
                 <input name="height" type="text" placeholder="height" onChange={handleChanges}></input>
-                <button type="submit" onClick={handleSubmit}>Submit your smurt</button>
+                <button type="submit" onClick={handleSubmit}>Submit Your Smurf</button>
             </form>
         </div>
     )
