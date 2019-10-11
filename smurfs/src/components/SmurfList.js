@@ -13,7 +13,7 @@ const SmurfList = props => {
             <button onClick={getPosts}>FETCH POSTS</button>
             <div className="list">{props.smurfs.map(post => (
                   <div className="list-item" key={post.id}>
-                      <h1>{post.name}</h1>
+                      <h3>{post.name}</h3>
                       <p>{post.age}</p>
                       <p>{post.height}</p>
                   </div>
@@ -28,9 +28,10 @@ const SmurfList = props => {
 const mapStateToProps = state => {
     console.log(`smurf`,state);
     return {
+        smurfs: state.smurfs,
         error: state.error,
-        isFetching: state.isFetching,
-        smurfs: state.smurfs
+        isFetching: state.isFetching
+        
     }
 }     
 
