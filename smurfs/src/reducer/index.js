@@ -1,4 +1,11 @@
-import { START_FETCHING, FETCH_FAILURE, FETCH_SUCCESS } from '../actions';
+import {
+  START_FETCHING,
+  FETCH_FAILURE,
+  FETCH_SUCCESS,
+  POSTING,
+  POST_SUCCES,
+  POST_FAILURE
+} from '../actions';
 
 export const initialState = {
   characters: [],
