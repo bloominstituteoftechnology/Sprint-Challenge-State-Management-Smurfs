@@ -1,5 +1,16 @@
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: sans-serif;
+}
+
+.smurf-card {
+  width: 200px;
+  border: 1px solid black;
+}
+
+.smurf-container {
+  display: flex;
+  flex-wrap: wrap;
 }
