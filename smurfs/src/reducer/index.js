@@ -4,7 +4,9 @@ import {
   FETCH_SUCCESS,
   POSTING,
   POST_SUCCES,
-  POST_FAILURE
+  POST_FAILURE,
+  DELETE_SUCC,
+  DELETE_FAIL
 } from '../actions';
 
 export const initialState = {
@@ -36,6 +38,12 @@ const reducer = (state = initialState, action) => {
       };
 
     case POST_SUCCES:
+      return {
+        ...state,
+        characters: action.payload,
+        error: ''
+      };
+    case DELETE_SUCC:
       return {
         ...state,
         characters: action.payload,
