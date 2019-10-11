@@ -1,23 +1,39 @@
 import * as types from './actionTypes';
 
-const initialState = [
-    {
-        "name": "Brainey",
-        "age": 200,
-        "height": "5cm",
-        "id": 0
-    }
-]
+const initialState = [];
+const initialFormState = {
+    name: '',
+    age: '',
+    height: ''
+}
 
-const smurfReducer = (state=initialState, action) => {
+
+export const smurfReducer = (state=initialState, action) => {
+    switch(action.type) {
+        case types.GET_SMURF:
+            return action.payload
+        default:
+            return state;
+ 
+    }
+}
+
+export const formReducer = (state=initialFormState, action) => {
     switch(action.type){
         case types.ADD_NEW_SMURF:
             return {
-                ...state
+                ...state,
+                items: action.payload
+            }
+
+        case types.ON_FORM_CHANGE:
+            return {
+                ...state,
+                [action.payload.name]: action.payload.value
             }
 
         default:
             return state;
-
+ 
     }
 }
