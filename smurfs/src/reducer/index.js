@@ -35,6 +35,13 @@ const reducer = (state = initialState, action) => {
         error: action.payload
       };
 
+    case POST_SUCCES:
+      return {
+        ...state,
+        characters: action.payload,
+        error: ''
+      };
+
     default:
       return state;
   }
