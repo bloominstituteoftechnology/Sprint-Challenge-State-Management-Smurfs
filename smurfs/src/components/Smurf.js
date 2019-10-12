@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreator";
+import "./App.css";
 
 export function Smurf(props) {
   const { getSmurf, smurfData } = props;
@@ -12,7 +13,7 @@ export function Smurf(props) {
     <div>
       {smurfData ? smurfData.map(smurf => {
         return (
-          <div key={smurf.id}>
+          <div className="smurfs" key={smurf.id}>
             <p>{smurf.name}</p>
             <p>{smurf.age}</p>
             <p>{smurf.height}</p>
