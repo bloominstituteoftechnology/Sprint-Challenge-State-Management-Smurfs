@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducer';
 
 import Village from './components/Village';
-import AddSmurf from './components/AddSmurf';
+import NewSmurf from './components/NewSmurf';
 
 
 
@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <h1>Smurfs</h1>
       <Village />
-      <AddSmurf/>
+      <NewSmurf/>
     </div>
   );
 }

@@ -1,54 +1,69 @@
-// import React from 'react'
-// import { connect } from 'react-redux';
-// import {add_smurf} from '../actions/index'
+import React, { useState } from "react";
+import { connect } from "react-redux";
+//import { add_smurf } from "../actions/index";
+import { new_smurf } from "../actions/index";
 
-// //add new smurf
-// //form will manage its own state, dont pass in props
-// const NewSmurf = props => {
-//  // console.log(`form`, props);
-//   const [newSmurf, setNewSmurf] = useState();
+const AddSmurf = props => {
+    console.log(`NewSmurf props`, props)
+      const[smurf, setSmurf] = useState({name:"", age:"", height:""})
 
-//   const handleChanges = e => {
-//     props.setNewSmurf(e.target.value); //e.target.name is same as task, line 9
-//   };
-//   //create a form to submit a new task
+      const handleChanges = e =>{
+          //name and value from input fields, sets key: value pairs
+        setSmurf({...smurf, [e.target.name]: e.target.value})
+      }
 
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <input
-//         type="text"
-//         value={smf.name}
-//         name="name"
-//         onChange={handleChanges}
-//       />
-//       <input
-//         type="text"
-//         value={smf.age}
-//         name="age"
-//         onChange={handleChanges}
-//       />
-//       <input
-//         type="text"
-//         value={smf.height}
-//         name="height"
-//         onChange={handleChanges}
-//       />
-//       <button onClick={() => props.add_smurf(props.newSmurf)} >
-//         Add Smurf
-//       </button>
-//     </form>
-//   );
-// };
-// mapStateToProps
+      const logValues = event => {
+        event.preventDefault();
+        props.new_smurf(smurf);
+        setSmurf({
+          name: "",
+          age: "",
+          height: ""
+        });
+      };
 
-// export default connect(
-//     mapStateToProps,
-//     { add_smurf }
-//   )(NewSmurf);
+    return (
+      <form onSubmit={logValues}>
+        <label>Smurf's Name
+        <input
+          maxLength="20"
+          type="text"
+          name="name"
+          id="sname"
+          onChange={handleChanges}
+          value={smurf.name}
+          placeholder="Smurf Name"
+        />
+        </label>
+        {/* two ways to create labels, first way, wrapped as in above */}
+        <label forHtml="sage">Age</label>
+        <input
+          type="number"
+          name="age"
+          id="sage"
+          onChange={handleChanges}
+          value={smurf.age}
+          placeholder="age"
+        />
+        
+
+        <label>Height
+        <input
+          type="number"
+          name="height"
+          id="sheight"
+          onChange={handleChanges}
+          value={smurf.height}
+          placeholder="height inches"
+        />
+        </label>
+        <button onClick={logValues}> Add Smurf </button>
+      </form>
+    );
+  }
 
 
-//   var person = new Object();
-//   person.firstName = "John";
-//   person.lastName = "Doe";
-//   person.age = 50;
-//   person.eyeColor = "blue";
+export default connect(
+  null,
+  { new_smurf }
+)(AddSmurf);

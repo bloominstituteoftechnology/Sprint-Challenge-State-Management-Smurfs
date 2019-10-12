@@ -5,20 +5,20 @@ import { fetchVillage } from '../actions';
 
 import Smurf from './Smurf';
 
-const Village = props => {
+const Village = ({fetchVillage, smurfs, error, isFetching}) => {
   useEffect(() => {
-    props.fetchVillage();
-  }, []);
+    fetchVillage();
+  }, [fetchVillage]);
 
-  if (props.isFetching) {
+  if (isFetching) {
     return <h2>Loading Smurfs...</h2>;
   }
-console.log(`Village`, props)
+console.log(`Village`,)
   return (
     <div>
-      {props.error && <p>{props.error}</p>}
-      {props.smurfs.map(smf => (
-        <Smurf key={smf._id} smf={smf} />
+      {error && <p>{error}</p>}
+      {smurfs.map(smf => (
+        <Smurf smf={smf} />
       ))}
     </div>
   );

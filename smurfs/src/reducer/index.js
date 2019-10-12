@@ -33,7 +33,7 @@ const reducer = (state = initialState, action) => {
     case NEW_SMURF:
         return {
           ...state,
-          smurfs: action.payload,
+          smurfs: [...state.smurfs, action.payload],
           addingSmurf: true,
           error: ''
         };
@@ -50,15 +50,15 @@ const reducer = (state = initialState, action) => {
               addingSmurf: false,
               error: action.payload
             };
-    case ADD_SMURF:
-      const newS = {
-        name: action.payload.name,
-        age: action.payload.age,
-        height: action.payload.height
-      }
-      return[
-        ...state.smurfs, newS
-      ]
+    // case ADD_SMURF:
+    //   const newS = {
+    //     name: action.payload.name,
+    //     age: action.payload.age,
+    //     height: action.payload.height
+    //   }
+      // return[
+      //   ...state.smurfs, newS
+      // ]
     default:
       return state;
   }
