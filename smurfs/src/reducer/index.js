@@ -1,14 +1,16 @@
-import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, ADD_SMURF, NEW_SMURF, NEW_SMURF_SUCCESS, NEW_SMURF_FAILURE  } from '../actions';
+import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, NEW_SMURF_FETCH, NEW_SMURF_SUCCESS, NEW_SMURF_FAILURE  } from '../actions';
 
 //possible states
 const initialState = {
     smurfs : [],
     isFetching: false,
     error: '',
-    addingSmurf: false
+    
 };
 
 //state transitioning
+// error: '' clears out error message
+// isfetching 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case START_FETCHING:
@@ -30,24 +32,24 @@ const reducer = (state = initialState, action) => {
         error: action.payload,
         isFetching: false
       };
-    case NEW_SMURF:
+    case NEW_SMURF_FETCH:
         return {
           ...state,
           smurfs: [...state.smurfs, action.payload],
-          addingSmurf: true,
+          isFetching: true,
           error: ''
         };
         case NEW_SMURF_SUCCESS:
             return {
               ...state,
               smurfs: action.payload,
-              addingSmurf: false,
+              isFetching: false,
               error: ''
             };
           case NEW_SMURF_FAILURE:
             return {
               ...state,
-              addingSmurf: false,
+              isFetching: false,
               error: action.payload
             };
     // case ADD_SMURF:

@@ -5,6 +5,7 @@ import { fetchVillage } from '../actions';
 
 import Smurf from './Smurf';
 
+//destructure instead of using props
 const Village = ({fetchVillage, smurfs, error, isFetching}) => {
   useEffect(() => {
     fetchVillage();
@@ -16,7 +17,9 @@ const Village = ({fetchVillage, smurfs, error, isFetching}) => {
 console.log(`Village`,)
   return (
     <div>
+      {/* if there is an error, return error message */}
       {error && <p>{error}</p>}
+      {/* if smurfs were null, would need to do {smurfs && smurfs.length} then map */}
       {smurfs.map(smf => (
         <Smurf smf={smf} />
       ))}
@@ -25,6 +28,9 @@ console.log(`Village`,)
 };
 
 //give all properties to handle any state
+//we need state.smurf - to populate our data
+//isFetching
+//error
 const mapStateToProps = state => {
   return {
     smurfs: state.smurfs,
