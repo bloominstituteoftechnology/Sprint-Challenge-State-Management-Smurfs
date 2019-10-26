@@ -16,7 +16,6 @@ import SmurfCard from './SmurfCard';
     render() {
         return (
             <div>
-                
                 {
                     this.props.smurfs.data ?
                     this.props.smurfs.data.map((smurf, i )=>{

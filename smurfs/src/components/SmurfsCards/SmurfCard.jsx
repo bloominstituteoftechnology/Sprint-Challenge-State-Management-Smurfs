@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 import smurfImg from './download.jpeg'
 function SmurfCard(props) {
-    console.log(props)
     return (
         <CardStyles>
         <div className='header'>
