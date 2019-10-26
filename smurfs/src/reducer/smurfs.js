@@ -1,13 +1,14 @@
-import { FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FETCHING, FETCH_SMURFS_ERROR } from './../actions/smurfs'
+import { FETCH_SMURFS_SUCCESS, FETCH_SMURFS_START, FETCH_SMURFS_ERROR } from './../actions/smurfs'
 const intState = {
     error: null,
     data: null,
     isLoading: false
 }
 
-export function reducer(state= intState, action){
+export function reducer(state = intState, action){
+
     switch(action.type){
-        case FETCH_SMURFS_FETCHING:
+        case FETCH_SMURFS_START:
             return {
                 ...state,
                 isLoading: true
@@ -25,6 +26,6 @@ export function reducer(state= intState, action){
                 isLoading: false
             }
         default: 
-        return state
+            return state
     }
 }
