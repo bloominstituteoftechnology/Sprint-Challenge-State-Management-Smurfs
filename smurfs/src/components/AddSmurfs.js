@@ -7,7 +7,7 @@ export default function AddSmurfs() {
     age: '',
     height: ''
   });
-  const { smurfs, setSmurfs, addSmurfs } = useContext(SmurfContext);
+  const { addSmurfs } = useContext(SmurfContext);
 
   const handleChange = e => {
     setNewSmurf({ ...newSmurf, [e.target.name]: e.target.value });
@@ -16,7 +16,6 @@ export default function AddSmurfs() {
   const handleSubmit = e => {
       e.preventDefault()
       addSmurfs(newSmurf)
-      setSmurfs([...smurfs, newSmurf])
   }
 
   return (
