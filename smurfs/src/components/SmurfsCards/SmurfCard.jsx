@@ -23,6 +23,7 @@ const CardStyles = styled.div`
 height: 300px;
 width: 250px;
 background: lightcoral;
+margin: 10px 5px; 
 
 .header{
 height: 55%;

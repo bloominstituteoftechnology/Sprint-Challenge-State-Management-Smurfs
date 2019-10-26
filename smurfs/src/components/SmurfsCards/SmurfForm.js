@@ -16,8 +16,7 @@ function SmurfForm() {
             [ e.target.name ] : e.target.value
         })
     }
-    function handleSubmit(e){
-        e.preventDefault()
+    function handleSubmit(){
 
         axios.post('http://localhost:3333/smurfs', smurf)
             .then(res=> console.log(res))

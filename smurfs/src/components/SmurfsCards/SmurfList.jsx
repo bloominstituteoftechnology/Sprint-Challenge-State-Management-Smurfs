@@ -45,6 +45,7 @@ const CardListStyles = styled.div`
     width: 750px;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     height: 100%;
     padding: 20px, 0px;
 
