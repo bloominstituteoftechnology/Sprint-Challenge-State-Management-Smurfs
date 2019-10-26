@@ -7,7 +7,7 @@ SMURF_HEIGHT
 } from '../actions/smurf';
 
 const initialState = {
-    name: name,
+    name: null,
     isLoading: false,
     error: null
 };

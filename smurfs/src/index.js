@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import SmurfForm from './components/SmurfForm';
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";

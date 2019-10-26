@@ -11,9 +11,11 @@ export function smurfy() {
         dispatch({ type: SMURF_NAME });
 
         axios 
-        .get('')
+        .get('http://localhost:3333/smurfs/GET')
         .then(resp => {
             dispatch ({ type: SMURF_NAME_SUCCESS, payload: resp.data });
+            dispatch ({ type: SMURF_AGE, payload: resp.data });
+            dispatch ({ type: SMURF_HEIGHT, payload: resp.data });
         })
         .catch(err => {
             dispatch({ type: SMURF_NAME_ERROR, payload: err });
