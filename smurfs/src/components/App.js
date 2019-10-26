@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     axios.get("http://localhost:3333/smurfs")
       .then((res) => {
-        setSmurfs([...res.data])
+        setSmurfs(res.data)
       })
       .catch((err) => console.log(err))
   }, [])
@@ -19,13 +19,21 @@ function App() {
   const addSmurfs = (smurf) =>{
     axios.post("http://localhost:3333/smurfs", smurf)
     .then((res) => {
-      console.log(res.data)
+      setSmurfs(res.data)
+    })
+    .catch((err) => console.log(err))
+  }
+
+  const deleteSmurf = (smurfId) =>{
+    axios.delete(`http://localhost:3333/smurfs/${smurfId}` )
+    .then((res) => {
+      setSmurfs(res.data)
     })
     .catch((err) => console.log(err))
   }
 
   return (
-    <SmurfContext.Provider value={{smurfs, setSmurfs, addSmurfs}}>
+    <SmurfContext.Provider value={{smurfs, setSmurfs, addSmurfs, deleteSmurf}}>
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <SmurfsList/>
