@@ -5,11 +5,15 @@
   "dependencies": {
     "axios": "^0.19.0",
     "formik": "^2.0.1",
+    "logger": "0.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "thunk": "0.0.1",
     "yup": "^0.27.0"
   },
   "scripts": {

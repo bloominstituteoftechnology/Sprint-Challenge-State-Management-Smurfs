@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios'
 
 const SmurfForm = ({ errors, touched, status }) => {
-    const [smurfs, setSmurfs] = useState ([])
+    const [smurfs, setSmurfs] = useReducer ()
 
 
 useEffect(() => {
     if (status) {
       setSmurfs([ ...smurfs, status ])
     }
-  }, [status])
+  }, [smurfs, status])
 
   return (
     <Form>
@@ -30,7 +30,7 @@ useEffect(() => {
     <button type="submit">Submit</button>
 
     {smurfs.map(smurf => (
-           <div>Species: {smurf.name}</div>
+           <div>Name: {smurf.name}</div>
          ))}
     </Form>
   )
