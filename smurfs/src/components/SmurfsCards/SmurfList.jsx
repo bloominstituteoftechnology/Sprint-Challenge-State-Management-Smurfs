@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect} from 'react-redux';
 import { getSmurfs } from './../../actions/smurfs'
-
+import styled from 'styled-components';
 
 import SmurfCard from './SmurfCard';
 
@@ -15,7 +15,7 @@ import SmurfCard from './SmurfCard';
     }
     render() {
         return (
-            <div>
+            <CardListStyles>
                 {
                     this.props.smurfs.data ?
                     this.props.smurfs.data.map((smurf, i )=>{
@@ -25,7 +25,7 @@ import SmurfCard from './SmurfCard';
                     null
                 }
                 
-            </div>
+            </CardListStyles>
         )
     }
 }
@@ -39,3 +39,14 @@ const mapStateToProps = state =>{
 export default connect(mapStateToProps, {
     getSmurfs
 })(SmurfList);
+
+const CardListStyles = styled.div`
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+    width: 750px;
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    padding: 20px, 0px;
+
+
+`;
