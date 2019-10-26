@@ -4,10 +4,10 @@ import { SmurfContext } from "../contexts/SmurfContext"
 import SmurfCard from './SmurfCard'
 
 export default function SmurfsList(props) {
-    const { smurfs } = useContext(SmurfContext)
+    const { smurfs, deleteSmurf } = useContext(SmurfContext)
     return (
         <div>{
-            smurfs && smurfs.map((smurf) => <SmurfCard key={smurf.id} smurf={smurf} />)
+            smurfs && smurfs.map((smurf) => <SmurfCard key={smurf.id} smurf={smurf} deleteSmurf={deleteSmurf} />)
         }</div>
     )
 }
