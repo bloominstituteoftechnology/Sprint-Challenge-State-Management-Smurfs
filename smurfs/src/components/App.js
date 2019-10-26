@@ -4,7 +4,6 @@ import { smurfy } from '../actions/smurf';
 
 import "./App.css";
 
-
 function App (props) {
   useEffect(() => {
     props.smurfy();
@@ -22,7 +21,7 @@ function mapStateToProps(state) {
   return { 
   name: state.name.name,
   age: state.age.age,
-  height: state.height.height
+  height: state.height.height,
   id: state.id.id
   };
 }
