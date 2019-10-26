@@ -18,12 +18,13 @@ export function reducer(state= intState, action){
                 data: action.payload,
                 isLoading: false
             }
-        case FETCH_SMURFS_FETCHING:
+        case FETCH_SMURFS_ERROR:
             return {
                 ...state,
                 data: action.payload,
                 isLoading: false
             }
+        default: 
+        return state
     }
-    return state
 }
