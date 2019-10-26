@@ -2,15 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
-import {createStore, combineReducers, applyMiddleware} from 'redux'
+import {createStore, applyMiddleware, combineReducers} from 'redux'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import {logger} from 'redux-logger'
+import {reducer as postReducer} from './reducers'
+import {reducer as smurfReducer} from './reducers'
 
 
-
-
-const store = createStore(applyMiddleware(thunk,logger))
+const rootReducer = combineReducers({
+    postReducer,
+    smurfReducer
+})
+const store = createStore(rootReducer, applyMiddleware(thunk,logger))
 
 
 ReactDOM.render(
