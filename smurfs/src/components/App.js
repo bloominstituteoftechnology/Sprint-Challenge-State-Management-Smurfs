@@ -23,6 +23,7 @@ function mapStateToProps(state) {
   name: state.name.name,
   age: state.age.age,
   height: state.height.height
+  id: state.id.id
   };
 }
 

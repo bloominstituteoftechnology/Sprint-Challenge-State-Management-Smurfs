@@ -24,6 +24,9 @@ useEffect(() => {
        {touched.height && errors.height && <p className='error'>{errors.height}</p>}
     <Field type="number" placeholder="Smurf Height" />
 
+    {touched.id && errors.id && <p className='error'>{errors.id}</p>}
+    <Field type="number" placeholder="Smurf Id" />
+
     <button type="submit">Submit</button>
 
     {smurfs.map(smurf => (
@@ -40,12 +43,15 @@ export default withFormik({
         name: values.name || '',
         age: values.age || '',
         height: values.height || '',
+        id: values.id || ''       
         }
-    }, 
+    },
+
     validationSchema: yup.object().shape({
       name: yup.string().required('Name is required'),
       age: yup.number().positive().required('Age is required'),
       height: yup.string().required("Height is required"),
+      id: yup.number().positive().required('Id is required'),
       }),
 
     handleSubmit: (values, { setStatus }) => {
