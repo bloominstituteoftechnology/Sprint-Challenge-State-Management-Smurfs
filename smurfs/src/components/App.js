@@ -66,8 +66,8 @@ function App() {
         <img id="background" src={background} alt="background" />
         <div>
           <h1>SMURFS! 2.0 W/ CONTEXT API</h1>
-          <AddSmurfs />
           <SmurfsList />
+          <AddSmurfs />
         </div>
       </Style>
     </SmurfContext.Provider>
