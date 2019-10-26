@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from 'react-redux';
 import "./App.css";
 import { getSmurfs } from '../actions/getSmurfs';
 
 function App(props) {
-  props.getSmurfs()
+  
+  useEffect(() => {
+    props.getSmurfs();
+  }, [])
+
+  console.log(props)
   return (
     <div className="App">
       <h1>SMURFS! 2.0 W/ Redux</h1>
