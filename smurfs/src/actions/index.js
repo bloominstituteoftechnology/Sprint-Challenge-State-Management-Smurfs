@@ -11,6 +11,7 @@ export function fetchSmurfs() {
  
    
         return dispatch => {
+            dispatch({type : FETCH_SMURF_START})
           axios
           .get('http://localhost:3333/smurfs')
           .then(res => {

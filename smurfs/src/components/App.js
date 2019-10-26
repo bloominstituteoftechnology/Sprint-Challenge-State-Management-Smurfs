@@ -1,7 +1,9 @@
 import React, {useEffect} from "react";
 import {fetchSmurfs} from '../actions'
+import {postReducer} from '../reducers/postreducer'
 import {connect} from 'react-redux'
 import "./App.css";
+import Form from "../Form";
 
 
 
@@ -14,11 +16,8 @@ useEffect(() => {
 
    return (
       <div className="App">
-        {/* <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div> */}
-        
+    
+        <Form />
       </div>
     );
   }
@@ -36,8 +35,9 @@ function mapStateToProps(state) {
 
 
 const mapDispatchToState = {
-  
-    fetchSmurfs
+     fetchSmurfs,
+     postReducer
+
   
 }
 

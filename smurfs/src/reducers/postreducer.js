@@ -1,4 +1,4 @@
-import {POST_SMURF_START,POST_SMURF_SUCCESS,POST_SMURF_ERROR} from '../actions/actionreducer'
+import {POST_SMURF_START,POST_SMURF_SUCCESS,POST_SMURF_ERROR, UPDATE_SMURF} from '../actions/actionreducer'
 
 
 const initialState = {
