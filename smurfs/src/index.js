@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { reducer as smurfReducer } from './reducers/smurf';
+// import { server } from ''
 
 import "./index.css";
 

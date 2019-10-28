@@ -22,16 +22,16 @@ useEffect(() => {
     <Field type="number" name="age" placeholder="Smurf Age" />
 
        {touched.height && errors.height && <p className='error'>{errors.height}</p>}
-    <Field type="number" placeholder="Smurf Height" />
+    <Field type="number" name="height" placeholder="Smurf Height" />
 
     {touched.id && errors.id && <p className='error'>{errors.id}</p>}
-    <Field type="number" placeholder="Smurf Id" />
+    <Field type="number" name="id" placeholder="Smurf Id" />
 
     <button type="submit">Submit</button>
 
-    {smurfs.map(smurf => (
+    {/* {smurfs.map(smurf => (
            <div>Name: {smurf.name}</div>
-         ))}
+         ))} */}
     </Form>
   )
 }

@@ -8,9 +8,27 @@ SMURF_ID
 } from '../actions/smurf';
 
 const initialState = {
-    name: null,
-    isLoading: false,
-    error: null
+  smurf: {
+    name: 'Brainey',
+    age: 200,
+    height: '5cm',
+    id: 0
+  },
+
+  moreSmurfs: [
+    {
+      name: 'Grumpy',
+      age: 30,
+      height: '3cm',
+      id: 1
+    },
+    {
+      name: 'Sleepy',
+      age: 211,
+      height: '2cm',
+      id: 0
+    }
+  ]
 };
 
 export function reducer(state = initialState, action) {
@@ -23,7 +41,7 @@ export function reducer(state = initialState, action) {
     case SMURF_NAME_SUCCESS:
       return {
         ...state,
-        dog: action.payload,
+        smurf: action.payload,
         isLoading: false
       };
     case SMURF_NAME_ERROR:
@@ -47,7 +65,6 @@ export function reducer(state = initialState, action) {
               ...state,
               isLoading: true
             };
-
 
     default:
       return state;
