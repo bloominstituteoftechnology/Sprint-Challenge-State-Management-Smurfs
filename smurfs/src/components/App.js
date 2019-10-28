@@ -47,8 +47,23 @@ import "./App.css";
                console.log(err);
             })
     }
+    const updateSmurf = (smurf) => {
+      const id = smurf.id;
+      console.log(smurf)
+      axios.put(`http://localhost:3333/smurfs/${id}`, smurf)
+           .then( response => {
+              setSmurfs(response.data);
+           })
+           .catch(err => {
+              console.log(err);
+           })
+    }
     const smufee = {
-      smurfs, setSmurfs,addSmurf, deleteSmurf
+      smurfs,
+      setSmurfs,
+      addSmurf, 
+      deleteSmurf,
+      updateSmurf
    }
     return (
       <SmurfContext.Provider value={smufee}>

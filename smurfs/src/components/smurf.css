@@ -6,7 +6,11 @@
      margin:20px;
      background-image: linear-gradient(red, yellow, blue)
     }
-
+.form {
+   display:flex;
+   justify-content: column;
+   align-items: center;
+}
     .smurf-modify {
       text-align: right
     }
