@@ -4,9 +4,10 @@ export const ADD_SMURF ='ADD_SMURF';
 export const FETCHING_MESSAGE_START='FETCHING_MESSAGE_START';
 export const FETCHING_MESSAGE_SUCCESS ='FETCHING_MESSAGE_SUCESS';
 export const FETCHING_MESSAGE_FAILURE = 'FETCHING_MESSAGE_FAILURE';
+export const DELETE_SMURF ='DELETE_SMURF';
 
 
-export const getSmurfs = ()=> dispatch=> {
+export const getSmurfs = () => dispatch=> {
     dispatch({type: FETCHING_MESSAGE_START});
 
     axios.get('http://localhost:3333/smurfs')
@@ -29,7 +30,20 @@ export const addSmurf = (newSmurf) => dispatch =>{
   })
   .catch(error => {
     console.log(error.toString())
-//error
+
   })
 
+}
+
+export const deleteSmurf = (id) => {
+  return dispatch => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(result => {
+        dispatch({ type: DELETE_SMURF, payload: result.data });
+      })
+      .catch(error => {
+        console.log(error.toString())
+      })
+  };
 }
