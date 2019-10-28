@@ -7,6 +7,7 @@ import "./App.css";
 
  function App() { 
     const [smurfs, setSmurfs] = useState([]);
+    const [newSmurf, setNewSmurf] = useState({})
     useEffect( () => {
       axios.get(`http://localhost:3333/smurfs`)
            .then(res => {
@@ -16,10 +17,29 @@ import "./App.css";
            .catch( err => {
               console.log(err)
            })
-    },[])
-    const smufee = {
-       smurfs, setSmurfs
+    },[]);
+
+    useEffect( () => {
+       postSmurf(newSmurf);
+    }, [newSmurf])
+    
+    const addSmurf = (incomingSmurf) => {
+        console.log(incomingSmurf);
+        setNewSmurf(incomingSmurf);
     }
+    const postSmurf = (newSmurf) => {
+       axios.post(`http://localhost:3333/smurfs`, newSmurf)
+            .then( res => {
+               setSmurfs(res.data)
+               console.log(res.data)
+            })
+            .catch( err => {
+               console.log(err)
+            })
+    }
+    const smufee = {
+      smurfs, setSmurfs,addSmurf
+   }
     return (
       <SmurfContext.Provider value={smufee}>
         <div className="App">
