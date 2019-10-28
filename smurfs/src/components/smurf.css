@@ -1,0 +1,8 @@
+.smurf {
+  text-align:center;
+   box-shadow: 5px 5px 5px rgba(0,0,0,0.65);
+    width: 450px;
+    padding: 15px;
+     margin:20px;
+     background-image: linear-gradient(red, yellow, blue)
+    }

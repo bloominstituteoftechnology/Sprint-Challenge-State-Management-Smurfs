@@ -4,7 +4,7 @@ import Smurf from './Smurf';
 function Smurfs(props) {
   const smufee = useContext(SmurfContext);
   return (
-    <div>
+    <div style={{display:'flex', flexWrap:'wrap', justifyContent:"center", marginTop: "75px",}}>
       {smufee.smurfs.map( (smurf,index) => {
          return <Smurf key={index} smurf={smurf}/>
       })}

@@ -24,7 +24,7 @@ import "./App.css";
     }, [newSmurf])
     
     const addSmurf = (incomingSmurf) => {
-        console.log(incomingSmurf);
+        if(!incomingSmurf) return;
         setNewSmurf(incomingSmurf);
     }
     const postSmurf = (newSmurf) => {
