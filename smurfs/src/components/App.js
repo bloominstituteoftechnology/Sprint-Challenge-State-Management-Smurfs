@@ -37,8 +37,18 @@ import "./App.css";
                console.log(err)
             })
     }
+    const deleteSmurf = (smurf) => {
+       const id = smurf.id;
+       axios.delete(`http://localhost:3333/smurfs/${id}`)
+            .then( response => {
+               setSmurfs(response.data);
+            })
+            .catch(err => {
+               console.log(err);
+            })
+    }
     const smufee = {
-      smurfs, setSmurfs,addSmurf
+      smurfs, setSmurfs,addSmurf, deleteSmurf
    }
     return (
       <SmurfContext.Provider value={smufee}>

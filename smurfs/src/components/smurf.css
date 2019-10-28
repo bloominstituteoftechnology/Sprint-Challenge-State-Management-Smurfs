@@ -6,3 +6,7 @@
      margin:20px;
      background-image: linear-gradient(red, yellow, blue)
     }
+
+    .smurf-modify {
+      text-align: right
+    }
