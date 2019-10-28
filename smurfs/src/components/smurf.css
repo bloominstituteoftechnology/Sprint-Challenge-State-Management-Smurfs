@@ -8,8 +8,33 @@
     }
 .form {
    display:flex;
-   justify-content: column;
+   flex-direction: row;
+   justify-content: center;
    align-items: center;
+}
+.update-form {
+  width: 100%;
+  padding: 7px 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submit {
+  width: 80%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 7px 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
 }
     .smurf-modify {
       text-align: right

@@ -21,10 +21,25 @@ function Smurf(props) {
     return(
       <div className="smurf form">
       <form onSubmit={handleSubmit}>
-       Name: <input type="text" name="name" value={singleSmurf.name} placeholder={props.smurf.name} onChange={handleInput} /><br />
-       Age:  <input type="text" name="age" value={singleSmurf.age}  placeholder={props.smurf.age} onChange={handleInput} /><br />
-      Height:<input type="text" name="height"  value={singleSmurf.height} placeholder={props.smurf.height} onChange={handleInput} /><br />
-      <button type="submit">Update Smurf</button> 
+       Name: <input type="text"
+                    className="update-form"
+                    name="name" 
+                    value={singleSmurf.name}
+                    placeholder={props.smurf.name} 
+                    onChange={handleInput} /><br />
+       Age:  <input type="text"
+                    name="age" 
+                    className="update-form"
+                    value={singleSmurf.age}  
+                    placeholder={props.smurf.age} 
+                    onChange={handleInput} /><br />
+      Height:<input type="text" 
+                    name="height"
+                    className="update-form"  
+                    value={singleSmurf.height} 
+                    placeholder={props.smurf.height} 
+                    onChange={handleInput} /><br />
+      <button className="submit" type="submit">Update Smurf</button> 
     </form>
     </div>
     )
