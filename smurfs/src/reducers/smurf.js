@@ -1,10 +1,7 @@
 import {
 SMURF_NAME,
 SMURF_NAME_SUCCESS,
-SMURF_NAME_ERROR,
-// SMURF_AGE,
-// SMURF_HEIGHT, 
-// SMURF_ID
+SMURF_NAME_ERROR
 } from '../actions/smurf';
 
 const initialState = {
@@ -30,23 +27,8 @@ export function reducer(state = initialState, action) {
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: true
       };
-      // case SMURF_AGE:
-      //   return {
-      //     ...state,
-      //     isLoading: true
-      //   };
-      //   case SMURF_HEIGHT:
-      //       return {
-      //         ...state,
-      //         isLoading: true
-      //       };
-      //       case SMURF_ID:
-      //       return {
-      //         ...state,
-      //         isLoading: true
-      //       };
 
     default:
       return state;

@@ -8,7 +8,9 @@ function Smurf(props) {
               props.smurfs.map(smurf => {
                   return (
                       <div key={smurf.id} >
-                          {smurf.name}
+                          <h1>{smurf.name}</h1>
+                          <h2>{smurf.height}</h2>
+                          <h2>{smurf.age}</h2>
                       </div>
                   )
               })
