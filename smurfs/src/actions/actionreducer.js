@@ -13,13 +13,14 @@ export const POST_SMURF_ERROR = 'POST_SMURF_ERROR'
 
 export function postSmurfs() {
     return dispatch => {
+        dispatch({type: POST_SMURF_START})
       axios
       .post('http://localhost:3333/smurfs')
       .then(res => {
-          dispatch({type: POST_SMURF_SUCCESS, payload: res.data.film})
+          dispatch({type: POST_SMURF_SUCCESS, payload: res.data})
       })
       .catch(err => {
-          dispatch({POST_SMURF_ERROR, payload: err})
+          dispatch({type: POST_SMURF_ERROR, payload: err})
       })
     }
 }

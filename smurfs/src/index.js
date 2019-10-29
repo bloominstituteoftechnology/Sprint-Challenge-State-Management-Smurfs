@@ -11,8 +11,8 @@ import {reducer as smurfReducer} from './reducers'
 
 
 const rootReducer = combineReducers({
-    postReducer,
-    smurfReducer
+    post: postReducer,
+    fetch: smurfReducer
 })
 const store = createStore(rootReducer, applyMiddleware(thunk,logger))
 

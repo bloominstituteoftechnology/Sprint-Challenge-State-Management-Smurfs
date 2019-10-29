@@ -18,7 +18,7 @@ export function fetchSmurfs() {
               dispatch({type: FETCH_SMURF_SUCCESS, payload: res.data})
           })
           .catch(err => {
-              dispatch({FETCH_SMURF_ERROR, payload: err})
+              dispatch({type: FETCH_SMURF_ERROR, payload: err})
           })
         }
     }
