@@ -1,29 +1,33 @@
 import React, { useEffect } from "react";
 import { connect } from 'react-redux';
 import { smurfy } from '../actions/smurf';
-import SmurfForm from '../components/SmurfForm';
+import SmurfForm from './SmurfForm';
+import Smurf from './Smurf';
 
 import "./App.css";
 
-function App (props) {
+function App(props) {
+  console.log(props.smurfs)
   useEffect(() => {
     props.smurfy();
-  }, [props]);
+  }, []);
 
       return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        <SmurfForm />      
+        <SmurfForm />  
+        <Smurf smurfs={props.smurfs} />    
       </div>
     );
   }
 
 function mapStateToProps(state) {
   return { 
-  name: state.name,
-  age: state.age,
-  height: state.height,
-  id: state.id
+    smurfs: state.smurfs
+  // name: state.name,
+  // age: state.age,
+  // height: state.height,
+  // id: state.id
   };
 }
 

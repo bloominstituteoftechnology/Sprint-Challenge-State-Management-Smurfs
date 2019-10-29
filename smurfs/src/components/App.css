@@ -41,10 +41,10 @@ body {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  font-size: 14px;
+  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 1.2rem;
   line-height: 1.5;
-  color: #24292e;
+  color: white;
   background: #5f9fff;
 }
 
@@ -69,7 +69,7 @@ form {
   background-color: #f8d7da;
   border-color: #f5c6cb;
   border-radius: 4px;
-  padding: 5px 10px;
+  padding: 3px 5px;
 }
 
 input,
@@ -83,7 +83,7 @@ textarea {
   border: 1px solid #ccc;
 }
 
-placeholder {
+text {
   color: rgb(39, 39, 248);
 }
 
@@ -100,7 +100,7 @@ input.error {
 
 select {
   display: block;
-  font-size: 16px;
+  font-size: 12px;
   font-family: sans-serif;
   color: #444;
   line-height: 1.3;

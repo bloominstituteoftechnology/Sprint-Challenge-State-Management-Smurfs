@@ -1,63 +1,78 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios'
 
 const SmurfForm = ({ errors, touched, status }) => {
-    const [smurfs, setSmurfs] = useReducer ()
+  console.log(status)
+    const [newSmurf, setNewSmurf] = useState ({
+      name: "",
+      age: "",
+      height: "", 
+      id: ""
+    })
 
+  console.log(newSmurf)
+
+  const handleChanges = (e) => {
+    setNewSmurf ({
+      ...newSmurf,
+      [e.target.name]: e.target.value
+    })
+  }
 
 useEffect(() => {
     if (status) {
-      setSmurfs([ ...smurfs, status ])
+      console.log(newSmurf)
+      setNewSmurf([ ...newSmurf, status ])
     }
-  }, [smurfs, status])
+  }, [newSmurf, status])
 
   return (
     <Form>
     {touched.name && errors.name && <p className='error'>{errors.name}</p>}
-    <Field type="text" name="name" placeholder="Smurf Name" />
+    <Field type="text" name="name" onChange={handleChanges} value={newSmurf.name} placeholder="Smurf Name" />
 
        {touched.age && errors.age && <p className='error'>{errors.age}</p>}
-    <Field type="number" name="age" placeholder="Smurf Age" />
+      <Field type="number" name="age" onChange={handleChanges} value={newSmurf.age} placeholder="Smurf Age" />
 
        {touched.height && errors.height && <p className='error'>{errors.height}</p>}
-    <Field type="number" name="height" placeholder="Smurf Height" />
+      <Field type="number" name="height" onChange={handleChanges} value={newSmurf.height} placeholder="Smurf Height" />
 
     {touched.id && errors.id && <p className='error'>{errors.id}</p>}
-    <Field type="number" name="id" placeholder="Smurf Id" />
+      <Field type="number" name="id" onChange={handleChanges} value={newSmurf.id} placeholder="Smurf Id" />
 
     <button type="submit">Submit</button>
 
-    {/* {smurfs.map(smurf => (
-           <div>Name: {smurf.name}</div>
-         ))} */}
     </Form>
   )
 }
 
 export default withFormik({
    
-    mapPropsToValues: (values) => {
+    mapPropsToValues: ({ name, age, height }) => {
       return {
-        name: values.name || '',
-        age: values.age || '',
-        height: values.height || '',
-        id: values.id || ''       
+        name: name || '',
+        age: age || '',
+        height: height || ''
+        // id: values.id || ''       
         }
     },
 
     validationSchema: yup.object().shape({
       name: yup.string().required('Name is required'),
       age: yup.number().positive().required('Age is required'),
-      height: yup.string().required("Height is required"),
-      id: yup.number().positive().required('Id is required'),
+      height: yup.string().required("Height is required")
+      // id: yup.number().positive().required('Id is required'),
       }),
 
-    handleSubmit: (values, { setStatus }) => {
-      axios.post("http://localhost:3333/smurfs", values)
-      .then((resp) => {
-        setStatus(resp.data)
+    handleSubmit (newSmurf, { setStatus, resetForm }) {
+      axios.post("http://localhost:3333/smurfs", newSmurf)
+      .then((res) => {
+        console.log(res.data)
+        setStatus(res.data)
+        console.log(setStatus(res.data))
+        resetForm();
       })
       .catch((err) => {
         console.log('Error:', err)
