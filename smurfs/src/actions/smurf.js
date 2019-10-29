@@ -22,4 +22,17 @@ export const smurfy = () => dispatch => {
         .catch(err => {
             dispatch({ type: SMURF_NAME_ERROR, payload: err.response });
         })
+
+    handleSubmit(newSmurf, { setStatus, resetForm }) {
+        axios.post("http://localhost:3333/smurfs", newSmurf)
+            .then((res) => {
+                console.log(res.data)
+                setStatus(res.data)
+                console.log(setStatus(res.data))
+                resetForm();
+            })
+            .catch((err) => {
+                console.log('Error:', err);
+            })
     }
+ }
