@@ -79,3 +79,4 @@ export default withFormik({
       })
      }
   })(SmurfForm);
+  // put post within action component.
