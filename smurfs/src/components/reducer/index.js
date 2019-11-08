@@ -1,35 +1,39 @@
 // import {
-//   FETCH_POKEMON_LOADING,
-//   FETCH_POKEMON_SUCCESS,
-//   FETCH_POKEMON_FAILED
+//   FETCH_SMURF_LOADING,
+//   FETCH_SMURF_SUCCESS,
+//   FETCH_SMURF_FAILED
 // } from "../actions";
 
-const initialState = {
-  smurfs: [],
+export const initialState = {
+  smurfs: [{"name":"Brainey","age":200,"height":"5cm","id":0}],
   error: null,
   isFetching: false
 };
 
-function reducer(state = initialState, action) {
+export function reducer(state = initialState, action) {
   console.log("reducer", action);
   switch (action.type) {
-    // case FETCH_POKEMON_LOADING:
+    case "SET_SMURF":
+      const newSmurf = {...action.payload, id:state.smurfs.length}
+      console.log(newSmurf)
+      return { ...state, smurfs: [...state.smurfs, newSmurf]};
+    // case FETCH_SMURF_LOADING:
     //   return {
     //     ...state,
     //     isFetching: true,
     //     error: null
     //   };
-    // case FETCH_POKEMON_SUCCESS:
+    // case FETCH_SMURF_SUCCESS:
     //   return {
     //     ...state,
-    //     pokemon: action.payload,
+    //     SMURF: action.payload,
     //     isFetching: false,
     //     error: null
     //   };
-    // case FETCH_POKEMON_FAILED:
+    // case FETCH_SMURF_FAILED:
     //   return {
     //     ...state,
-    //     pokemon: [],
+    //     SMURF: [],
     //     isFetching: false,
     //     error: action.payload
     //   };
@@ -38,4 +42,4 @@ function reducer(state = initialState, action) {
   }
 }
 
-export default reducer;
+ export default reducer;
