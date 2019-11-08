@@ -34,3 +34,16 @@ export const addSmurf = () => dispatch => {
   }))
 }
 
+export const POST_NEW_SMURF_START = 'POST_NEW_SMURF_START'
+export const POST_NEW_SMURF_SUCCESS = 'POST_NEW_SMURF_SUCCESS'
+export const POST_NEW_SMURF_FAILURE = 'POST_NEW_SMURF_FAILURE'
+
+export const postSmurf = (smurf) => dispatch => {
+    dispatch({type: POST_NEW_SMURF_START});
+    axios
+        .post('http://localhost:3333/smurfs', smurf)
+        .then(response => console.log(response.data))
+        dispatch({type: POST_NEW_SMURF_SUCCESS})
+        .catch(err => console.log(err));
+        dispatch({type: POST_NEW_SMURF_FAILURE});
+}
