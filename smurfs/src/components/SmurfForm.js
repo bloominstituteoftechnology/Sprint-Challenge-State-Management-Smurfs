@@ -1,9 +1,12 @@
-import React, { useEffect, useState, useReducer } from 'react';
+import React, {  useState, useReducer } from 'react';
+//useEffect
 import { connect } from 'react-redux';
-
+import { getSmurfs} from '../store/actions';
 
 import { reducer } from "../store/reducers"
 import { addSmurfs } from '../store/actions';
+
+
 
 const SmurfForm = props => {
     const [state, dispatch] = useReducer(reducer);
@@ -11,14 +14,19 @@ const SmurfForm = props => {
     const [smurf, setSmurf] = useState({name:'', age:'', height:''});
    
 
+////////////////////////////////////////////
+    //const [test, setTest] = useState("");
 
 //HANDLE CHANGES
-    const handleChanges = e => {
-        setSmurf({...smurf, [e.target.name]: e.target.value});
+     const handleChanges = e => {
+         setSmurf({...smurf, [e.target.name]: e.target.value});
         
     };
 
+
+
 // SUBMIT FORM - when you click button adds new smurf
+
     const submitForm = e => {
         e.preventDefault();
         const newSmurf = {
@@ -28,13 +36,10 @@ const SmurfForm = props => {
         console.log(props)
          props.addSmurfs(newSmurf)
          setSmurf({name:'', age:'', height:''});
+        
     };
 
-
-
-
-
-    console.log(state)
+     console.log(state)
 
 // handleInput = e => {
 //     this.setstate
@@ -74,47 +79,30 @@ return (
         placeholder="Height"
     />
 
-
-
-
     {/* BUTTON ADD SMURF */}
    
-
-  
-
-
-
-
-  
-
         <button
-            className="BtnAddItem"
+            className="BtnAddItem" 
               onClick={() => {
                 dispatch({ type: "ADD_SMURF_SUCCESS", payload: smurf});
-                
+                 //dispatch({addSmurfs})
               }}
              
             > 
               Add Smurf
             </button>
- 
+
             </form>
     
-            {/* <h3>{smurf.name}</h3>
+             {/* <h3>{smurf.name}</h3>
              <p>{smurf.age}</p>
-             <p>{smurf.height}</p> */}
+             <p>{smurf.height}</p>  */}
 
     </div>
 
     );
 
     }
-
-   
-
-   
-
-
 
     const mapStateToProps = state => {
         return{}
