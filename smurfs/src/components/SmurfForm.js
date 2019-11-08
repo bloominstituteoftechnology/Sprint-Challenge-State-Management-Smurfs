@@ -11,18 +11,43 @@ const SmurfForm = props => {
     e.preventDefault();
     console.log(smurfName, smurfAge, smurfHeight);
     props.addSmurf(smurfName, smurfAge, smurfHeight);
-  }
+  };
 
   return (
     <div>
       <form onSubmit={handelSubmit}>
         <input
           type="text"
-          placeholder="Name of Smurf"
+          placeholder="Name Your Smurf"
           onChange={event => setSmurfName(event.target.value)}
           value={smurfName}
         />
+
+        <input
+          type="text"
+          placeholder="Smurf Age"
+          onChange={event => setSmurfAge(event.target.value)}
+          value={smurfAge}
+        />
+
+        <input
+          type="text"
+          placeholder="Smurf Height"
+          onChange={event => setSmurfHeight(event.target.value)}
+          value={smurfHeight}
+        />
+
+        <button type="submit">Add Your Smurf!</button>
       </form>
     </div>
-  )
-}
+  );
+};
+
+const mapStateToProps = state => {
+  console.log("state from SmurfForm: ", state);
+  return {
+    addSmurf: state.addSmurf
+  };
+};
+
+export default connect(mapStateToProps, {})(SmurfForm);
