@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect } from "react-dom";
+import { connect } from "react-redux";
 import { addSmurf } from "../actions/actions";
 
 const SmurfForm = props => {
