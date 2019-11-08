@@ -26,7 +26,7 @@ const SmurfVillage = props => {
 };
 
 const mapStateToProps = state => {
-  console.log("current state", state);
+  console.log("current state: ", state);
   return {
     smurfs: state.smurfs,
     fetchingSmurfs: state.fetchingSmurfs,

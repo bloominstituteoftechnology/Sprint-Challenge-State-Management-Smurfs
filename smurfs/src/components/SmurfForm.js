@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-dom";
+import { addSmurf } from "../actions/actions";
 
-const Smurf = props => {
-  console.log(props);
+const SmurfForm = props => {
+  const [smurfName, setSmurfName] = useState();
+  const [smurfAge, setSmurfAge] = useState();
+  const [smurfHeight, setSmurfHeight] = useState();
+
+  const handelSubmit = e => {
+    e.preventDefault();
+    console.log(smurfName, smurfAge, smurfHeight);
+    props.addSmurf(smurfName, smurfAge, smurfHeight);
+  }
+
   return (
     <div>
-      <h1>{props.smurf.name}</h1>
-      <p>Age: {props.smurf.age}</p>
-      <p>Height: {props.smurf.height}</p>
+      <form onSubmit={handelSubmit}>
+        <input
+          type="text"
+          placeholder="Name of Smurf"
+          onChange={event => setSmurfName(event.target.value)}
+          value={smurfName}
+        />
+      </form>
     </div>
-  );
-};
-
-export default Smurf;
+  )
+}
