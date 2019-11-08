@@ -8,7 +8,7 @@ function clg(...x) {
 	for (let exes of x) console.log(exes);
 }
 
-const smurfurl = "http://localhost:3333";
+const smurfurl = "http://localhost:3333/smurfs";
 
 export const smurfLoad = () => ({ type: SMURF_LOAD });
 
@@ -26,10 +26,11 @@ export function smurfGet() {
 	return function(dispatch) {
 		
 		dispatch(smurfLoad());
-		return fetch(smurfurl)
+		return axios(smurfurl)
 			.then(res => {
 				clg("LOADING");
-				return res.json();
+				clg(res.data);
+				return res.data;
 			})
 			.then(json => {
 				clg("SUCCESS");
