@@ -1,7 +1,15 @@
 import {
 	SMURF_LOAD,
 	SMURF_SUCCESS,
-	SMURF_FAILED
+	SMURF_FAILED,
+
+	WRITE_TRY,
+	WRITE_SUCCESS,
+	WRITE_FAILED ,
+
+	DEL_TRY,
+	DEL_SUCCESS,
+	DEL_FAILED
 } from "../actions"
 
 function clg(...x) {
@@ -11,7 +19,7 @@ function clg(...x) {
 const initialState = {
 	smurfList: [],
 	error: null,
-	isFetching: false
+	isWorking: false
 }
 
 function reducer(state = initialState, action) {
@@ -19,21 +27,63 @@ function reducer(state = initialState, action) {
 		case SMURF_LOAD:
 			return {
 				...state,
-				isFetching: true,
+				isWorking: true,
 				error: null
 			}
 		case SMURF_SUCCESS:
 			return {
 				...state,
 				smurfList: action.payload,
-				isFetching: false,
+				isWorking: false,
 				error: null
 			}
 		case SMURF_FAILED:
 			return {
 				...state,
 				smurfList: [],
-				isFetching: false,
+				isWorking: false,
+				error: action.payload
+			}
+
+		case WRITE_TRY:
+			return {
+				...state,
+				isWorking: true,
+				error: null
+			}
+		case WRITE_SUCCESS:
+			return {
+				...state,
+				smurfList: action.payload,
+				isWorking: false,
+				error: null
+			}
+		case WRITE_FAILED:
+			return {
+				...state,
+				smurfList: [],
+				isWorking: false,
+				error: action.payload
+			}
+
+		case DEL_TRY:
+			return {
+				...state,
+				isWorking: true,
+				error: null
+			}
+		case DEL_SUCCESS:
+			return {
+				...state,
+				smurfList: action.payload,
+				isWorking: false,
+				error: null
+			}
+		case DEL_FAILED:
+			return {
+				...state,
+				smurfList: [],
+				isWorking: false,
 				error: action.payload
 			}
 		default:

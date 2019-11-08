@@ -8,9 +8,14 @@ function clg(...x) {
 
 const Header = props => {
 	return (
+		<>
 		<button onClick={() => props.smurfGet()}>
 			Let's Get Smurfy!
 		</button>
+		<p />
+		<hr />
+		<p />
+		</>
 	);
 };
 

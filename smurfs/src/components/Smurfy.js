@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { smurfGet, smurfPost } from "../actions/index";
+import { smurfGet, smurfPost, smurfDel } from "../actions/index";
 
 function clg(...x) {
 	for (let exes of x) console.log(exes);
@@ -36,13 +36,18 @@ const Smurfy = props => {
 		setHeight("");
 	};
 
+	const handleDel = e => {
+		clg("handleDel", e.target.value);
+		props.smurfDel({ id: e.target.value });
+	};
+
 	return (
 		<>
-			{props.isFetching && <div>Loading . . .</div>}
+			{props.isWorking && <div>Loading . . .</div>}
 			{props.error && <div>{props.error.message}</div>}
 
 			{/* `if` smurflist != null, then render the form and smurflist */}
-			{props.smurfList.length != null && (
+			{props.smurfList.length != 0 && (
 				<>
 					<form>
 						<input type="text" onChange={handleName} name="name" placeholder="New Smurf Name" />
@@ -54,7 +59,14 @@ const Smurfy = props => {
 					</form>
 					<ul>
 						{props.smurfList.map(e => (
-							<li key={e.name}>{e.name}</li>
+							<li key={e.name}>
+								<span>{e.name}, </span>
+								<span>{e.age}, </span>
+								<span>{e.height}</span>
+								<button onClick={handleDel} value={e.id}>
+									Del
+								</button>
+							</li>
 						))}
 					</ul>
 				</>
@@ -67,5 +79,5 @@ const mapStateToProps = state => state;
 
 export default connect(
 	mapStateToProps,
-	{ smurfPost, smurfGet }
+	{ smurfPost, smurfGet, smurfDel }
 )(Smurfy);
