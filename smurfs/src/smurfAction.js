@@ -25,10 +25,10 @@ export const fetchSmurfs = () => {
 export const UPDATE_SMURF = "UPDATE_SMURF";
 
 export const updateSmurf = (smurf) => dispatch => {
-  axios.put ('http://localhost:3333/smurfs/.id', smurf)
+  axios.put (`http://localhost:3333/smurfs/id`, smurf)
   .then (data => 
     console.log(data),
-    dispatch({type: UPDATE_SMURF, payload: {name: ''}
+    dispatch({type: UPDATE_SMURF, payload: smurf.name
     }))
 }
 
