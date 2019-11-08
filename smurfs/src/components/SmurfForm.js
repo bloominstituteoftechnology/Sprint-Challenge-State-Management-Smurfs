@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addSmurf } from "../actions/actions";
+import { addSmurf, postSmurf } from "../actions/actions";
 
 const SmurfForm = () => {
   const [smurfName, setSmurfName] = useState();
@@ -11,6 +11,7 @@ const SmurfForm = () => {
     e.preventDefault();
     console.log(smurfName, smurfAge, smurfHeight);
     addSmurf(smurfName, smurfAge, smurfHeight);
+    postSmurf(addSmurf);
   };
 
   return (
@@ -46,7 +47,7 @@ const SmurfForm = () => {
 const mapStateToProps = state => {
   console.log("state from SmurfForm: ", state);
   return {
-    addSmurf: state.addSmurf
+    newSmurf: state.addSmurf
   };
 };
 

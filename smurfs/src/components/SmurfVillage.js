@@ -9,7 +9,7 @@ const SmurfVillage = props => {
     props.fetchSmurfs();
   }, []);
   if (props.fetchingSmurfs) {
-    return <h2>Loading Smurf Village...</h2>;
+    return <h2>Smurf Village!</h2>;
   }
   return (
     <div>
