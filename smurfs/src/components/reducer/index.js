@@ -5,7 +5,7 @@
 // } from "../actions";
 
 const initialState = {
-  pokemon: [],
+  smurfs: [],
   error: null,
   isFetching: false
 };
