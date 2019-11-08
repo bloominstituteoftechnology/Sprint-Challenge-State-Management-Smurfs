@@ -26,7 +26,7 @@ export function smurfGet() {
 	return function(dispatch) {
 		
 		dispatch(smurfLoad());
-		return fetch(bburl)
+		return fetch(smurfurl)
 			.then(res => {
 				clg("LOADING");
 				return res.json();
