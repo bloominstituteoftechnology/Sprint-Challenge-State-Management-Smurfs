@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./App.css";
 import SmurfForm from "../smurfForm";
-import { fetchSmurfs, addSmurf } from "../smurfAction";
+import { fetchSmurfs, updateSmurf, postSmurf} from "../smurfAction";
 import SmurfCard from "../SmurfCard";
 
 
@@ -49,4 +49,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchSmurfs, addSmurf })(App);
+export default connect(mapStateToProps, { fetchSmurfs, updateSmurf, postSmurf })(App);

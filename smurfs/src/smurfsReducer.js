@@ -1,4 +1,4 @@
-import { FETCHING_SMURFS, SMURF_FETCH_SUCCESS, SMURF_FETCH_ERROR, POST_NEW_SMURF_START,  POST_NEW_SMURF_SUCCESS, POST_NEW_SMURF_FAILURE} from "./smurfAction";
+import { FETCHING_SMURFS, SMURF_FETCH_SUCCESS, SMURF_FETCH_ERROR, POST_NEW_SMURF_START,  POST_NEW_SMURF_SUCCESS, POST_NEW_SMURF_FAILURE, UPDATE_SMURF} from "./smurfAction";
 
 const initialState = { smurfs: [],
 fetchingSmurfs: false, error: "" };
@@ -23,6 +23,8 @@ export const smurfsReducer = (state = initialState, action) => {
         return {...state, isFetching: false, errors: null, smurfs: action.payload}
     case POST_NEW_SMURF_FAILURE:
         return {...state, isFetching: false, errors: action.payload, smurfs: []}
+    case UPDATE_SMURF:
+        return {...state, isFetching: false, smurfs: action.payload}
     default:
       return state;
   }
