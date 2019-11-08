@@ -21,6 +21,15 @@ export const addSmurf = newSmurf => dispatch => {
     axios
         .post ('http://localhost:3333/smurfs', newSmurf)
         .then(response => console.log('post res', response))
-        .catch(error => console.log('post error -->', error))
+     
 };
+
+export const editSmurf = smurf => dispatch => {
+
+axios.put('http://localhost:3333/smurfs', smurf)
+        .then(res => console.log(res.data));
+};
+
+
+
 

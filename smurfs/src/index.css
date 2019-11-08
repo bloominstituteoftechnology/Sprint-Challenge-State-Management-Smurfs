@@ -1,5 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css?family=McLaren&display=swap');
+
+
 body {
+
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'McLaren', cursive;
+  background: rgb(55,77,232);
+  background: radial-gradient(circle, rgba(55,77,232,1) 0%, rgba(107,121,193,1) 100%);
 }
