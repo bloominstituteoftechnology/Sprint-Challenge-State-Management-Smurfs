@@ -1,7 +1,7 @@
-import React/*, {useReducer} */from 'react'
+import React, {useReducer} from 'react'
 import { connect } from "react-redux";
-import {fetchSmurf} from './actions'
-// import {initialState, reducer} from '../components/reducer'
+import {fetchSmurfs} from './actions'
+ import {reducer} from '../components/reducer'
 
 
 
@@ -9,12 +9,24 @@ import {fetchSmurf} from './actions'
 
 
  const SmurfList = (props) => {
-   console.log(props)
-  // const [state, dispatch] = useReducer(reducer, initialState);
+   console.log(props.smurfs)
+   const [state, dispatch] = useReducer(reducer, props.smurfs);
 
 
   return (
     <div className="container">
+      <>
+      <button onClick={() => props.dispatch(fetchSmurfs())}>Get Data</button>
+      {props.isFetching && <div>⏰</div>}
+      {props.error && <div>{props.error.message}</div>}
+      <ul>
+        {props.smurfs.map(p => (
+          <li className="pokemon" key={p.name}>
+            {p.name}, {p.age} years old, {p.height} tall!
+          </li>
+        ))}
+      </ul>
+      </>
       
     </div>
   );
@@ -25,7 +37,7 @@ import {fetchSmurf} from './actions'
 
 const mapDispatchToProps = {
   // Action Creators go here!
-  fetchSmurf
+  fetchSmurfs
 };
 
 export default connect(state => {

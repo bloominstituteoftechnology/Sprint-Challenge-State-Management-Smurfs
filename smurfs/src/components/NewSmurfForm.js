@@ -3,12 +3,12 @@ import {initialState, reducer} from '../components/reducer'
 
 
 
-const setNameCreator = (name,age,height) => {
+const setSmurfCreator = (name,age,height) => {
   // console.log(state)
   return { type: "SET_SMURF", payload: {
     name:name,
     age:age,
-    height:height
+    height:`${height}cm`
    }}
 }
 
@@ -28,7 +28,7 @@ export  const NewSmurfForm = () => {
   const handleHeightChange = event => {setHeight(event.target.value)};
 
   const saveSmurf = () => {
-    dispatch(setNameCreator(name, age, height));
+    dispatch(setSmurfCreator(name, age, height));
   };
   return (
     <div className="container">
