@@ -29,7 +29,9 @@ const reducer = (state = initialState, action) => {
       };
     case POST_SMURF:
       return {
-        state
+        ...state,
+        fetchingSmurfs: true,
+        addingSmurf: true
       };
 
     case POST_SMURF_FAILED:
@@ -50,7 +52,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: "",
-        smurfs: action.payload
+        smurfs: action.payload,
+        fetchingSmurfs: false
       };
 
     case FETCH_FAILURE:

@@ -7,14 +7,16 @@ import { addSmurf } from "../actions/actions";
 const SmurfVillage = props => {
   useEffect(() => {
     props.fetchSmurfs();
+    console.log(props.smurfs);
   }, []);
   if (props.fetchingSmurfs) {
+    // console.log("fetching smurfs", props.fetchingSmurfs)
     return <h2>Smurf Village!</h2>;
   }
   return (
     <div>
       {props.state && <p>{props.error}</p>}
-      {props.smurfs.map(smurf => (
+      {props.smurfs && props.smurfs.map(smurf => (
         <div>
           <h1>Name: {smurf.name}</h1>
           <p>Age: {smurf.age}</p>
@@ -26,7 +28,7 @@ const SmurfVillage = props => {
 };
 
 const mapStateToProps = state => {
-  console.log("current state: ", state);
+  // console.log("current state: ", state);
   return {
     smurfs: state.smurfs,
     fetchingSmurfs: state.fetchingSmurfs,

@@ -11,7 +11,7 @@ const SmurfForm = () => {
     e.preventDefault();
     console.log(smurfName, smurfAge, smurfHeight);
     addSmurf(smurfName, smurfAge, smurfHeight);
-    postSmurf(addSmurf);
+    postSmurf(postSmurf);
   };
 
   return (
@@ -47,7 +47,7 @@ const SmurfForm = () => {
 const mapStateToProps = state => {
   console.log("state from SmurfForm: ", state);
   return {
-    newSmurf: state.addSmurf
+    newSmurf: state.addingSmurf
   };
 };
 

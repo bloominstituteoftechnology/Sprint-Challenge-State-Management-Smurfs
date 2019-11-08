@@ -16,7 +16,7 @@ export const fetchSmurfs = () => dispatch => {
     .catch(err => dispatch({ type: FETCH_FAILURE, payload: err }));
 };
 
-export const postSmurf = () => dispatch => {
+export const postSmurf = (smurfs) => dispatch => {
   dispatch({ type: POST_SMURF });
   axios
     .post("http://localhost:3333/smurfs")
@@ -29,3 +29,6 @@ export function addSmurf(name, age, height) {
         dispatch({ type: ADD_SMURF, payload: { name, age, height }})
     }
 }
+
+
+// dispatch({ type: FETCH_SUCCESS, payload: res })
