@@ -6,46 +6,42 @@ import {
 } from "../actions/actions";
 
 const initialState = {
-  smurfs: [
-    {
-      name: "Brainey",
-      age: 200,
-      height: "5cm",
-      id: 0
-    }
-  ]
+  smurfs: [],
+  fetchingSmurfs: false,
+  addingSmurf: false,
+  error: ""
 };
 
 const reducer = (state = initialState, action) => {
-    switch(action.type) {
-        case ADD_SMURF: 
-        const newSmurf = {
-            name: action.payload,
-            age: "",
-            height: "",
-            // id: Date.now()
-        };
-        return {...state, smurfs: [...state.smurfs, newSmurf]};
+  switch (action.type) {
+    case ADD_SMURF:
+      return {
+        smurfs: action.payload
+      };
 
-        case START_FETCHING: 
-        return {
-            ...state,
-            error: ""
-        };
-        case FETCH_SUCCESS:
-            return {
-                ...state,
-                error: "",
-                smurfs: action.payload
-            };
+    case START_FETCHING:
+      return {
+        ...state,
+        error: "",
+        fetchingSmurfs: true
+      };
 
-            case FETCH_FAILURE:
-                return {
-                    ...state,
-                    error: action.payload,
-                };
-                default: return state;
-    }
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        smurfs: action.payload
+      };
+
+    case FETCH_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        fetchingSmurfs: false
+      };
+    default:
+      return state;
+  }
 };
 
 export default reducer;
