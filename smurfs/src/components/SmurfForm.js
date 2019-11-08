@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addSmurf } from "../actions/actions";
 
-const SmurfForm = props => {
+const SmurfForm = () => {
   const [smurfName, setSmurfName] = useState();
   const [smurfAge, setSmurfAge] = useState();
   const [smurfHeight, setSmurfHeight] = useState();
@@ -10,7 +10,7 @@ const SmurfForm = props => {
   const handelSubmit = e => {
     e.preventDefault();
     console.log(smurfName, smurfAge, smurfHeight);
-    props.addSmurf(smurfName, smurfAge, smurfHeight);
+    addSmurf(smurfName, smurfAge, smurfHeight);
   };
 
   return (
