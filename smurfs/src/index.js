@@ -5,7 +5,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { reducer}  from "./reducers/reducer";
+import { reducer }  from "./reducers/index";
 import "./index.css";
 import App from "./components/App";
 
