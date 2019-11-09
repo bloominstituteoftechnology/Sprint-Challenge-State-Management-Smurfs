@@ -19,13 +19,7 @@ const reducer = (state = initialState, action) => {
     case ADD_SMURF:
       return {
         ...state,
-        newSmurf: [
-          {
-            name: action.payload.name,
-            age: action.payload.age,
-            height: action.payload.height
-          }
-        ]
+        smurfs: state.smurfs.concat(action.postSmurf)
       };
     case POST_SMURF:
       return {

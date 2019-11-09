@@ -9,9 +9,10 @@ const SmurfForm = () => {
 
   const handelSubmit = e => {
     e.preventDefault();
-    console.log(smurfName, smurfAge, smurfHeight);
+    console.log("Smurf Info:", smurfName, smurfAge, smurfHeight);
     addSmurf(smurfName, smurfAge, smurfHeight);
-    postSmurf(postSmurf);
+    postSmurf(smurfName, smurfAge, smurfHeight);
+    console.log("trying to post my smurf:", postSmurf);
   };
 
   return (
@@ -47,7 +48,7 @@ const SmurfForm = () => {
 const mapStateToProps = state => {
   console.log("state from SmurfForm: ", state);
   return {
-    newSmurf: state.addingSmurf
+    addSmurf: state.smurfs
   };
 };
 
