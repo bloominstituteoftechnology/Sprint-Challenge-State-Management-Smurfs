@@ -12,7 +12,6 @@ export function smurfReducer(state = initialState, action) {
             }
 
         case 'SUBMIT_SMURF':
-            console.log(state)
             return {
                 smurfs: [
                     ...state.smurfs,
