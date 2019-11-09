@@ -1,8 +1,7 @@
+
 const initialState = {
-  smurfs: []
+    smurfs: []
 }
-
-
 
 export function smurfReducer(state = initialState, action) {
     switch(action.type) {
@@ -12,6 +11,7 @@ export function smurfReducer(state = initialState, action) {
             }
 
         case 'SUBMIT_SMURF':
+            console.log(state)
             return {
                 smurfs: [
                     ...state.smurfs,
