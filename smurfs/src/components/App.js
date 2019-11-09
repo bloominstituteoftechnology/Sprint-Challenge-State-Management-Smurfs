@@ -42,10 +42,8 @@ function App(props) {
   }
   return (
     <div className="App">
-      <h1>SMURFS! 2.0 W/ Redux</h1>
-      <div>Welcome to your state management version of Smurfs!</div>
-      <div>Start inside of your `src/index.js` file!</div>
-      <div>Have fun!</div>
+      <h1>SMURFS Village</h1>
+
 
       <form onSubmit={handleSubmit}>
 
@@ -76,8 +74,8 @@ function App(props) {
         {props.smurfs.map((smurf) => {
           return <div className='smurf-card' key={smurf.id}>
             <h2>{smurf.name}</h2>
-            <h4>Age: {smurf.age}</h4>
-            <h4>Height: {smurf.height}</h4>
+            <h5>Age: {smurf.age}</h5>
+            <h5>Height: {smurf.height}</h5>
           </div>
         })}
       </div>
