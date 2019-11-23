@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.smurf-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.smurf-card {
+  margin: 20px 10px;
+  border: 2px solid blue;
+  min-width: 20vw;
+}
