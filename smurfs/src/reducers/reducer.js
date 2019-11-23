@@ -1,8 +1,8 @@
 function reducer() {
   return {
-    name: "Brainey",
-    age: 200,
-    height: '5cm',
+    name: '',
+    age: '',
+    height: '',
     id: 0
   };
 };
