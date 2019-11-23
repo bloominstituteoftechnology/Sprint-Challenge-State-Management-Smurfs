@@ -5,12 +5,7 @@ import { Provider } from 'react-redux';
 
 import "./index.css";
 import App from "./components/App";
-
-function reducer() {
-  return {
-    name: ""
-  };
-};
+import reducer from './reducers/reducer';
 
 const store = createStore(reducer);
 
