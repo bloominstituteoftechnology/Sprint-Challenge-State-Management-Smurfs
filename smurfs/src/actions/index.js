@@ -4,6 +4,7 @@ export const FETCH_SMURFS_SUCCESS = " FETCH_SMURFS_SUCCESS";
 export const FETCH_SMURFS_START = " FETCH_SMURFS_START";
 export const FETCH_SMURFS_ERROR = " FETCH_SMURFS_ERROR";
 
+
 export const getSmurfs = () => dispatch => {
   dispatch({ type: FETCH_SMURFS_START });
 
@@ -21,3 +22,5 @@ export const getSmurfs = () => dispatch => {
       });
     });
 };
+
+

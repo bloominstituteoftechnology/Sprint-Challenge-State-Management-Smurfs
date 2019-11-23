@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import SmurfList from './smurfs/smurfList';
 import SmurfForm from './smurfs/smurfForm';
+import Village from './Village';
+
 
 import "./App.css";
 import styled from 'styled-components'
@@ -12,6 +14,7 @@ const AppForm = styled.div`
 `;
  
 class App extends Component {
+
   render() {
     return (
       <div className="App">
@@ -22,6 +25,7 @@ class App extends Component {
         <AppForm>
           <SmurfForm />
           <SmurfList />
+          {/* <Village /> */}
         </AppForm>
       </div>
     );
