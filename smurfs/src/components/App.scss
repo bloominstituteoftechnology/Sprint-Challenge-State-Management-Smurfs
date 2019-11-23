@@ -11,9 +11,18 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: greenyellow;
 }
 
+
+.smurfs{
+  border: 2px solid dodgerblue;
+  color: dodgerblue;
+  background-color: navy;
+  border-radius:15px;
+  /* width: 25%; */
+  align-content: center;
+}
 .App-title {
   font-size: 1.5em;
 }
@@ -21,7 +30,14 @@
 .App-intro {
   font-size: large;
 }
-
+.deleteButton{
+  color:red;
+  background-color: rgb(222, 222, 223);
+}
+.Title{
+  color:red;
+  background-color: gold;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
