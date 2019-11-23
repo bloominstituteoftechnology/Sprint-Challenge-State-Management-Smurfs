@@ -6,6 +6,7 @@
 
 
 import axios from 'axios';
+import smurfs from '../components/smurfs';
 export const FETCH_SMURF ='FETCH_SMURF'
 export const FETCH_SMURF_SUCCESS = 'FETCH_SMURF_SUCCESS'
 export const FETCH_SMURF_ERROR = 'FETCH_SMURF_ERROR'
@@ -47,8 +48,42 @@ export const addSmurf = newSmurf => dispatch =>{
       
   }
 
- 
+  export const deleteSmurf = id => dispatch => {
 
+    dispatch({type: DELETE_SMURF, id: id})
+    console.log('88888')
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+ 
+    .then(res => {
+      // console.log(id),
+       dispatch({type: DELETE_SMURF, id:id})}
+       
+
+    )
+  
+ 
+         
+
+      
+      .catch(err => {
+        console.log(err)
+      })
+   
+    }
+
+    export const updateSmurf = e => dispatch=>{
+      // const id =  this.props.match.params.id;
+
+      dispatch({type:UPDATE_SMURF, payload:e.id})
+     axios
+    .put(`http://localhost:3333/smurfs/${e.id}`,{name:smurfs.name, age:smurfs.name,height:smurfs.height})
+    .then(res => 
+      console.log(res.data)
+      )
+       .catch(err=> console.log(err))
+  
+}
+     
   
 
 

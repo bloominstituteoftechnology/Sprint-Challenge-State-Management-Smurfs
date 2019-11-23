@@ -1,7 +1,7 @@
 import React from 'react'
 import rootReducer from '../reducers/index'
 import {connect} from 'react-redux';
-import {addSmurfs, postSmurf} from '../actions/index'
+import {updateSmurf, deleteSmurf} from '../actions/index'
 // import {postSmurfs} from '../actions/index'
 import {fetchSmurfs} from '../actions/index';
 
@@ -18,8 +18,8 @@ class Smurfs extends React.Component{
 
 
      render(){
-         console.log(rootReducer)
-        console.log(this.props)
+         console.log(reducer)
+        console.log('this.props',this.props.smurfs)
          return (
             <div>
              <h2>SMURFS!!</h2>
@@ -30,7 +30,11 @@ class Smurfs extends React.Component{
                          <h2>{smurf.name}</h2>
                          <p>age :{smurf.age}</p>
                          <p> height:{smurf.height}</p>
-
+                         <button className='deleteButton' onClick =  {console.log('HAY',smurf.id),()=> this.props.deleteSmurf(smurf.id)}
+                             
+                         > DELETE</button> 
+                         <button className ='update'onClick = {()=>{this.props.updateSmurf(smurf.id)}}>Update</button>
+ 
 
 
                          </div>
@@ -53,6 +57,6 @@ class Smurfs extends React.Component{
 
 export default connect (
     mapStateToProps,
-    {fetchSmurfs}
+    {fetchSmurfs, deleteSmurf,updateSmurf},  
 )(Smurfs)
  

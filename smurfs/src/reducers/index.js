@@ -73,9 +73,18 @@ import {
           case DELETE_SMURF:{
               return {
                   ...state,
-                  updatingSmurf:true
+                  smurfs:  state.smurfs.filter((s)=> s.id !== action.id),
+                  updatingSmurf:true,
+                  deletingSmurf:true
               }
-          }
+            }
+        case UPDATE_SMURF: {
+            return{
+                ...state,
+                updatingSmurf:true
+
+            }
+        }
 
           default: return state
       }
