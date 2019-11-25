@@ -26,7 +26,7 @@ export const getSmurfs = () => dispatch => {
     console.log(err)
     dispatch({
       type: GET_SMURFS_FAIL,
-      payload: 'No smurfs available.'
+      payload: 'No smurfs available!'
     })
   })
 }

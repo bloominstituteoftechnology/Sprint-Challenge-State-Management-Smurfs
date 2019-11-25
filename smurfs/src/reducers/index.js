@@ -4,8 +4,7 @@ import { GET_SMURFS_START, GET_SMURFS_SUCCESS, GET_SMURFS_FAIL,ADD_SMURF_START, 
 const initialState = {
   smurfs: [],
   error: '',
-  isLoading: false,
-  isPosting: false
+  isLoading: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -26,27 +25,24 @@ const reducer = (state = initialState, action) => {
     case GET_SMURFS_FAIL:
       return {
         ...state,
-        error: action.payload,
-        isLoading: false
+        isLoading: false,
+        error: action.payload
       }
       
     case ADD_SMURF_START:
       return {
         ...state,
-        isPosting: true
       }
 
     case ADD_SMURF_SUCCESS:
       return {
         ...state,
         smurfs: action.payload,
-        isPosting: false
       }
     case ADD_SMURF_FAIL:
       return {
         ...state,
         error: action.payload,
-        isPosting: false
       }
   
     default:

@@ -9,7 +9,12 @@ const Smurfs = (props) => {
   console.log(props)
   return (
     <div>
+
+
       <SmurfForm />
+
+
+
       <button onClick={() => props.getSmurfs()}>Get Smurfs</button>
       <div>
         {props.error && <div>{props.error}</div>}
@@ -32,7 +37,8 @@ const Smurfs = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    smurfs: state.smurfs
+    smurfs: state.smurfs,
+    error: state.error
   }
 }
 

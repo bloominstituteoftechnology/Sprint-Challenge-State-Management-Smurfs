@@ -20,6 +20,7 @@ const SmurfForm = (props) => {
       name: '',
       age: '',
       height: ''
+      // id is already being added as index value???
     })
   }
 
@@ -46,7 +47,8 @@ const SmurfForm = (props) => {
 const mapStateToProps = (state) => {
   console.log(state)
   return {
-    smurfs: state.smurfs
+    smurfs: state.smurfs,
+    error:  state.error
   }
 }
 
