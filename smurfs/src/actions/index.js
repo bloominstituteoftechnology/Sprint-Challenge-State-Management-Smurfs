@@ -31,11 +31,11 @@ export const getSmurfs = () => dispatch => {
   })
 }
 
-export const addSmurf = (data) => dispatch => {
+export const addSmurf = (smurf) => dispatch => {
   dispatch({ type: ADD_SMURF_START });
 
   axios
-  .post('http://localhost:3333/smurfs', data)
+  .post('http://localhost:3333/smurfs', smurf)
   .then( res => {
     dispatch({
       type: ADD_SMURF_SUCCESS,
