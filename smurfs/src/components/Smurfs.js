@@ -10,14 +10,21 @@ const Smurfs = (props) => {
   return (
     <div>
       <SmurfForm />
-      {props.error && <div>{props.error}</div>}
-
       <button onClick={() => props.getSmurfs()}>Get Smurfs</button>
-      {props.smurfs.map( (smurf, index) => {
-        return (
-          <Smurf key={index} smurf={smurf} />
-        )
-      })}
+      <div>
+        {props.error && <div>{props.error}</div>}
+
+        {props.isLoading ? (
+          <div>Loading...</div>
+          ) : (
+            props.smurfs.map( (smurf, index) => {
+              return (
+                <Smurf key={index} smurf={smurf} />
+              )
+            })
+          )
+        }
+      </div>
 
     </div>
   )

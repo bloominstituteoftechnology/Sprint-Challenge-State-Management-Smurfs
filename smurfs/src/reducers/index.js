@@ -4,7 +4,7 @@ import { GET_SMURFS_START, GET_SMURFS_SUCCESS, GET_SMURFS_FAIL,ADD_SMURF_START, 
 const initialState = {
   smurfs: [],
   error: '',
-  isFetching: false,
+  isLoading: false,
   isPosting: false
 }
 
@@ -20,14 +20,14 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         smurfs: [...state.smurfs, ...action.payload],
-        isFetching: false
+        isLoading: false
       }
       
     case GET_SMURFS_FAIL:
       return {
         ...state,
         error: action.payload,
-        isFetching: false
+        isLoading: false
       }
       
     case ADD_SMURF_START:
