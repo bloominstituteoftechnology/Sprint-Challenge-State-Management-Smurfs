@@ -12,6 +12,10 @@ export const EDIT_SMURF_START = 'EDIT_SMURF_START';
 export const EDIT_SMURF_SUCCESS = 'EDIT_SMURF_SUCCESS';
 export const EDIT_SMURF_FAIL = 'EDIT_SMURF_FAIL';
 
+export const DELETE_SMURF_START = 'DELETE_SMURF_START';
+export const DELETE_SMURF_SUCCESS = 'DELETE_SMURF_SUCCESS';
+export const DELETE_SMURF_FAIL = 'DELETE_SMURF_FAIL';
+
 
 
 export const getSmurfs = () => dispatch => {
