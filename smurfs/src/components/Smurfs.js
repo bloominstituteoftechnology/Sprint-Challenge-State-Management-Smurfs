@@ -17,7 +17,7 @@ const Smurfs = (props) => {
 
       <button onClick={() => props.getSmurfs()}>Get Smurfs</button>
       <div>
-        {props.error && <div>{props.error}</div>}
+        {props.error && <div style={{ color: 'red' }}>{props.error}</div>}
 
         {props.isLoading ? (
           <div>Loading...</div>
@@ -29,6 +29,7 @@ const Smurfs = (props) => {
             })
           )
         }
+        
       </div>
 
     </div>

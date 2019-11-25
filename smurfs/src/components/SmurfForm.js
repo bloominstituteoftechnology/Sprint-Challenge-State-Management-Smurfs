@@ -20,7 +20,6 @@ const SmurfForm = (props) => {
       name: '',
       age: '',
       height: ''
-      // id is already being added as index value???
     })
   }
 
