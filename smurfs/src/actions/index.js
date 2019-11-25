@@ -16,10 +16,10 @@ export const getSmurfs = () => dispatch => {
   axios
   .get('http://localhost:3333/smurfs')
   .then( res => {
-    console.log(res)
+    console.log(res.data)
     dispatch({
       type: GET_SMURFS_SUCCESS,
-      payload: res
+      payload: res.data
     })
   })
   .catch(err => {
@@ -31,12 +31,18 @@ export const getSmurfs = () => dispatch => {
   })
 }
 
-export const addSmurf = () => dispatch => {
+export const addSmurf = (data) => dispatch => {
   dispatch({ type: ADD_SMURF_START });
 
   axios
-  .post('')
-  .then()
+  .post('http://localhost:3333/smurfs', data)
+  .then( res => {
+    dispatch({
+      type: ADD_SMURF_SUCCESS,
+      payload: res.data
+    })
+
+  })
   .catch(err => {
     console.log(err)
     dispatch({

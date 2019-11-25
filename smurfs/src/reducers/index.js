@@ -2,12 +2,10 @@ import { GET_SMURFS_START, GET_SMURFS_SUCCESS, GET_SMURFS_FAIL,ADD_SMURF_START, 
 
 
 const initialState = {
-  name: '',
-  age: null,
-  height: '',
-  id: null,
   smurfs: [],
-  error: ''
+  error: '',
+  isFetching: false,
+  isPosting: false
 }
 
 const reducer = (state = initialState, action) => {
