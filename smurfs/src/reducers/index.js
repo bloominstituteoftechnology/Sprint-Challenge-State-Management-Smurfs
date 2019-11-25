@@ -25,6 +25,7 @@ const reducer = (state = initialState, action) => {
       
     case GET_SMURFS_FAIL:
       return {
+        ...state,
         error: action.payload,
         isFetching: false
       }
@@ -38,10 +39,12 @@ const reducer = (state = initialState, action) => {
     case ADD_SMURF_SUCCESS:
       return {
         ...state,
+        smurfs: action.payload,
         isPosting: false
       }
     case ADD_SMURF_FAIL:
       return {
+        ...state,
         error: action.payload,
         isPosting: false
       }
