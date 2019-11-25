@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
 import { connect } from 'react-redux';
-import { addSmurf, ADD_SMURF_SUCCESS, ADD_SMURF_START } from '../actions';
+import { addSmurf } from '../actions';
 
 const SmurfForm = (props) => {
   const [smurf, setSmurf] = useState({
     name: '',
-    age: null,
+    age: '',
     height: ''
   })
   
@@ -18,7 +18,7 @@ const SmurfForm = (props) => {
     })
     setSmurf({
       name: '',
-      age: null,
+      age: '',
       height: ''
     })
   }
