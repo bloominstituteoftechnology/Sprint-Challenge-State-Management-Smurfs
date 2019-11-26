@@ -1,5 +1,13 @@
 .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   text-align: center;
+  background-color: #222;
+  height: 100vh;
+  padding: 20px;
+  color: teal;
 }
 
 .App-logo {
@@ -7,12 +15,6 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
 
 .App-title {
   font-size: 1.5em;
@@ -20,6 +22,51 @@
 
 .App-intro {
   font-size: large;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3%;
+  margin: 3.5%;
+}
+
+form input{
+  padding: 2.8%;
+  margin: 2.8%;
+  border-radius: 6px;
+  border: none;
+  background-color: azure;
+}
+
+button {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: azure;
+  border: 2px;
+  border-radius: 0.6em;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+.smurfCard {
+  text-align: center;
+  background-color: azure;
+  width: 25vw;
+  margin-top: 5%;
+  padding: 5%;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px #0000003d;
 }
 
 @keyframes App-logo-spin {
