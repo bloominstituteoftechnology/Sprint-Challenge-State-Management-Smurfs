@@ -18,7 +18,8 @@ import {
 const initialState = {
   smurfs: [],
   error: '',
-  isLoading: false
+  isLoading: false,
+  isEditing: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -26,7 +27,7 @@ const reducer = (state = initialState, action) => {
     case GET_SMURFS_START:
       return {
         ...state,
-        isFetching: true
+        isLoading: true
 
       }
     case GET_SMURFS_SUCCESS:
@@ -62,20 +63,23 @@ const reducer = (state = initialState, action) => {
     case EDIT_SMURF_START:
       return {
         ...state,
-        isLoading: true
+        // isLoading: true
+        isEditing: true
       }
 
     case EDIT_SMURF_SUCCESS:
       return {
         ...state,
         smurfs: action.payload,
-        isLoading: false
+        // isLoading: false
+        isEditing: false
       }
     case EDIT_SMURF_FAIL:
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        // isLoading: false
+        isEditing: false
       }
 
     case DELETE_SMURF_START:
