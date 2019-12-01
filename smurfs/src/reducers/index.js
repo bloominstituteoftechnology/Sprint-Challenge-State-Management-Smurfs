@@ -51,7 +51,7 @@ const reducer = (state = initialState, action) => {
     case ADD_SMURF_SUCCESS:
       return {
         ...state,
-        smurfs: [...state.smurfs, action.payload],
+        smurfs: [...state.smurfs, action.payload]
       }
     case ADD_SMURF_FAIL:
       return {

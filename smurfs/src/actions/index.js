@@ -64,7 +64,7 @@ export const editSmurf = (smurfId) => dispatch => {
   dispatch({ type: EDIT_SMURF_START })
 
   axios
-  .put('http://localhost:3333/smurfs/:id')
+  .put(`http://localhost:3333/smurfs/${smurfId}`)
   .then( res => {
     dispatch({
       type: EDIT_SMURF_SUCCESS,
@@ -84,7 +84,7 @@ export const deleteSmurf = (smurfId) => dispatch => {
   dispatch({  type: DELETE_SMURF_START })
 
   axios
-  .delete('http://localhost:3333/smurfs/:id')
+  .delete(`http://localhost:3333/smurfs/${smurfId}`)
   .then(res => {
     dispatch({
       type: DELETE_SMURF_SUCCESS,

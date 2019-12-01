@@ -9,11 +9,8 @@ const Smurfs = (props) => {
   console.log(props)
   return (
     <div>
-
-
+      
       <SmurfForm />
-
-
 
       <button onClick={() => props.getSmurfs()}>Get Smurfs</button>
       <div>
@@ -29,9 +26,7 @@ const Smurfs = (props) => {
             })
           )
         }
-        
       </div>
-
     </div>
   )
 }
