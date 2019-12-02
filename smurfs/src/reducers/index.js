@@ -2,12 +2,15 @@ import {
   GET_SMURFS_START,
   GET_SMURFS_SUCCESS,
   GET_SMURFS_FAIL,
+
   ADD_SMURF_START, 
   ADD_SMURF_SUCCESS, 
   ADD_SMURF_FAIL,
+
   EDIT_SMURF_START,
   EDIT_SMURF_SUCCESS,
   EDIT_SMURF_FAIL,
+
   DELETE_SMURF_START,
   DELETE_SMURF_SUCCESS,
   DELETE_SMURF_FAIL
@@ -19,6 +22,7 @@ const initialState = {
   smurfs: [],
   error: '',
   isLoading: false,
+  toggleEdit: false,
   isEditing: false
 }
 
@@ -28,57 +32,70 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true
-
       }
     case GET_SMURFS_SUCCESS:
       return {
         ...state,
-        smurfs: [...state.smurfs, ...action.payload],
+        error: '',
+        smurfs: [...action.payload],
         isLoading: false
       }
       
     case GET_SMURFS_FAIL:
       return {
         ...state,
-        isLoading: false,
-        error: action.payload
+        error: action.payload,
+        isLoading: false
       }
       
     case ADD_SMURF_START:
       return {
         ...state,
+        isLoading: true
       }
 
     case ADD_SMURF_SUCCESS:
       return {
-        ...state,
-        smurfs: [...state.smurfs, action.payload]
+        smurfs: [...state.smurfs, ...action.paylod],
+        isLoading: false,
+        isEditing: false,
       }
+
     case ADD_SMURF_FAIL:
       return {
         ...state,
         error: action.payload,
+        isLoading: false,
+        isEditing: false
       }
 
     case EDIT_SMURF_START:
       return {
         ...state,
-        // isLoading: true
-        isEditing: true
+        isEditing: true,
+        toggleEdit: true
       }
 
     case EDIT_SMURF_SUCCESS:
       return {
+        // ...state,
+        smurfs: [...state.smurfs].filter( smurf => {
+          if (smurf.id !== action.payload) {
+            return [...state.smurfs, ...action.payload]
+          }
+          return {
+          }
+        }),
         ...state,
-        smurfs: action.payload,
-        // isLoading: false
-        isEditing: false
+        isEditing: true,
+        toggleEdit: true
+        // isLoading: false,
       }
     case EDIT_SMURF_FAIL:
       return {
         ...state,
         error: action.payload,
-        // isLoading: false
+        isLoading: false,
         isEditing: false
       }
 

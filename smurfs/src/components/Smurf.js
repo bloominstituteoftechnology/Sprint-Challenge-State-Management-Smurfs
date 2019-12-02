@@ -3,27 +3,30 @@ import { connect } from 'react-redux';
 
 
 import { editSmurf, deleteSmurf } from '../actions'
+import { dispatch } from 'rxjs/internal/observable/pairs';
 
 const Smurf = (props) => {
 
   const [smurf, setSmurf] = useState({
     name: '',
     age: '',
-    height: '',
-    id: null
+    height: ''
   })
 
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('submitted!')
-
+    props.editSmurf({})
     setSmurf({
       name: '',
       age: '',
       height: '',
-      id: null
     })
+  }
+
+  const handleEditChange = (smurfId) => {
+
   }
 
 
@@ -35,18 +38,21 @@ const Smurf = (props) => {
         <p>{props.smurf.age}</p>
         <p>{props.smurf.height}</p>
         <div>
-          <button onClick={() => props.editSmurf(props.smurf.id)}>
+          <button onClick={() => {props.editSmurf(props.smurf.id)}}>
             Edit
           </button>
-          <button onClick={() => props.deleteSmurf(props.smurf.id)}>
+          <button onClick={() => {props.deleteSmurf(props.smurf.id)}}>
             Delete
           </button>
         </div>
-        {props.isEditing && (
+        {props.toggleEdit && (
           <>
-          <input name="name"/> 
-          <input name="age" /> 
-          <input name="height" /> 
+          <h1>Editing {props.smurf.name}</h1>
+          <input type="text" name="name" placeholder="name" onChange={handleEditChange} />
+          <input type="text" name="age" placeholder="age" onChange={handleEditChange} />
+          <input type="text" name="height" placeholder="height" onChange={handleEditChange} />
+
+          <button onClick={() => {handleSubmit(props.smurf.id)}}>Submit</button>
           </>
         )}
       </form>
@@ -57,8 +63,8 @@ const Smurf = (props) => {
 const mapStateToProps = (state) => {
   return {
     isEditing: state.isEditing,
+    toggleEdit: state.toggleEdit,
     error: state.error,
-    
   }
 }
 
