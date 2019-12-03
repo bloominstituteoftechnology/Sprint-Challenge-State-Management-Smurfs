@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 export const SMURF_DATA_START = 'SMURF_DATA_START';
-export const SMURF_DATA_START = 'SMURF_DATA_SUCCESS';
+export const SMURF_DATA_SUCCESS = 'SMURF_DATA_SUCCESS';
 
 export const getSmurfData = () => dispatch => {
   dispatch ({ type: SMURF_DATA_START });
