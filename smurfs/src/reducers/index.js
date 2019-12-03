@@ -56,7 +56,8 @@ const reducer = (state = initialState, action) => {
 
     case ADD_SMURF_SUCCESS:
       return {
-        smurfs: [...state.smurfs, ...action.paylod],
+        smurfs: [...state.smurfs, {...action.paylod}],
+        smurfs: [...state.smurfs],
         isLoading: false,
         isEditing: false,
       }
@@ -72,13 +73,13 @@ const reducer = (state = initialState, action) => {
     case EDIT_SMURF_START:
       return {
         ...state,
-        isEditing: true,
-        toggleEdit: true
+        isEditing: !state.isEditing,
+        toggleEdit: !state.toggleEdit
       }
 
     case EDIT_SMURF_SUCCESS:
       return {
-        // ...state,
+        ...state,
         smurfs: [...state.smurfs].filter( smurf => {
           if (smurf.id !== action.payload) {
             return [...state.smurfs, ...action.payload]

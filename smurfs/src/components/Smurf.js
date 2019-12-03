@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 
 import { editSmurf, deleteSmurf } from '../actions'
-import { dispatch } from 'rxjs/internal/observable/pairs';
 
 const Smurf = (props) => {
 
@@ -16,8 +15,10 @@ const Smurf = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('submitted!')
-    props.editSmurf({})
+    
+    props.editSmurf({
+      [e.target.name]: e.target.value
+    })
     setSmurf({
       name: '',
       age: '',
@@ -38,7 +39,7 @@ const Smurf = (props) => {
         <p>{props.smurf.age}</p>
         <p>{props.smurf.height}</p>
         <div>
-          <button onClick={() => {props.editSmurf(props.smurf.id)}}>
+          <button onClick={() => props.editSmurf(props.smurf.id)}>
             Edit
           </button>
           <button onClick={() => {props.deleteSmurf(props.smurf.id)}}>
