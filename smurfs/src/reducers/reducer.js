@@ -3,7 +3,14 @@ import {
   SMURF_DATA_SUCCESS
 } from '../actions';
 
-const reducer = (state, action) => {
+const initialState =  {
+  name: '',
+  age: '',
+  height: '',
+  id: 0
+};
+
+const reducer = (state = initialState, action) => {
   switch(action.type) {
     case SMURF_DATA_START:
       return {
@@ -18,12 +25,6 @@ const reducer = (state, action) => {
     default:
       return state;
   }
-  return {
-    name: '',
-    age: '',
-    height: '',
-    id: 0
-  };
 };
 
 export default reducer;
