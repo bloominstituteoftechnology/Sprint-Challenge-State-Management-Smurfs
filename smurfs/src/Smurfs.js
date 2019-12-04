@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getgetSmurfData } from './actions';
+import { getSmurfData } from './actions';
 
 const Smurfs = props => {
   return (
@@ -16,10 +16,8 @@ const Smurfs = props => {
 
 const mapStateToProps = state => {
   return {
-    name: state.name,
-    age: state.age,
-    height: state.height,
-    id: state.id
+    isLoading: state.isLoading, 
+    
   }
 }
 
