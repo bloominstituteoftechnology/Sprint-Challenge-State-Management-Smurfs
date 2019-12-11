@@ -20,6 +20,7 @@ const reducer = (state = initialState, action) => {
     case SMURF_DATA_SUCCESS:
       return {
         ...state,
+        blue: action.payload,
         isLoading: false
       };
     default:

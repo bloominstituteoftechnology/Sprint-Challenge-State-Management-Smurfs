@@ -4,13 +4,9 @@ import { getSmurfData } from './actions';
 
 const Smurfs = props => {
   return (
-    <form>
-      <h3>Name: {props.name}</h3>
-      <p>
-        Age: {props.age}
-        Height: {props.height}
-      </p>
-    </form>
+    <>
+      {/* <div>{props.blue.name}</div> */}
+    </>
   )
 }
 
@@ -20,6 +16,15 @@ const mapStateToProps = state => {
     
   }
 }
+
+  // <form>
+    //   {props.isLoading ?
+    //   <h3>Name: {props.name}</h3>
+    //   <p>
+    //     Age: {props.age}
+    //     Height: {props.height}
+    //   </p>
+    // </form>
 
 export default connect(
   mapStateToProps, 
