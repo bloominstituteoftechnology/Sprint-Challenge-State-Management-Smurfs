@@ -1,20 +1,23 @@
+// simple get request
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export function getSmurf() {
-    const [form, setForm] = useState({
-        name: '',
-        age: '',
-        height: ''
-    })
+export function SmurfList(props) {
+    const [smurfs, setSmurfs] = useState();
+    console.log(props);
+    const id = props.match.params.id;
+    useEffect(() => {
 
-    axios
-        .get('http://localhost:3333/smurfs')
-        .then(res => this.setState({
-            smurfs: res.data
-            console.log(res)
-            }))
-        .catch(err => console.log('smurf error', err))
+        axios
+        .get(`http://localhost:3333/smurfs/${id}`)
+        .then(res => {
+            setSmurf(res.data);
+            })
+        .catch(err => {
+            console.log('smurf error', err);
+        });
+    },[id]);
 
         return (
             <div className="App">
@@ -22,3 +25,9 @@ export function getSmurf() {
             </div>
             );
         }
+
+    })
+
+    
+
+    

@@ -10,8 +10,6 @@ import { SmurfList } from './SmurfList';
 // Contexts
 import { SmurfContext } from './contexts/SmurfContext';
 
-
-
 // refactored class component to functional component
 function App () {
 
