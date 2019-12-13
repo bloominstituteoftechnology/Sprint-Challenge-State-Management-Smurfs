@@ -1,10 +1,9 @@
 .App {
   text-align: center;
-  background-image: url('../night.jpg');
+  background-image: url('./components/images/night.jpg');
   height: 100%;
   width: 100%;
   color: oldlace;
-  padding: 100px;
 }
 
 .App-logo {
@@ -38,13 +37,15 @@
 .village {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
 }
 
 .smurf-card {
   color: gold;
   text-shadow: 1px 5px 10px black;
-  background-image: url('../day2.jpg');
+  background-image: url('./components/images/day2.jpg');
   width: 400px;
   border-radius: 20px;
   padding: 30px;

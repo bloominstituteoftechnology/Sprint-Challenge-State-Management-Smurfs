@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./App.css";
-import SmurfForm from "../smurfForm";
-import { fetchSmurfs, updateSmurf, postSmurf} from "../smurfAction";
-import SmurfCard from "../SmurfCard";
+import SmurfForm from "./components/smurfForm";
+import { fetchSmurfs, updateSmurf, postSmurf, deleteSmurf} from "./components/smurfAction";
+import SmurfCard from "./components/SmurfCard";
 
 
 
@@ -28,10 +28,18 @@ class App extends Component {
         ) : (
           <div className="App-intro">
             {this.props.smurfs.map(smurf => {
-              return <SmurfCard key={smurf.id} name={smurf.name} id={smurf.id} age={smurf.age} height={smurf.height}/>;
-            })}
+              return (
+              <SmurfCard 
+              id={smurf.id}
+              key={smurf.id} 
+              name={smurf.name} 
+              age={smurf.age} 
+              height={smurf.height}
+              update={smurf.updateSmurf}
+              delete={smurf.deleteSmurf}/>
+            )})}
           </div>
-        )}
+        )} 
         {this.props.error !== "" ? <h4>{this.props.error}</h4> : null}
       
         <div>Have fun!</div>
@@ -51,4 +59,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchSmurfs, updateSmurf, postSmurf })(App);
+export default connect(mapStateToProps, { fetchSmurfs, updateSmurf, postSmurf, deleteSmurf })(App);

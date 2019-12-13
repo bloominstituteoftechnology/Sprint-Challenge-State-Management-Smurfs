@@ -1,31 +1,28 @@
 
 import { connect } from "react-redux";
 import React, { useState } from 'react';
-import {postSmurf, updateSmurf} from "./smurfAction";
+import {fetchSmurfs, postSmurf, updateSmurf} from "./smurfAction";
 
 
 
 function SmurfForm (props) {
     console.log(props);
-    const [smurfs, setSmurfs] = useState({
+    const [smurfs, setSmurfs] = useState([{
         id: props.smurfs[props.smurfs.length -1],
         name: '',
         age: '',
         height: ''
-    })
+    }])
 
     const handleChange = e => setSmurfs({...smurfs, [e.target.name]: e.target.value});
 
-    const handleSubmit = async e => {
-        e.preventDefault();
-        await props.postSmurf(smurfs);
-        await props.updateSmurf(smurfs);
-        props.history.push('/');
+    const handleSubmit = e => {
+         props.postSmurf(smurfs);
     }
 
 
   return (
-    <div class = 'smurf-form'>
+    <div className = 'smurf-form'>
     <form onSubmit={handleSubmit}>
         <h1>Join Our Village!</h1>
         <label>Name</label>
@@ -50,11 +47,12 @@ const mapStateToProps = state => {
       smurfs: [...state.smurfs],
       id: state.id,
       name: state.name,
-      height: state.height
+      height: state.height,
+      age: state.age
     };
   };
 
-  const mapDispatchToProps = {postSmurf, updateSmurf}
+  const mapDispatchToProps = {fetchSmurfs, postSmurf, updateSmurf}
   
   export default connect(mapStateToProps, mapDispatchToProps)(SmurfForm);
 
