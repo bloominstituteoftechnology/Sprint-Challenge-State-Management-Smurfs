@@ -1,8 +1,63 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: space-around;
+  background: blue;
 }
 
-.App-logo {
+
+
+.FormContainer{
+  display: flex;
+  /* justify-content: center; */
+  
+}
+
+
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.input{
+  padding: 5px;
+  margin: 8px 8px 8px 8px;
+  border: 3px solid black;
+  }
+
+.Btn{
+  padding: 8px;
+  margin: 12px;
+  background: lightblue;
+  border: 3px solid black;
+}
+
+.cardContainer{
+  display: flex;
+  justify-content: center;
+}
+
+
+.smurfcard{
+  border: 3px solid black;
+  background: lightblue;
+  display: flex;
+  justify-content: center;
+  width: 512px;
+  margin: 20px 0 20px 0;
+}
+
+.text{
+  padding: 7px;
+}
+
+h1{
+  color: white;
+}
+/* ////////////////////////// */
+
+/* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
@@ -25,4 +80,4 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+} */
