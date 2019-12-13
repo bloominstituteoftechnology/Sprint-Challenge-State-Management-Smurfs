@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -25,4 +25,84 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+} */
+.App {
+  text-align: center;
+}
+
+* {
+  margin: 0;
+}
+
+.App-link {
+  color: #35ddcf7c;
+}
+
+.main-nav {
+  background-color: rgb(73, 70, 70);
+  margin: 0;
+  padding: 0;
+  color: rgb(219, 210, 168);
+}
+
+.main-nav .nav {
+  color: white;
+  margin: 20px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 1.5rem;
+}
+
+h1 {
+  padding: 1.7rem;
+}
+
+.smurfs-list {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+}
+.smurf-item {
+  width: 50%;
+  overflow: hidden;
+}
+h3 {
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+.soccer-item p {
+  margin: 20px 30px;
+}
+input {
+  font-size: 1.6rem;
+  padding: 0.2rem 0.8rem;
+  margin: 30px 1rem;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px black;
+  outline: none;
+  width: 50%;
+}
+
+form h2 {
+  margin-top: 40px;
+}
+button {
+  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  margin: 30px 1rem;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px black;
+  outline: none;
+  background-color: rgb(23, 1, 121);
+  color: white;
 }

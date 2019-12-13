@@ -23,10 +23,25 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+1. without context API, the data in the state can be accessed from the parent components. if we need data from state in the components in grand-grand- children, we would endup in situiation of drop-drilling with context API.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+2. action dispatches what to do from the user's response. dispatches will update the state according to action. store stores data in state in single location (this is why it is called single source of truth) and can be accessed any components in the system by connection to store using conncet function.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+3. component state is the state using state hook for managing component data in each components. appliation state is to use the store accessed from all components.
+   appllication state is good for immutability and predictabiltiy of state which is easy to debug.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+4. redux-thunk is function in between action and reducer funtion to control data to reducer. Now action-creatros return function to reducer, which we can change action to reducer with reduc-thunk.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+5. my favorite state management system is using the store for state data and we can access any components with connect function which we can manage data in the state easier.
 
 ## Project Set Up
 
