@@ -1,4 +1,4 @@
-import { GET_TOGGLE, GET_SUCCESS, ADD_SMURF } from "./actions/index";
+import { GET_TOGGLE, GET_SUCCESS, ADD_SMURF } from '../actions/index.js'
 
 const initialState = {
   smurfs: [],
@@ -8,20 +8,20 @@ const initialState = {
 
 const asyncReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_TOGGLE":
+    case GET_TOGGLE:
       return {
         ...state,
         awaitingResponse: !state.awaitingResponse,
         error: action.payload ? action.payload : ""
       };
-    case "GET_SUCCESS":
+    case GET_SUCCESS:
       return {
         ...state,
         smurfs: action.payload,
         awaitingResponse: false,
         error: ""
       };
-    case "ADD_SMURF":
+    case ADD_SMURF:
       return {
         ...state,
         smurfs: action.payload,

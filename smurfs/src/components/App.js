@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Village from "./Village.jsx";
+import Village from "./village.jsx";
 import AddSmurf from "./AddSmurf.jsx";
 
 class App extends Component {
