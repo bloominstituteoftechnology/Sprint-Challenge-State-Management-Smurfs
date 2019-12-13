@@ -1,9 +1,9 @@
-import{FETCHSMURF} from '../actions/actions';
-import{FETCHPASS} from '../actions/actions';
-import{FETCHMISS} from '../actions/actions';
-import{ADDSMURF} from '../actions/actions';
-import{ADDPASS} from '../actions/actions';
-import{ADDMISS} from '../actions/actions';
+import{FETCHSMURF} from '../actioncomp/actions';
+import{FETCHPASS} from '../actioncomp/actions';
+import{FETCHMISS} from '../actioncomp/actions';
+import{ADDSMURF} from '../actioncomp/actions';
+import{ADDPASS} from '../actioncomp/actions';
+import{ADDMISS} from '../actioncomp/actions';
 
 
 const initialState = {

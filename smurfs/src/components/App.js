@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import {connect} from 'react-redux';
 import "./App.css";
-import {fetchSmurf} from '../../src/actions/actions';
+import {fetchSmurf} from '../actioncomp/actions';
 import Smurform from './smurfinput';
 import Smurfville from './smurfville';
 

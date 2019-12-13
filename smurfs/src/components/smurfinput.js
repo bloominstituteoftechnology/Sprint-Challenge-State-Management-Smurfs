@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addSmurf } from "../actions";
+import { addSmurf } from "../actioncomp/actions";
 import "./App.css";
 
 const Form = props => {
