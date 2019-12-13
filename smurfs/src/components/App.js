@@ -8,9 +8,9 @@ import { Village } from "./Village";
 const App = props => {
 
   const [newSmurf, setNewSmurf] = useState({
-    name: 'brian',
-    age: 100,
-    height: '5cm'
+    name: '',
+    age: 0,
+    height: ''
   })
 
   const handleChange = e => {
