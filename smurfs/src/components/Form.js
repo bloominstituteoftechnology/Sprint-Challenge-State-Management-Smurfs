@@ -18,9 +18,9 @@ const Form = () => {
 	};
 
 	return (
-		<div>
+		<div >
 			<h2>Add a new smurf</h2>
-			<form onSubmit={e => handleSubmit(e)}>
+			<form className="List" onSubmit={e => handleSubmit(e)}>
 				<input
 					type="text"
                     placeholder="name"

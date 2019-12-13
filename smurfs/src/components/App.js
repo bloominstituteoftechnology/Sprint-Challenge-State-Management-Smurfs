@@ -4,6 +4,7 @@ import axios from 'axios'
 import {SmurfContext} from '../context/context'
 import Form from './Form'
 import List from './List'
+import '../styles/styles.scss'
 const App = () => {
   const [smurfs, setSmurfs] = useState();
 
@@ -23,7 +24,7 @@ const App = () => {
 
 	const Remove = smurf => {
 		axios
-			.delete(`http://localhost:3333/smurfs/:id${smurf}`)
+			.delete(`http://localhost:3333/smurfs/${smurf}`)
 			.then(res => {
 				setSmurfs(res.data);
 			})
@@ -34,8 +35,8 @@ const App = () => {
       <SmurfContext.Provider value={{smurfs, setSmurfs, Add, Remove}}>
         <div className="App">
           <h1>SMURFS! 2.0 W/ Redux</h1>
-        <List />
         <Form />
+        <List /> 
         </div>
       </SmurfContext.Provider>
     );

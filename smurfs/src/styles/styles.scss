@@ -1,0 +1,31 @@
+.SmurfsList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+}
+
+.Smurf {
+    display:flex;
+    flex-direction: column;
+    background: #6c7b95;
+    border: solid 5px #018383;
+    border-radius: 15px;
+    width: 15%; 
+    margin: 2%;
+    align-items: center;
+}
+
+button {
+    margin: 3% 0;
+}
+
+.List {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    align-items: center;
+    margin: auto;
+}
+
