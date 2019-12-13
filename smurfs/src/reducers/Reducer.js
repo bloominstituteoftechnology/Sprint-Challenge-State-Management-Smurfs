@@ -1,5 +1,9 @@
 import{FETCHSMURF} from '../actions/actions';
-
+import{FETCHPASS} from '../actions/actions';
+import{FETCHMISS} from '../actions/actions';
+import{ADDSMURF} from '../actions/actions';
+import{ADDPASS} from '../actions/actions';
+import{ADDMISS} from '../actions/actions';
 
 
 const initialState = {
@@ -12,16 +16,16 @@ const initialState = {
     switch (action.type) {
       case FETCHSMURF:
         return { ...state, message: action.payload };
-      case GET_SUCCESS:
+      case FETCHPASS:
         return { message: "", smurfs: action.payload };
-      case GET_FAIL:
+      case FETCHMISS:
         console.log(action.payload);
         return { ...state, message: action.payload };
-      case ADD_SMURF:
+      case ADDSMURF:
         return { ...state, message: action.payload };
-      case ADD_SUCCESS:
+      case ADDPASS:
         return { message: "Smurf added", smurfs: action.payload };
-      case ADD_FAIL:
+      case ADDMISS:
         console.log(action.payload);
         return { ...state, message: action.payload };
       default:
