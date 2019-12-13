@@ -36,6 +36,7 @@ const App = () => {
         <div className="App">
           <h1>SMURFS! 2.0 W/ Redux</h1>
         <Form />
+        <h2>Smurfs</h2>
         <List /> 
         </div>
       </SmurfContext.Provider>

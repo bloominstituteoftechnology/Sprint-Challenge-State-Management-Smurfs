@@ -8,7 +8,7 @@ const List = props => {
 
 	return (
 		<div className="SmurfsList">
-			{smurfs && smurfs.map(smurf => <Smurf key={smurf.id} smurf={smurf} Remove={Remove} />)}
+            {smurfs && smurfs.map(smurf => <Smurf key={smurf.id} smurf={smurf} Remove={Remove} />)}
 		</div>
 	);
 };
