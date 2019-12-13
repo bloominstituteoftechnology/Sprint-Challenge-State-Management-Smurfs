@@ -1,13 +1,18 @@
 import React from "react";
 import "./App.css";
 
-import Smurf from "./Smurf";
+import SmurfForm from "./SmurfForm";
+import Smurfs from "./Smurfs";
+
 
 
 function App() {
   return (
     <div className="App">
-      <Smurf />
+    	<div className="smurf-split">
+	      <Smurfs />
+	      <SmurfForm />
+      	</div>
     </div>
   );
 }
