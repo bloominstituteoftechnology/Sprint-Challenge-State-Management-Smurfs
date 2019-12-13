@@ -2,5 +2,6 @@ export {
     SMURFING,
     SUCCESS,
     ERROR,
-    getVillage
+    getVillage,
+    addSmurf
 } from './smurfActions'
