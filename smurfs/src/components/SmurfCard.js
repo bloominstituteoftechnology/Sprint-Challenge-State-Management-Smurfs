@@ -46,12 +46,29 @@ render() {
 
             {this.state.smurfsAdd.map(smurf => {
                 return(
-                    <div className 'smurfcard'>
+                    <div className='smurfcard'>
+                        <h3>Name: {smurf.name}</h3>
+                        <h5>AGE: {smurf.age}  </h5>
+                        <h5>HEIGHT: {smurf.height} </h5>
                     </div>  
                 )
             })}
 
 
         </div>
-    )
+        )
+    }
 }
+
+const mapStateToProps = state => {
+    return{
+        smurfs: state.smurfs,
+        fetchingSmurfs: state.fetchingSmurfs,
+        error: state.error
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    {getSmurfs}
+)(SmurfCard)
