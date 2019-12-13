@@ -1,0 +1,93 @@
+.App {
+  text-align: center;
+  background-image: url('./components/images/night.jpg');
+  height: 100%;
+  width: 100%;
+  color: oldlace;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  margin: 0 auto;
+  font-size: medium;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.Header {
+ padding: 50px;
+}
+
+.village {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.smurf-card {
+  color: gold;
+  text-shadow: 1px 5px 10px black;
+  background-image: url('./components/images/day2.jpg');
+  width: 400px;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 0 auto;
+  margin: 50px;
+}
+
+
+.smurf-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 1100px;
+  padding: 50px;
+}
+
+label {
+  margin: 20px;
+  color: orangered;
+  font-family: 'Spirax', cursive;
+  font-size: 50px;
+}
+
+input {
+  margin: 20px;
+  height: 20px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 30px yellow;
+}
+
+button {
+  background-color: blue;
+  color: whitesmoke;
+  padding: 10px 30px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: none;
+  box-shadow: 2px 2px 30px white;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
