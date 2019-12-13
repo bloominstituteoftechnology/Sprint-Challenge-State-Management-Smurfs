@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 
 const SmurfForm = (props) => {
@@ -8,6 +8,8 @@ const SmurfForm = (props) => {
         height: "5cm",
         
     })
+
+
 console.log("newsmurf form",newSmurf)
     const handleChanges = e => {
         setNewSmurf({...newSmurf, [e.target.name]: e.target.value})
@@ -15,7 +17,7 @@ console.log("newsmurf form",newSmurf)
 
     return(
     <form onSubmit={(e) => {
-        e.preventDefault();
+        console.log("onsubmit newsmurfs",newSmurf)
         props.postSmurfs(newSmurf);
     }}
     

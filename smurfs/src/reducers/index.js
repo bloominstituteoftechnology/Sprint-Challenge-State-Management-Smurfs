@@ -46,7 +46,7 @@ const initialState = {
       case ADD_SMURF_SUCCESS:
         return {
           ...state,
-          smurfs: action.post,
+          smurfs: action.payload,
           isFetching: false,
           
         };
