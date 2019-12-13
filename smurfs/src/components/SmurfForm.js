@@ -3,12 +3,12 @@ import React, { useEffect, useState, useReducer } from 'react';
 import { connect } from 'react-redux';
 
 
-import { reducer } from "../store/reducers"
+import { smurfReducer } from "../store/reducers"
 import { addSmurfs } from '../store/actions';
 
 
 const SmurfForm = props => {
-    const [state, dispatch] = useReducer(reducer);
+    const [state, dispatch] = useReducer(smurfReducer);
 
     const [smurf, setSmurf] = useState({name:'', age:'', height:''});
 
@@ -38,8 +38,9 @@ return (
         <h1>Add a Smurf</h1>
 
         {/* INPUT NAME */}
-        <form onSubmit={submitForm}>
+        <form onSubmit={submitForm} className='form'>
         <input
+        className='input'
         type="text"
         name= "name"
         value={smurf.name}
@@ -50,6 +51,7 @@ return (
 
          {/* INPUT AGE */}
         <input
+        className='input'
         type="text"
         name= "age"
         value={smurf.age}
@@ -59,6 +61,7 @@ return (
 
         {/* INPUT Height */}
         <input
+        className='input'
         type="text"
         name= "height"
         value={smurf.height}

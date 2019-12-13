@@ -20,7 +20,7 @@ class SmurfCard extends React.Component {
     axios
     .get('http://localhost:3333/smurfs')
     .then(res => this.setState ({smurfsAdd: res.data}))
-    console.og('comp did mount')
+    console.log('comp did mount')
 }
 
     //component did update
@@ -28,7 +28,7 @@ class SmurfCard extends React.Component {
     axios
     .get('http://localhost:3333/smurfs')
     .then(res => this.setState ({smurfsAdd: res.data}))
-    console.og('comp did update')
+    console.log('comp did update')
 
 }
 
