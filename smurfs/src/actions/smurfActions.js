@@ -9,7 +9,20 @@ export const getSmurf = () => dispatch => {
   axios
     .get("http://localhost:3333/smurfs")
     .then(res => {
-      console.log(res.data, "res");
+      console.log(res.data, "get res");
+      dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log(err);
+      dispatch({ type: FETCH_SMURF_FAILURE, payload: err.response });
+    });
+};
+
+export const addSmurf = () => dispatch => {
+  axios
+    .post("http://localhost:3333/smurfs")
+    .then(res => {
+      console.log(res.data, "post res");
       dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
     })
     .catch(err => {

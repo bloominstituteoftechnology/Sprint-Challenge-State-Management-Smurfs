@@ -5,12 +5,13 @@ import {
 } from "../actions";
 
 const initialState = {
-  smurf: null,
+  smurf: [],
   isFetching: false,
   error: ""
 };
 
 const reducer = (state = initialState, action) => {
+  console.log(state, "state");
   switch (action.type) {
     case FETCH_SMURF_START:
       return {
@@ -18,6 +19,7 @@ const reducer = (state = initialState, action) => {
         isFetching: true
       };
     case FETCH_SMURF_SUCCESS:
+      console.log(action.payload, "success");
       return {
         ...state,
         smurf: action.payload,
