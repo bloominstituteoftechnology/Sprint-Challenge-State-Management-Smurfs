@@ -71,7 +71,7 @@ return (
 
 
         <button
-            className="BtnAddItem" 
+            className="Btn" 
             onClick={addSmurfs}>
         Add Smurf
         </button> 

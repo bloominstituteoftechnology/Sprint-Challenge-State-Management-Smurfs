@@ -41,15 +41,15 @@ render() {
     return(
 
         <div>
-            <h2>SMURF</h2>
+            <h1>SMURF</h1>
 
 
             {this.state.smurfsAdd.map(smurf => {
                 return(
                     <div className='smurfcard'>
-                        <h3>Name: {smurf.name}</h3>
-                        <h5>AGE: {smurf.age}  </h5>
-                        <h5>HEIGHT: {smurf.height} </h5>
+                        <h3 className='text'>Name: {smurf.name}</h3>
+                        <h3 className='text'>AGE: {smurf.age}  </h3>
+                        <h3 className='text'>HEIGHT: {smurf.height} </h3>
                     </div>  
                 )
             })}
