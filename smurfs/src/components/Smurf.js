@@ -9,7 +9,21 @@ const Smurf = (props) => {
 		<div>
 			<h1>Welcome to Smurf Village</h1>
 			<h5>Population: 0</h5>
-			<h6>The Smurfs are hiding: <span>Press that button to get them out of their camoflagued homes!</span></h6>
+			{!props.smurfs && !props.isFetching && <h6>The Smurfs are hiding: <span>Press that button to get them out of their camoflagued homes!</span></h6>}
+			{!props.smurfs && props.isFetching && <p>...</p>}
+			{props.smurfs && 
+				<div>
+					{props.smurfs.map(smurf => (
+						<div>
+							<p>{smurf.name}</p>
+							<p>{smurf.age}</p>
+							<p>{smurf.height}</p>
+						</div>
+					))
+					}
+				</div>
+			}
+			{props.error && !props.isFetching && <h2>NETWORK ERROR: {props.error} ¯\_(ツ)_/¯</h2>}
 			<button onClick={props.getSmurfs}>Le Pays Maudit!</button>
 		</div>
 	)
