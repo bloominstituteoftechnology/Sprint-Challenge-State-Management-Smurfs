@@ -9,8 +9,8 @@ const Form = () => {
 	});
 	const { Add } = useContext(SmurfContext);
 
-	const handleChange = event => {
-		setNew({ ...addNew, [event.target.name]: event.target.value });
+	const handleChange = e => {
+		setNew({ ...addNew, [e.target.name]: e.target.value });
 	};
 
 	const handleSubmit = () => {
@@ -18,30 +18,31 @@ const Form = () => {
 	};
 
 	return (
-		<div className="SmurfForm">
+		<div>
 			<h2>Add a new smurf</h2>
-			<form onSubmit={event => handleSubmit(event)}>
+			<form onSubmit={e => handleSubmit(e)}>
 				<input
 					type="text"
-					name="name"
-					placeholder="name"
+                    placeholder="name"
+                    name="name"
 					value={addNew.name}
-					onChange={event => handleChange(event)}
+					onChange={e => handleChange(e)}
 				/>
-				<input
-					type="number"
-					name="age"
-					placeholder="age"
-					value={addNew.age}
-					onChange={event => handleChange(event)}
-				/>
-				<input
-					type="text"
+                <input
+                    type="text"
+                    placeholder="height"
 					name="height"
-					placeholder="height"
 					value={addNew.height}
-					onChange={event => handleChange(event)}
+					onChange={e => handleChange(e)}
 				/>
+				<input
+                    type="number"
+                    placeholder="age"
+					name="age"
+					value={addNew.age}
+					onChange={e => handleChange(e)}
+				/>
+
 				<button>Add Smurf</button>
 			</form>
 		</div>

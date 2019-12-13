@@ -23,7 +23,7 @@ const App = () => {
 
 	const Remove = smurf => {
 		axios
-			.delete(`http://localhost:3333/smurfs/${smurf}`)
+			.delete(`http://localhost:3333/smurfs/:id${smurf}`)
 			.then(res => {
 				setSmurfs(res.data);
 			})
