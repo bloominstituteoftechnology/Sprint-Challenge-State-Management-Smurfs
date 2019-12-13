@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import "./App.css";
 import axios from 'axios'
 import {SmurfContext} from '../context/context'
+import Form from './Form'
+import List from './List'
 const App = () => {
   const [smurfs, setSmurfs] = useState();
 
@@ -16,7 +18,7 @@ const App = () => {
   }, []);
 
   const Add = smurf => {
-		axios.post('http://localhost:3333/smurfs', smurf).then(res => {})
+		axios.post('http://localhost:3333/smurfs', smurf).then(res => {setSmurfs(res.data)})
 	};
 
 	const Remove = smurf => {
@@ -32,9 +34,8 @@ const App = () => {
       <SmurfContext.Provider value={{smurfs, setSmurfs, Add, Remove}}>
         <div className="App">
           <h1>SMURFS! 2.0 W/ Redux</h1>
-          <div>Welcome to your state management version of Smurfs!</div>
-          <div>Start inside of your `src/index.js` file!</div>
-          <div>Have fun!</div>
+        <List />
+        <Form />
         </div>
       </SmurfContext.Provider>
     );
