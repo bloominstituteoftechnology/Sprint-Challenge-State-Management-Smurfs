@@ -1,16 +1,40 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
-    );
-  }
-}
+import axios from "axios";
+import smurfContexts from "../Contexts/smurfContexts";
+import SmurfList from "./SmurfList";
+import SmurfForm from "./SmurfForm";
 
-export default App;
+export default function() {
+  const [smurfState, setSmurfState] = useState([]);
+
+  function getData() {
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then(response => setSmurfState(response.data))
+      .catch(error => console.log("fetching data error", error));
+  }
+
+  function dataPosted(smurf) {
+    axios
+      .post("http://localhost:3333/smurfs", smurf)
+      .then(response => setSmurfState(response.data))
+      .catch(error => console.log("post error", error));
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    <div className="App">
+      <h1>SMURFS! 2.0 W/ Red</h1>
+      <div>Welcome to your state management version of Smurfs!</div>
+      <div>Have fun!</div>
+      <smurfContexts.Provider>
+        <SmurfList smurfs={smurfState} />
+      </smurfContexts.Provider>
+      <SmurfForm post={dataPosted} />
+    </div>
+  );
+}
