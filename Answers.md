@@ -11,4 +11,5 @@ Use component state when you don't need access to that state across the app and 
 1. Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
 Redux allows us to return functions instead of an action object
 1. What is your favorite state management system you've learned during this sprint? Please explain why!
-Neither, they're both confusing as of right now.
+Context API is my favorite so far, it allows me to access state throughout my app. I want to get better with redux, because I think
+it's more commonly used.
