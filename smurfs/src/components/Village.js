@@ -5,7 +5,7 @@ export const Village = props => {
     return (
         <div>
             {props.village.map(smurf => (
-                <Smurf smurf={smurf}/>
+                <Smurf key={Date.now()} smurf={smurf}/>
             ))}
         </div>
     )

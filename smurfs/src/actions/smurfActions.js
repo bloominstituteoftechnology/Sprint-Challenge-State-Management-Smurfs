@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const SMURFING = 'SMURFING';
-export const SUCCESS = 'SUCCESS';
+export const SMURFING = 'SMURFING'
+export const SUCCESS = 'SUCCESS'
 export const ERROR = 'ERROR'
 
 export const getVillage = () => dispatch => {
