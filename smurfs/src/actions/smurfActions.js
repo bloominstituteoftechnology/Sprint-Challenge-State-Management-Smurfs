@@ -9,24 +9,32 @@ export const getSmurf = () => dispatch => {
   axios
     .get("http://localhost:3333/smurfs")
     .then(res => {
-      console.log(res.data, "get res");
+      // console.log(res.data, "get res");
       dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
       dispatch({ type: FETCH_SMURF_FAILURE, payload: err.response });
     });
 };
 
-export const addSmurf = () => dispatch => {
+export const addSmurf = item => dispatch => {
   axios
-    .post("http://localhost:3333/smurfs")
+    .post(
+      "http://localhost:3333/smurfs",
+      item
+      // {
+      //   name: "sleepy",
+      //   age: "159",
+      //   height: "6cm"
+      // }
+    )
     .then(res => {
-      console.log(res.data, "post res");
+      // console.log(res.data, "post res");
       dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
       dispatch({ type: FETCH_SMURF_FAILURE, payload: err.response });
     });
 };
