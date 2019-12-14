@@ -1,32 +1,24 @@
 // simple get request
 
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useContext } from 'react';
+import { SmurfContext } from './contexts/SmurfContext';
 
-export function SmurfList(props) {
-    const [smurfs, setSmurfs] = useState();
-    console.log(props);
-    const id = props.match.params.id;
-    useEffect(() => {
+const SmurfList = () =>  {
+    const smurfdata = useContext(SmurfContext);
 
-        axios
-        .get(`http://localhost:3333/smurfs/${id}`)
-        .then(res => {
-            setSmurf(res.data);
-            })
-        .catch(err => {
-            console.log('smurf error', err);
-        });
-    },[id]);
+    return (
+        <div className="more-smurfs">
+          {smurfdata.map((element, index) => 
+          <div key={index} >
+              <h1>{element.name}</h1>
+              <h2>{element.age}</h2>
+              <h3>{element.height}</h3>
+        </div>)}
+        </div>
+    )
+}
 
-        return (
-            <div className="App">
-                <h1>Smurfs</h1>
-            </div>
-            );
-        }
-
-    })
+export default SmurfList;
 
     
 
