@@ -43,7 +43,7 @@ function smurfReducer(state = initialState, action) {
     case POST_DATA_SUCCESS:
       return {
         ...state,
-        smurf: [...state.smurf, action.payload],
+        smurf: action.payload,
         isFetching: false
       };
     case POST_DATA_FAILURE:

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { getSmurfs, addSmurf } from "../actions/action";
@@ -6,31 +6,31 @@ import { getSmurfs, addSmurf } from "../actions/action";
 import SmurfForm from "./SmurfForm";
 
 const SmurfList = props => {
-  console.log(props);
-
-  const fetchSmurfs = e => {
-    e.preventDefault();
-    props.getSmurfs();
-  };
+  const initSmurfs = props.getSmurfs
+  useEffect (() => {
+    initSmurfs()
+  }, [initSmurfs])
 
   return (
     <div>
       <div>
         {props.smurf.map(smurf => (
-          <p key={smurf.name}>
-            {smurf.name} - Age: {smurf.age} , Height: {smurf.height}cm
+          <p key={smurf.id}>
+            {smurf.name} - Age: {smurf.age} , Height: {smurf.height}
           </p>
         ))}
       </div>
-      <button onClick={fetchSmurfs}>Show me the Smurfs!</button>
       <SmurfForm addSmurf={props.addSmurf} />
     </div>
   );
 };
 
-const mapStateToProps = state => ({
-  smurf: state.smurf,
-  error: state.error
-});
+const mapStateToProps = state => {
+  console.log(state)
+  return ({
+    smurf: state.smurf,
+    error: state.error
+  }
+  )};
 
 export default connect(mapStateToProps, { getSmurfs, addSmurf })(SmurfList);

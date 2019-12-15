@@ -11,9 +11,7 @@ const SmurfForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log("handleSubmit");
         props.addSmurf(newSmurf);
-        console.log(newSmurf);
     };
 
     const handleChanges = e => {
@@ -50,3 +48,4 @@ const SmurfForm = (props) => {
 };
 
 export default SmurfForm;
+
