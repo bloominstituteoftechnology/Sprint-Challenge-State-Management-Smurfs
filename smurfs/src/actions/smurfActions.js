@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 export const getSmurfs = () => dispatch => {
-        dispatch({type: 'GET_SMURF'});
-        axios
-        .get('http://localhost:3333/smurfs')
-        .then(response => dispatch({ type: 'GET_WORKED', payload: response.data}))
-        .catch(error => dispatch({ type: 'GET_FAILED', payload: error}))
+    dispatch({type: 'GET_SMURF'});
+    axios
+    .get('http://localhost:3333/smurfs')
+    .then(response => dispatch({ type: 'GET_WORKED', payload: response.data}))
+    .catch(error => dispatch({ type: 'GET_FAILED', payload: error}))
 };
 
 export const postSmurfs = data => dispatch => { 

@@ -5,23 +5,23 @@ import Smurf from './Smurf';
 import styled from 'styled-components';
 	
 	const AllSmurfs = styled.div`
-	 border: 1px solid black
+	 margin: 2%
     `
 
-	const Smurfs = ({ getSmurfs, smurfs }) => {
-		// console.log("smurfs in Smurfs:", smurfs); //test
-	 useEffect(()=>{
-	 	getSmurfs();
-	 }, [getSmurfs]);
+const Smurfs = ({ getSmurfs, smurfs }) => {
+	// console.log("smurfs in Smurfs:", smurfs); //test
+	useEffect(()=>{
+		getSmurfs();
+	}, [getSmurfs]);
 	
-	 return (
+	return (
 		<AllSmurfs>
-		     {smurfs.map(smurf => (
+			{smurfs.map(smurf => (
 				<Smurf key={smurf.id} smurf={smurf} />
-		     ))}
+			))}
 		</AllSmurfs>
-	 )
-}
+	)
+};
 
 const mapStateToProps = state => {
 	// console.log('smurfs: ', state)  //test
