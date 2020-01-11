@@ -15,6 +15,8 @@ const App = ({getSmurfs, isFetching, smurfs, error}) => {
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
+      <FormComponent />
+        <button onClick={getSmurfs}>Update Smurfs</button>
        {smurfs.map(smurf => 
           <div>
             <h2>{smurf.name}</h2>
@@ -22,8 +24,6 @@ const App = ({getSmurfs, isFetching, smurfs, error}) => {
             <p>Height: {smurf.height}cm</p>
           </div>
           )}
-          <FormComponent />
-            <button onClick={getSmurfs}>Update Smurfs</button>
         </div>
 
     );
