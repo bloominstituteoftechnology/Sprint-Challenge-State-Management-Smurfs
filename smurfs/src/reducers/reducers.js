@@ -21,7 +21,6 @@ export const reducer = (state = initialState, action) => {
             }
 
         case FETCH_SMURFS_SUCCESS:
-            console.log('yes')
             return {
                 ...state,
                 smurfs: action.payload.data,

@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { fetchSmurfs } from '../actions/actions';
 
 const Smurflist = (props) => {
+
     useEffect(() => {
         props.fetchSmurfs()
-        console.log(props.smurfs)
     }, [])
 
     return (
@@ -24,4 +24,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {fetchSmurfs})(SmurfList);
+export default connect(mapStateToProps, {fetchSmurfs})(Smurflist)

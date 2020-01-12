@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import axios from axios;
+import axios from 'axios';
 import Form from './Form';
 import SmurfList from './SmurfList';
 
@@ -8,7 +8,6 @@ const App = () => {
   axios 
     .get('http://localhost:3333/smurfs')
     .then(res => {
-      console.log(res)
     })
 
     return (
