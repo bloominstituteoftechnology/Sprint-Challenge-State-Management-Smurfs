@@ -22,7 +22,7 @@ const Form = (props) => {
             [name]: e.target.value
         })
     }
-
+    
     return (
         <div>
             <form>
