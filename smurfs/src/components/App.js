@@ -8,6 +8,7 @@ const App = () => {
   axios 
     .get('http://localhost:3333/smurfs')
     .then(res => {
+        console.log('get from App.js', res)
     })
 
     return (

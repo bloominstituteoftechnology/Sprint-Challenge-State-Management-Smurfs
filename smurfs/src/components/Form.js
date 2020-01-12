@@ -11,7 +11,7 @@ const Form = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(newSmurf)
+        console.log('handlesubmit new smurf', newSmurf)
         props.addSmurf(newSmurf)
     }
 
@@ -29,7 +29,7 @@ const Form = (props) => {
                 <input name='name' type='text' placeholder='name' onChange={handleChanges}></input>
                 <input name='age' type='text' placeholder='age' onChange={handleChanges}></input>
                 <input name='height' type='text' placeholder='height' onChange={handleChanges}></input>
-                <button type='submit' onChange={handleSubmit}>Enter your smurf</button>
+                <button type='submit' onClick={handleSubmit}>Enter your smurf</button>
             </form>
         </div>
     )
