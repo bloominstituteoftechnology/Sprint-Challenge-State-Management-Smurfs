@@ -7,11 +7,11 @@ class SmurfList extends Component {
         this.props.fetchSmurfs();
     }
     render() {
-        const arrItems = this.props.posts.map(smurf => (
-            <div key={smurf.id}>
-                <h3>{smurf.name}</h3>
-                <p>{smurf.age}</p>
-                <p>{smurf.height}</p>
+        const arrItems = this.props.posts.map(post => (
+            <div key={post.id}>
+                <h3>{post.name}</h3>
+                <p>{post.age}</p>
+                <p>{post.height}</p>
             </div>
         ))
         return (
@@ -24,7 +24,8 @@ class SmurfList extends Component {
 }
 
 const mapStateToProps = state => ({
-    posts: state.posts.items
+    posts: state.posts.items,
+    newPost: state.posts.item
 })
 
 export default connect(mapStateToProps, { fetchSmurfs })(SmurfList);
