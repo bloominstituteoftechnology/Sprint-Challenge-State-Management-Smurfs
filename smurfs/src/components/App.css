@@ -26,3 +26,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+h1 {
+  text-shadow: 2px 2px 3px gray;
+  color:blue;
+}
+
+h3 {
+  color:blue;
+  text-shadow: 2px 2px 3px gray;
+} 
