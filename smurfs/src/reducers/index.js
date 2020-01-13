@@ -1,10 +1,7 @@
-const intialState = {
-    name: '',
-    age: 200,
-    height: '5cm',
-    id: new Date()
-}
+import { combineReducers } from 'redux';
+import smurfReducer from './smurfReducer';
 
-export const smurfReducer = (state = initialState, action) => {
-    return initialState
-}
+export default combineReducers({
+    posts: smurfReducer
+})
+

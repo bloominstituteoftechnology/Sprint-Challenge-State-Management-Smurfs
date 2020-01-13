@@ -11,7 +11,6 @@ function App(props) {
         <div>Welcome to your state management version of Smurfs!</div>
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
-        
       </div>
     );
   }
@@ -20,6 +19,9 @@ function App(props) {
 const mapStateToProps =(state) => {
   return {
     name: state.name,
+    age: state.age,
+    height: state.height,
+    id: state.id
   };
 }
 
