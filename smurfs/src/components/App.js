@@ -3,6 +3,8 @@ import "./App.css";
 import axios from 'axios';
 import Form from './Form';
 import SmurfList from './SmurfList';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 const App = () => {
   axios 
@@ -12,10 +14,13 @@ const App = () => {
     })
 
     return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
+      <div className='App'>
+        <Paper className='paper'>
+        <Typography variant='h4'>CHARACTER CREATOR FOR SMURF UNIVERSE!</Typography>
+        <br></br>
         <Form />
         <SmurfList />
+        </Paper>
       </div>
     );
 }

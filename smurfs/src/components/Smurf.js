@@ -1,12 +1,17 @@
 import React from 'react';
+import './App.css';
+import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
 
 const Smurf = (props) => {
     return (
-        <div className="smurf">
-            <h3>{props.smurf.name}</h3>
-            <p>Age: {props.smurf.age}</p>
-            <p>Height: {props.smurf.height}</p>
-        </div>
+        <Card className="smurf">
+            <br></br>
+            <Typography variant='h4'>{props.smurf.name}</Typography>
+            <Typography variant='h6'>Age: {props.smurf.age}</Typography>
+            <Typography variant='h6'>Height: {props.smurf.height}</Typography>
+            <br></br>
+        </Card>
     )
 }
 

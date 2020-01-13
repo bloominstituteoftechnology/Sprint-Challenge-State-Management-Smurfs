@@ -26,3 +26,27 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.paper {
+  width: 50%;
+  margin: 0 auto;
+}
+
+body {
+  background: url(https://i.pinimg.com/originals/85/5f/85/855f85ff7babb2f464ecc2423ae2b210.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.form {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.smurf {
+  border: 1px solid black;
+  width: 55%;
+  margin: 30px auto;
+  
+}
