@@ -64,4 +64,4 @@ class AddSmurf extends Component {
     }
 }
 
-export connect(null, { createPost })(AddSmurf);
+export default  connect(null, { createPost })(AddSmurf);

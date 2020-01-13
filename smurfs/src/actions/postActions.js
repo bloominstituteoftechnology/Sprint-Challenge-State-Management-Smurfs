@@ -17,7 +17,7 @@ export const addSmurfs = (postData) => dispatch => {
        headers: {
            'content-type': 'application/json'
        },
-       body: JSON.stringify(post)
+       body: JSON.stringify(postData)
    })
    .then(res => res.json())
    .thenI(post => dispatch({
