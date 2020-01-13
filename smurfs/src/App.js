@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import "./App.css";
 import { connect } from 'react-redux';
 import SmurfList from './components/SmurfList';
-import AddSmurf from './components/SmurfList';
+import AddSmurf from './components/AddSmurf';
 
-function App(props) {
+function App() {
   
     return (
       <div className="App">
