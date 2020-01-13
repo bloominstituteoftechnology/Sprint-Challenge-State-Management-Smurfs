@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { getSmurfs, addSmurf } from "../actions/action";
 import SmurfForm from "./SmurfForm";
 
+import "../components/App.css";
+
 const SmurfList = props =>{
     const initSmurfs = props.getSmurfs
     useEffect(() =>{
@@ -11,15 +13,17 @@ const SmurfList = props =>{
     }, [initSmurfs])
 
     return (
-        <div>
-            <div>
+        <div className = "smurfs">
+            <div className = "smurfList">
                 {props.smurf.map(smurf =>(
-                    <p key={smurf.id}>
-                        {smurf.name} - Age: {smurf.age}, Height: {smurf.height}
-                    </p>
+                    <div className ="eachSmurf" key={smurf.id}>
+                        <p>Name: {smurf.name}</p>
+                        <p>Age: {smurf.age}</p> 
+                        <p>Height: {smurf.height}</p>
+                    </div>
                 ))}
             </div>
-            <SmurfForm addSmurfs = {props.addSmurfs}/>
+            <SmurfForm addSmurf = {props.addSmurf}/>
         </div>
     );
 };

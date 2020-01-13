@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import "../components/App.css";
 
 const SmurfForm = (props) => {
     const [newSmurf, setNewSmurf] = useState({
@@ -19,8 +19,10 @@ const SmurfForm = (props) => {
     };
 
     const handleChanges = e => {
-       
-        setNewSmurf({ ...newSmurf, [e.target.name]: e.target.value });
+       setNewSmurf({ 
+           ...newSmurf, 
+           [e.target.name]: e.target.value 
+        });
     };
 
     return (
@@ -45,7 +47,7 @@ const SmurfForm = (props) => {
                     onChange={handleChanges}
                     value={newSmurf.height}
                 />
-                <button type="submit">Create Smurf</button>
+                <button className = "submitButton" type="submit">Create Smurf</button>
             </form>
         </div>
     );
