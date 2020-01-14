@@ -57,11 +57,11 @@ const Form = (props) => {
 
 
    return (
-    <div className="add-form">
-        <form onSubmit={handleSubmit} name="add-form">
-            <input onChange={handleChange} value={datos.name} name="name" placeholder="Name" type="text"/>
-            <input onChange={handleChange} value={datos.height} name="height" placeholder="Height" type="text"/>
-            <input onChange={handleChange} value={datos.age} name="age" placeholder="Age" type="text"/>
+    <div className="smurf-form">
+        <form onSubmit={handleSubmit} name="smurf-form">
+            <input onChange={handleChange} value={datos.name} name="name" placeholder="name" type="text"/>
+            <input onChange={handleChange} value={datos.age} name="age" placeholder="age" type="text"/>
+            <input onChange={handleChange} value={datos.height} name="height" placeholder="height" type="text"/>
             <button>Add</button>
         </form>
     </div>

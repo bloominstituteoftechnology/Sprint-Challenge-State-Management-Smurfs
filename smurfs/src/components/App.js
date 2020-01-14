@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import axios from "axios";
 import Form from './Form';
 
-import { getSmurfs} from '../actions';
+
+import { getSmurfs, deleteSmurfs} from '../actions';
 
 const App = (props) => {
   
@@ -21,15 +22,22 @@ const App = (props) => {
     showSmurfs();
 }, [])
   
-     const bla = props.smurfs;
+     const smurfs = props.smurfs;
+
+     const deleteSmurf = (id) =>{
+      axios.delete(`http://localhost:3333/smurfs/${id}`).then(res=>{
+          props.deleteSmurfs(res.data)
+      })
+  }
 
     return (
 
       <div className="App">
 
-        {bla.map((e) => 
+        {smurfs.map((each) => 
         <div>
-        <h3>name: {e.name}  age: {e.age}  height: {e.height}</h3>
+        <h3>name: {each.name}  age: {each.age}  height: {each.height}
+         <button onClick={()=>{deleteSmurf(each.id)}} >Delete Smurf</button></h3>
         </div>
         )}
 
@@ -49,5 +57,5 @@ const App = (props) => {
     state => { 
     return { smurfs : state.smurfs };
   }, 
-      { getSmurfs : getSmurfs } 
+      { getSmurfs : getSmurfs, deleteSmurfs : deleteSmurfs } 
   )(App);
