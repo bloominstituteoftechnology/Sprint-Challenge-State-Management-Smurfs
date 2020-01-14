@@ -5,14 +5,14 @@ export const getSmurfs = (data) =>{
     }
 }
 
-export const addSmurf = (data) => {
+export const addSmurfs = (data) => {
     return {
         type: "ADD_SMURF",
         payload: data
     }
 }
 
-export const deleteSmurf = (data) =>{
+export const deleteSmurfs = (data) =>{
     return {
         type: "DELETE_SMURF",
         payload: data

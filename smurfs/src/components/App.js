@@ -2,6 +2,7 @@ import React, { useEffect} from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import axios from "axios";
+import Form from './Form';
 
 import { getSmurfs} from '../actions';
 
@@ -31,6 +32,8 @@ const App = (props) => {
         <h3>name: {e.name}  age: {e.age}  height: {e.height}</h3>
         </div>
         )}
+
+        <Form/>
         
 
 
