@@ -26,7 +26,7 @@ class AddSmurf extends Component {
             height: this.state.height,
             id: this.state.id
         };
-        this.props.createPost(post);
+        this.props.addSmurfs(post);
     }
          
 
@@ -64,4 +64,4 @@ class AddSmurf extends Component {
     }
 }
 
-export default  connect(null, { createPost })(AddSmurf);
+export default  connect(null, { addSmurfs })(AddSmurf);

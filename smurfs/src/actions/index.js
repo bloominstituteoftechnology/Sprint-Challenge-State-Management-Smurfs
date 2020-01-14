@@ -3,5 +3,5 @@ export const getSmurfs = () => {
 }
 
 export const addSmurf = () => {
-   return {type: 'ADD_SMURF'} 
+   return {type: 'ADD_SMURFS'} 
 }

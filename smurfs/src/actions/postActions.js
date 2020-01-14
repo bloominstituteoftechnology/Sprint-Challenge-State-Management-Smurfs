@@ -5,7 +5,7 @@ export const fetchSmurfs = () => dispatch => {
         fetch('http://localhost:3333/smurfs')
         .then(res => res.json())
         .then(data => dispatch({
-            type: 'GET_SMURFS',
+            type: GET_SMURFS,
             payload: data
         }));
     
@@ -21,7 +21,7 @@ export const addSmurfs = (postData) => dispatch => {
    })
    .then(res => res.json())
    .thenI(post => dispatch({
-       type: 'ADD_SMURFS',
+       type: ADD_SMURFS,
        payload: post
    }))
     
