@@ -20,13 +20,14 @@ class AddSmurf extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const post = {
-            name: this.state.name,
-            age: this.state.age,
-            height: this.state.height,
-            id: this.state.id
-        };
-        this.props.addSmurfs(post);
+        this.setState(addSmurfs)
+        // const post = {
+        //     name: this.state.name,
+        //     age: this.state.age,
+        //     height: this.state.height,
+        //     id: this.state.id
+        // };
+        // this.props.addSmurfs(post);
     }
          
 

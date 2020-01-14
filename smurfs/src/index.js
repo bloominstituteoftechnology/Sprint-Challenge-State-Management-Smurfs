@@ -11,7 +11,7 @@ import App from "./App";
 
 const middleware = [thunk];
 
-const store = createStore(smurfReducer, initialState, applyMiddleware(...middleware));
+const store = createStore(smurfReducer, applyMiddleware(...middleware));
 console.log(store);
 
 
