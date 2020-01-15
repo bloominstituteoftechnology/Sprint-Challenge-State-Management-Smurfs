@@ -25,7 +25,7 @@ export const reducer = (state = initialState, action) => {
             console.log("Fetching was successful")
             return {
                 ...state,
-                smurf: action.payload.data,
+                smurfs: action.payload.data,
                 isFetching: false,
                 error: ""
             }

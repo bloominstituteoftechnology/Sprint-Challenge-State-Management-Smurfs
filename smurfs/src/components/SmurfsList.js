@@ -3,23 +3,30 @@ import Smurf from './Smurf';
 import { fetchSmurfs } from '../actions/actions.js';
 import { connect } from 'react-redux';
 
-const SmurfsList = props => {
-    
+const SmurfsList = (props) => {
+
     useEffect(() => {
         props.fetchSmurfs();
     }, [])
-    
-    console.log(props.smurfs);
-    return (
-        <div>
-            {props.smurfs.map(smurf => {
-                return <Smurf smurf={smurf} />
-            })}
-        </div>
-    )
+
+    if (props.smurfs) {
+        return (
+            <div>
+
+                {props.smurfs.map(smurf => {
+
+                    return <Smurf smurf={smurf} />
+                })
+                }
+
+            </div>
+        )
+    }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
+    console.log(state.smurf)
+    console.log(state.smurfs)
     return {
         smurfs: state.smurfs,
         isFetching: state.isFetching,
