@@ -5,10 +5,9 @@ import { Provider } from "react-redux";
 
 import "./index.css";
 import App from "./components/App";
+import appReducer from "./reducers/appReducer";
 
-
-function 
-let store = createStore(reducer);
+let store = createStore(appReducer);
 
 ReactDOM.render(
   <Provider store={store}>
