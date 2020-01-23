@@ -13,12 +13,12 @@ class AddSmurf extends Component {
         };
     }
 
-    onChange = e => {
+     handleChange = e => {
         e.preventDefault();
         this.setState({ [e.target.name] : e.target.value });
     }
 
-    onSubmit = e => {
+     handleSubmit = e => {
         e.preventDefault();
         this.setState(addSmurfs)
         // const post = {
@@ -36,26 +36,26 @@ class AddSmurf extends Component {
         return (
             <div>
                 <hi>Add Smurf</hi>
-                  <form onSubmit={onSubmit}>
+                  <form onSubmit={this.handleSubmit}>
                       <div>
                           <label>Name:</label><br />
                           <input
                              type='text'
                              name='name'
                              value={this.state.name}
-                             onChange={this.onChange}
+                             onChange={this.handleChange}
                             /><br />
                            <input 
                              type='text'
                              age='age'
                              value={this.state.age}
-                             onChange={this.onChange}
+                             onChange={this.handleChange}
                             /><br />
                             <input 
                              type='text'
                              height='height'
                              value={this.state.height}
-                             onChange={onChange}  
+                             onChange={this.handleChange}  
                             /><br />    
                            <button type='submit'>Submit</button>                    
                       </div>

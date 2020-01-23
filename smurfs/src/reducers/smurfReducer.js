@@ -1,11 +1,11 @@
-import { GET_SMURFS, ADD_SMURFS } from '../actions';
+import { postActions } from '../actions';
 
 const initialState  = {
     items: [],
     item: {}
 }
 
-export const smurfReducer = (state = initialState, action) => {
+export default smurfReducer = (state = initialState, action) => {
     switch(action.type) {
         case 'GET_SMURFS':
             return { ...state, items: action.payload};
