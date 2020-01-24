@@ -1,7 +1,10 @@
 import {
 	FETCHING_SMURFS_START,
 	FETCHING_SMURFS_SUCCESS,
-	FETCHING_SMURFS_FAILURE
+	FETCHING_SMURFS_FAILURE,
+	ADD_SMURF_SUCCESS,
+	ADD_SMURF_START,
+	ADD_SMURF_FAILURE
 } from '../actions';
 
 export const initialState = {
@@ -35,6 +38,27 @@ export const reducer = (state = initialState, action) => {
 					height: action.payload.height
 				}
 			};
+		case FETCHING_SMURFS_FAILURE:
+			return {
+				...state,
+				error: true
+			};
+
+		case ADD_SMURF_SUCCESS:
+			console.log('reducer payload', action.payload);
+			return {
+				...state,
+				isLoading: true,
+				village: {
+					...state.village
+				}
+			};
+		case ADD_SMURF_FAILURE:
+			return {
+				...state,
+				error: true
+			};
+
 		default:
 			return state;
 	}
