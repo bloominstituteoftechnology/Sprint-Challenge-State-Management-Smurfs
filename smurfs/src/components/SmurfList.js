@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { getSmurfs, addSmurf } from "../actions/action";
+import { getSmurfs, addSmurf, editSmurf } from "../actions/action";
 
 import SmurfForm from "./SmurfForm";
+
+import "./App.css";
 
 const SmurfList = props => {
   const initSmurfs = props.getSmurfs
@@ -13,14 +15,17 @@ const SmurfList = props => {
 
   return (
     <div>
-      <div>
+      <div className = "smurfs">
         {props.smurf.map(smurf => (
           <p key={smurf.id}>
-            {smurf.name} - Age: {smurf.age} , Height: {smurf.height}
+            {smurf.name} - Age: {smurf.age} , Height: {smurf.height}<br></br>
+            <button className="btn">Edit smurf</button> <br></br>
+            <button className="btn">Delete Smurf</button>
           </p>
         ))}
       </div>
       <SmurfForm addSmurf={props.addSmurf} />
+
     </div>
   );
 };

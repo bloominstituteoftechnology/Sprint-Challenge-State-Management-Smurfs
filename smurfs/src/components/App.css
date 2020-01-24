@@ -6,5 +6,22 @@
 
 body {
   background-image: url("https://images.thestar.com/0O9fVaLgBisinI1OpxhjdkGoJRQ=/1200x649/smart/filters:cb(2700061000)/https://www.thestar.com/content/dam/thestar/entertainment/movies/2017/04/06/smurfs-the-lost-village-attempts-a-feminist-tone-review/smurfs.jpg");
+  opacity:49%
+}
+
+h1 {
  
+  background-color: purple;
+}
+
+.smurfs {
+  border: solid black 1px;
+  background-color: red;
+
+}
+
+.btn {
+  background-color: blue;
+  color: white;
+  border-radius: 20%;
 }

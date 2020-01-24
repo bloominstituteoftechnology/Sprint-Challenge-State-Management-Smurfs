@@ -6,8 +6,7 @@ const SmurfForm = (props) => {
         age: '',
         height: ''
     });
-    console.log(newSmurf);
-    console.log(props);
+
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -15,7 +14,6 @@ const SmurfForm = (props) => {
     };
 
     const handleChanges = e => {
-        console.log("handleChanges");
         setNewSmurf({ ...newSmurf, [e.target.name]: e.target.value });
     };
 
