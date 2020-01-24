@@ -23,10 +23,28 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+Prop drilling, making it easier to hand down variables to child components.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-- [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Store is an object that holds state for the whole app. Actions are payloads of info sent to the store using store.dispatch(), they tell the store how to change state. Reducer is a function that returns some state data. It's triggered by an action.
+
+- [ ] What is the difference between Application state and Component state?
+
+Application state is global and component state is local.
+
+When would be a good time to use one over the other?
+
+Application state and redux become useful when the sae state is being shared by several components that don't belong to the same file tree and when the number of props becomes cumbersome.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Thunk is middleware that allows you handle async actions in Redux. Allows AC's to return a function instead of an action.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+I like context API just b/c it's simpler but I do want to get better at Redux b/c in the real world with multiple people and teams working on large projects, I'm sure it will be the preferred state management system.
 
 ## Project Set Up
 
