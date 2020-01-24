@@ -2,6 +2,7 @@
   text-align: center;
   display:flex;
   flex-wrap:wrap;
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(194,255,160,1) 100%);
 }
 
 .App-logo {
@@ -33,6 +34,13 @@
   color:
 } */
 
+h2 {
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  color: #3a47d5;
+}
+
 .inputs{
   width: 100%;
 }
@@ -56,6 +64,7 @@ input {
   width: 30%;
   justify-content: center;
   color:white;
+  background: linear-gradient(90deg, rgba(0,210,255,1) 35%, #3a47d5 100%);
 }
 
 .card-div {
@@ -66,11 +75,12 @@ input {
 }
 
 .smurf-card{
-  background-color: lightskyblue;
-  width: 50%;
+  box-shadow: 5px 5px 4px #1f8a8b;
+  width: 30%;
   padding: 1rem;
   margin: 1rem;
   border-radius: 1rem;
+  background: radial-gradient(circle, rgba(58,132,213,1) 0%, rgba(0,210,255,1) 73%, rgba(141,255,247,1) 100%);
 }
 
 p{

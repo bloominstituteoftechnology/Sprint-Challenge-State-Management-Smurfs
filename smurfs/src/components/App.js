@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Smurf from './Smurf';
 import { connect } from 'react-redux';
 import { smurfFetcher, smurfForm } from '../actions/index';
@@ -28,6 +28,7 @@ const handleChanges = e => {
 
   return (
     <div className="App">
+      <h2 className='App-title'> SMURF CREATOR! </h2>
       <div className="inputs">
       <input
         placeholder="Smurf Name"
