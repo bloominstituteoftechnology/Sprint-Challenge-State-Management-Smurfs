@@ -1,7 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
-class App extends Component {
-  render() {
+import { connect } from 'react-redux';
+import axios from 'axios';
+
+import 
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
