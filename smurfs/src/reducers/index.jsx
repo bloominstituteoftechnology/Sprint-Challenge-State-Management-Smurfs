@@ -9,12 +9,7 @@ import {
 
 export const initialState = {
 	isLoading: false,
-	village: {
-		id: '',
-		name: 'NON',
-		age: null,
-		height: ''
-	},
+	village: [],
 	error: false
 };
 
@@ -31,12 +26,7 @@ export const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				isLoading: false,
-				village: {
-					id: action.payload.id,
-					name: action.payload.name,
-					age: action.payload.age,
-					height: action.payload.height
-				}
+				village: action.payload
 			};
 		case FETCHING_SMURFS_FAILURE:
 			return {
@@ -53,7 +43,7 @@ export const reducer = (state = initialState, action) => {
 			console.log('reducer payload', action.payload);
 			return {
 				...state,
-				isLoading: true,
+				isLoading: false,
 				village: action.payload
 			};
 		case ADD_SMURF_FAILURE:

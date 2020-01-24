@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { fetchSmurfs, addSmurf } from './../actions';
+import { Smurf } from './Smurf';
 
 const mapStateToProps = state => {
+	console.log(state);
 	return {
-		name: state.village.name,
-		age: state.village.age,
-		height: state.village.height,
 		village: state.village
 	};
 };
 
 const Smurfs = props => {
+	console.log('PROPS', props.village);
 	return (
 		<div>
 			<h1>Smurfs Village</h1>
-			<h3>{props.name}</h3>
-			<h3>{props.age}</h3>
-			<h3>{props.height}</h3>
+			{props.village.map(s => (
+				<Smurf s={s} />
+			))}
 			<button>Put Village on Fire</button>
 			<button onClick={props.fetchSmurfs}>Enter Village</button>
 		</div>
