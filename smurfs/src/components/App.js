@@ -1,42 +1,43 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import { connect } from "react-redux";
 import axios from "axios";
+import { SmurfContext } from "../context/context";
+import Form from "./Form";
+import List from "./List";
 
-import { getSmurfs } from "../actions";
+const App = () => {
+  const [smurfs, setSmurfs] = useState();
 
-const App = props => {
   useEffect(() => {
-    const showSmurfs = async () => {
-      axios
-        .get("http://localhost:3333/smurfs")
-        .then(response => {
-          console.log(response.data[0].name);
-          props.getSmurfs(response.data);
-        })
-        .catch(error => console.log(error));
-    };
-    showSmurfs();
+    axios.get("http://localhost:3333/smurfs").then(res => {
+      console.log(res);
+      setSmurfs(res.data);
+    });
   }, []);
 
-  const bla = props.smurfs;
+  const Add = smurf => {
+    axios.post("http://localhost:3333/smurfs", smurf).then(res => {
+      setSmurfs(res.data);
+    });
+  };
+
+  const Remove = smurf => {
+    axios.delete(`http://localhost:3333/smurfs/${smurf}`).then(res => {
+      setSmurfs(res.data);
+    });
+  };
 
   return (
-    <div className='App'>
-      {bla.map(e => (
-        <div>
-          <h3>
-            name: {e.name} age: {e.age} height: {e.height}
-          </h3>
-        </div>
-      ))}
-    </div>
+    <SmurfContext.Provider value={{ smurfs, setSmurfs, Add, Remove }}>
+      <div className='App'>
+        <h1>SMURFS! 2.0 W/ Redux</h1>
+        <div>Welcome to your state management version of Smurfs!</div>
+        <div>Start inside of your `src/index.js` file!</div>
+        <div>Have fun!</div>
+        <List />
+        <Form />
+      </div>
+    </SmurfContext.Provider>
   );
 };
-
-export default connect(
-  state => {
-    return { smurfs: state.smurfs };
-  },
-  { getSmurfs: getSmurfs }
-)(App);
+export default App;
