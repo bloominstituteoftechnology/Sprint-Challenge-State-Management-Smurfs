@@ -11,7 +11,7 @@ export const initialState = {
 	isLoading: false,
 	village: {
 		id: '',
-		name: '',
+		name: 'NON',
 		age: null,
 		height: ''
 	},
@@ -43,20 +43,22 @@ export const reducer = (state = initialState, action) => {
 				...state,
 				error: true
 			};
+		case ADD_SMURF_START:
+			return {
+				...state,
+				isLoading: true
+			};
 
 		case ADD_SMURF_SUCCESS:
 			console.log('reducer payload', action.payload);
 			return {
 				...state,
 				isLoading: true,
-				village: {
-					...state.village
-				}
+				village: action.payload
 			};
 		case ADD_SMURF_FAILURE:
 			return {
-				...state,
-				error: true
+				...state
 			};
 
 		default:
