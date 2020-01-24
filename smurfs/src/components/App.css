@@ -1,28 +1,28 @@
 .App {
   text-align: center;
+  background-color: blue;
+  
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body {
+  background-image: url("https://images.thestar.com/0O9fVaLgBisinI1OpxhjdkGoJRQ=/1200x649/smart/filters:cb(2700061000)/https://www.thestar.com/content/dam/thestar/entertainment/movies/2017/04/06/smurfs-the-lost-village-attempts-a-feminist-tone-review/smurfs.jpg");
+  opacity:69%
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+h1 {
+ 
+  background-color: purple;
+}
+
+.smurfs {
+  border: solid black 1px;
+  background-color: blue;
+  
+
+}
+
+.btn {
+  background-color: red;
   color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  border-radius: 20%;
 }
