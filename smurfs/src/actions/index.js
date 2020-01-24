@@ -6,7 +6,7 @@ export const GET_START = 'GET_START';
 export const GET_SUCCESS = 'GET_SUCCESS';
 export const GET_FAILED = 'GET_FAILED';
 
-// Add my GET call here
+// GET
 export const smurfFetcher = () => dispatch => {
     dispatch({ type: GET_START })
     axios
@@ -24,6 +24,7 @@ export const smurfFetcher = () => dispatch => {
 // exports for POST call
 export const SMURF_SUCCESS = 'SMURF_SUCCESS';
 
+// POST
 export const smurfForm = (smurfData) => dispatch => {
     dispatch({ type: SMURF_SUCCESS, payload: smurfData })
     axios

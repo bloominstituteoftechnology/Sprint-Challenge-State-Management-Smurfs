@@ -28,25 +28,46 @@ const handleChanges = e => {
 
   return (
     <div className="App">
-      <div>
+      <div className="inputs">
       <input
+        placeholder="Smurf Name"
         type='text'
         name='name'
         value={newSmurf.name}
         onChange={handleChanges}
       />
+      <input
+        placeholder="Smurf Age"
+        type='text'
+        name='age'
+        value={newSmurf.age}
+        onChange={handleChanges}
+      />
+      <input
+        placeholder="Smurf Height"
+        type='text'
+        name='height'
+        value={newSmurf.height}
+        onChange={handleChanges}
+      />
       </div>
-      <button onClick={() => props.smurfForm(newSmurf)}> Create Your Own Smurf </button>
+      <div className="button">
+      <button className='create' onClick={() => props.smurfForm(newSmurf)}> Create Your Own Smurf </button>
+      </div>
+{/* mapping */}
+<div className="card-div">
 
       { props.smurf.map(item => {
         return(
           <Smurf smurf={item} key={item.id} />
           )
-      })
+        })
       }
+      </div>
 </div>
       )}
 
+      // mapStateToProps
       const mapStateToProps = state => {
         return {
           smurf: state.smurf

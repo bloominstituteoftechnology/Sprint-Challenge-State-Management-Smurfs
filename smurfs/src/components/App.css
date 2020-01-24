@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display:flex;
+  flex-wrap:wrap;
 }
 
 .App-logo {
@@ -25,4 +27,52 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* p {
+  color:
+} */
+
+.inputs{
+  width: 100%;
+}
+
+input {
+  width: 50%;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.button {
+  width: 100%;
+  margin: 1rem;
+}
+
+.create {
+  padding: 1rem;
+  background-color: lightskyblue;
+  border-radius: 1rem;
+  border: none;
+  width: 30%;
+  justify-content: center;
+  color:white;
+}
+
+.card-div {
+  width: 100%;
+  justify-content: center;
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.smurf-card{
+  background-color: lightskyblue;
+  width: 50%;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+
+p{
+  color: white;
 }
