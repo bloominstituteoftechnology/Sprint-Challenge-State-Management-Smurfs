@@ -9,8 +9,7 @@ import { getSmurfs } from "../actions/actions";
 const SmurfVillage = props => {
     return (
         <div>
-            <br />
-            {props.initialMode && <button onClick={props.getSmurfs}>Get Smurfs</button>}
+            {props.initialMode && <button className="get-smurfs-button" onClick={props.getSmurfs}>Get Smurfs</button>}
             <br />
             {props.smurfs.map(smurf => (
                 <Smurf key={smurf.id} smurf={smurf} />

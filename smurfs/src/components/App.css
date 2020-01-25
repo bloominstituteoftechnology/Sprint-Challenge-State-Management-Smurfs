@@ -39,6 +39,10 @@
   font-size: 5rem;
 }
 
+.get-smurfs-button {
+  margin-top: 2%;
+}
+
 .smurfs {
   cursor: pointer;
   position: relative;
