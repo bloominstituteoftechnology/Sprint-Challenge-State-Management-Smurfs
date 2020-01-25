@@ -14,12 +14,8 @@ const App = () => {
       })
       .catch(err => console.log(err));
   }, []);
-  const newSmurf = smurf => {
-    axios.post("http://localhost:3333/smurfs", smurf).then(res => {
-      setSmurf(res.data);
-    })
-    .catch(err => console.log(err));
-  };
+  
+  
   return (
       <smurfContext.Provider value={{smurf, setSmurf}}>
       <div className="App">
