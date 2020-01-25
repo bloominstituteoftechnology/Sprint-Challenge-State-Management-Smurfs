@@ -1,18 +1,12 @@
-import React, { useContext } from "react";
-import  smurfContext  from "../context/smurfContext";
+import React from "react";
 
-const SmurfCard = () => {
-  const smurf = useContext(smurfContext);
-  console.log(smurf)
+const SmurfCard = props => {
   return (
     <div>
-      {smurf.map(item => {
-        <div>
-          <p>{item.name}</p>
-          <p>{item.age}</p>
-          <p>{item.height}</p>
-        </div>
-      })}
+      <p>Current Smurf:</p>
+      <p>Name: {props.smurf.name}</p>
+      <p>Age: {props.smurf.age}</p>
+      <p>Height: {props.smurf.height}</p>
     </div>
   );
 };
