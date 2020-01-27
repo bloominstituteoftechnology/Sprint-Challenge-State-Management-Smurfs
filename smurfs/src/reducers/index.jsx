@@ -44,7 +44,7 @@ export const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				isLoading: false,
-				village: action.payload
+				village: action.payload.data
 			};
 		case ADD_SMURF_FAILURE:
 			return {

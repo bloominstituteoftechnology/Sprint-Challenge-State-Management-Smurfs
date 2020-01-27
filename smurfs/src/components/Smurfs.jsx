@@ -15,6 +15,7 @@ const Smurfs = props => {
 	return (
 		<div>
 			<h1>Smurfs Village</h1>
+			{console.log('here hrer', props.village)}
 			{props.village.map(s => (
 				<Smurf s={s} />
 			))}
