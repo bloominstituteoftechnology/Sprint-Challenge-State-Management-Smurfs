@@ -18,7 +18,7 @@ const Form = () => {
 
   const onSubmitHandler = evt => {
     // evt.preventDefault();
-    console.log("input submit", input);
+    // console.log("input submit", input);
     axios.post("http://localhost:3333/smurfs", input);
   };
 
@@ -38,7 +38,7 @@ const Form = () => {
         value={input.age}
         onChange={onChangeHandler}
       />
-      <label>height: </label>
+      <label>Height: </label>
       <input
         type="text"
         name="height"
