@@ -24,6 +24,7 @@ const SmurfForm = (props) => {
            [e.target.name]: e.target.value 
         });
     };
+    
 
     return (
         <div>
@@ -48,6 +49,7 @@ const SmurfForm = (props) => {
                     value={newSmurf.height}
                 />
                 <button className = "submitButton" type="submit">Create Smurf</button>
+                <button className = "removeButton" type="remove">Remove Smurf</button>
             </form>
         </div>
     );
