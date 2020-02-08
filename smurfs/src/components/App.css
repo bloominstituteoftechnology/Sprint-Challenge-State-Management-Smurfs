@@ -1,28 +1,35 @@
+*{
+  box-sizing: border-box;
+  
+}
+
+
 .App {
   text-align: center;
+  
+  height: 1000px;
+  background-image: url('../images/16-9.jpg');
+  height: 1000px;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  position: relative;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+.form{
+  width: 35%;
+  margin: 0 auto;
+  border: 5px groove ;
+  background: rgba(53, 124, 182, 0.8);
+  margin-bottom: 10%;
+  border-radius: 2%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+.card{
+  background: linear-gradient(white, steelblue ,#555 );
+  height: 250px;
+  margin: 2%;
+  
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
