@@ -5,11 +5,12 @@ import { apiContext } from '../contexts/apiContext'
 import { smurfContext } from '../contexts/smurfContext'
 
 import Smurf from './Smurf'
+import './css/SmurfList.css'
 
 const SmurfList = ({ smurfs }) => {
   console.log(smurfs)
   return (
-    <div>
+    <div className="smurf-container">
       {smurfs.map(smurf => {
         return (
           <Smurf

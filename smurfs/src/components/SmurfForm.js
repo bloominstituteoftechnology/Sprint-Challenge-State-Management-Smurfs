@@ -5,6 +5,7 @@ import { apiContext } from '../contexts/apiContext'
 import { smurfContext } from '../contexts/smurfContext'
 
 import SmurfList from './SmurfList'
+import './css/SmurfForm.css'
 
 const SmurfForm = () => {
   const { apiUrl } = useContext(apiContext)
@@ -30,42 +31,39 @@ const SmurfForm = () => {
       .post(apiUrl, newSmurf)
       .then(res => setSmurfs(res.data))
       .catch(err => console.log(err))
+    setNewSmurf({ name: '', age: '', height: '' })
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name
-          <input
-            id="name"
-            type="text"
-            name="name"
-            onChange={handleChange}
-            value={newSmurf.name}
-          />
-        </label>
-        <label>
-          Age
-          <input
-            id="age"
-            type="text"
-            name="age"
-            onChange={handleChange}
-            value={newSmurf.age}
-          />
-        </label>
-        <label>
-          Height
-          <input
-            id="height"
-            type="text"
-            name="height"
-            onChange={handleChange}
-            value={newSmurf.height}
-          />
-        </label>
-        <button type="submit">Add Smurf</button>
+    <div className="container">
+      <form className="smurf-form" onSubmit={handleSubmit}>
+        <label>Name</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          onChange={handleChange}
+          value={newSmurf.name}
+        />
+        <label>Age</label>
+        <input
+          id="age"
+          type="text"
+          name="age"
+          onChange={handleChange}
+          value={newSmurf.age}
+        />
+        <label>Height</label>
+        <input
+          id="height"
+          type="text"
+          name="height"
+          onChange={handleChange}
+          value={newSmurf.height}
+        />
+        <button className="btn" type="submit">
+          Add Smurf
+        </button>
       </form>
       <SmurfList smurfs={smurfs} />
     </div>

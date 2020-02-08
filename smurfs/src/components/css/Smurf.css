@@ -1,0 +1,9 @@
+.smurf-text {
+  color: #fff;
+  font-size: 1.5rem;
+  display: flex;
+}
+
+.smurf-text p {
+  padding: 0 10px;
+}

@@ -4,7 +4,7 @@ import { apiContext } from '../contexts/apiContext'
 import { smurfContext } from '../contexts/smurfContext'
 
 import SmurfForm from './SmurfForm'
-import SmurfList from './SmurfList'
+import Header from './Header'
 
 import './App.css'
 
@@ -16,6 +16,7 @@ const App = () => {
     <apiContext.Provider value={{ apiUrl }}>
       <smurfContext.Provider value={{ smurfArray }}>
         <div className="App">
+          <Header />
           <SmurfForm />
         </div>
       </smurfContext.Provider>
