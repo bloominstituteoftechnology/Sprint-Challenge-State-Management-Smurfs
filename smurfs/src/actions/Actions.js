@@ -2,11 +2,11 @@ import axios from "axios";
 
 export const FETCH_SMURF_START = "FETCH_SMURF_START";
 export const FETCH_SMURF_SUCCESS = "FETCH_SMURF_SUCCESS";
-export const FETCH_DATA_FAILURE = "FETCH_DATA_FAILURE";
+export const FETCH_SMURF_FAILURE = "FETCH_DATA_FAILURE";
 
 export const NEW_SMURF_START = "NEW_SMURF_START";
 export const NEW_SMURF_SUCCESS = "NEW_SMURF_SUCCESS";
-export const NEWDATA_FAILURE = "NEW_DATA_FAILURE";
+export const NEW_SMURF_FAILURE = "NEW_DATA_FAILURE";
 
 export const fetchSmurf = () => dispatch => {
     dispatch({ type: "FETCH_SMURF_START" });
@@ -26,6 +26,6 @@ export const newSmurf = (smurf) => dispatch => {
             dispatch({ type: NEW_SMURF_SUCCESS, payload: response.data });
         })
         .catch(error => {
-            dispatch({ type: NEW_SMURF_FAILURE, payload: error })l
+            dispatch({ type: NEW_SMURF_FAILURE, payload: error });
         })
 };

@@ -5,11 +5,11 @@ import{
     NEW_SMURF_START,
     NEW_SMURF_SUCCESS,
     NEW_SMURF_FAILURE
-} from "../actions"
+} from "../actions/Actions"
 
 const initialState ={
     smurf: [],
-    isFetching: false;
+    isFetching: false,
     error: ""
 }
 
@@ -20,7 +20,7 @@ export const Reducer = (state = initialState, action) => {
         case FETCH_SMURF_SUCCESS:
             return{...state, isFetching: false, smurf: action.payload, error: "", };
         case FETCH_SMURF_FAILURE:
-            return{...state, isFetching: false, error: action.payload}
+            return{...state, isFetching: false, error: action.payload};
         case NEW_SMURF_START:
             return{...state, isFetching: true};
         case NEW_SMURF_SUCCESS:
