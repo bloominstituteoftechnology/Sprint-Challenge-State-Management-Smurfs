@@ -1,16 +1,27 @@
-import React, { Component } from "react";
-import "./App.css";
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
-    );
-  }
+import React, { useState } from 'react'
+
+import { apiContext } from '../contexts/apiContext'
+import { smurfContext } from '../contexts/smurfContext'
+
+import SmurfForm from './SmurfForm'
+import Header from './Header'
+
+import './App.css'
+
+const App = () => {
+  const [apiUrl] = useState('http://localhost:3333/smurfs')
+  const [smurfArray] = useState([])
+
+  return (
+    <apiContext.Provider value={{ apiUrl }}>
+      <smurfContext.Provider value={{ smurfArray }}>
+        <div className="App">
+          <Header />
+          <SmurfForm />
+        </div>
+      </smurfContext.Provider>
+    </apiContext.Provider>
+  )
 }
 
-export default App;
+export default App

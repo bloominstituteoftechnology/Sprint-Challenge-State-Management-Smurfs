@@ -1,0 +1,5 @@
+.smurf-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10%;
+}

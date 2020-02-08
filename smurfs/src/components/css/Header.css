@@ -1,0 +1,14 @@
+.header {
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+.header img {
+  height: 250px;
+  width: auto;
+  padding: 20px;
+}

@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.smurf-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #fff;
+  width: 30%;
+  height: 325px;
+  background: #fff;
+  color: #333;
+  border-radius: 20px;
+}
+
+.smurf-form label {
+  font-size: 1.3rem;
+  padding: 10px;
+}
+
+.smurf-form input {
+  width: 70%;
+  padding-bottom: 10px;
+  background: white;
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.smurf-form .btn {
+  margin: 20px 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border-color: #ff0000;
+  background: #ff0000;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+.smurf-form .btn:hover {
+  font-size: 1.2rem;
+  background: #e3d900;
+  border-color: #e3d900;
+  color: #333;
+}
