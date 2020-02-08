@@ -17,7 +17,6 @@ const App = () => {
       <smurfContext.Provider value={{ smurfArray }}>
         <div className="App">
           <SmurfForm />
-          <SmurfList />
         </div>
       </smurfContext.Provider>
     </apiContext.Provider>

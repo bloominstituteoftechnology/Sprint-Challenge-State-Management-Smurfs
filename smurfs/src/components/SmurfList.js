@@ -6,21 +6,8 @@ import { smurfContext } from '../contexts/smurfContext'
 
 import Smurf from './Smurf'
 
-const SmurfList = () => {
-  const { apiUrl } = useContext(apiContext)
-  const { smurfArray } = useContext(smurfContext)
-
-  const [smurfs, setSmurfs] = useState(smurfArray)
-
-  useEffect(() => {
-    axios
-      .get(apiUrl)
-      .then(res => setSmurfs(res.data))
-      .catch(err => console.log(err))
-  }, [])
-
+const SmurfList = ({ smurfs }) => {
   console.log(smurfs)
-
   return (
     <div>
       {smurfs.map(smurf => {
