@@ -16,13 +16,9 @@ export const getSmurfs = () => dispatch => {
       console.log("show data", res);
       dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
     })
-    .catch(err => {
-      console.log(err.response);
-      dispatch({
-        type: FETCH_DATA_FAILURE,
-        payload: `${err.response.status} ${err.response.data}`
-      });
-    });
+    .catch(err => dispatch({ type: FETCH_DATA_FAILURE, 
+      payload: err})
+    );
 };
 
 export const addSmurf = newSmurf => dispatch => {
