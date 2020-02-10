@@ -29,24 +29,28 @@ const Form = (props) => {
         <div>
             <form>
                 <input 
+                    className = "input"
                     name="name"
                     type="text"
                     placeholder="name"
                     onChange={handleChanges}
                 ></input>
                 <input 
+                    className = "input"
                     name="age"
                     type="number"
                     placeholder="age"
                     onChange={handleChanges}
                 ></input>
                 <input 
-                    name="height"
+                   className = "input"
+                   name="height"
                     type="text"
                     placeholder="height in cm"
                     onChange={handleChanges}
                 ></input>
                 <button 
+                    className = "button"
                     type="submit"
                     onClick={handleSubmit}
                 >Join Smurf Village!</button>
