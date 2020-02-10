@@ -22,7 +22,44 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+h1 {
+  text-align: center;
+  color: white;
+}
+
+h1:hover {
+  color: blue;
+  transition: 3s;
+}
+
+form {
+  text-align: center;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+li {
+  text-decoration: none;
+}
+
+* {
+  background: darkgrey;
+}
+
+button {
+  background: black;
+  border: 1px solid white;
+  border-radius: 25px;
+  color: white;
+}
+
+button:hover {
+  border: 1px solid blue;
+  color: blue;
+  transition: 3s;
+  box-shadow: 0px 0px 2px;
 }
