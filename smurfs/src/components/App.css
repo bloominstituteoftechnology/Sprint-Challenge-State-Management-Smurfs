@@ -55,6 +55,31 @@ p {
 	top:1px;
 }
 
+.delete-button {
+	box-shadow: 2px 1px 75px 15px #f0f7fa;
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	background-color:#33bdef;
+	border-radius:15px;
+	border:2px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Courier New;
+	font-size:14px;
+	font-weight:bold;
+	padding:6px 17px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+}
+.delete-button:hover {
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	background-color:#019ad2;
+}
+.delete-button:active {
+	position:relative;
+	top:1px;
+}
+
 .smurf {
   color: #fff;
   text-shadow: 3px 3px 3px #019ad2;
