@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { getData } from '../actions/index.js'
-
-import { useDispatch } from "react-redux";
-import { postSmurf } from "../actions";
+import { connect, useDispatch } from 'react-redux';
+import { getData, postSmurf  } from '../actions/index.js'
 
 const SmurfsForm = props => {
-const [name , setName] = useState("");
-const [age, setAge] = useState();
-const [height, setHeight] =useState();
+    const [name , setName] = useState("");
+    const [age, setAge] = useState();
+    const [height, setHeight] =useState();
 
 const dispatch = useDispatch();
 

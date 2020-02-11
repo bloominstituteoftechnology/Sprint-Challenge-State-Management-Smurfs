@@ -1,6 +1,6 @@
 import React , { useEffect }  from "react";
 import { useDispatch } from "react-redux"; 
-import { getSmurfs } from "../actions";
+import { getData } from "../actions";
 
 import "./App.css";
 import SmurfsForm from "./SmurfsForm";
@@ -10,7 +10,7 @@ function App () {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getSmurfs());
+    dispatch(getData());
   }, []);
 
     return (
