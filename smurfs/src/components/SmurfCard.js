@@ -64,12 +64,10 @@ const SmurfCard = props => {
     )
 };
 
-// const mapStateToProps = state => {
-//     return {
-//         smurfs: state.smurfs
-//     }
-// };
+const mapStateToProps = state => {
+    return {
+        smurfs: state.smurfs
+    }
+};
 
-// export default connect(mapStateToProps, { newSmurf })(SmurfCard);
-
-export default SmurfCard;
+export default connect(mapStateToProps, { newSmurf })(SmurfCard);

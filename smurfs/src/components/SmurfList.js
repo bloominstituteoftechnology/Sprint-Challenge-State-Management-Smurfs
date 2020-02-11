@@ -14,27 +14,23 @@ const SmurfList = props => {
 
     return(
         <div>
-            <div className="SmurfCard">
-                {props.smurfs.map(smurf => {
-                    return (
-                        <div>
-                            <p>Name: {smurf.name}</p>
-                            <p>Age: {smurf.age}</p>
-                            <p>Height: {smurf.height}</p>
-                        </div>
-                    )})}
-                <SmurfCard newSmurf = {props.addSmurf}/>
-            </div>
+            {props.smurfs && props.smurfs.map(smurf => {
+                return (
+                    <div>
+                        <p>Name: {smurf.name}</p>
+                        <p>Age: {smurf.age}</p>
+                        <p>Height: {smurf.height}</p>
+                    </div>
+                )})}
+            <SmurfCard newSmurf = {props.addSmurf}/>
         </div>
     );
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         smurfs: state.smurfs
-//     }
-// };
+const mapStateToProps = (state) => {
+    return {
+        smurfs: state.smurfs
+    }
+};
 
-// export default connect(mapStateToProps, {fetchSmurf, newSmurf})(SmurfList);
-
-export default SmurfList;
+export default connect(mapStateToProps, {fetchSmurf, newSmurf})(SmurfList);
