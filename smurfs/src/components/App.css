@@ -1,28 +1,89 @@
 .App {
   text-align: center;
+  font-family: cursive;
+  
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body {
+  background-image: url("C:\Users\lmulk\Documents\git\Sprint-Challenge-State-Management-Smurfs\smurfs\src\images\smurfs.jpg");
+  background-position: bottom 50%; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: lightskyblue;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+
+h1 {
   color: white;
+  text-shadow: 2px 2px 2px #000;
 }
 
-.App-title {
-  font-size: 1.5em;
+p {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.2em;
+  text-shadow: 2px 2px 2px #000;
+  
 }
 
-.App-intro {
-  font-size: large;
+
+.input {
+  margin-right: 1%;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.button {
+	box-shadow: 2px 1px 50px 26px #f0f7fa;
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	background-color:#33bdef;
+	border-radius:15px;
+	border:2px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: cursive;
+	font-size:17px;
+	font-weight:bold;
+	padding:6px 17px;
+	text-decoration:none;
+  text-shadow:0px -1px 0px #5b6178;
+  
+}
+.button:hover {
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	background-color:#019ad2;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+.delete-button {
+	box-shadow: 2px 1px 75px 15px #f0f7fa;
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	background-color:#33bdef;
+	border-radius:15px;
+	border:2px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: cursive;
+	font-size:14px;
+	font-weight:bold;
+	padding:6px 17px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+}
+.delete-button:hover {
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	background-color:#019ad2;
+}
+.delete-button:active {
+	position:relative;
+	top:1px;
+}
+
+.smurf {
+  color: #fff;
+  text-shadow: 3px 3px 3px #019ad2;
+
 }
