@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {getData} from '../actions/index';
 
@@ -6,17 +6,19 @@ const SmurfForm = props => {
 
     
 
-    const handleGetData = e =>{
-        e.preventDefault();
-        props.getData();
-    };
+        useEffect(()=>{
+            props.getData();
+        },[])
+
+        
+    
 
     return (
         <div>
             {!props.isFetchingData ?(
                 <div>we are fetching data</div>
                 ) : (
-                <button onClick = {handleGetData}>get data</button>
+                <button >get data</button>
                 )}            
         </div>
     )

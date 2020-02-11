@@ -7,18 +7,16 @@ const SmurfAddForm = props =>{
     const [smurf, setSmurf] = useState({
         name: '',
         age: 0,
-        height: 0,
-        id: Date.now()
+        height: 0        
     });
 
     const handleSubmit = e =>{
-        
+        e.preventDefault(); 
         props.giveData(smurf);
         setSmurf({
             name: '',
             age: 0,
-            height: 0,
-            id: Date.now()
+            height: 0            
         })
 
     }
@@ -29,7 +27,7 @@ const SmurfAddForm = props =>{
     }
     return(
         <div>
-            <form onSubmit = {handleSubmit(smurf)}>
+            <form onSubmit = {handleSubmit}>
                 <input
                     type = "text"
                     placeholder = "Enter a Name"

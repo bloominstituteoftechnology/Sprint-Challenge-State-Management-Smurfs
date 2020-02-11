@@ -1,7 +1,7 @@
 import {GET_DATA, UPDATE_lIST, RECIEVE_DATA, DATA_SUCCESS} from '../actions/index';
 export const intialState = {
     smurfList: [],
-    isFetchingData: false,
+    isFetchingData: true,
     isPostingData: false
 };
 
@@ -10,13 +10,13 @@ export const smurfReducer = (state = intialState, action)=>{
         case GET_DATA :
             return{
                 ...state,
-                isFetchingData : true
+                isFetchingData : false
             };
         case UPDATE_lIST:
             return{
                 ...state,
                 smurfList: action.payload,
-                isFetchingData: false
+                isFetchingData: true
             }
         case RECIEVE_DATA:
             return{

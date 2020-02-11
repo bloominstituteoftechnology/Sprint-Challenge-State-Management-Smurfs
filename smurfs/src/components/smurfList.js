@@ -30,11 +30,10 @@ const SmurfList = props =>{
     console.log("counter",counter);
 
     return(
-    <div>{props.smurflist.map((list, index) =>{
+    <div>{props.smurflist.map((list, index) => {
         if(counter === index){
-            return(
-        
-        <div className = "Movie-Box" key = {list.id}>
+            return(        
+            <div className = "Movie-Box" key = {list.id}>
             <h1>{list.title}</h1>
             <div className="info">
                 <p>Director: {list.name}</p>
@@ -43,7 +42,7 @@ const SmurfList = props =>{
             </div>
             <button onClick ={backHandler}>Back</button>
             <button onClick ={nextHandler}>Next</button>
-        </div>
+            </div>
         )
         }
         
