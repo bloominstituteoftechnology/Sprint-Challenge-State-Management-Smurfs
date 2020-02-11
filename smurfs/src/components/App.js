@@ -22,6 +22,6 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { newSmurf })(App);
+// export default connect(mapStateToProps, { newSmurf })(App);
 
-// export default App;
+export default App;
