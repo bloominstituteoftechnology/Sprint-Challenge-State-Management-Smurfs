@@ -6,17 +6,21 @@ import { fetchSmurf, newSmurf } from "../actions/Actions"
 const SmurfCard = props => {
     return(
         <div className="SmurfCard">
-            <h2>{props.name}</h2>
-            <h3>{props.age}</h3>
-            <h3>{props.height}</h3>
+            {props.smurfs.map(smurf => {
+                return (
+                    <h2>{smurf.name}</h2>
+                    <h2>{smurf.age}</h2>
+                    <h2>{smurf.height}</h2>
+                )
+            })}
         </div>
     );
 }
 
 const mapStateToProps = (state) => {
     return {
-        smurf: state.smurf
+        smurfs: state.smurfs
     }
 };
 
-export default connect(mapStateToProps, {fetchSmurf, newSmurf })(SmurfCard);
+export default connect(mapStateToProps, {fetchSmurf, newSmurf})(SmurfCard);
