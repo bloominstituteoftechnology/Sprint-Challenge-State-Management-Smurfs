@@ -100,7 +100,7 @@ export const smurfsReducer = (state = initialState, action) => {
             };
 
         case SMURF_DELETE_SUCCESS:
-            console.log('ahhhhhhhh WE FKING ROCK');
+            console.log('ahhhhhhhh');
             return {
                 ...state,
                 smurfs: action.payload,
