@@ -3,6 +3,7 @@ import "./App.css";
 import axios from 'axios';
 import { SmurfContext } from './context/SmurfContext';
 import SmurfList from './components/SmurfList';
+import SmurfForm from './components/SmurfForm';
 
 
 const App = () => {  
@@ -29,7 +30,7 @@ const App = () => {
       <SmurfContext.Provider value={{smurfs, setSmurfs}}>
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <SmurfList />
-        {/* <Smurf /> */}
+        <SmurfForm />
       </SmurfContext.Provider>
     </div>   
   );
