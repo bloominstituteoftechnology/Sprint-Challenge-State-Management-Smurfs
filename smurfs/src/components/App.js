@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 import { smurfContexts } from '../contexts/smurfContexts';
-import BluePersonCard from '../components/BluePersonCard';
+import BluePersonCard from '../BluePersonCard';
 import "./App.css";
 
 function App() {

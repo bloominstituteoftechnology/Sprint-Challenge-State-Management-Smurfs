@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { smurfContexts } from '../contexts/smurfContexts';
+import { smurfContexts } from './contexts/smurfContexts';
 
 function BluePersonCard() {
   const bluePerson = useContext(smurfContexts);
