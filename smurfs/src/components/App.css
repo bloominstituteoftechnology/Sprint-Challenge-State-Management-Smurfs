@@ -6,9 +6,10 @@
 
 body {
   background-image: url("C:\Users\lmulk\Documents\git\Sprint-Challenge-State-Management-Smurfs\smurfs\src\images\smurfs.jpg");
-  background-position: center; 
+  background-position: bottom 50%; 
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: lightskyblue;
 }
 
 

@@ -25,6 +25,7 @@ const Form = (props) => {
         setNewSmurf({...newSmurf, [name] : e.target.value })
     }
 
+
     return (
         <div>
             <form>

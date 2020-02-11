@@ -10,7 +10,7 @@ const SmurfList = (props) => {
         props.fetchSmurf();
         console.log(props.smurfs)
 
-    },[])
+    }, [])
 
     return (
 
