@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import { getData } from '../actions';
 
 const Smurfs = props => {
+
+    const getSmurfs = props.getData
     useEffect(() => {
-        props.getData();
-    }, []);
-    //console.log('smurfList in Smurf component', props.smurfList)
+        getSmurfs()
+    }, [getSmurfs])
+
     if (props.isFetchingData === true) {
         return <p>Please be patient while the smurfs load...</p>
     }
@@ -17,7 +19,6 @@ const Smurfs = props => {
                 <div>{props.error}</div>
             ) : (
                     props.smurfList.map(smurf => {
-                        //console.log('in the map function')
                         return (
                             <div key={smurf.id}>
                                 <h1>Name: {smurf.name}</h1>
