@@ -1,4 +1,4 @@
-import { FETCHING_SMURFS_DATA, FETCHING_SMURFS_SUCCESSFUL, FETCHING_SMURFS_FAILED, ADDING_SMURF_SUCCESSFUL } from '../actions/index';
+import { FETCHING_SMURFS_DATA, FETCHING_SMURFS_SUCCESSFUL, FETCHING_SMURFS_FAILED, ADDING_SMURF_SUCCESSFUL, DELETE_SMURF_SUCCESSFUL } from '../actions/index';
 
 
 const initialState = {
@@ -34,6 +34,12 @@ export const reducer = (state = initialState, action) => {
             }
 
         case ADDING_SMURF_SUCCESSFUL:
+            return {
+                ...state,
+                smurfs: action.payload.data
+            }
+
+        case DELETE_SMURF_SUCCESSFUL:
             return {
                 ...state,
                 smurfs: action.payload.data
