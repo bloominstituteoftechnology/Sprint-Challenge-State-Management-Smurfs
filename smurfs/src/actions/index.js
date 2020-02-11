@@ -25,11 +25,11 @@ export const SMURF_POST_FAILURE = "SMURF_POST_FAILURE";
 
 export const postSmurf = value => dispatch => {
   dispatch({ type: SMURF_POST_START, payload: value });
-  console.log(`postSmurf: `, value);
+  console.log('postSmurf: ', value);
   axios
     .post(`http://localhost:3333/smurfs`, value)
     .then(res => {
-      console.log(`redux: post-actions: axios: then: res.data: `, res);
+      console.log('redux: post-actions: axios: then: res.data:', res);
       dispatch({
         type: SMURF_POST_SUCCESS,
         payload: res.data
@@ -73,11 +73,11 @@ export const SMURF_PUT_FAILURE = "SMURF_PUT_FAILURE";
 
 export const putSmurf = value => dispatch => {
   dispatch({ type: SMURF_PUT_START, payload: value });
-  console.log(`putSmurf: `, value);
+  console.log('putSmurf: ', value);
   axios
     .post(`http://localhost:3333/smurfs`, value)
     .then(res => {
-      console.log(`redux: post-actions: axios: then: res.data: `, res);
+      console.log('redux: post-actions: axios: then: res.data: ', res);
       dispatch({
         type: SMURF_PUT_SUCCESS,
         payload: res.data

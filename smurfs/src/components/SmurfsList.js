@@ -7,15 +7,6 @@ const SmurfsList = props => {
     console.log( "props in smurfslist", props.smurfs)
     return <>
     <div className="CardBox">
-        {/* { props.error ? (
-        <div className="error">{props.error}</div>
-        ) :( 
-            props.smurfs.map(item =>(
-                <div>
-                    {item.name}
-                </div>
-            )
-        ))} */}
       {smurfs.map(smurf => {
         console.log(smurf);
         return (
