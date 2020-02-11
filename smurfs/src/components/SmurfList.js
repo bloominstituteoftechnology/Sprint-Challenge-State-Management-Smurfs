@@ -2,15 +2,12 @@ import React, { useEffect } from "react";
 import "./App.css"; 
 
 import { connect } from "react-redux";
-import { fetchSmurf, newSmurf } from "../actions/Actions"
-
-import SmurfCard from "./SmurfCard";
+import { fetchSmurf } from "../actions/Actions"
 
 const SmurfList = props => {
-    const getSmurfs = props.fetchSmurf;
     useEffect(() => {
-        getSmurfs()
-    }, [getSmurfs]);
+        props.fetchSmurf();
+    }, []);
 
     return(
         <div>
@@ -22,15 +19,14 @@ const SmurfList = props => {
                         <p>Height: {smurf.height}</p>
                     </div>
                 )})}
-            <SmurfCard newSmurf = {props.addSmurf}/>
         </div>
     );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         smurfs: state.smurfs
     }
 };
 
-export default connect(mapStateToProps, {fetchSmurf, newSmurf})(SmurfList);
+export default connect(mapStateToProps, { fetchSmurf })(SmurfList);

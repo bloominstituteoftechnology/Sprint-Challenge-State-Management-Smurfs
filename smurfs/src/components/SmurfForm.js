@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { newSmurf } from "../actions/Actions";
 
-const SmurfCard = props => {
+const SmurfForm = props => {
     const [smurf, setSmurf] = useState({
         name: "",
         age: "",
@@ -70,4 +70,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps, { newSmurf })(SmurfCard);
+export default connect(mapStateToProps, { newSmurf })(SmurfForm);
