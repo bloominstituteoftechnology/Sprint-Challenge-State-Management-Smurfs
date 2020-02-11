@@ -36,9 +36,9 @@ const SmurfList = props =>{
             <div className = "Movie-Box" key = {list.id}>
             <h1>{list.title}</h1>
             <div className="info">
-                <p>Director: {list.name}</p>
-                <p>Rotten Tomato Score: {list.age}</p>
-                <p>Description: {list.height}</p>
+                <p>Name: {list.name}</p>
+                <p>Age: {list.age}</p>
+                <p>Height: {list.height}</p>
             </div>
             <button onClick ={backHandler}>Back</button>
             <button onClick ={nextHandler}>Next</button>

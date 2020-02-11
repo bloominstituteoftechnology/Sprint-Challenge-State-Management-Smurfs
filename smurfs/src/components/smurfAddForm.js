@@ -16,7 +16,8 @@ const SmurfAddForm = props =>{
         setSmurf({
             name: '',
             age: 0,
-            height: 0            
+            height: 0,
+            id: Date.now()           
         })
 
     }
