@@ -1,14 +1,31 @@
-import React, { useContext } from 'react';
-import { smurfContexts } from './contexts/smurfContexts';
+import React, { useContext, useEffect, useState } from 'react';
+
+import { SmurfContexts } from './contexts/SmurfContexts';
 
 function BluePersonCard() {
-  const bluePerson = useContext(smurfContexts);
+  const smurfPerson = useContext(SmurfContexts);
 
-  console.log(bluePerson.name);
+  // const [smurfPerson, setSmurfPerson] = useState({});
+
+  // console.log(smurfPerson)
+
+  // useEffect(() => {
+  //   axios
+  //     .get('http://localhost:3333/smurfs')
+  //     .then(res => {
+  //       console.log(res.data);
+  //       setSmurfPerson(res.data);
+  //     })
+  //     .catch(err => {
+  //       console.log("No smurfs", err);
+  //     })
+  // }, []);
+
+  console.log(smurfPerson.name);
 
   return (
     <div>
-      <h1>{bluePerson.name}</h1>
+      <h1>{smurfPerson.name}</h1>
     </div>
   )
 };

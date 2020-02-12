@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const smurfContexts = createContext();
+export const SmurfContexts = createContext();

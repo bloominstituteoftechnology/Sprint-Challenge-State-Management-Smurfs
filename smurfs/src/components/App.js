@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
-import { smurfContexts } from '../contexts/smurfContexts';
+import { SmurfContexts } from '../contexts/SmurfContexts';
 import BluePersonCard from '../BluePersonCard';
 import "./App.css";
 
 function App() {
-  const [bluePerson, setBluePerson] = useState({});
+  const [smurfPerson, setSmurfPerson] = useState({});
+
+  console.log(smurfPerson)
 
   useEffect(() => {
     axios
       .get('http://localhost:3333/smurfs')
       .then(res => {
         console.log(res.data);
-        setBluePerson(res.data);
+        setSmurfPerson(res.data);
       })
       .catch(err => {
         console.log("No smurfs", err);
@@ -22,15 +24,12 @@ function App() {
   
   return (
     <div className="App">
-      <smurfContexts.Provider value={bluePerson}>
+      <SmurfContexts.Provider value={smurfPerson}>
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
         <div>
           <BluePersonCard />
         </div>
-      </smurfContexts.Provider>
+      </SmurfContexts.Provider>
     </div>
   );
 }
