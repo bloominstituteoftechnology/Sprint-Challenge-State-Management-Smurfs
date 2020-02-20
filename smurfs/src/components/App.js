@@ -8,8 +8,6 @@ import "./App.css";
 function App() {
   const [smurfPerson, setSmurfPerson] = useState({});
 
-  console.log(smurfPerson)
-
   useEffect(() => {
     axios
       .get('http://localhost:3333/smurfs')
