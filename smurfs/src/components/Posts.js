@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions/postActions';
+import { fetchPosts, deletePost } from '../actions/postActions';
 
 class Posts extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchPosts();
   }
 
@@ -20,6 +20,7 @@ class Posts extends Component {
         <h3>{post.name}</h3>
         <p>Age:{post.age}</p>
         <p>Height:{post.height}</p>
+        <button onClick={()=> deletePost(post.id)}>Remove</button>
       </div>
     ));
     return (
