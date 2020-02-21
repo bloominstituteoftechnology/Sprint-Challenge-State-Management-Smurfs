@@ -24,7 +24,8 @@ export default function App() {
     axios
       .post("http://localhost:3333/smurfs", smurf)
       .then(res => {
-        console.log(res);
+        console.log('post res', res);
+        setSmurfs(res.data);
       })
       .catch(err => {
         console.error(err);
