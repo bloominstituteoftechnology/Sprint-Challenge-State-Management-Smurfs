@@ -3,7 +3,7 @@ import { smurfContext } from "../context/smurfContext";
 
 export default function SmurfList() {
   const context = useContext(smurfContext);
-  debugger;
+
   return (
     <div>
       {context.map(smurf => {
