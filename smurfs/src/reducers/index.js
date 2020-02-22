@@ -11,7 +11,6 @@ const initialState = {
     isLoading: false,
     err: "",
     smurf: [
-
     ]
 };
 
