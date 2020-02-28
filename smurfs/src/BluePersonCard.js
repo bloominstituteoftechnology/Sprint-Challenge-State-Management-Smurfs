@@ -10,9 +10,11 @@ function BluePersonCard() {
   return (
     <div>
       <p>
-        {smurfPerson.map(smurf => (
+        <div>
+          {smurfPerson.map(smurf => (
           <h1>{smurf.name}</h1>
         ))}
+        </div>
       </p>
       {/* {smurfPerson.map(smurf => {
        <div>
