@@ -9,7 +9,19 @@ function BluePersonCard() {
 
   return (
     <div>
-      <h1>{smurfPerson.data.name}</h1>
+      <p>
+        {smurfPerson.map(smurf => (
+          <h1>{smurf.name}</h1>
+        ))}
+      </p>
+      {/* {smurfPerson.map(smurf => {
+       <div>
+          <BluePersonCard 
+            key={smurf.id}
+            name={smurf.name}
+          />
+        </div>  
+      })} */}
     </div>
   )
 };
