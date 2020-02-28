@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
-import { SmurfContexts } from '../contexts/SmurfContexts';
-import BluePersonCard from '../BluePersonCard';
+import { SmurfContexts } from './contexts/SmurfContexts';
+import BluePersonCard from '.components/BluePersonCard';
 import "./App.css";
 
 function App() {
-  const [smurfPerson, setSmurfPerson] = useState({});
+  const [smurfPerson, setSmurfPerson] = useState();
 
   useEffect(() => {
     axios
