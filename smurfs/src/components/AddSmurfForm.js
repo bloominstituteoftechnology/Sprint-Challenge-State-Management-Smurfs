@@ -10,19 +10,27 @@ const initialBlue = {
 const AddSmurfForm = (props) => {
   const [blue, setBlue] = useState(initialBlue)
 
-  const changeHandler = ev => {
-    console.log(ev.target.value)
+  const changeHandler = e => {
+    console.log(e.target.value)
+    let value = e.target.value;
+
+    setBlue({
+      [e.target.value]: value
+    });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     axios
-      .post("http://localhost:3333/smurfs/", blue)
+      .post("http://localhost:3333/smurfs", blue)
       .then(res => {
         console.log(res);
         props.updateBlue(res.data);
       })
       .catch(err => console.error(err));
+      setBlue({
+        ...initialBlue
+      })
   };
 
   return (
