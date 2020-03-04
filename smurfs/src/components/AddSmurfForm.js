@@ -11,16 +11,7 @@ const AddSmurfForm = (props) => {
   const [blue, setBlue] = useState(initialBlue)
 
   const changeHandler = ev => {
-    ev.persist();
-    let value = ev.target.value;
-    if (ev.target.name === "price") {
-      value = parseInt(value, 10);
-    }
-  
-    setBlue({        
-      ...blue,
-      [ev.target.name]: value
-     });
+    console.log(ev.target.value)
   };
 
   const handleSubmit = e => {
@@ -41,7 +32,7 @@ const AddSmurfForm = (props) => {
           New Smurf Name:
           <input 
             type="text"
-            value="name"
+            value={blue.name}
             placeholder="Name"
             onChange={changeHandler}
           />
@@ -52,9 +43,9 @@ const AddSmurfForm = (props) => {
           Smurf Age:
           <input 
             type="text"
-            value="age"
+            value={blue.age}
             placeholder="Age"
-
+            onChange={changeHandler}
           />
         </label>
       </div>
@@ -63,8 +54,9 @@ const AddSmurfForm = (props) => {
           Smurf Height:
           <input 
             type="text"
-            value="height"
+            value={blue.height}
             placeholder="height"
+            onChange={changeHandler}
           />
         </label>
       </div>
