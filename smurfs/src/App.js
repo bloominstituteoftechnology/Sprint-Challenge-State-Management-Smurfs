@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { SmurfContexts } from './contexts/SmurfContexts';
 import BluePersonCard from './components/BluePersonCard';
+import AddSmurfForm from './components/AddSmurfForm';
 import "./App.css";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <SmurfContexts.Provider value={smurfPerson}>
         <div>
           <BluePersonCard />
+          <AddSmurfForm updateBlue={setSmurfPerson} />
         </div>
       </SmurfContexts.Provider>
     </div>
