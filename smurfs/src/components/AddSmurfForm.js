@@ -19,13 +19,18 @@ const AddSmurfForm = (props) => {
     });
   };
 
+  const addSmurf = e => {
+    e.preventDefault();
+    setBlue(blue.newName, blue.newAge, blue.newHeight);
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
     axios
       .post("http://localhost:3333/smurfs", blue)
       .then(res => {
         console.log(res);
-        props.updateBlue(res.data);
+        setBlue(res.data);
       })
       .catch(err => console.error(err));
       setBlue({
@@ -40,7 +45,7 @@ const AddSmurfForm = (props) => {
           New Smurf Name:
           <input 
             type="text"
-            value={blue.name}
+            value={blue.newName}
             placeholder="Name"
             onChange={changeHandler}
           />
@@ -51,7 +56,7 @@ const AddSmurfForm = (props) => {
           Smurf Age:
           <input 
             type="text"
-            value={blue.age}
+            value={blue.newAge}
             placeholder="Age"
             onChange={changeHandler}
           />
@@ -62,13 +67,13 @@ const AddSmurfForm = (props) => {
           Smurf Height:
           <input 
             type="text"
-            value={blue.height}
+            value={blue.newHeight}
             placeholder="height"
             onChange={changeHandler}
           />
         </label>
       </div>
-      <button>Add Smurf</button>
+      <button onClick={addSmurf}>Add Smurf</button>
     </form>
   )
 }

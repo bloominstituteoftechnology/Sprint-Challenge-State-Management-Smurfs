@@ -7,11 +7,11 @@ import AddSmurfForm from './components/AddSmurfForm';
 import "./App.css";
 
 function App() {
-  const [smurfPerson, setSmurfPerson] = useState({});
+  const [smurfPerson, setSmurfPerson] = useState([]);
 
   useEffect(() => {
     axios
-      .get('http://localhost:3333/smurfs/')
+      .get('http://localhost:3333/smurfs')
       .then(res => {
         setSmurfPerson(res.data);
         console.log(res.data);
@@ -27,9 +27,9 @@ function App() {
       <SmurfContexts.Provider value={smurfPerson}>
         <div>
           <BluePersonCard />
-          <AddSmurfForm updateBlue={setSmurfPerson} />
         </div>
       </SmurfContexts.Provider>
+      <AddSmurfForm updateBlue={setSmurfPerson} />
     </div>
   );
 }
