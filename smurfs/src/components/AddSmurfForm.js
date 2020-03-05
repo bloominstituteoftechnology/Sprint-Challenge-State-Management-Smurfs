@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const initialBlue = {
-  name: "",
-  age: "",
-  height: ""  
-};
+// const initialBlue = {
+//   name: "",
+//   age: "",
+//   height: ""  
+// };
 
-const AddSmurfForm = (props) => {
-  const [blue, setBlue] = useState(initialBlue)
+const AddSmurfForm = () => {
+  const [blue, setBlue] = useState({
+    name: "",
+    age: "",
+    height: "" 
+  })
 
   const changeHandler = e => {
     console.log(e.target.value)
-    let value = e.target.value;
+    // let value = e.target.value;
 
     setBlue({
-      [e.target.value]: value
+      ...blue, [e.target.name]: e.target.value
     });
   };
-
-  const addSmurf = e => {
-    e.preventDefault();
-    setBlue(blue.newName, blue.newAge, blue.newHeight);
-  }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -34,9 +33,14 @@ const AddSmurfForm = (props) => {
       })
       .catch(err => console.error(err));
       setBlue({
-        ...initialBlue
+        ...blue
       })
   };
+
+  const addSmurf = e => {
+    e.preventDefault();
+    setBlue(blue.name, blue.age, blue.height);
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -45,7 +49,7 @@ const AddSmurfForm = (props) => {
           New Smurf Name:
           <input 
             type="text"
-            value={blue.newName}
+            value={blue.name}
             placeholder="Name"
             onChange={changeHandler}
           />
@@ -56,7 +60,7 @@ const AddSmurfForm = (props) => {
           Smurf Age:
           <input 
             type="text"
-            value={blue.newAge}
+            value={blue.age}
             placeholder="Age"
             onChange={changeHandler}
           />
@@ -67,7 +71,7 @@ const AddSmurfForm = (props) => {
           Smurf Height:
           <input 
             type="text"
-            value={blue.newHeight}
+            value={blue.height}
             placeholder="height"
             onChange={changeHandler}
           />

@@ -28,8 +28,10 @@ function App() {
         <div>
           <BluePersonCard />
         </div>
+        <div>
+          <AddSmurfForm updateBlue={setSmurfPerson} />
+        </div>
       </SmurfContexts.Provider>
-      <AddSmurfForm updateBlue={setSmurfPerson} />
     </div>
   );
 }
