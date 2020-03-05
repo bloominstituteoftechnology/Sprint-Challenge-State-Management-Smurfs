@@ -14,26 +14,28 @@ const AddSmurfForm = () => {
     height: "" 
   })
 
-  const changeHandler = e => {
+  const handleChange = e => {
     console.log(e.target.value)
     // let value = e.target.value;
 
     setBlue({
-      ...blue, [e.target.name]: e.target.value
+      name: e.target.value
     });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     axios
-      .post("http://localhost:3333/smurfs", blue)
+      .post("http://localhost:3333/smurfs", addSmurf)
       .then(res => {
         console.log(res);
         setBlue(res.data);
       })
       .catch(err => console.error(err));
       setBlue({
-        ...blue
+        name: "",
+        age: "",
+        height: "" 
       })
   };
 
@@ -51,7 +53,7 @@ const AddSmurfForm = () => {
             type="text"
             value={blue.name}
             placeholder="Name"
-            onChange={changeHandler}
+            onChange={handleChange}
           />
         </label>
       </div>
@@ -62,7 +64,7 @@ const AddSmurfForm = () => {
             type="text"
             value={blue.age}
             placeholder="Age"
-            onChange={changeHandler}
+            onChange={handleChange}
           />
         </label>
       </div>
@@ -73,11 +75,11 @@ const AddSmurfForm = () => {
             type="text"
             value={blue.height}
             placeholder="height"
-            onChange={changeHandler}
+            onChange={handleChange}
           />
         </label>
       </div>
-      <button onClick={addSmurf}>Add Smurf</button>
+      <button type="submit">Add Smurf</button>
     </form>
   )
 }
