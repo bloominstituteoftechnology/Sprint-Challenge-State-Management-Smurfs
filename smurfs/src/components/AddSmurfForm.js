@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, Component, useContext } from 'react';
 import axios from 'axios';
+
+import { SmurfContexts } from '../contexts/SmurfContexts';
 
 // const initialBlue = {
 //   name: "",
@@ -8,41 +10,31 @@ import axios from 'axios';
 // };
 
 const AddSmurfForm = () => {
-  const [blue, setBlue] = useState({
-    name: "",
-    age: "",
-    height: "" 
-  })
+  const [blue, setBlue] = useState({})
+
+  // const addSmurf = useContext(SmurfContexts);
+  // console.log(addSmurf)
 
   const handleChange = e => {
-    console.log(e.target.value)
+    // console.log(e.target.value)
     // let value = e.target.value;
-
-    setBlue({
-      name: e.target.value
-    });
+    // e.preventDefault();
+    setBlue({...blue, [e.target.name]: e.target.value})
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = () => {
     axios
-      .post("http://localhost:3333/smurfs", addSmurf)
+      .post("http://localhost:3333/smurfs", blue)
       .then(res => {
         console.log(res);
-        setBlue(res.data);
       })
       .catch(err => console.error(err));
-      setBlue({
-        name: "",
-        age: "",
-        height: "" 
-      })
   };
 
-  const addSmurf = e => {
-    e.preventDefault();
-    setBlue(blue.name, blue.age, blue.height);
-  }
+  // const addSmurf = () => {
+  //   e.preventDefault();
+  //   setBlue();
+  // }
 
   return (
     <form onSubmit={handleSubmit}>

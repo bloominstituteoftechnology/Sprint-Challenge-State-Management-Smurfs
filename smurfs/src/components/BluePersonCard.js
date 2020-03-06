@@ -1,22 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { SmurfContexts } from '../contexts/SmurfContexts';
-
-function BluePersonCard() {
-  const smurfPerson = useContext(SmurfContexts);
-
-  console.log(smurfPerson);
-
-  return (
+export default function BluePersonCard(props) {
+  console.log(props)
+  return(
+       
     <div>
-      <h3>Smurfs in your village:</h3>
-      {smurfPerson.map(smurf => 
-        <div>
-          <h1>{smurf.name}</h1>
-        </div>    
-      )}
+        <h3>{props.smurf.name}</h3>
+        <p>Age: {props.smurf.age}</p>
+        <p>Height: {props.smurf.height}</p>
     </div>
-  )
-};
-
-export default BluePersonCard;
+)
+}
