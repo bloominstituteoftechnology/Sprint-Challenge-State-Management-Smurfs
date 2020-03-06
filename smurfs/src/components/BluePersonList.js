@@ -10,8 +10,8 @@ const BluePersonList = () => {
 
   return (
     <div>
-      {smurfPerson.map(smurf => 
-        <BluePersonCard smurf={smurf} />
+      {smurfPerson.map(smurf =>       
+        <BluePersonCard smurf={{smurf}}/>
       )}
     </div>
   )

@@ -14,8 +14,8 @@ function App() {
     axios
       .get('http://localhost:3333/smurfs')
       .then(res => {
-        setSmurfPerson(res.data);
         console.log(res.data);
+        setSmurfPerson(res.data);
       })
       .catch(err => {
         console.log("No smurfs", err);
@@ -34,11 +34,10 @@ function App() {
   return (
     <div className="App">
       <h1>SMURFS! 2.0 W/ Redux</h1>
-      <SmurfContexts.Provider value={{smurfPerson}}>
+      <BluePersonCard />
+      <SmurfContexts.Provider value={smurfPerson}>
         
         <BluePersonList />
-
-        <BluePersonCard />
   
         <AddSmurfForm />
         
