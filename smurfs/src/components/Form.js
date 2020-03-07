@@ -10,15 +10,19 @@ const handleChange =(event) => {
 // console.log(newSmurf)
 };
 
-// const handleSubmit = (event) =>{
-    // event.preventDefault
-
-// };
+const handleSubmit = (event) =>{
+    event.preventDefault();
+    axios.post('http://localhost:3333/smurfs', newSmurf)
+    .then((response) => {
+        setNewSmurf({})
+        console.log(response)
+    }).catch(err => console.log(err, 'error posting to smurf api'))
+};
 
 
     return(
         <div className='form-container'>
-            <form >
+            <form onSubmit={handleSubmit} >
                 <label>
                 Name:
                 <input
@@ -27,7 +31,6 @@ const handleChange =(event) => {
                     placeholder='Name'
                     onChange={handleChange}
                     value= {newSmurf.name}
-
                 />
                 </label>
                 <label>

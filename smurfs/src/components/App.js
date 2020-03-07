@@ -17,7 +17,7 @@ axios.get('http://localhost:3333/smurfs')
     console.log(response.data)
       setData(response.data)
     }) .catch(err => console.log(err, 'error recieving data from smurfs'))
-}, []);
+}, data);
 
 
 
