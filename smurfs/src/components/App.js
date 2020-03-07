@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import axios from 'axios';
 
 // Context
 import SmurfContext from '../context.js/SmurfContext';
@@ -8,9 +9,12 @@ function App () {
 const [data, setData] = useState([])
 
 
-// useEffect(() => {
-
-// });
+useEffect(() => {
+axios.get('http://localhost:3333/smurfs')
+  .then(response => {
+    console.log(response)
+  })
+});
 
     return (
       <div className="App">
