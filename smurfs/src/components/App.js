@@ -12,9 +12,12 @@ const [data, setData] = useState([])
 useEffect(() => {
 axios.get('http://localhost:3333/smurfs')
   .then(response => {
-    console.log(response)
-  })
-});
+    console.log(response.data)
+      setData(response.data)
+    }) .catch(err => console.log(err, 'error recieving data from smurfs'))
+}, []);
+
+
 
     return (
       <div className="App">
