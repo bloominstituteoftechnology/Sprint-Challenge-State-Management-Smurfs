@@ -22,7 +22,7 @@ axios.get('http://localhost:3333/smurfs')
 
     return (
       <div className="App">
-      <SmurfContext.Provider value={data}>
+      <SmurfContext.Provider value={{data}}>
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <SmurfList/>
       </SmurfContext.Provider> 
