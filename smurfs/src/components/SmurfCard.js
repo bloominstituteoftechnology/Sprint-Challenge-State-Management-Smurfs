@@ -1,23 +1,21 @@
 import React, {useContext} from 'react';
 import styled from 'styled-components'
 
+// Styels
 const Card = styled.div`
 border: solid black 2px;
 background-color:#3682BA;
 width:50%;
 margin:20px auto;
 `
-
 const H1 = styled.h1`
 color:white;
 font-size:45px;
 `
-
 const P = styled.p`
 color:white;
 font-size:20px;
 `
-
 
 
 const SmurfCard = (props) =>{

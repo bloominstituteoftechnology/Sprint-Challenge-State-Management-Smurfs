@@ -15,6 +15,7 @@ background:#87C5ED;
 
 function App () {
 const [data, setData] = useState([])
+console.log(data)
 
 
 useEffect(() => {

@@ -34,7 +34,6 @@ const handleSubmit = (event) =>{
     event.preventDefault();
     axios.post('http://localhost:3333/smurfs', newSmurf)
     .then((response) => {
-        setNewSmurf({})
         console.log(response)
     }).catch(err => console.log(err, 'error posting to smurf api'))
 };
