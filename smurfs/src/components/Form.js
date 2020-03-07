@@ -5,9 +5,9 @@ const Form = () =>{
     const [newSmurf, setNewSmurf] = useState({})
 
 
-// const handleChange =(event) => {
-
-// };
+const handleChange =(event) => {
+    setNewSmurf({...newSmurf, [event.target.name] : event.target.value})
+};
 
 // const handleSubmit = (event) =>{
 
@@ -23,6 +23,9 @@ const Form = () =>{
                     name='name'
                     type='text'
                     placeholder='Name'
+                    onChange={handleChange}
+                    value= {newSmurf.name}
+
                 />
                 </label>
                 <label>
@@ -31,6 +34,7 @@ const Form = () =>{
                     name='age'
                     type='text'
                     placeholder='Age'
+                    value={newSmurf.age}
                 />
                 </label>
                 <label>
@@ -39,6 +43,7 @@ const Form = () =>{
                     name='height'
                     type='text'
                     placeholder='Height'
+                    value={newSmurf.height}
                 />
                 </label>
                 <button>Create A New Smurf</button>
