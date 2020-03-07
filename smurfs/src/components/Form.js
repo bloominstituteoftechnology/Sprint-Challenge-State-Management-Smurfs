@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import axios from 'axios';
 
 const Form = () =>{
     const [newSmurf, setNewSmurf] = useState({})
@@ -7,16 +7,18 @@ const Form = () =>{
 
 const handleChange =(event) => {
     setNewSmurf({...newSmurf, [event.target.name] : event.target.value})
+// console.log(newSmurf)
 };
 
 // const handleSubmit = (event) =>{
+    // event.preventDefault
 
 // };
 
 
     return(
         <div className='form-container'>
-            <form>
+            <form >
                 <label>
                 Name:
                 <input
@@ -35,6 +37,7 @@ const handleChange =(event) => {
                     type='text'
                     placeholder='Age'
                     value={newSmurf.age}
+                    onChange={handleChange}
                 />
                 </label>
                 <label>
@@ -44,9 +47,10 @@ const handleChange =(event) => {
                     type='text'
                     placeholder='Height'
                     value={newSmurf.height}
+                    onChange={handleChange}
                 />
                 </label>
-                <button>Create A New Smurf</button>
+                <button type='submit'>Create A New Smurf</button>
             </form>
         </div>
     );
