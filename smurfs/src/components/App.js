@@ -3,9 +3,15 @@ import "./App.css";
 import axios from 'axios';
 import SmurfList from '../components/SmurfList';
 import Form from '../components/Form';
+import styled from 'styled-components'
 
 // Context
 import SmurfContext from '../context.js/SmurfContext';
+
+// Styles
+const AppContainer = styled.div`
+background:blue;
+`
 
 function App () {
 const [data, setData] = useState([])
@@ -22,13 +28,13 @@ axios.get('http://localhost:3333/smurfs')
 
 
     return (
-      <div className="App">
+      <AppContainer className="App">
       <SmurfContext.Provider value={{data}}>
         <h1>Our Smurf Family</h1>
         <Form/>
         <SmurfList/>
       </SmurfContext.Provider> 
-      </div>
+      </AppContainer>
     );
 }
 
