@@ -32,7 +32,7 @@ axios.get('http://localhost:3333/smurfs')
       <AppContainer className="App">
       <SmurfContext.Provider value={{data}}>
         <h1>Our Smurf Family</h1>
-        <Form/>
+        <Form setData={setData} data={data}/>
         <SmurfList/>
       </SmurfContext.Provider> 
       </AppContainer>

@@ -21,7 +21,7 @@ padding:5px;
 
 
 
-const Form = () =>{
+const Form = (props) =>{
     const [newSmurf, setNewSmurf] = useState({})
 
 
