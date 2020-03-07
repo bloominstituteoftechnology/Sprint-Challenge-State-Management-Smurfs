@@ -1,5 +1,25 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import {Button} from 'reactstrap';
+import styled from 'styled-components'
+
+
+// Styles
+const FormContainer = styled.div`
+width:75%;
+margin: 30px auto;
+
+`
+
+const Input = styled.input`
+padding:5px;
+`
+const Label = styled.label`
+font-weight:bold;
+padding:5px;
+`
+
+
 
 const Form = () =>{
     const [newSmurf, setNewSmurf] = useState({})
@@ -21,41 +41,41 @@ const handleSubmit = (event) =>{
 
 
     return(
-        <div className='form-container'>
+        <FormContainer className='form-container'>
             <form onSubmit={handleSubmit} >
-                <label>
+                <Label>
                 Name:
-                <input
+                <Input
                     name='name'
                     type='text'
                     placeholder='Name'
                     onChange={handleChange}
                     value= {newSmurf.name}
                 />
-                </label>
-                <label>
+                </Label>
+                <Label>
                 Age:
-                <input
+                <Input
                     name='age'
                     type='text'
                     placeholder='Age'
                     value={newSmurf.age}
                     onChange={handleChange}
                 />
-                </label>
-                <label>
+                </Label>
+                <Label>
                 Height:
-                <input
+                <Input
                     name='height'
                     type='text'
                     placeholder='Height'
                     value={newSmurf.height}
                     onChange={handleChange}
                 />
-                </label>
-                <button type='submit'>Create A New Smurf</button>
+                </Label>
+                <Button color= "danger" type='submit'>Create A New Smurf</Button>
             </form>
-        </div>
+        </FormContainer>
     );
 };
 

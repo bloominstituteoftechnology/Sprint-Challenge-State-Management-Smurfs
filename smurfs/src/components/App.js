@@ -10,7 +10,7 @@ import SmurfContext from '../context.js/SmurfContext';
 
 // Styles
 const AppContainer = styled.div`
-background:blue;
+background:#87C5ED;
 `
 
 function App () {
