@@ -10,7 +10,7 @@ const {data} = useContext(SmurfContext);
     return(
         <div>
             {data.map(item => (
-                <SmurfCard/>
+                <SmurfCard key={item.id} smurf= {item}/>
             ))}
         </div>
     );
