@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from 'axios';
 import SmurfList from '../components/SmurfList';
+import Form from '../components/Form';
 
 // Context
 import SmurfContext from '../context.js/SmurfContext';
@@ -23,7 +24,8 @@ axios.get('http://localhost:3333/smurfs')
     return (
       <div className="App">
       <SmurfContext.Provider value={{data}}>
-        <h1>SMURFS! 2.0 W/ Redux</h1>
+        <h1>Our Smurf Family</h1>
+        <Form/>
         <SmurfList/>
       </SmurfContext.Provider> 
       </div>
