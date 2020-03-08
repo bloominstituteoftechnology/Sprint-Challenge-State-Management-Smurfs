@@ -10,6 +10,7 @@ export function postSmurfs(payload) {
 		axios
 			.post('http://localhost:3333/smurfs', payload)
 			.then((res) => {
+				console.log('huh', res);
 				dispatch({ type: POST_SMURF_SUCCESS, payload: res.data });
 			})
 			.catch((err) => {

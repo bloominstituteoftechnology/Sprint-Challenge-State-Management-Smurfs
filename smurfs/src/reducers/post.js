@@ -1,12 +1,12 @@
 import { POST_SMURF_START, POST_SMURF_SUCCESS, POST_SMURF_ERROR } from '../actions/actionreducer';
 
 const initialState = {
-	smurf: null,
 	post: false,
+	success: null,
 	error: null
 };
 
-export function postReducer(state = initialState, action) {
+export function reducer(state = initialState, action) {
 	switch (action.type) {
 		case POST_SMURF_START:
 			return {
@@ -18,16 +18,15 @@ export function postReducer(state = initialState, action) {
 			return {
 				...state,
 				post: true,
-				smurf: action.payload
+				success: action.payload
 			};
 
-		case POST_SMURF_ERROR: {
+		case POST_SMURF_ERROR:
 			return {
 				...state,
 				post: false,
 				error: action.payload
 			};
-		}
 		default:
 			return state;
 	}

@@ -22,7 +22,7 @@ const Smurfed = styled.div`
 function App(props) {
 	const [ newSmurf, setNewSmurf ] = useState({
 		name: '',
-		age: '',
+		age: '0',
 		height: ''
 	});
 

@@ -21,13 +21,13 @@ export function reducer(state = initialState, action) {
 				isLoading: false
 			};
 
-		case FETCH_SMURF_ERROR: {
+		case FETCH_SMURF_ERROR:
 			return {
 				...state,
 				error: action.payload,
 				isLoading: false
 			};
-		}
+
 		default:
 			return state;
 	}
