@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 export const Cards = (props) =>{
-    console.log("Cardprops:", props)
         return (
             <div>
                 <p>{props.name}</p>

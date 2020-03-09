@@ -1,12 +1,13 @@
 import React, {useState, dispatch} from 'react';
 import {connect} from 'react-redux';
-import {ADD_SMURF, Reducer} from './Reducer';
 import {addSmurf} from './Actions';
+import Cards from './Cards';
 
 const Form = (props) => {
     const [name, setName] = useState("");
     const [height, setHeight] = useState("");
     const [age, setAge] = useState("");
+    const [resp, setResp] = useState([]);
 
     const handleName = (e) =>{
         e.preventDefault();
@@ -32,13 +33,14 @@ const Form = (props) => {
         height: height
     })
         .then(response =>{
-            console.log(response)
-            dispatch(props.addSmurf(response))
+            console.log("res:", response)
+            setResp(response.data)
         })
         .catch(err=>{
             console.log(err)
         })
     }
+    console.log(resp)
  return(
     <div>
         <form>
@@ -47,6 +49,9 @@ const Form = (props) => {
             <input onChange={handleHeight} type="text" placeholder="Enter height of smurf"/>
             <button type="submit" onClick={addSmurf}>Submit</button>
         </form>
+        {resp.map(smurf =>{
+            return <Cards name={smurf.name} height={smurf.height} age={smurf.age} />
+        })}
     </div>
 )
 }
