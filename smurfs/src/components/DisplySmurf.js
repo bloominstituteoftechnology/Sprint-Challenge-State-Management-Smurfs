@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchSmurfs } from "../actions/smurfActions";
 
@@ -23,6 +24,11 @@ class DisplaySmurf extends React.Component {
     );
   }
 }
+
+DisplaySmurf.propTypes = {
+  fetchSmurfs: PropTypes.func.isRequired,
+  smurfs: PropTypes.array.isRequired
+};
 
 const mapStateToProps = state => ({
   smurfs: state.smurfs.items
