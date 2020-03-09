@@ -8,6 +8,12 @@ class DisplaySmurf extends React.Component {
     this.props.fetchSmurfs();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.newSmurfs) {
+      this.props.smurfs.unshift(nextProps.newSmurfs);
+    }
+  }
+
   render() {
     const smurfInfo = this.props.smurfs.map(smurf => (
       <div key={smurf.id}>
@@ -27,11 +33,13 @@ class DisplaySmurf extends React.Component {
 
 DisplaySmurf.propTypes = {
   fetchSmurfs: PropTypes.func.isRequired,
-  smurfs: PropTypes.array.isRequired
+  smurfs: PropTypes.array.isRequired,
+  newSmurfs: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-  smurfs: state.smurfs.items
+  smurfs: state.smurfs.items,
+  newSmurfs: state.smurfs.item
 });
 
 export default connect(mapStateToProps, { fetchSmurfs })(DisplaySmurf);

@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { createSmurfs } from "../actions/smurfActions";
 
 class AddSmurfForm extends Component {
   constructor(props) {
@@ -26,9 +29,13 @@ class AddSmurfForm extends Component {
       height: this.state.height
     };
 
-    this.setState("");
+    this.props.createSmurfs(smurf);
 
-    // Call action
+    // this.setState({
+    //   name: "",
+    //   Age: "",
+    //   Height: ""
+    // });
   };
 
   render() {
@@ -74,4 +81,8 @@ class AddSmurfForm extends Component {
   }
 }
 
-export default AddSmurfForm;
+AddSmurfForm.propTypes = {
+  createSmurfs: PropTypes.func.isRequired
+};
+
+export default connect(null, { createSmurfs })(AddSmurfForm);

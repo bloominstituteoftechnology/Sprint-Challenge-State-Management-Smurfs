@@ -26,16 +26,20 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 The Context API is a state management tool that helps us manage state when we have large amounts of data that need to be passed throughout the app. Context allows for you to pass data to any component regardless of the parent-child relationship.
 
-- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+- [x] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+  The STORE is where your apps state tree or "initial state" is held. You cannot directly mutuate or change the data held in the store. Updating data held in the store is the job of REDUCERS, who use functions to update the store. ACTIONS are functions that eturn objects which instruct reducers on HOW to update the store.
 
 - [x] What is the difference between Application state and Component state? When would be a good time to use one over the other?
 
       	Application state is data that needs to be accessed by the app as a whole as opposed to Component state which is data that is only used by one component. Application state would best be used when multiple components require access to the data such as user data for example.
 
-- [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+- [x] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
 
-- [x] What is your favorite state management system you've learned and this sprint? Please explain why!
-      I HATE STATE MANAGEMENT
+  By definition a thunk is a function that returns a function. This allows us to do some dynamic things in redux. It changes our action creators by allowing us to make asynchronous API calls and return promises.
+
+* [x] What is your favorite state management system you've learned and this sprint? Please explain why!
+      I like Context API becasue it allows you to pass props and state directly between component. Although it's waaay more boilerplate and takes longer to setup I do prefer Redux becasue it allows you to do so much more than Context API.
 
 ## Project Set Up
 
