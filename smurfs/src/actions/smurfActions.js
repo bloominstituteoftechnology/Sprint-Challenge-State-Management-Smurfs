@@ -4,6 +4,7 @@ export const FETCH_START = 'FETCH_START';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAILURE = 'FETCH_FAILURE';
 export const ADD_SMURFS = 'ADD_SMURFS';
+export const REMOVE_SMURFS = 'REMOVE_SMURFS';
 
 // action creator
 
@@ -28,3 +29,9 @@ export const addSmurfs = (smurf) => {
         payload: smurf
     }
 } 
+
+// export const removeSmurfs = (id) => {
+//     axios.delete('http://localhost:3333/smurfs/'+ id).then( res => {
+//         console.log(res);
+//     })
+// }

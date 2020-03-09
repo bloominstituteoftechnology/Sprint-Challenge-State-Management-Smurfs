@@ -6,7 +6,7 @@ function Smurfs_Form(props) {
 
     const [smurf, setSmurf] = useState({
         name: '',
-        age: null,
+        age: '',
         height: ''
     })
     const onChange = e => setSmurf({
@@ -21,7 +21,8 @@ function Smurfs_Form(props) {
         setSmurf({
             name: '',
             age: '',
-            height: ''
+            height: '',
+            id: ''
         });
 
     }
