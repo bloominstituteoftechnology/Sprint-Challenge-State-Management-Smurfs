@@ -30,11 +30,12 @@ const Form = (props) => {
         axios.post('http://localhost:3333/smurfs', {
         name: name,
         age: age,
-        height: height
+        height: height,
+        id: Date.now()
     })
         .then(response =>{
-            console.log("res:", response)
             setResp(response.data)
+            addSmurf(resp)
         })
         .catch(err=>{
             console.log(err)
