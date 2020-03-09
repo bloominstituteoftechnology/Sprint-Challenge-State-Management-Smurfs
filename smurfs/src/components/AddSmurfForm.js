@@ -26,17 +26,9 @@ class AddSmurfForm extends Component {
       height: this.state.height
     };
 
-    fetch("http://localhost:3333/smurfs", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify(smurf)
-    })
-      .then(res => res.json())
-      .then(data => console.log(data));
-
     this.setState("");
+
+    // Call action
   };
 
   render() {
