@@ -4,7 +4,7 @@ export const FETCH_SMURF_START = 'FETCH_SMURF_START';
 export const FETCH_SMURF_SUCCESS = 'FETCH_SMURF_SUCCESS';
 export const FETCH_SMURF_ERROR = 'FETCH_SMURF_ERROR';
 
-export function fetchSmurfs() {
+export default function fetchSmurfs(smurf) {
 	return (dispatch) => {
 		dispatch({ type: FETCH_SMURF_START });
 		axios

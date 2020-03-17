@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { postSmurfs } from './actions/actionreducer';
+import  postSmurfs  from './actions/actionreducer';
 import { connect } from 'react-redux';
 
 const Form = (props) => {
-	const [ newSmurf, setNewSmurf ] = useState('');
+	const [ newSmurf, setNewSmurf ] = useState({
+		name: '',
+		age: '',
+		height: ''
+	});
 
 	const handleChanges = (e) => {
 		setNewSmurf({
@@ -11,25 +15,39 @@ const Form = (props) => {
 			[e.target.name]: e.target.value
 		});
 	};
+	const resetForm = () => {
+		setNewSmurf(newSmurf)
+	}
 
 	const handleSubmit = (e) => {
-		e.preventDefault();
 		props.postSmurfs(newSmurf);
-		setNewSmurf();
+		resetForm()
 	};
-
+	
 	return (
 		<div className="work">
 			<form onSubmit={handleSubmit}>
-				<input type="text" name="name" placeholder="Name" value={newSmurf.name} onChange={handleChanges} />
+				<input 
+				type="text" 
+				name="name" 
+				placeholder="Name" 
+				
+				onChange={handleChanges} 
+				/>
 				<br />
-				<input type="text" name="age" placeholder="Age" value={newSmurf.age} onChange={handleChanges} />
+				<input 
+				type="text" 
+				name="age" 
+				placeholder="Age" 
+				 
+				onChange={handleChanges} 
+				/>
 				<br />
 				<input
 					type="text"
 					name="height"
 					placeholder="Height"
-					value={newSmurf.height}
+
 					onChange={handleChanges}
 				/>
 				<br />
@@ -40,14 +58,10 @@ const Form = (props) => {
 		</div>
 	);
 };
-function mapStateToProps(state) {
-	return {
-		smurf: state.title
-	};
-}
+
 
 const mapDispatchToProps = {
 	postSmurfs
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(null, mapDispatchToProps)(Form);
