@@ -16,9 +16,10 @@ const AddSmurfForm = () => {
   // console.log(addSmurf)
 
   const handleChange = e => {
-    // console.log(e.target.value)
+    console.log(e.target.value)
     // let value = e.target.value;
     // e.preventDefault();
+    console.log({...blue, [e.target.name]: e.target.value})
     setBlue({...blue, [e.target.name]: e.target.value})
   };
 
@@ -43,6 +44,7 @@ const AddSmurfForm = () => {
           New Smurf Name:
           <input 
             type="text"
+            name='name'
             value={blue.name}
             placeholder="Name"
             onChange={handleChange}
@@ -54,6 +56,7 @@ const AddSmurfForm = () => {
           Smurf Age:
           <input 
             type="text"
+            name='age'
             value={blue.age}
             placeholder="Age"
             onChange={handleChange}
@@ -65,6 +68,7 @@ const AddSmurfForm = () => {
           Smurf Height:
           <input 
             type="text"
+            name='height'
             value={blue.height}
             placeholder="height"
             onChange={handleChange}
