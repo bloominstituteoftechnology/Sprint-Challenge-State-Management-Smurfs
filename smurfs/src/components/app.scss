@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+  margin: 20px;
+  padding: 100px 0px;
+  border-radius: 50px;
+  background-color: rgba(111,111,111,0.5);
+  color: white;
+
+  .smurfList{
+  	width: 400px;
+  	margin: 10px auto;
+
+
+  	.eachSmurf{
+  		border: 1px red solid;  
+  		margin: 5px 0px;
+  	}
+  }
+
+}
