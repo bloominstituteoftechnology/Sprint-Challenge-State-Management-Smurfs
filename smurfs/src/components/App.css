@@ -1,3 +1,35 @@
 .App {
   text-align: center;
+  background-image: url('https://cdna.artstation.com/p/assets/images/images/013/972/352/large/tommy-bishop-smurfvilliage-render-finish.jpg?1541904491');
+  height: 150vh;
 }
+
+.smurf{
+  font-family: cursive;
+  color: black;
+-webkit-text-fill-color: #88CCFF; 
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black;
+}
+
+input{
+  border-radius: 25px;
+  border: none;
+  text-align: center;
+  height: 5vh;
+  width: 15%;
+  margin-top: 1%;
+  font-family: cursive;
+}
+
+button{
+  border: none;
+  width: 5%;
+  height: 3vh;
+  border-radius: 50px;
+  background-color: white;
+  font-family: cursive;
+  margin-top: .5%;
+}
+
+
