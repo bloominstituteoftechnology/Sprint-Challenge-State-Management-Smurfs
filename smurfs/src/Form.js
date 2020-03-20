@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import  postSmurfs  from './actions/actionreducer';
 import { connect } from 'react-redux';
+import styled from 'styled-components'
+
+const Div = styled.div`
+/* display: flex; */
+padding: 20px;
+flex-wrap: wrap;
+justify-content: space-evenly;
+`
 
 const Form = (props) => {
 	const [ newSmurf, setNewSmurf ] = useState({
@@ -25,7 +33,8 @@ const Form = (props) => {
 	};
 	
 	return (
-		<div className="work">
+		<Div>
+			<h3>Please add a smurf to the village!</h3>
 			<form onSubmit={handleSubmit}>
 				<input 
 				type="text" 
@@ -55,7 +64,7 @@ const Form = (props) => {
 					Add
 				</button>
 			</form>
-		</div>
+		</Div>
 	);
 };
 

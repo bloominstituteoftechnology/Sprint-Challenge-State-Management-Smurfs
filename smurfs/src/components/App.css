@@ -1,8 +1,9 @@
 .App {
   text-align: center;
- color: darkgray;
- margin:auto;
+ color: rgb(201, 5, 5);
+ /* margin:auto; */
  width: 100vw;
+ background-color: cornflowerblue;
 }
 
 .App-logo {
@@ -28,5 +29,10 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+img {
+  width: 40%;
+  margin: auto;
 }
 
