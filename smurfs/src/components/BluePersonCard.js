@@ -12,6 +12,7 @@ export default function BluePersonCard(props) {
        
     <div>
         <h3>{props.smurf && props.smurf.name}</h3>
+        <p>{props.smurf && props.smurf.age}</p>
         {/* <p>Age: {props.smurf.age}</p>
         <p>Height: {props.smurf.height}</p> */}
     </div>
