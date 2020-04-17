@@ -1,24 +1,34 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "./App.css";
+
+import {getSmurfs} from "../actions"
+import {postSmurf} from "../actions"
 
 
 import SmurfList from "./SmurfList";
 import SmurfForm from "./SmurfForm";
+import { AppContext } from "../contexts/AppContext";
 
 
-class App extends Component {
-  render() {
+
+function App() {
+  
+    const [smurfs, setSmurfs] = useState(getSmurfs);
+    const addSmurf = smurf => {
+      setSmurfs([...smurf, postSmurf])
+    }
+
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-        <SmurfList />
-        <SmurfForm />
+        <AppContext.Provider value={{smurfs,addSmurf}}>
+          <SmurfList />
+          <SmurfForm />
+        </AppContext.Provider>
+        
       </div>
     );
-  }
+  
 }
 
 export default App;

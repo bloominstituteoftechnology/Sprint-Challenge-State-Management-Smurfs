@@ -8,7 +8,7 @@ const SmurfList = props => {
 
     useEffect(()=>{
         props.getSmurfs();
-    },[])
+    },[props])
 
     return (
         <>  
@@ -27,11 +27,11 @@ const SmurfList = props => {
 
 const mapStateToProps = state => {
     console.log("smurflist mapstatetoprops state:",state)
-    return {
+    // return {
     //   smurfs: state.smurfs,
     //   fetchingSmurfs: state.fetchingSmurfs,
     //   error: state.error
-    };
+    // };
   };
   
   export default connect(
