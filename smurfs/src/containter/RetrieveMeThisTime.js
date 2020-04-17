@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import Loader from 'react-loader-spinner';
 
 import { fetchInfo } from '../actions';
 
@@ -7,16 +8,19 @@ const RetrieveMeThisTime = (props) => {
     useEffect(() => {
         props.fetchInfo();
     }, []);
-    console.log('RetMe Props: ', props.info);
+    console.log('RetMe Props: ', props);
     return (
         <div>
             <h3>
                 These are the smurfs of the village. Can we make them grow in
-                size, not physically but in nubmers????
+                size, not physically but in numbers????
             </h3>
+            {props.isFetching && (
+                <Loader type="Circles" color="#00BFFF" height={60} width={80} />
+            )}
             {props.info &&
-                props.info.map((value) => {
-                    console.log(value);
+                props.info.map((value, i) => {
+                    console.log(`This is smurf #${i} in props.map`, value);
                     return (
                         <section>
                             <h3>
@@ -34,7 +38,7 @@ const RetrieveMeThisTime = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log('mapStateToProps state: ', state);
+    // console.log('mapStateToProps state: ', state);
     return {
         info: state.info.info,
         isFetching: state.info.isFetching,
