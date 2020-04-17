@@ -19,8 +19,8 @@ const store = createStore(
 
 
 ReactDOM.render(
-<Provider>
-    <App store={store}/>
+<Provider store={store}>
+    <App />
 </Provider>
 
 

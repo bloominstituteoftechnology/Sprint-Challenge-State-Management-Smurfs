@@ -9,13 +9,15 @@ export const POST_SMURF_FAIL = "POST_SMURF_FAIL";
 
 export const getSmurfs = () => dispatch => {
     dispatch({type: GET_SMURFS_START});
-    axios   .get("http://localhost:3333/smurfs")
-            .then(res=>{
-                console.log("Result: ", res)
-            })
-            .catch(err => {
-                console.log("Error: ", err)
-            })
+    axios.get("http://localhost:3333/smurfs")
+        .then(res=>{
+            console.log("Result: ", res)
+            dispatch({type: GET_SMURFS_SUCCESS, payload: res.data})
+        })
+        .catch(err => {
+            console.log("Error: ", err)
+            dispatch({type: GET_SMURFS_FAIL, payload: err.res})
+        })
 }
 
 export const postSmurf = (newSmurf) => dispatch => {
