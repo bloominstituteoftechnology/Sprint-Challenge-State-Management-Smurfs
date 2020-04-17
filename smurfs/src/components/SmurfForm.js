@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { connect } from "react-redux";
 import { postSmurf } from "../actions";
 
+import { AppContext } from "../contexts/AppContext";
+
 const SmurfForm = props => {
+
+    const {smurfs, addSmurf } = useContext(AppContext)
+
     const [newSmurf, setNewSmurf] = useState({
       name: "",
       age: "",
@@ -54,7 +59,7 @@ const SmurfForm = props => {
             />
           </label>
           {"    "}
-          <button type="submit" onClick={() => props.postSmurf(newSmurf)}>
+          <button type="submit" onClick={addSmurf(newSmurf)}>
             Add Your Smurf!
           </button>
         </form>
@@ -62,13 +67,5 @@ const SmurfForm = props => {
     );
   };
   
-  const mapStateToProps = state => {
-    // return {
-    //   addingSmurf: state.addingSmurf
-    // };
-  };
   
-  export default connect(
-    mapStateToProps,
-    { postSmurf }
-  )(SmurfForm);
+  export default SmurfForm;

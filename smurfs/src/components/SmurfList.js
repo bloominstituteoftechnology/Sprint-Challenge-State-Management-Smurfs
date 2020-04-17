@@ -1,40 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { connect } from "react-redux";
-
+import axios from "axios"
 import {getSmurfs} from "../actions"
+import { AppContext } from "../contexts/AppContext";
 
-const SmurfList = props => {
-    console.log("smurflist props: ",props)
-
-    useEffect(()=>{
-        props.getSmurfs();
-    },[props])
-
+const SmurfList = () => {  
+    const {smurfs, addSmurf } = useContext(AppContext)
+    
+    
+    console.log(smurfs)
     return (
-        <>  
-            {/* {props.smurfs.map(smurf => (
-                <div key = {smurf.id} >
-                    <h2>Name: {smurf.name}</h2>
+    <>      
+    {smurfs.map(smurf => (
+                <div key={smurf.id}>
+                    <h3>Name: {smurf.name}</h3>
                     <p>Age: {smurf.age}</p>
-                    <p>height: {smurf.height}</p>
+                    <p>Height: {smurf.height}</p>
                 </div>
-                
-                
-            ))} */}
-        </>
+                ))}
+    </>
     )
+        
+    
 }
 
-const mapStateToProps = state => {
-    console.log("smurflist mapstatetoprops state:",state)
-    // return {
-    //   smurfs: state.smurfs,
-    //   fetchingSmurfs: state.fetchingSmurfs,
-    //   error: state.error
-    // };
-  };
   
-  export default connect(
-    mapStateToProps,
-    { getSmurfs }
-  )(SmurfList);
+  export default SmurfList;
