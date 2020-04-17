@@ -7,13 +7,28 @@ const RetrieveMeThisTime = (props) => {
     useEffect(() => {
         props.fetchInfo();
     }, []);
-    console.log('RetMe Props: ', props);
+    console.log('RetMe Props: ', props.info);
     return (
         <div>
             <h3>
                 These are the smurfs of the village. Can we make them grow in
                 size, not physically but in nubmers????
             </h3>
+            {props.info &&
+                props.info.map((value) => {
+                    console.log(value);
+                    return (
+                        <section>
+                            <h3>
+                                Hey there, {value.name} lives in smurf village.
+                            </h3>
+                            <div>
+                                <h5>Coming in at {value.height},</h5>
+                                <h5>This smurf is {value.age} years old!</h5>
+                            </div>
+                        </section>
+                    );
+                })}
         </div>
     );
 };
