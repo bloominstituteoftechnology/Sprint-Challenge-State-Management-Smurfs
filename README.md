@@ -45,7 +45,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
 
-      At this point I feel more comfortable with React beacuase we've had more exposure to it.  I liked what Context can do, but I have had so little experience with it that I will probably proceed with React today.
+      At this point I feel more comfortable with React beacuase we've had more exposure to it.  I liked what Context can do, but I have had so little experience with it that I will probably proceed with Redux today.
 
 
 ## Project Set Up
