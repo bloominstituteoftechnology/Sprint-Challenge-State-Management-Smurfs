@@ -3,11 +3,27 @@ import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 
 import { fetchInfo } from '../actions';
+import { useReducer } from 'react';
+import { addReducer, initialState } from '../reducers';
 
 const RetrieveMeThisTime = (props) => {
     useEffect(() => {
         props.fetchInfo();
     }, []);
+
+    const [state, dispatch] = useReducer(addReducer, initialState);
+    //ACTION ADDED HERE//
+    const addSmurf = (smurf) => {
+        let newId = 1;
+        const newSmurf = {
+            name: smurf.name,
+            age: smurf.age,
+            height: smurf.height,
+            id: newId++,
+        };
+        dispatch({ type: 'ADD_SMURF', payload: newSmurf });
+    };
+    //END OF ACTION//
     console.log('RetMe Props: ', props);
     return (
         <div>

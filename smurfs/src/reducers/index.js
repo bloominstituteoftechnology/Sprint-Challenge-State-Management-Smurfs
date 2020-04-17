@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 // [{ name: 'Brainey', age: 200, height: '5cm', id: 0 }];
-const initialState = {
+export const initialState = {
     info: [{}],
     isFetching: false,
     error: '',
