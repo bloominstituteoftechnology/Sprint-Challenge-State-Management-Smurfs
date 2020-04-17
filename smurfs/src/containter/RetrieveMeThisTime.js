@@ -8,7 +8,14 @@ const RetrieveMeThisTime = (props) => {
         props.fetchInfo();
     }, []);
     console.log('RetMe Props: ', props);
-    return <h3>test</h3>;
+    return (
+        <div>
+            <h3>
+                These are the smurfs of the village. Can we make them grow in
+                size, not physically but in nubmers????
+            </h3>
+        </div>
+    );
 };
 
 const mapStateToProps = (state) => {

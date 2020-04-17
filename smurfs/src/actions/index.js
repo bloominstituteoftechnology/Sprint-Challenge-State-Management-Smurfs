@@ -6,7 +6,11 @@ export const fetchInfo = () => {
             type: 'FETCH_INFO_START',
         });
         axios.get('http://localhost:3333/smurfs').then((res) => {
-            console.log('Results of axios.get', res);
+            console.log('Results of axios.get', res.data);
+            dispatch({
+                type: 'FETCH_INFO_SUCCESS',
+                payload: res.data,
+            });
         });
     };
 };
