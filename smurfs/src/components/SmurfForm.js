@@ -59,7 +59,7 @@ const SmurfForm = props => {
             />
           </label>
           {"    "}
-          <button type="submit" onClick={addSmurf(newSmurf)}>
+          <button type="submit" onClick={()=> addSmurf(newSmurf)}>
             Add Your Smurf!
           </button>
         </form>
