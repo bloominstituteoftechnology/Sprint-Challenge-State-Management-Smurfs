@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import RetrieveMeThisTime from '../containter';
+import RetrieveMeThisTime from '../containter/RetrieveMeThisTime';
 
 class App extends Component {
     render() {
