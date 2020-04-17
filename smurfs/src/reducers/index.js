@@ -1,5 +1,10 @@
 // [{ name: 'Brainey', age: 200, height: '5cm', id: 0 }];
-export const infoReducer = (state = [], action) => {
+const initialState = {
+    info: [],
+    isFetching: false,
+    error: '',
+};
+export const infoReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'FETCH_INFO_START':
             return {
