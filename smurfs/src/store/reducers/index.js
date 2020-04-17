@@ -27,6 +27,11 @@ export const reducer = (state = initialState, action) => {
                 isLoading: false,
                 error: action.payload
             }
+        case POST_NEWSMURF_YAY:
+            const newSmurf = {
+                name: action.payload,
+                location: '',
+            }
         default: 
             return state;
     }

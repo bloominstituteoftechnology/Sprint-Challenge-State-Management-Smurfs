@@ -1,13 +1,20 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { connect } from 'react-redux';
-import { getData } from '../store/actions';
+import { fetchData } from '../store/actions';
 import SmurfList from './SmurfList';
 import NewSmurfForm from './NewSmurfForm';
 
 
 
 const App = props => {
+  useEffect(() => {
+    if (props.smurfs.length === 0) {
+      props.fetchData();
+    }
+  }, [props.smurfs]);
+  console.log('PROPS FROM DATA', props);
+
   return (
     <div className="App">
       <h1> These are Smurfs with Redux </h1>
@@ -29,5 +36,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps, 
-  { getData }
+  { fetchData }
 )(App);
