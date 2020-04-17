@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 
 import { fetchInfo } from '../actions';
-import { useReducer } from 'react';
 import { addReducer, initialState } from '../reducers';
+import AddSmurfForm from './AddSmurfForm';
 
 const RetrieveMeThisTime = (props) => {
     useEffect(() => {
@@ -31,6 +31,7 @@ const RetrieveMeThisTime = (props) => {
                 These are the smurfs of the village. Can we make them grow in
                 size, not physically but in numbers????
             </h3>
+            <AddSmurfForm props={props} addSmurf={addSmurf} />
             {props.isFetching && (
                 <Loader type="Circles" color="#00BFFF" height={60} width={80} />
             )}
