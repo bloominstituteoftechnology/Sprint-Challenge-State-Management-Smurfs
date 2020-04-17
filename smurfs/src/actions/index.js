@@ -28,16 +28,16 @@ export const pushInfo = (smurf) => {
         axios
             .post('http://localhost:3333/smurfs', { smurf })
             .then((res) => {
-                console.log('Results of axios.post', res.data);
+                console.log('Results of axios.post', res);
                 dispatch({
                     type: 'POST_INFO_SUCCESS',
-                    payload: res.data,
+                    payload: res,
                 });
             })
             .catch((error) => {
                 console.error(error);
                 dispatch({
-                    type: 'POST_INFO_ERROR',
+                    type: 'POST_INFO_FAILURE',
                     payload: error,
                 });
             });

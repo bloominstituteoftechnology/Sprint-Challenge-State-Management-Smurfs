@@ -1,39 +1,37 @@
 import React, { useState } from 'react';
-import { pushInfo } from '../actions';
+import { pushInfo, fetchInfo } from '../actions';
+import { connect } from 'react-redux';
+import axios from 'axios';
+
 // import { addSmurf } from '../containter/RetrieveMeThisTime';
 // import axios from 'axios';
 
-export default function AddSmurfForm(props) {
+function AddSmurfForm(props) {
     console.log('AddSmurfForm: ', props);
 
-    const [smurf, setSmurf] = useState({});
+    const [smurf, setSmurf] = useState();
 
-    // const addSmurf = (smurf) => {
-    //     let newId = 1;
-    //     const newSmurf = {
-    //         name: smurf.name,
-    //         age: smurf.age,
-    //         height: smurf.height,
-    //         id: newId++,
-    //     };
-    //     setSmurf(newSmurf);
-    // };
-
-    const submitForm = (event) => {
-        event.preventDefault();
-        console.log(smurf);
-        // addSmurf(smurf);
-        pushInfo(smurf);
-    };
     const handleChanges = (event) => {
         event.preventDefault();
-        let idNum = 1;
         const newerSmurfData = {
             [event.target.name]: event.target.value,
-            id: idNum++,
             ...smurf,
         };
         return setSmurf(newerSmurfData);
+    };
+    const submitForm = (event) => {
+        event.preventDefault();
+        console.log('submit clicked: ', smurf);
+        // pushInfo(smurf);
+        return (dispatch) => {
+            axios
+                .post('http://localhost:3333/smurfs', smurf)
+                .then((res) => {
+                    dispatch({ type: 'FETCH_INFO_SUCCESS', payload: res });
+                    console.log('response: ', res);
+                })
+                .catch((error) => console.error(error));
+        };
     };
 
     return (
@@ -83,9 +81,25 @@ export default function AddSmurfForm(props) {
                 ) : null} */}
             </label>
             <br />
+            <label htmlFor="id">
+                <input
+                    type="hidden"
+                    id="id"
+                    name="id"
+                    value={Math.random() * 10000}
+                />
+            </label>
             <br />
-            <button>Submit</button>
+            <button type="submit">Submit</button>
             {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
         </form>
     );
 }
+const mapStateToProps = (state) => {
+    console.log('addsmurfform state;', state);
+    return {
+        push: state.push.info,
+    };
+};
+
+export default connect(mapStateToProps, { fetchInfo, pushInfo })(AddSmurfForm);

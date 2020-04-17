@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+
 import { combineReducers } from 'redux';
 
 // [{ name: 'Brainey', age: 200, height: '5cm', id: 0 }];
@@ -33,7 +35,7 @@ export const infoReducer = (state = initialState, action) => {
 
 export const addReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_SMURF':
+        case 'POST_INFO_START':
             return {
                 ...state,
                 info: [...state.info, action.addSmurf],
@@ -57,5 +59,5 @@ export const addReducer = (state = initialState, action) => {
 };
 export const rootReducer = combineReducers({
     info: infoReducer,
-    addReducer: addReducer,
+    push: addReducer,
 });

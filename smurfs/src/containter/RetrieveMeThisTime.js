@@ -29,21 +29,18 @@ const RetrieveMeThisTime = (props) => {
             {props.isFetching && (
                 <Loader type="Circles" color="#00BFFF" height={60} width={80} />
             )}
-            {props.info &&
-                props.info.map((value, i) => {
-                    console.log(`This is smurf #${i} in props.map`, value);
-                    return (
-                        <section key={i}>
-                            <h3>
-                                Hey there, {value.name} lives in smurf village.
-                            </h3>
-                            <div>
-                                <h5>Coming in at {value.height},</h5>
-                                <h5>This smurf is {value.age} years old!</h5>
-                            </div>
-                        </section>
-                    );
-                })}
+            {props.info.map((value, i) => {
+                console.log(`This is smurf #${i} in props.map`, value);
+                return (
+                    <section key={i}>
+                        <h3>Hey there, {value.name} lives in smurf village.</h3>
+                        <div>
+                            <h5>Coming in at {value.height},</h5>
+                            <h5>This smurf is {value.age} years old!</h5>
+                        </div>
+                    </section>
+                );
+            })}
         </div>
     );
 };
