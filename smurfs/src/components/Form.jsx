@@ -1,53 +1,64 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
+import { postSmurf } from "../actions";
 
 
-const Form = () => {
-  const [input, setInput] = useState({
+const Form = props => {
+  const [newSmurf, setNewSmurf] = useState({
     name: "",
     age: "",
     height: "",
     id: Math.random()
   });
 
-  const onChangeHandler = evt => {
-    setInput({
-      ...input,
-      [evt.target.name]: evt.target.value
+  const changeHandler = e => {
+    setNewSmurf({
+      ...newSmurf,
+      [e.target.name]: e.target.value
     });
   };
 
-  const onSubmitHandler = evt => {
-
-    console.log("input submit", input);
-    axios.post("http://localhost:3333/smurfs", input);
+  const submitForm = e => {
+    e.preventDefault();
   };
 
   return (
-    <form onSubmit={onSubmitHandler}>
+    <form onSubmit={submitForm}>
       <label>Name: </label>
       <input
         type="text"
         name="name"
-        value={input.name}
-        onChange={onChangeHandler}
+        value={newSmurf.name}
+        onChange={changeHandler}
       />
       <label>Age: </label>
       <input
         type="text"
         name="age"
-        value={input.age}
-        onChange={onChangeHandler}
+        value={newSmurf.age}
+        onChange={changeHandler}
       />
       <label>height: </label>
       <input
         type="text"
         name="height"
-        value={input.height}
-        onChange={onChangeHandler}
+        value={newSmurf.height}
+        onChange={changeHandler}
       />
-      <input type="submit" />
+      <button type ="submit" onClick ={() => props.postSmurf(newSmurf)}>
+      Add Your Smurf!
+      </button>
     </form>
   );
 };
-export default Form;
+
+const mapStateToProps = state => {
+  return {
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { postSmurf }
+)(Form);
+
