@@ -14,9 +14,7 @@ export const smurfReducer = (state = initialState, action) =>{
         case 'FETCH_SUCCESS':
             return{
                 ...state,
-                smurfs: 
-                [...action.payload],
-                isFetching: false
+                smurfs: [...action.payload]
             }
         case 'FETCH_ERROR':
             return{

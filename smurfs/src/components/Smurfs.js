@@ -10,6 +10,7 @@ const Smurfs = (props) => {
         props.fetchSmurf();
         console.log(props.smurfs)
     },[])
+
     const [formValue, setFormValue] = useState({
         name: '',
         age: '',
@@ -49,13 +50,12 @@ const Smurfs = (props) => {
     return(
         <div>
             {props.isFetching && (<p>smurfs</p>)}
-            {props.smurfs.length > 0 && (props.smurfs.map((smurf)=>(
+            {(props.smurfs) ? (props.smurfs.smurfs.map((smurf)=>(        
                 <Smurf
                 name = {smurf.name}
                 age = {smurf.age}
                 height = {smurf.height}
-                />
-            )))}
+                />))):null}
             {props.error && (<p>{props.error}</p>)}
             <Form
         onInputChange = {onInputChange}
