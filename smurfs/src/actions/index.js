@@ -43,3 +43,24 @@ export const pushInfo = (smurf) => {
             });
     };
 };
+
+// export const pushInfo = (smurf) => {
+//     return (dispatch) => {
+//         dispatch({
+//             type: 'POST_INFO_START',
+//         });
+//         axios
+//             .post('http://localhost:3333/smurfs', smurf)
+//             .then((res) => {
+//                 dispatch({ type: 'FETCH_INFO_SUCCESS', payload: res });
+//                 console.log('response: ', res);
+//             })
+//             .catch((error) => {
+//                 console.error(error);
+//                 dispatch({
+//                     type: 'POST_INFO_FAILURE',
+//                     payload: error,
+//                 });
+//             });
+//     };
+// };
