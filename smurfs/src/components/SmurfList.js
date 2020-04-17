@@ -12,7 +12,15 @@ const SmurfList = props => {
 
     return (
         <>  
-            hello from smurf list
+            {/* {props.smurfs.map(smurf => (
+                <div key = {smurf.id} >
+                    <h2>Name: {smurf.name}</h2>
+                    <p>Age: {smurf.age}</p>
+                    <p>height: {smurf.height}</p>
+                </div>
+                
+                
+            ))} */}
         </>
     )
 }
@@ -22,7 +30,7 @@ const mapStateToProps = state => {
     return {
     //   smurfs: state.smurfs,
     //   fetchingSmurfs: state.fetchingSmurfs,
-      error: state.error
+    //   error: state.error
     };
   };
   

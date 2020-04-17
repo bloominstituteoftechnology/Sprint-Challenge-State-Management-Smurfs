@@ -15,6 +15,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     console.log("initialstate", initialState)
+    console.log("reducer", action)
     switch(action.type){
         case GET_SMURFS_START:
             return {
