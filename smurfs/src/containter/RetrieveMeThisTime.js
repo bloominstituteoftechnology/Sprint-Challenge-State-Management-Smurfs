@@ -1,8 +1,8 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 
-import { fetchInfo } from '../actions';
+import { fetchInfo, pushInfo } from '../actions';
 import AddSmurfForm from './AddSmurfForm';
 import { addReducer, initialState } from '../reducers';
 import Axios from 'axios';
@@ -11,9 +11,10 @@ const RetrieveMeThisTime = (props) => {
     useEffect(() => {
         props.fetchInfo();
     }, []);
-    const [state, dispatch] = useReducer(addReducer, initialState);
+    // const [state, dispatch] = useReducer(addReducer, initialState);
 
-    console.log(state);
+    console.log(props);
+    const [smurf, setSmurf] = useState({});
     const addSmurf = (smurf) => {
         let newId = 1;
         const newSmurf = {
@@ -22,24 +23,21 @@ const RetrieveMeThisTime = (props) => {
             height: smurf.height,
             id: newId++,
         };
-        dispatch({ type: 'ADD_SMURF', payload: newSmurf });
+        pushInfo(newSmurf);
     };
+
     const handleChanges = (event) => {
         event.preventDefault();
-        event.persist();
         const newerSmurfData = {
-            ...state,
-            info: [event.target.value],
+            [event.target.name]: event.target.value,
+            ...smurf,
         };
-        dispatch(newerSmurfData);
+        setSmurf(newerSmurfData);
     };
+
     const submitForm = (e) => {
         e.preventDefault();
-        Axios.post(
-            'https://http://localhost:3333/smurfs',
-            state.info
-        ).then((res) => dispatch(res.data));
-        // addSmurf(state.info);
+        addSmurf();
     };
 
     console.log('RetMe Props: ', props);
@@ -51,7 +49,6 @@ const RetrieveMeThisTime = (props) => {
             </h3>
             <AddSmurfForm
                 props={props}
-                addSmurf={addSmurf}
                 handleChanges={handleChanges}
                 submitForm={submitForm}
             />
@@ -85,4 +82,6 @@ const mapStateToProps = (state) => {
         error: state.info.error,
     };
 };
-export default connect(mapStateToProps, { fetchInfo })(RetrieveMeThisTime);
+export default connect(mapStateToProps, { fetchInfo, pushInfo })(
+    RetrieveMeThisTime
+);

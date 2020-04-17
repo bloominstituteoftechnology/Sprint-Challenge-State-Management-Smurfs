@@ -38,9 +38,24 @@ export const addReducer = (state = initialState, action) => {
                 ...state,
                 info: [...state.info, action.addSmurf],
             };
+        case 'POST_INFO_SUCCESS':
+            return {
+                ...state,
+                isFetching: false,
+                error: '',
+                info: action.payload,
+            };
+        case 'POST_INFO_FAILURE':
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload,
+            };
+        default:
+            return state;
     }
 };
 export const rootReducer = combineReducers({
     info: infoReducer,
-    // addReducer: addReducer,
+    addReducer: addReducer,
 });

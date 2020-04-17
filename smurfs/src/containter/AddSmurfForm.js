@@ -2,61 +2,8 @@ import React, { useState, useReducer } from 'react';
 
 import axios from 'axios';
 
-export default function AddSmurfForm(
-    props,
-    addSmurf,
-    handleChanges,
-    submitForm
-) {
+export default function AddSmurfForm(props, handleChanges, submitForm) {
     console.log('AddSmurfForm: ', props);
-
-    //ACTION ADDED HERE//
-
-    //END OF ACTION//
-
-    // const [formState, setFormState] = useState({
-    //     name: '',
-    //     age: '',
-    //     height: '',
-    // });
-    // const [error, setError] = useState({
-    //     name: '',
-    //     age: '',
-    //     height: '',
-    // });
-    // const [post, setPost] = useState([]);
-    // const [greyButton] = useState(false);
-
-    // const submitForm = (e) => {
-    //     e.preventDefault();
-    //     console.log('form submitted!');
-    //     axios
-    //         .post('https://reqres.in/api/users', state)
-    //         .then((res) => {
-    //             setPost(res.data);
-    //             console.log('success', post);
-
-    //             setFormState({
-    //                 name: '',
-    //                 age: '',
-    //                 height: '',
-    //             });
-    //         })
-    //         .catch((err) => {
-    //             console.log(err.res);
-    //         });
-    // };
-    // // const handleChanges = (event) => {
-    // //     event.persist();
-    // //     const newerFormData = {
-    // //         ...formState,
-    // //         [event.target.name]:
-    // //             event.target.type === 'checkbox'
-    // //                 ? event.target.checked
-    // //                 : event.target.value,
-    // //     };
-    // //     setFormState(newerFormData);
-    // // };
 
     return (
         <form onSubmit={submitForm}>
