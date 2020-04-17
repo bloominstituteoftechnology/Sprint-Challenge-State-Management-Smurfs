@@ -1,9 +1,40 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState } from 'react';
+import { pushInfo } from '../actions';
+// import { addSmurf } from '../containter/RetrieveMeThisTime';
+// import axios from 'axios';
 
-import axios from 'axios';
-
-export default function AddSmurfForm(props, handleChanges, submitForm) {
+export default function AddSmurfForm(props) {
     console.log('AddSmurfForm: ', props);
+
+    const [smurf, setSmurf] = useState({});
+
+    // const addSmurf = (smurf) => {
+    //     let newId = 1;
+    //     const newSmurf = {
+    //         name: smurf.name,
+    //         age: smurf.age,
+    //         height: smurf.height,
+    //         id: newId++,
+    //     };
+    //     setSmurf(newSmurf);
+    // };
+
+    const submitForm = (event) => {
+        event.preventDefault();
+        console.log(smurf);
+        // addSmurf(smurf);
+        pushInfo(smurf);
+    };
+    const handleChanges = (event) => {
+        event.preventDefault();
+        let idNum = 1;
+        const newerSmurfData = {
+            [event.target.name]: event.target.value,
+            id: idNum++,
+            ...smurf,
+        };
+        return setSmurf(newerSmurfData);
+    };
 
     return (
         <form onSubmit={submitForm}>
@@ -52,11 +83,9 @@ export default function AddSmurfForm(props, handleChanges, submitForm) {
                 ) : null} */}
             </label>
             <br />
-
             <br />
-            {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
-
             <button>Submit</button>
+            {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
         </form>
     );
 }

@@ -4,8 +4,8 @@ import Loader from 'react-loader-spinner';
 
 import { fetchInfo, pushInfo } from '../actions';
 import AddSmurfForm from './AddSmurfForm';
-import { addReducer, initialState } from '../reducers';
-import Axios from 'axios';
+// import { addReducer, initialState } from '../reducers';
+// import Axios from 'axios';
 
 const RetrieveMeThisTime = (props) => {
     useEffect(() => {
@@ -13,32 +13,7 @@ const RetrieveMeThisTime = (props) => {
     }, []);
     // const [state, dispatch] = useReducer(addReducer, initialState);
 
-    console.log(props);
-    const [smurf, setSmurf] = useState({});
-    const addSmurf = (smurf) => {
-        let newId = 1;
-        const newSmurf = {
-            name: smurf.name,
-            age: smurf.age,
-            height: smurf.height,
-            id: newId++,
-        };
-        pushInfo(newSmurf);
-    };
-
-    const handleChanges = (event) => {
-        event.preventDefault();
-        const newerSmurfData = {
-            [event.target.name]: event.target.value,
-            ...smurf,
-        };
-        setSmurf(newerSmurfData);
-    };
-
-    const submitForm = (e) => {
-        e.preventDefault();
-        addSmurf();
-    };
+    // console.log(props);
 
     console.log('RetMe Props: ', props);
     return (
@@ -49,8 +24,7 @@ const RetrieveMeThisTime = (props) => {
             </h3>
             <AddSmurfForm
                 props={props}
-                handleChanges={handleChanges}
-                submitForm={submitForm}
+                // submitForm={submitForm}
             />
             {props.isFetching && (
                 <Loader type="Circles" color="#00BFFF" height={60} width={80} />

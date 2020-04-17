@@ -30,7 +30,7 @@ export const pushInfo = (smurf) => {
             .then((res) => {
                 console.log('Results of axios.post', res.data);
                 dispatch({
-                    type: 'POST_INFO_ERROR',
+                    type: 'POST_INFO_SUCCESS',
                     payload: res.data,
                 });
             })
