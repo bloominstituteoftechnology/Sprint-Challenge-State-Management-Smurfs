@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useContext } from "react";
+import SmurfContext from "../contexts/SmurfContext";
+import Smurf from "./Smurf";
 
-const Smurfs = props => {
-	console.log(props);
-	return (
-		<div className="SmurfsCard">
-			<h3>{props.smurf.name}</h3>
-			<p>Age: {props.smurf.age}</p>
-			<p>Height: {props.smurf.height}</p>
-			<button onClick={() => props.deleteSmurf(props.smurf.id)}>Remove Smurf</button>
-		</div>
-	);
-};
 
-export default Smurfs;
+export default function Smurfs() {
+  const { smurfs } = useContext(SmurfContext);
+  console.log("comp", smurfs);
+  return (
+    <div>
+      <h1>Smurfs Village</h1>
+      <>
+        {smurfs.map(smurf => (
+          <Smurf key={smurf.id} smurf={smurf} />
+        ))}
+      </>
+    </div>
+  );
+}
