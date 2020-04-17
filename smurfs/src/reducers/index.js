@@ -31,6 +31,15 @@ export const infoReducer = (state = initialState, action) => {
     }
 };
 
+export const addReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case 'ADD_SMURF':
+            return {
+                info: [...state.info, action.payload],
+            };
+    }
+};
 export const rootReducer = combineReducers({
     info: infoReducer,
+    addSmurf: addReducer,
 });
