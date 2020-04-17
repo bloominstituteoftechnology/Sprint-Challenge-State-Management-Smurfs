@@ -22,4 +22,11 @@ export const getSmurfs = () => dispatch => {
 
 export const postSmurf = (newSmurf) => dispatch => {
     console.log("Hello from ./reducer.js {postSmurf}")
+    axios.post("http://localhost:3333/smurfs", newSmurf)
+    .then (res => {
+        dispatch({type: POST_SMURF_SUCCESS, payload: res.data.results})
+    })
+    .catch(err => {
+        dispatch({type: POST_SMURF_FAIL, payload: err.response})
+    })
 }
