@@ -1,56 +1,65 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useReducer } from 'react';
 
 import axios from 'axios';
 
-export default function AddSmurfForm(props, addSmurf) {
-    console.log('AddSmurfForm: ', props, addSmurf);
+export default function AddSmurfForm(
+    props,
+    addSmurf,
+    handleChanges,
+    submitForm
+) {
+    console.log('AddSmurfForm: ', props);
 
-    const [formState, setFormState] = useState({
-        name: '',
-        age: '',
-        height: '',
-    });
-    const [error, setError] = useState({
-        name: '',
-        age: '',
-        height: '',
-    });
-    const [post, setPost] = useState([]);
-    const [greyButton, setButtonOn] = useState(false);
+    //ACTION ADDED HERE//
 
-    const formSubmit = (e) => {
-        e.preventDefault();
-        console.log('form submitted!');
-        axios
-            .post('https://reqres.in/api/users', formState)
-            .then((res) => {
-                setPost(res.data);
-                console.log('success', post);
+    //END OF ACTION//
 
-                setFormState({
-                    name: '',
-                    age: '',
-                    height: '',
-                });
-            })
-            .catch((err) => {
-                console.log(err.res);
-            });
-    };
-    const inputChange = (event) => {
-        event.persist();
-        const newerFormData = {
-            ...formState,
-            [event.target.name]:
-                event.target.type === 'checkbox'
-                    ? event.target.checked
-                    : event.target.value,
-        };
-        setFormState(newerFormData);
-    };
+    // const [formState, setFormState] = useState({
+    //     name: '',
+    //     age: '',
+    //     height: '',
+    // });
+    // const [error, setError] = useState({
+    //     name: '',
+    //     age: '',
+    //     height: '',
+    // });
+    // const [post, setPost] = useState([]);
+    // const [greyButton] = useState(false);
+
+    // const submitForm = (e) => {
+    //     e.preventDefault();
+    //     console.log('form submitted!');
+    //     axios
+    //         .post('https://reqres.in/api/users', state)
+    //         .then((res) => {
+    //             setPost(res.data);
+    //             console.log('success', post);
+
+    //             setFormState({
+    //                 name: '',
+    //                 age: '',
+    //                 height: '',
+    //             });
+    //         })
+    //         .catch((err) => {
+    //             console.log(err.res);
+    //         });
+    // };
+    // // const handleChanges = (event) => {
+    // //     event.persist();
+    // //     const newerFormData = {
+    // //         ...formState,
+    // //         [event.target.name]:
+    // //             event.target.type === 'checkbox'
+    // //                 ? event.target.checked
+    // //                 : event.target.value,
+    // //     };
+    // //     setFormState(newerFormData);
+    // // };
 
     return (
-        <form onSubmit={formSubmit}>
+        <form onSubmit={submitForm}>
             <label htmlFor="name">
                 Name:
                 <input
@@ -58,12 +67,12 @@ export default function AddSmurfForm(props, addSmurf) {
                     type="text"
                     name="name"
                     placeholder="Smurf name here"
-                    value={formState.name}
-                    onChange={inputChange}
+                    value={props.name}
+                    onChange={handleChanges}
                 />{' '}
-                {error.name.length > 0 ? (
+                {/* {error.name.length > 0 ? (
                     <p className="error">{error.name}</p>
-                ) : null}
+                ) : null} */}
             </label>
             <br />
             <label htmlFor="age">
@@ -73,12 +82,12 @@ export default function AddSmurfForm(props, addSmurf) {
                     type="text"
                     name="age"
                     placeholder="Enter the age"
-                    value={formState.age}
-                    onChange={inputChange}
+                    value={props.age}
+                    onChange={handleChanges}
                 />{' '}
-                {error.age.length > 0 ? (
+                {/* {error.age.length > 0 ? (
                     <p className="error">{error.age}</p>
-                ) : null}
+                ) : null} */}
             </label>
             <br />
             <label htmlFor="height">
@@ -88,48 +97,19 @@ export default function AddSmurfForm(props, addSmurf) {
                     type="text"
                     name="height"
                     placeholder="Height in cm"
-                    value={formState.height}
-                    onChange={inputChange}
+                    value={props.height}
+                    onChange={handleChanges}
                 />{' '}
-                {error.height.length > 0 ? (
+                {/* {error.height.length > 0 ? (
                     <p className="error">{error.height}</p>
-                ) : null}
+                ) : null} */}
             </label>
             <br />
 
-            {/* <label htmlFor="email">
-                Email:
-                <input
-                    id="email"
-                    type="text"
-                    name="email"
-                    placeholder="age"
-                    value={formState.email}
-                    onChange={inputChange}
-                />
-                {error.email.length > 0 ? (
-                    <p className="error">{error.email}</p>
-                ) : null}
-            </label>
             <br />
-            <label>
-                Password:
-                <input
-                    id="password"
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={inputChange}
-                    value={formState.password}
-                />
-                {error.password.length > 0 ? (
-                    <p className="error">{error.password}</p>
-                ) : null}
-            </label> */}
-            <br />
-            <pre>{JSON.stringify(post, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
 
-            <button disabled={greyButton}>Submit</button>
+            <button>Submit</button>
         </form>
     );
 }
