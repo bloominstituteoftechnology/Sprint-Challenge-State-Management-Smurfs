@@ -18,7 +18,7 @@ const App = props => {
   return (
     <div className="App">
       <h1> These are Smurfs with Redux </h1>
-      <button onClick={props.getData}>Get New Smurf</button>
+      <button onClick={props.fetchData}>Get New Smurf</button>
       <SmurfList list={props.smurfs} />
       <NewSmurfForm />
     </div>  

@@ -24,31 +24,31 @@ const NewSmurfForm = props => {
     return (
         <div className='smurfForm'>
             <form onSubmit={submitForm}>
-                <label for='name' className='name-input'>
+                <label htmlFor='name' className='name-input'>
                     Name:
                     <input
                     name='name'
-                    id=''
+                    id='name'
                     type='text'
                     onChange={changeHandler}
                     value={newSmurf.name}
                     />
                 </label>
-                <label for='age' className='age-input'>
+                <label htmlFor='age' className='age-input'>
                     Age:
                     <input
                     name='age'
-                    id=''
+                    id='age'
                     type='text'
                     onChange={changeHandler}
                     value={newSmurf.age}
                     />
                 </label>
-                <label for='height' className='height-input'>
+                <label htmlFor='height' className='height-input'>
                     Height:
                     <input
                     name='height'
-                    id=''
+                    id='height'
                     type='text'
                     onChange={changeHandler}
                     value={newSmurf.height}

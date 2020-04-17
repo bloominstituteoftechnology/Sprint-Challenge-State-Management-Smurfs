@@ -7,6 +7,7 @@ export {
 } from './Fetch';
 
 export {
+    POST_NEW_SMURF,
     POST_NEWSMURF_YAY,
     POST_NEWSMURF_BOO,
     postSmurf

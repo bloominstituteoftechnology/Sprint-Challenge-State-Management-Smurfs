@@ -1,9 +1,11 @@
-import { FETCH_DATA_BEGIN, FETCH_DATA_YAY, FETCH_DATA_BOO, POST_NEWSMURF_YAY, POST_NEWSMURF_BOO } from '../actions';
+import { FETCH_DATA_BEGIN, FETCH_DATA_YAY, FETCH_DATA_BOO, POST_NEWSMURF_YAY, POST_NEWSMURF_BOO, POST_NEW_SMURF } from '../actions';
 
 
 const initialState = {
     smurfs: [],
+    fetchingSmurf: false,
     isLoading: false,
+    addingSmurf: false,
     error: ''
 };
 
@@ -13,12 +15,14 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: true,
+                fetchingSmurf: true,
                 error: ''
             };
         case FETCH_DATA_YAY: 
             return {
                 ...state,
                 isLoading: false,
+                fetchingSmurf: false,
                 smurfs: action.payload,
                 error: ''
             };
@@ -26,8 +30,15 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
+                fetchingSmurf: false,
                 error: action.payload
             };
+        case POST_NEW_SMURF:
+            return {
+                ...state,
+                addingSmurf: true, 
+                error: action.payload
+            }
         case POST_NEWSMURF_YAY:
             const newSmurf = {
                 name: action.payload,
@@ -35,7 +46,9 @@ export const reducer = (state = initialState, action) => {
                 height: action.payload,
                 id: Date.now()
             }
-            return { ...state, smurfs: [...state.smurfs, newSmurf]};
+            return { ...state, 
+            addingSmurf: true,
+            smurfs: [...state.smurfs, newSmurf]};
         case POST_NEWSMURF_BOO: 
             return {
                 ...state,
@@ -47,3 +60,5 @@ export const reducer = (state = initialState, action) => {
             return state;
     }
 }
+
+export default reducer;
