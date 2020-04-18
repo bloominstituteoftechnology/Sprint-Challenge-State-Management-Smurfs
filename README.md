@@ -1,32 +1,30 @@
-# Sprint Challenge: State Management - Smurfs
-
-This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project. This Sprint explored the context API, the reducer pattern, and Redux. In your challenge for this Sprint, you will demonstrate proficiency by creating an application that uses ReactJS to consume live data retrieved from the World Wide Web.
-
-**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
-
-This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.
-
-You are not allowed to collaborate during the Sprint Challenge. However, you are encouraged to follow the twenty-minute rule and seek support from your PM and Instructor in your cohort help channel on Slack. Your work reflects your proficiency throughout State Management and your command of the concepts and techniques in the the context API, the reducer pattern, and Redux.
-
-You have three hours to complete this challenge. Plan your time accordingly.
-
-## Commits
-
-Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons and your project manager).
-
-## Description
-
-In this challenge, you are to build a Smurfs village utilizing context or Redux as your state management. Build this challenge from the ground up using what you have learned about state management.
-
 ## Self-Study/Essay Questions
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
-- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+* Context API is a state management tool that allows developers to have ease of access to top-level state without having to do prop drilling. Prop drilling is the act of passing down props through multiple layers of components. This takes a lot of time to do and it could lead to long, silly mistakes.
+
+- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux 
+application?
+
+* actions - an object that describes to the reducer what it will do to the state. It can come with a payload, which is the data value that you'll use to manipulate the store.
+* reducers - Considered as a pure function, meaning it returns the same output. To clarify, this means that the state doesn't manipualte external variables, but instead, returns values that are instantiated and unrelated in memory to existing variables. Contains the state for the app. Takes in actions through a list of cases. If there's a match, it will manipulate the state accordingly.
+* store - Houses the app-level state that can be connected by components from various locations.
+* The store is commonly regarded so because in an a redux app, the store can be shared by every component. Changing the store from one component changes it every where else in the app. 
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+* Component state should be used if the component is solely using it for itself. The changes in that state should not affect others. IE: Highligting a component. Application state, on the other hand, affects any component that is connected to it. IE: Fetched data from a API call passed down as props.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+* Redux-thunk is a library that allows redux to manipulate the store with asynchronous actions. A thunk is a function returned by a function. This concept allows the function to be saved, modified, and then called later by external code. This changes the action-creators by having the action functions return a function instead of an object. This would normally not permitted by redux, but redux-thunk is a middleware that intercepts the action dispatches and checks to see if a function is returned instead. This allows us to appropriately place the dispatch call in the then and catch methods so it can send actions to the store when the async work is done.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+* Context API is WAY more convenient to implement than Redux. I will say, learning Redux and how it all came together made me a better developer. Concepts like immutability, thunks, higher order functions, and pure functions were all part of the knowledge gained by learning Redux. So yeah, Context API.
 
 ## Project Set Up
 
