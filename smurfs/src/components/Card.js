@@ -14,6 +14,10 @@ const Container = styled.div`
 const Card = (props) => {
     const { id, name, age, height } = props.data;
     const handleOnClick = () => {
+        if (props.edit && (props.edit.id === id)) {
+            props.editData(undefined)
+            return
+        }
         props.editData(props.data)
     }
 

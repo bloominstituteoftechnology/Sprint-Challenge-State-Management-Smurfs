@@ -23,16 +23,19 @@ const StyledForm = styled.form`
         margin: 10px auto;
     }
 `
+const formFields = {
+    name: "",
+    height: "",
+    age: ""
+}
 
 const ItemForm = ({ addData, patchData, edit, deleteData }) => {
-    const [ form, setForm ] = useState({
-        name: "",
-        height: "",
-        age: ""
-    })
+    const [ form, setForm ] = useState(formFields)
     useEffect(() => {
         if (edit) {
             setForm(edit)
+        } else if (edit === undefined) {
+            setForm(formFields)
         }
     }, [edit])
 
