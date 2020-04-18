@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { connect } from "react-redux";
 import "./App.css";
 import { getSmurfs } from "../actions/getSmurfs";
 import { submitSmurf } from "../actions/submitSmurf";
-import { deleteSmurf } from "../actions/deleteSmurf";
 
 function App(props) {
   const [name, setName] = useState("");
@@ -20,18 +20,17 @@ function App(props) {
       name: name,
       age: age,
       height: height,
-      id: Date.now(),
     });
     setName("");
     setAge("");
     setHeight("");
   };
 
-  const handleDelete = (e) => {
-    e.preventDefault();
-    props.deleteSmurf({
-      id: props.smurf.id,
-    });
+  const deleteSmurf = (id) => {
+    console.log(id);
+    const request = axios.delete("http://localhost:3333/smurfs/" + id);
+
+    return request.then((response) => response.data);
   };
 
   const handleNameChange = (e) => {
@@ -78,13 +77,15 @@ function App(props) {
 
       <div className="smurf-cards">
         {props.smurfs.map((smurf) => {
-          console.log(smurf);
           return (
             <div className="smurf-card" key={smurf.id}>
               <h2>{smurf.name}</h2>
               <h4>Age: {smurf.age}</h4>
               <h4>Height: {smurf.height}cm</h4>
-              <i className="fa fa-trash fa-2x" onClick={handleDelete}></i>
+              <i
+                className="fa fa-trash fa-2x"
+                onClick={() => deleteSmurf(smurf.id)}
+              ></i>
             </div>
           );
         })}

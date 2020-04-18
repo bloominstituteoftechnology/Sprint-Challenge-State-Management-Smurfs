@@ -15,9 +15,8 @@ export function smurfReducer(state = initialState, action) {
         smurfs: [...state.smurfs, action.payload],
       };
     case "DELETE_SMURF":
-      console.log(state);
       return {
-        smurfs: [...state.smurfs, action.payload],
+        smurfs: state.smurfs.filter((smurf) => smurf !== action.payload),
       };
 
     default:
