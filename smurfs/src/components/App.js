@@ -14,8 +14,8 @@ const App = ({ fetchSmurf }) => {
   return (
     <div className="App">
       <h1>Welcome to Smurfville!</h1>
-        <SmurfForm />
-        <SmurfList />
+      <SmurfList />
+      <SmurfForm />
     </div>
   );
 }
