@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 const SmurfList = props => {
     return (
         <div>
-            {props.smurfs && props.smurfs.map(smurf => {
+            {props.smurfs && props.smurfs.map(item => {
                 return (
                     <div>
-                        <p>Name: {smurf.name}</p>
-                        <p>Age: {smurf.age}</p>
-                        <p>Height: {smurf.height}</p>
+                        <p>Name: {item.name}</p>
+                        <p>Age: {item.age}</p>
+                        <p>Height: {item.height}</p>
                     </div>
                 );
             })}
