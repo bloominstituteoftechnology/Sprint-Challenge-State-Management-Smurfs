@@ -1,13 +1,16 @@
-import { DATA_SUCCESS } from "../actions";
+import { DATA_SUCCESS, EDIT_DATA } from "../actions";
 
 const initialState = {
-    data: []
+    data: [],
+    edit: undefined
 };
 
 const reducer = (state=initialState, action) => {
     switch(action.type) {
         case DATA_SUCCESS:  
-            return {...state, data: action.payload }
+            return {...state, data: action.payload, edit: undefined }
+        case EDIT_DATA: 
+            return {...state, edit: action.payload}
         default:
             return state
     }
