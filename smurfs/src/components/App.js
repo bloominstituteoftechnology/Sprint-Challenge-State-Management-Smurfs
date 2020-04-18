@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import "./App.css";
 import { getSmurfs } from "../actions/getSmurfs";
 import { submitSmurf } from "../actions/submitSmurf";
+import { deleteSmurf } from "../actions/deleteSmurf";
 
 function App(props) {
   const [name, setName] = useState("");
@@ -26,6 +27,13 @@ function App(props) {
     setHeight("");
   };
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    props.deleteSmurf({
+      id: props.smurf.id,
+    });
+  };
+
   const handleNameChange = (e) => {
     e.preventDefault();
     setName(e.target.value);
@@ -42,36 +50,41 @@ function App(props) {
   };
   return (
     <div className="App">
-      <h1>Smurf Village:</h1>
+      <h1 className="app-title">Smurf Village</h1>
       <form onSubmit={handleSubmit}>
         <input
-          placeholder="Name"
+          placeholder="NAME"
           name="Name"
           value={name}
           onChange={handleNameChange}
         />
         <input
-          placeholder="Age"
+          placeholder="AGE"
           name="Age"
           value={age}
           onChange={handleAgeChange}
         />
         <input
-          placeholder="Height in cm"
+          placeholder="HEIGHT"
           name="Height"
           value={height}
           onChange={handleHeightChange}
         />
-        <button onClick={handleSubmit}>Submit</button>
+        <div className="button" id="button-2" onClick={handleSubmit}>
+          <div id="slide"></div>
+          <a href="#">Submit</a>
+        </div>
       </form>
 
       <div className="smurf-cards">
         {props.smurfs.map((smurf) => {
+          console.log(smurf);
           return (
             <div className="smurf-card" key={smurf.id}>
               <h2>{smurf.name}</h2>
               <h4>Age: {smurf.age}</h4>
               <h4>Height: {smurf.height}cm</h4>
+              <i className="fa fa-trash fa-2x" onClick={handleDelete}></i>
             </div>
           );
         })}

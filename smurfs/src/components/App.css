@@ -1,11 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Righteous&display=swap");
+
 .App {
+  font-family: "Amatic SC", cursive;
+  font-family: "Righteous", cursive;
+  font-weight: bolder;
   margin-top: 5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
 }
-.App-title {
-  font-size: 1.5em;
+.app-title {
+  font-size: 3em;
 }
 .smurf-cards {
   display: flex;
@@ -19,5 +24,78 @@
   border-radius: 5%;
   border: 2px solid white;
   min-width: 20vw;
-  min-height: 9vw;
+  min-height: 11vw;
+  transition: transform 0.2s ease-in-out;
+}
+.smurf-card:hover {
+  transform: scale(1.05);
+}
+
+i {
+  transition: transform 0.2s ease-in-out;
+}
+
+i:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+input {
+  margin: 5px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: "Amatic SC", cursive;
+  font-family: "Righteous", cursive;
+}
+
+.button {
+  display: inline-flex;
+  padding: 15px;
+  border: 2px solid white;
+  margin-left: 1.5rem;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+#button-2 {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#button-2 a {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+#slide {
+  width: 100%;
+  height: 100%;
+  left: -200px;
+  background: white;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  bottom: 0;
+}
+
+#button-2:hover #slide {
+  left: 0;
+}
+
+#button-2:hover a {
+  color: #2d3142;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1px;
 }

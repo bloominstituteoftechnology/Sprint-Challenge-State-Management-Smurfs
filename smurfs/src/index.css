@@ -1,13 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+
 body {
+  font-family: "Amatic SC", cursive;
   margin: 0;
   color: white;
   padding: 0;
   font-family: sans-serif;
   background: rgb(0, 116, 255);
-  background: linear-gradient(90deg, #23a6d5, #23d5ab, #6723d5);
+  background: linear-gradient(90deg, #9236e9, #2385d5, #23d5bd);
   background-size: 400% 400%;
   position: relative;
-  animation: change 5s ease-in-out;
+  animation: change 8s ease-in-out infinite;
 }
 
 @keyframes change {
