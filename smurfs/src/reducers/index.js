@@ -2,9 +2,14 @@ import {
   START_FETCHING,
   FETCH_SUCCESS,
   FETCH_FAILURE,
+
   START_ADDING,
   SMURF_ADDED,
-  ADD_FAILED
+  ADD_FAILED,
+
+  START_DELETING,
+  SMURF_DELETED,
+  DELETE_FAILED
 } from '../actions';
 
 const initialState = {
@@ -52,7 +57,27 @@ const reducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         error: action.payload
-      }
+      };
+    case START_DELETING:
+      return {
+        ...state,
+        isFetching: false,
+        error: '',
+      };
+    case SMURF_DELETED:
+      return {
+        ...state,
+        isFetching: false,
+        error: '',
+        Smurfs: action.payload
+      };
+    case DELETE_FAILED:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload
+      };
+
     default:
       return state;
   }
