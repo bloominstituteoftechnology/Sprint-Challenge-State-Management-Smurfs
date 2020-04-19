@@ -8,4 +8,6 @@ const Smurf = (props) => {
       <h2>Height: {props.smurf.height}</h2>
     </div>
   )
-}
+};
+
+export default Smurf;
