@@ -22,7 +22,8 @@ function Form (props) {
     setFields({
       name: '',
       age: '',
-      height: ''
+      height: '',
+      id: ''
     })
   }
 
@@ -35,24 +36,31 @@ function Form (props) {
               onChange={handleChanges}
               type="text"
               value={fields.name}
-              placeholder='Name'
+              placeholder="Name"
             />
             <input
               name="age"
               onChange={handleChanges}
               type="text"
               value={fields.age}
-              placeholder='Age'
+              placeholder="Age"
             />
             <input
               name="height"
               onChange={handleChanges}
               type="text"
               value={fields.height}
-              placeholder='Height'
+              placeholder="Height"
+            />
+            <input
+              name="id"
+              onChange={handleChanges}
+              type="text"
+              value={fields.id}
+              placeholder="ID"
             />
           </label>
-          <button type='submit' onClick={handleSubmit}>
+          <button type="submit" onClick={handleSubmit}>
             ADD
           </button>
         </form>
