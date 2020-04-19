@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Smurf from './Smurf.js';
-import { fetchSmurfs } from '../actions';
+import { fetchSmurfs, deleteSmurf } from '../actions';
 
 const SmurfList = (props) => {
   useEffect(() => {
@@ -16,7 +16,7 @@ const SmurfList = (props) => {
       {props.Smurfs.map((smurf) => (
         <div>
           <Smurf smurf={smurf} />
-          <button>Delete</button>
+          <button onClick={deleteSmurf}>Delete</button>
         </div>
       ))}
     </div>

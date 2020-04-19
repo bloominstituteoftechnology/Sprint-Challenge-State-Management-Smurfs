@@ -6,7 +6,8 @@ function Form (props) {
   const [fields, setFields] = useState({
     name: '',
     age: '',
-    height: ''
+    height: '',
+    id: '',
   })
 
   const handleChanges = (e) => {
