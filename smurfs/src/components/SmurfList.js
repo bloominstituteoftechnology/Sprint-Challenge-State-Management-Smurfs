@@ -14,7 +14,10 @@ const SmurfList = (props) => {
   return (
     <div>
       {props.Smurfs.map((smurf) => (
-        <Smurf smurf={smurf} />
+        <div>
+          <Smurf smurf={smurf} />
+          <button>Delete</button>
+        </div>
       ))}
     </div>
   )
