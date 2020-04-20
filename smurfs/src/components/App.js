@@ -3,6 +3,7 @@ import './App.css';
 
 import { connect } from 'react-redux';
 import { getSmurfAsync } from '../redux/actionCreators';
+import Form from './Form';
 
 const App = ({
     getSmurfAsync,
@@ -13,7 +14,12 @@ const App = ({
     useEffect(() => {
         getSmurfAsync();
     }, []);
-    return <div className="App">{fetchingSmurfs && <p>Fetching ... </p>}</div>;
+    return (
+        <div className="App">
+            {fetchingSmurfs && <p>Fetching ... </p>}
+            <Form />{' '}
+        </div>
+    );
 };
 
 const mapStateToProps = (state) => state;
