@@ -4,22 +4,18 @@ import './App.css';
 import { connect } from 'react-redux';
 import { getSmurfAsync } from '../redux/actionCreators';
 
-const App = ({ getSmurfAsync }) => {
+const App = ({
+    getSmurfAsync,
+    smurfs,
+    fetchingSmurfs,
+    fetchingSmurfsError,
+}) => {
     useEffect(() => {
         getSmurfAsync();
     }, []);
-    return (
-        <div className="App">
-            <h1>SMURFS! 2.0 W/ Redux</h1>
-            <div>Welcome to your state management version of Smurfs!</div>
-            <div>Start inside of your `src/index.js` file!</div>
-            <div>Have fun!</div>
-        </div>
-    );
+    return <div className="App">{fetchingSmurfs && <p>Fetching ... </p>}</div>;
 };
 
-const mapStateToProps = (state) => {
-    return {};
-};
+const mapStateToProps = (state) => state;
 
 export default connect(mapStateToProps, { getSmurfAsync })(App);
