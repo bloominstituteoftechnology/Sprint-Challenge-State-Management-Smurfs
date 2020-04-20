@@ -102,8 +102,8 @@ export const getSmurfAsync = () => async (dispatch) => {
 
     try {
         const response = await axios.get('/smurfs');
-        console.log(response);
+        addSmurfFinish(response.data);
     } catch (error) {
-        console.log(error.response);
+        addSmurfFail(error.response);
     }
 };
