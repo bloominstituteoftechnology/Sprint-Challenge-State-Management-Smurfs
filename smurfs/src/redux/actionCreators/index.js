@@ -98,12 +98,49 @@ export const deleteSmurfFail = (data) => {
 const axios = withAxios();
 
 export const getSmurfAsync = () => async (dispatch) => {
-    addSmurfStart();
-
+    dispatch(getSmurfStart());
     try {
         const response = await axios.get('/smurfs');
-        addSmurfFinish(response.data);
+        setTimeout(() => {
+            dispatch(getSmurfFinish(response.data));
+        }, 2000);
     } catch (error) {
-        addSmurfFail(error.response);
+        dispatch(getSmurfFail(error.response));
+    }
+};
+
+export const addSmurfAsync = (data) => async (dispatch) => {
+    dispatch(addSmurfStart());
+    try {
+        const response = await axios.post('/smurfs', data);
+        setTimeout(() => {
+            dispatch(addSmurfFinish(response.data));
+        }, 2000);
+    } catch (error) {
+        dispatch(addSmurfFail(error.response));
+    }
+};
+
+export const updateSmurfAsync = ({ id, changes }) => async (dispatch) => {
+    dispatch(updateSmurfStart());
+    try {
+        const response = await axios.put(`/smurfs/${id}`, changes);
+        setTimeout(() => {
+            dispatch(updateSmurfFinish(response.data));
+        }, 2000);
+    } catch (error) {
+        dispatch(updateSmurfFail(error.response));
+    }
+};
+
+export const deleteSmurfAsync = (id) => async (dispatch) => {
+    dispatch(deleteSmurfStart());
+    try {
+        const response = await axios.delete(`/smurfs/${id}`);
+        setTimeout(() => {
+            dispatch(deleteSmurfFinish(response.data));
+        }, 2000);
+    } catch (error) {
+        dispatch(deleteSmurfFail(error.response));
     }
 };
