@@ -6,11 +6,23 @@ import { addSmurfAsync } from '../redux/actionCreators';
 const Form = ({ addSmurfAsync }) => {
     const { handleSubmit, register, errors } = useForm({ mode: 'onblur' });
     const onSubmit = (values) => {
-        addSmurfAsync(values);
+        const cleanData = ({ name, age, height }) => {
+            try {
+                return {
+                    name,
+                    height,
+                    age: Number.parseInt(age),
+                };
+            } catch (e) {
+                console.log(`Unfortunately, you've given us a bad age`);
+            }
+        };
+        addSmurfAsync(cleanData(values));
     };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
+            <h3>Add Form</h3>
             <label htmlFor="name">
                 <span>Name:</span>
             </label>
