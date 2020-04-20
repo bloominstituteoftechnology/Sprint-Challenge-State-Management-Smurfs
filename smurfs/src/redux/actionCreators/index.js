@@ -13,6 +13,8 @@ import {
     DELETE_SMURFS_FINISH,
 } from '../actions';
 
+import { withAxios } from '../../helpers';
+
 export const getSmurfStart = () => {
     return {
         type: GET_SMURFS_START,
@@ -91,4 +93,17 @@ export const deleteSmurfFail = (data) => {
         type: DELETE_SMURFS_FAIL,
         payload: data,
     };
+};
+
+const axios = withAxios();
+
+export const getSmurfAsync = () => async (dispatch) => {
+    addSmurfStart();
+
+    try {
+        const response = await axios.get('/smurfs');
+        console.log(response);
+    } catch (error) {
+        console.log(error.response);
+    }
 };
