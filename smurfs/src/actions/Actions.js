@@ -8,7 +8,7 @@ export const NEW_SMURF_START = "NEW_SMURF_START";
 export const NEW_SMURF_SUCCESS = "NEW_SMURF_SUCCESS";
 export const NEW_SMURF_FAILURE = "NEW_DATA_FAILURE";
 
-export const fetchSmurf = () => dispatch => {
+export const fetchSmurf = () => (dispatch) => {
     dispatch({ type: "FETCH_SMURF_START" });
     axios.get("http://localhost:3333/smurfs")
         .then(response => {

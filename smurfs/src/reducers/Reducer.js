@@ -8,7 +8,7 @@ import{
 } from "../actions/Actions"
 
 const initialState ={
-    smurf: [],
+    smurfs: [],
     isFetching: false,
     error: ""
 }
@@ -18,13 +18,13 @@ export const Reducer = (state = initialState, action) => {
         case FETCH_SMURF_START:
             return{...state, isFetching: true};
         case FETCH_SMURF_SUCCESS:
-            return{...state, isFetching: false, smurf: action.payload};
+            return{...state, isFetching: false, smurfs: action.payload};
         case FETCH_SMURF_FAILURE:
             return{...state, isFetching: false};
         case NEW_SMURF_START:
             return{...state, isFetching: true};
         case NEW_SMURF_SUCCESS:
-            return{...state, isFetching: false, smurf: action.payload};
+            return{...state, isFetching: false, smurfs: action.payload};
         case NEW_SMURF_FAILURE:
             return {...state, isFetching: false};
         default:
