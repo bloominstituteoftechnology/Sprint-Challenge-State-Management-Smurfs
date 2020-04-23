@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 
@@ -16,6 +16,7 @@ const RetrieveMeThisTime = (props) => {
     // console.log(props);
 
     console.log('RetMe Props: ', props);
+
     return (
         <div>
             <h3>
@@ -30,7 +31,7 @@ const RetrieveMeThisTime = (props) => {
                 <Loader type="Circles" color="#00BFFF" height={60} width={80} />
             )}
             {props.info.map((value, i) => {
-                console.log(`This is smurf #${i} in props.map`, value);
+                // console.log(`This is smurf #${i} in props.map`, value);
                 return (
                     <section key={i}>
                         <h3>Hey there, {value.name} lives in smurf village.</h3>

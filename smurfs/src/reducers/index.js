@@ -4,7 +4,7 @@ import { combineReducers } from 'redux';
 
 // [{ name: 'Brainey', age: 200, height: '5cm', id: 0 }];
 export const initialState = {
-    info: [{}],
+    info: [],
     isFetching: false,
     error: '',
 };
@@ -36,9 +36,11 @@ export const infoReducer = (state = initialState, action) => {
 export const addReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'POST_INFO_START':
+            console.log('post started');
             return {
                 ...state,
-                info: [...state.info, action.addSmurf],
+                isFetching: true,
+                // info: [...state.info, action.addSmurf],
             };
         case 'POST_INFO_SUCCESS':
             return {

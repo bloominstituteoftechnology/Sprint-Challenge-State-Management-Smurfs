@@ -14,24 +14,26 @@ function AddSmurfForm(props) {
     const handleChanges = (event) => {
         event.preventDefault();
         const newerSmurfData = {
-            [event.target.name]: event.target.value,
             ...smurf,
+            [event.target.name]: event.target.value,
         };
         return setSmurf(newerSmurfData);
     };
     const submitForm = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         console.log('submit clicked: ', smurf);
+        props.pushInfo(smurf);
         // pushInfo(smurf);
-        return (dispatch) => {
-            axios
-                .post('http://localhost:3333/smurfs', smurf)
-                .then((res) => {
-                    dispatch({ type: 'FETCH_INFO_SUCCESS', payload: res });
-                    console.log('response: ', res);
-                })
-                .catch((error) => console.error(error));
-        };
+
+        // return (dispatch) => {
+        //     axios
+        //         .post('http://localhost:3333/smurfs', smurf)
+        //         .then((res) => {
+        //             dispatch({ type: 'POST_INFO_START', payload: res });
+        //             console.log('response: ', res);
+        //         })
+        //         .catch((error) => console.error(error));
+        // };
     };
 
     return (
@@ -98,7 +100,7 @@ function AddSmurfForm(props) {
 const mapStateToProps = (state) => {
     console.log('addsmurfform state;', state);
     return {
-        push: state.push.info,
+        // push: state.push.info,
     };
 };
 
