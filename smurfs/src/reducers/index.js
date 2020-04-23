@@ -40,6 +40,7 @@ export const addReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: true,
+                info: '',
                 // info: [...state.info, action.addSmurf],
             };
         case 'POST_INFO_SUCCESS':
