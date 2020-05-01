@@ -13,4 +13,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    smurfs: state.smurfs,
+    smurfToEdit: state.smurfToEdit,
+    isEditing: state.isEditing,
+  };
+};
+
+export default connect(mapStateToProps, {})(App);
