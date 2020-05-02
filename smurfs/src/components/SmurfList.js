@@ -24,4 +24,15 @@ const SmurfList = props => {
   );
 };
 
-export default SmurfList;
+const mapStateToProps = state => {
+    return {
+      smurfs: state.smurfs,
+      smurfToEdit: state.smurfToEdit,
+      isEditing: state.isEditing
+    };
+  };
+  
+  export default connect(
+    mapStateToProps,
+    { getSmurfs }
+  )(SmurfList);
