@@ -1,3 +1,59 @@
 .App {
+  width: 100%;
   text-align: center;
+}
+
+.smurfContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.smurfForm {
+  width: 100%;
+  margin: 5% 0;
+  display: flex;
+  justify-content: center;
+}
+
+.smurfForm input {
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 25%;
+  margin-left: 5px;
+  height: 20px;
+}
+
+.smurfForm button {
+  width: 15%;
+  border-radius: 3px;
+  margin-left: 5px;
+  background-color: slateblue;
+}
+
+.smurfForm button:hover {
+  color: white;
+}
+
+.smurfCard {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: lightgrey;
+  width: 40%;
+  margin: 5% 0;
+  padding: 2%;
+}
+
+.smurfCard button {
+  width: 70px;
+  height: 20px;
+}
+
+.smurfCard .delete {
+  background-color: lightcoral;
+}
+
+.smurfCard .edit {
+  background-color: lightskyblue;
 }
