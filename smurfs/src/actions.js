@@ -28,3 +28,12 @@ export const createSmurf = smurfData => (dispatch) => {
         .then(response => response.json())
         .then(json => dispatch({ type: 'SET_SMURFS', smurfs: json }));
 };
+
+export const moveSmurfOut = smurfId => (dispatch) => {
+    fetch(`http://localhost:3333/smurfs/${smurfId}`, {
+        method: 'DELETE',
+    })
+        .then(() => {
+            dispatch({ type: 'MOVE_OUT', smurfId });
+        });
+};

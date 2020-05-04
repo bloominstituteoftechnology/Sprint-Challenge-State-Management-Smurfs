@@ -7,13 +7,20 @@ export default function reducer (state, action){
                 ...state,
                 smurfs: action.smurfs,
             };
-        case 'ADD_SMURF':
+        // create returned all smurfs instead of new smurf
+        // case 'ADD_SMURF':
+        //     return {
+        //         ...state,
+        //         smurfs: [
+        //             ...state.smurfs,
+        //             action.smurf,
+        //         ],
+        //     };
+        case 'MOVE_OUT':
             return {
                 ...state,
-                smurfs: [
-                    ...state.smurfs,
-                    action.smurf,
-                ],
+                // keep all smurfs but the one i am moving out
+                smurfs: state.smurfs.filter(smurf => smurf.id !== action.smurfId),
             };
         default: 
             return state;
