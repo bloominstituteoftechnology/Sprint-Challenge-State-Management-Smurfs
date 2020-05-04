@@ -7,6 +7,14 @@ export default function reducer (state, action){
                 ...state,
                 smurfs: action.smurfs,
             };
+        case 'ADD_SMURF':
+            return {
+                ...state,
+                smurfs: [
+                    ...state.smurfs,
+                    action.smurf,
+                ],
+            };
         default: 
             return state;
     }
