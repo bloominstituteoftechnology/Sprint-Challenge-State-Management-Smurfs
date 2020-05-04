@@ -38,7 +38,7 @@ Follow these steps to set up your project:
 - [x] **RUN** `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
 - [x] After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an array with one smurf in it returned to you. This is an array that your **API** will be using to store our Smurf Data.
 - [x] **LOOK** at your `smurfs` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
-- [x] **Open** `src/index.js` to make sure that your app is ready to roll with the proper middleware.
+- [ ] **Open** `src/index.js` to make sure that your app is ready to roll with the proper middleware.
 - [x] **cd** into `smurfs` and run `npm install` to retrieve the client side dependencies.
 - [x] **RUN** `npm start` to fire up your React application. There ought to be a pretty little message awaiting you welcoming you to the app. `Follow` the prompting.
 
@@ -47,7 +47,7 @@ Follow these steps to set up your project:
 ## Minimum Viable Product
 
 - [ ] Plan and implement how you are going to manage your state for your application
-- [ ] You _must_ use either context or Redux as your state management system
+- [x] You _must_ use either context or Redux as your state management system
 - [ ] Once you have planned out your state management system, fetch data from the smurf server and display the data it returns
 - [x] Add a form to collect info for a new smurf, and make a POST request to the server to add a new smurf to your village
 
@@ -55,8 +55,8 @@ Follow these steps to set up your project:
 
 ### GET '/smurfs'
 
-- [x] Retrieve an array all the Smurfs in the Smurf DB by writing a `GET` to the endpoint `/smurfs`.
-- [x] Double check that your response from the server is an array of smurfs.
+- [] Retrieve an array all the Smurfs in the Smurf DB by writing a `GET` to the endpoint `/smurfs`.
+- [] Double check that your response from the server is an array of smurfs.
 
 ```js
 [

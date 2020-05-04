@@ -1,61 +1,45 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import Form from './Form';
+import Smurfs from './Smurfs';
 import "./App.css";
+import { SmurfContext } from '../contexts/SmurfContext';
 import axios from 'axios';
 
-class App extends Component {
+export default function App() {
 
-    constructor () {
-      super()
+  const [smurfs, setSmurf] = useState([{
+    name: '',
+    age: '',
+    height: ''
+  }]);
 
-      this.state = {
-        name: '',
-        age: '',
-        height: ''
-      }
-  
-    }
-
-     handleOnSubmit = (event) => {
-      event.preventDefault();
-      axios
-        .post(`http://localhost:3333/smurfs`)
-        .then(response => console.log(response))
-        .catch(error => console.log(error))
-    }
-
-    handleOnChangeName = (event) => {
-      this.setState({
-        name: event.target.value
-      });
-    }
-
-    handleOnChangeAge = (event) => {
-      this.setState({
-        age: event.target.value
-      });
-    }
-
-        handleOnChangeHeight = (event) => {
-      this.setState({
-        height: event.target.value
-      });
-    }
-
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3333/smurfs`)
+      .then(response => {
+        let mySmurf = response.data
+        console.log(mySmurf)
+        setSmurf(mySmurf)
+      })
+      .catch(error => console.log(error))
     
+  },[])
 
-  render() {
-    return (
-      <div className="App">
-        <h1>Who the Smurf Are You?</h1>
-        <form onSubmit={this.handleOnSubmit}>
-          <input onChange={this.handleOnChangeName} type='text' name='name' placeholder='What`s your smurfin` name?'></input>
-          <input onChange={this.handleOnChangeAge} type='text' name='age' placeholder='What`s your smurfin` age?'></input>
-          <input onChange={this.handleOnChangeHeight} type='text' name='height' placeholder='How smurfin` tall are ya?'></input>
-          <button>Submit</button>
-        </form>
-      </div>
-    );
-  }
-}
 
-export default App;
+  
+  // axios
+  //   .post(`http://localhost:3333/smurfs`, smurfs)
+  //   .then(response => console.log(response))
+  //   .catch(error => console.log(error))
+
+  return (
+    <div className="App">
+      <h1>Who the Smurf Are You?</h1>
+      <SmurfContext.Provider value={{smurfs, setSmurf}}>
+      <Smurfs />
+      <Form />
+      </SmurfContext.Provider>
+    </div>
+  );
+};
+
