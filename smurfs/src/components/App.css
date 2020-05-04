@@ -31,6 +31,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: 10px auto;
+  width: 180px;
 }
 
 input {

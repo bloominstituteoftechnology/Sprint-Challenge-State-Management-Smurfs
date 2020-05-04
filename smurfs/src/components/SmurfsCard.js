@@ -1,6 +1,7 @@
 import React from 'react'
 
-const SmurfsCard = ({ name, age, height }) => {
+const SmurfsCard = ({ name, age, height, id}) => {
+    console.log(id)
     return (
         <div className='smurf-card'>
             <h2>{name}</h2>

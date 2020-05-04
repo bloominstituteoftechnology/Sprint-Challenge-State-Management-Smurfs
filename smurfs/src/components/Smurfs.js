@@ -7,7 +7,7 @@ export const Smurfs = () => {
     return (
         <div className='smurf-box'>
             {smurfs.map(smurfs => (
-                <SmurfsCard name={smurfs.name} age={smurfs.age} height={smurfs.height} key={smurfs.id} />
+                <SmurfsCard name={smurfs.name} age={smurfs.age} height={smurfs.height} id={smurfs.id} key={smurfs.id} />
             ))}
         </div>
     )

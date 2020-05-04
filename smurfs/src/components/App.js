@@ -4,6 +4,7 @@ import AddSmurf from './AddSmurf'
 
 import "./App.css";
 import { Smurfs } from "./Smurfs";
+import PostForm from "./PostForm";
 
 class App extends Component {
 
@@ -13,7 +14,8 @@ class App extends Component {
         <div className="App">
           <h1>SMURFS! 2.0 W/ Context API</h1>
         </div>
-        <AddSmurf />
+        <PostForm />
+        {/* <AddSmurf /> */}
         <Smurfs />
       </SmurfsProvider>
     );
