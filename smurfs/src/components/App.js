@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { SmurfsProvider } from './SmurfsContext'
-import AddSmurf from './AddSmurf'
+// import AddSmurf from './AddSmurf'
 
 import "./App.css";
 import { Smurfs } from "./Smurfs";

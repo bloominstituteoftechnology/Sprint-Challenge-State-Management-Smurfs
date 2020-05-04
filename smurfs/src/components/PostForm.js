@@ -19,8 +19,7 @@ class PostForm extends Component {
     }
 
     sumbitHandler = e => {
-        // e.preventDefault()
-        console.log(this.state)
+        // console.log(this.state)
         axios
             .post('http://localhost:3333/smurfs', this.state)
             .then(response => {
