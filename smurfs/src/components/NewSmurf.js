@@ -33,15 +33,15 @@ export default function NewSmurf(props) {
 			<form onSubmit={submitHandler}>
 				<div>
 					<label>Name</label>
-					<input type="text" placeholder="Enter name..." name="name" onChange={changeHandler} />
+					<input type="text" placeholder="Enter name..." value={formValues.name} name="name" onChange={changeHandler} />
 				</div>
 				<div>
 					<label>Age</label>
-					<input type="number" placeholder="Enter age..." name="age" onChange={changeHandler} />
+					<input type="number" placeholder="Enter age..." value={formValues.age} name="age" onChange={changeHandler} />
 				</div>
 				<div>
 					<label>Height</label>
-					<input type="text" placeholder="Enter height..." name="height" onChange={changeHandler} />
+					<input type="text" placeholder="Enter height..." value={formValues.height} name="height" onChange={changeHandler} />
 				</div>
 				<button type="submit">Create New Smurf</button>
 			</form>

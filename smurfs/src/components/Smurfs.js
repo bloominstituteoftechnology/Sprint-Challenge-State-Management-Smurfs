@@ -15,7 +15,7 @@ export default function Smurfs() {
 
     return (
         <div className="smurfs">
-            {smurfs.map(smurf => <Smurf {...smurf} />)}
+            {smurfs.map(smurf => <Smurf key={smurf.id} {...smurf} />)}
         </div>
     )
 }

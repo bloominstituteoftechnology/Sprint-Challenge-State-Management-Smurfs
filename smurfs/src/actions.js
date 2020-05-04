@@ -18,8 +18,13 @@ export const createSmurf = smurfData => (dispatch) => {
 
     fetch('http://localhost:3333/smurfs', {
         method: 'POST',
+        // have to tell server i am sending json so the server can 
+        // see the request data in the body
+        headers: {
+            'Content-Type': 'application/json',
+        },
         body: JSON.stringify(requestData),
     })
         .then(response => response.json())
-        .then(json => dispatch({ type: 'ADD_SMURF', smurf: json }));
+        .then(json => dispatch({ type: 'SET_SMURFS', smurfs: json }));
 };
