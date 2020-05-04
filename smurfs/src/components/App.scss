@@ -1,0 +1,18 @@
+.App {
+    text-align: center;
+    margin: 20px;
+    padding: 100px 0px;
+    border-radius: 20px;
+    
+  
+    .smurfList{
+        width: 400px;
+        margin: 10px auto;
+  
+        .eachSmurf{
+            border: 4px solid;  
+             margin: 20px 20px;
+
+         }
+     }
+};
