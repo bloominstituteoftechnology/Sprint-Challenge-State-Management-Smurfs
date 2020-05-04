@@ -1,5 +1,18 @@
 1. What problem does the context API help solve?
+First, that there are too many parts to deal with in redux. Second, with context API we can move state from top down while skipping certain layers of components along the way. The fact that you can't see if you have anything done in redux until you are completed and if you think you are done and you are not rendering you have to go all the way to the beginning to figure out where things went wrong. It's a Nightmare!
 1. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+- Actions: the functions which change the status of the state object
+- Reducers: They hold the actions and decide which action is enacted. They control the state and make sure all state values are held within one object.
+- Store: There is one store. This holds all the reducers and makes sure all state is controled away from all other components.
 1. What is the difference between Application state and Component state? When would be a good time to use one over the other?
+Application State is sometimes expressed as GLOBAL state with Component being LOCAL state. A local state is held within the component for a small temporary change where Application state is needed by other components throughout the application. If the change in state is only valid in the current component- then use local state instead of getting an action, action creator, and a bunch of other steps involved.
 1. Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+- Between the action and the reducer, Middleware like redux-thunk allows us to alter the data which is dispatched to the reducer. Redux-Thunk is set specifically so you can do async logic to the store because the store is normally only synchronous in it's logic.
 1. What is your favorite state management system you've learned and this sprint? Please explain why!
+- I'm still scared of both these methods and this is the second time through this sprint. Redux has too many parts so it's designed to create it's own problems. But now that we have Redux in our heads, where do I do all my changes and actions while using Context API? Should I put it in the app? 
+
++ This is a serous problem with how the curriculum is made. I'm so confused between redux and Context API. It almost hurts my head. This is something that has come up again and again in the course- set up the hard way and then brease through the easy version thinking that it's easier when it's just shorter. I start learning redux, I get the whole immutability thing, I EMBRACE the ONE SOURCE OF TRUTH! Even though it's hard, I try to make it work. Then Context API has NONE OF THAT! So now I'm looking for it because it was important but I can't find it in Context API. No, it's not really about state manage is it? It's about moving state down hill while skipping steps.
+
+So Frustrating!!! Teach us the easy way first- the hard way just confuses me! I'm sure I'm not the first person that said this. This is like back in Calculus when after two weeks your teacher says this is the easy way to take a derivitive- those last two weeks were hell and you didn't learn a thing during that time! 
+
+Sorry to unload on you like this. No, I'm not, because this has happened before and it seems like I'm not being heard.
