@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
+import { connect } from 'react-redux';
 
 
 
@@ -23,5 +24,10 @@ const SmurfForm = () => {
         </div>
     )
 }
+const mapStateToProps = state => {
+    return{
+        /**returns an object of state */
+    }
+}
 
-export default SmurfForm;
+export default connect(mapStateToProps, {})(SmurfForm);

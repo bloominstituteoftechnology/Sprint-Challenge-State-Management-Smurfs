@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import "./App.css";
 import SmurfList from './SmurfList';
 import SmurfForm from './SmurfForm';
 
-export default class App extends Component {
-    state = {
-      smurfs: []
+class App extends Component {
+  state = {
+    smurfs: []
   }
   componentDidMount() {
       axios.get('http://localhost:3333/smurfs')
@@ -44,4 +45,17 @@ export default class App extends Component {
   }
 }
 
-//export default App;
+
+const mapStateToProps = state => {
+  return {
+    /**takes in state and returns an object like  */
+    /**inside the object should be an array fo smurfs */
+    // name: state.smurf.name,
+    // age: state.smurf.age,
+    // height: state.smurf.height,
+    // id: state.smurf.id
+    //just the parts we want for this component
+  }
+}
+
+export default connect(mapStateToProps, {})(App);

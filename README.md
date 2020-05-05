@@ -48,15 +48,15 @@ Follow these steps to set up your project:
 
 - [x] Plan and implement how you are going to manage your state for your application
 - [x] You _must_ use either context or Redux as your state management system
-- [ ] Once you have planned out your state management system, fetch data from the smurf server and display the data it returns
-- [ ] Add a form to collect info for a new smurf, and make a POST request to the server to add a new smurf to your village
+- [x] Once you have planned out your state management system, fetch data from the smurf server and display the data it returns
+- [x] Add a form to collect info for a new smurf, and make a POST request to the server to add a new smurf to your village
 
 ## API documentation
 
 ### GET '/smurfs'
 
 - [ ] Retrieve an array all the Smurfs in the Smurf DB by writing a `GET` to the endpoint `/smurfs`.
-- [ ] Double check that your response from the server is an array of smurfs.
+- [x] Double check that your response from the server is an array of smurfs.
 
 ```js
 [
@@ -71,7 +71,7 @@ Follow these steps to set up your project:
 
 ### POST '/smurfs'
 
-- [ ] Design the functionality to add a smurf to the Smurf DB you'll need all three fields. `name`, `age`, and `height`.
+- [x] Design the functionality to add a smurf to the Smurf DB you'll need all three fields. `name`, `age`, and `height`.
 
 Example of the shape of data to be sent to the `POST` endpoint:
 

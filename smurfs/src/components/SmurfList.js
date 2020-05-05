@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 //import axios from 'axios';
 
 import SmurfPerson from './SmurfPerson';
 
-export default class SmurfList extends React.Component {
+class SmurfList extends React.Component {
     // state = {
     //     smurfs: []
     // }
@@ -36,3 +38,11 @@ export default class SmurfList extends React.Component {
         );
     }
 };
+
+const mapStateToProps = state => {
+    return{
+        /**returns an object of state */
+    }
+}
+
+export default connect(mapStateToProps, {})(SmurfList);
