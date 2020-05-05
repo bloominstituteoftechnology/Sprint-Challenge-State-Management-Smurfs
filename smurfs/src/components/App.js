@@ -1,61 +1,37 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import Form from './Form';
+import Smurfs from './Smurfs';
+import "./App.css";
+import { SmurfContext } from '../contexts/SmurfContext';
 
-class App extends Component {
+export default function App() {
 
-    constructor () {
-      super()
+  const [smurfs, setSmurfs] = useState([]);
 
-      this.state = {
-        name: '',
-        age: '',
-        height: ''
-      }
+  useEffect(() => {
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then((res) => {
+        setSmurfs(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  return (
+    <div className="App">
+      <h1>Who the Smurf Are You?</h1>
+      <SmurfContext.Provider value={{ smurfs, setSmurfs }}>
+        <Smurfs />
+        <Form />
+      </SmurfContext.Provider>
+    </div>
+  );
+};
+
+
+
+
   
-    }
-
-     handleOnSubmit = (event) => {
-      event.preventDefault();
-      axios
-        .post(`http://localhost:3333/smurfs`)
-        .then(response => console.log(response))
-        .catch(error => console.log(error))
-    }
-
-    handleOnChangeName = (event) => {
-      this.setState({
-        name: event.target.value
-      });
-    }
-
-    handleOnChangeAge = (event) => {
-      this.setState({
-        age: event.target.value
-      });
-    }
-
-        handleOnChangeHeight = (event) => {
-      this.setState({
-        height: event.target.value
-      });
-    }
-
-    
-
-  render() {
-    return (
-      <div className="App">
-        <h1>Who the Smurf Are You?</h1>
-        <form onSubmit={this.handleOnSubmit}>
-          <input onChange={this.handleOnChangeName} type='text' name='name' placeholder='What`s your smurfin` name?'></input>
-          <input onChange={this.handleOnChangeAge} type='text' name='age' placeholder='What`s your smurfin` age?'></input>
-          <input onChange={this.handleOnChangeHeight} type='text' name='height' placeholder='How smurfin` tall are ya?'></input>
-          <button>Submit</button>
-        </form>
-      </div>
-    );
-  }
-}
-
-export default App;
