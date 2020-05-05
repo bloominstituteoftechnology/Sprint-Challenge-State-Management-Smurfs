@@ -1,25 +1,25 @@
 import React, { Component } from "react";
-//import axios from 'axios';
+import axios from 'axios';
 
 import "./App.css";
 import SmurfList from './SmurfList';
 import SmurfForm from './SmurfForm';
 
-export default class App extends React.Component {
-  //   state = {
-  //     smurfs: []
-  // }
-  // componentDidMount() {
-  //     axios.get('http://localhost:3333/smurfs')
-  //         .then(response => {
-  //           console.log(response);
-  //           this.setState({ smurfs: response.data});
+export default class App extends Component {
+    state = {
+      smurfs: []
+  }
+  componentDidMount() {
+      axios.get('http://localhost:3333/smurfs')
+          .then(response => {
+            console.log(response);
+            //this.setState({ smurfs: response.data});
 
-  //         })
-  //         .catch(err => {
-  //             console.log ({ err })
-  //         })
-  // };
+          })
+          .catch(err => {
+              console.log ({ err })
+          })
+  };
 
   //why can't I get this axios.get to work? It's the same as in the other place completely!
 
