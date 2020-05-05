@@ -1,21 +1,24 @@
 import React, { useContext } from 'react';
 import { SmurfContext } from '../contexts/SmurfContext';
 
-const Smurfs = (props) => {
+const Smurfs = () => {
 
-    const { fetchData } = useContext(SmurfContext);
-    
+    const { smurfs } = useContext(SmurfContext);
+
     return (
         <div>
-            {
-                props.smurfs.map(smurf => (
-                    <span key={smurf.id}>
-                        <p>Name: {smurf.name} Height: {smurf.height} Age: {smurf.age}</p>
-                    </span>
-                ))
-            }
+          {smurfs.map(smurf => {
+            return (
+              <span key={smurf.id}>
+                <p>Name: {smurf.name} Age: {smurf.age} Height: {smurf.height}</p>
+              </span>
+            );
+          })}
         </div>
-    )
+      );
 }
 
 export default Smurfs;
+
+
+

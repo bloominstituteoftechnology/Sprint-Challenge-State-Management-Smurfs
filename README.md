@@ -48,7 +48,7 @@ Follow these steps to set up your project:
 
 - [ ] Plan and implement how you are going to manage your state for your application
 - [x] You _must_ use either context or Redux as your state management system
-- [ ] Once you have planned out your state management system, fetch data from the smurf server and display the data it returns
+- [x] Once you have planned out your state management system, fetch data from the smurf server and display the data it returns
 - [x] Add a form to collect info for a new smurf, and make a POST request to the server to add a new smurf to your village
 
 ## API documentation
