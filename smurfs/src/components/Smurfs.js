@@ -1,22 +1,19 @@
 import React, { useContext } from 'react';
 import { SmurfContext } from '../contexts/SmurfContext';
 
-const Smurfs = () => {
-    const { smurfs } = useContext(SmurfContext);
+const Smurfs = (props) => {
 
-    console.log("this is my data: ", smurfs);
-
-
+    const { fetchData } = useContext(SmurfContext);
+    
     return (
         <div>
-            {smurfs.forEach(smurf => {
-                console.log("this is my data 2", smurf)
-                return (
-                    <span>
+            {
+                props.smurfs.map(smurf => (
+                    <span key={smurf.id}>
                         <p>Name: {smurf.name} Height: {smurf.height} Age: {smurf.age}</p>
                     </span>
-                )
-            })}
+                ))
+            }
         </div>
     )
 }
