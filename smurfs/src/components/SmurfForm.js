@@ -6,9 +6,10 @@ import { useForm } from 'react-hook-form';
 const SmurfForm = () => {
 
     const {register, handleSubmit} = useForm();
-    const onSubmit = (data) => {
+    const onSubmit = (newSmurf) => {
         //event.preventDefault();
-        console.log(data);
+        console.log(newSmurf);
+        //now how do I add this to the SMURFS state?
     }
 
     return (

@@ -1,15 +1,11 @@
 import React from 'react'
 
 export default function SmurfPerson(props) {
-    console.log(props);
+    //console.log(props);
     return (
         <div>
             <h3 key={props.smurf.id}>{`NAME: ${props.smurf.name}, AGE: ${props.smurf.age}, HEIGHT: ${props.smurf.height}`}</h3>
-            {/* {this.state.map(smurf => {
-                <li key={smurf.id}> 
-                    {`NAME: ${smurf.name}, AGE: ${smurf.age}, HEIGHT: ${smurf.height}`}
-                </li>
-                })}; */}
+           
         </div>
     )
 }

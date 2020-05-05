@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+
 import SmurfPerson from './SmurfPerson';
 
-export default class SmurfList extends React.Component {
+export default class SmurfList extends React.Component{
     state = {
         smurfs: []
     }
@@ -18,17 +19,20 @@ export default class SmurfList extends React.Component {
 
     
 
-    render() {
-        console.log(this.state.smurfs);
+    render (props) {
+        //console.log(props);
+        //why can't I get props here?
         return (
             <div className = "smurfListing">
-                <div>
+                
                 {this.state.smurfs.map(smurf => {
-                    return(<SmurfPerson smurf={smurf} />)
+                    return(
+                    <SmurfPerson smurf={smurf} />
+                    )
                 })}
-                </div>
+                
             
             </div>
         );
     }
-}
+};
