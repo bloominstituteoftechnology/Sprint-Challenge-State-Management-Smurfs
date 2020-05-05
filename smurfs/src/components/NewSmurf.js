@@ -1,7 +1,21 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
 import { createSmurf } from '../actions';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+const useStyle = makeStyles({
+	root: {
+		margin: '0 auto',
+		padding: '10px',
+		width: '30vw',
+		textAlign: 'center'
+	},
+	input: {
+		margin: '5px'
+	}
+});
 
 const emptyFormValues = {
 	name: '',
@@ -12,7 +26,7 @@ const emptyFormValues = {
 export default function NewSmurf(props) {
 	const [ formValues, setFormValues ] = useState({ ...emptyFormValues });
 	const dispatch = useDispatch();
-
+	const style = useStyle();
 	const changeHandler = (event) => {
 		setFormValues({
 			...formValues,
@@ -29,21 +43,48 @@ export default function NewSmurf(props) {
 	};
 
 	return (
-		<div className="new-smurf">
+		<div className={style.root}>
 			<form onSubmit={submitHandler}>
 				<div>
-					<label>Name</label>
-					<input type="text" placeholder="Enter name..." value={formValues.name} name="name" onChange={changeHandler} />
+					<TextField
+						className={style.input}
+						label="Name"
+						type="text"
+						placeholder="Enter name..."
+						value={formValues.name}
+						name="name"
+						onChange={changeHandler}
+						// variant="outlined"
+					/>
 				</div>
 				<div>
-					<label>Age</label>
-					<input type="number" placeholder="Enter age..." value={formValues.age} name="age" onChange={changeHandler} />
+					<TextField
+						className={style.input}
+						label="Age"
+						type="number"
+						placeholder="Enter age..."
+						value={formValues.age}
+						name="age"
+						onChange={changeHandler}
+						// variant="outlined"
+					/>
 				</div>
 				<div>
-					<label>Height</label>
-					<input type="text" placeholder="Enter height..." value={formValues.height} name="height" onChange={changeHandler} />
+					<TextField
+						className={style.input}
+						label="Height"
+						type="text"
+						placeholder="Enter height..."
+						value={formValues.height}
+						name="height"
+						onChange={changeHandler}
+						// variant="outlined"
+					/>
 				</div>
-				<button type="submit">Create New Smurf</button>
+
+				<Button type="submit" variant="contained" color="primary" size="small">
+					Create New Smurf
+				</Button>
 			</form>
 		</div>
 	);
