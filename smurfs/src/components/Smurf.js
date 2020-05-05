@@ -2,19 +2,41 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { moveSmurfOut } from '../actions';
+import { withStyles } from '@material-ui/styles';
 
-export default function Smurf(props) {
+const styles = {
+	root: {        
+		margin: '1rem',
+        border: 'thin solid tomato',
+        backgroundColor: '#e0f4ff',
+		padding: '10px',
+		width: '30vw',
+        textAlign: 'center',
+		borderRadius: '8px',
+		opacity: '0.9'	
+    },
+    n: {
+		color: 'tomato',
+		fontSize: '1.5em',
+		textShadow: '1px 1px 0px black',
+		marginBottom: '5px'
+	},
+	a: {
+		padding: '2px',
+		color: 'gray',
+        textShadow: '1px 1px 0px black',
+	}
+	
+};
+
+function Smurf(props) {
     const dispatch = useDispatch();
 
     return (
-        <div className={`smurf smurf-${props.id}`}>
+        <div className={`smurf smurf-${props.id}`} className={props.classes.root}>
             <dl>
-                <dt>Name</dt>
-                <dd>{props.name}</dd>
-                <dt>Age</dt>
-                <dd>{props.age}</dd>
-                <dt>Height</dt>
-                <dd>{props.height}</dd>
+                <p className={props.classes.n}>I'm {props.name}!</p>
+                <p className={props.classes.a}>I'm {props.age} year-old and {props.height} tall</p>
             </dl>
             <button className="delete-smurf" onClick={() => {
                 dispatch(moveSmurfOut(props.id));
@@ -22,3 +44,9 @@ export default function Smurf(props) {
         </div>
     )
 }
+
+
+
+
+
+export default withStyles(styles)(Smurf);
