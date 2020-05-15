@@ -1,21 +1,33 @@
 import React, { Component,useContext,useState,useEffect } from "react";
 import axios from 'axios'
 import {DataContext} from '../context/DataContext'
-import {} from 'react-router-dom'
 import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
-import uuid from 'uuid/v4'
-
+import styled from 'styled-components'
+//components
 import SmurfList from '../components/SmurfList'
 import SmurfForm from '../components/SmurfForm'
 import Nav from '../components/Nav'
 import "./App.css";
 
+const InnerDiv = styled.div `
+    background-color: rgba(0, 0, 0, 0.3);
+
+  padding:2%;
+  margin:1% auto;
+  width:80%;
+  overflow:hidden;
+  
+
+
+`
+
 function App(){ 
+  //database state
   const [data,setData] = useState([]);
   const [fetching,setFetching] = useState(false)
   
-
+//useEffect for adding axios request data to the data state
   useEffect(()=>{
     axios.get('http://localhost:3333/smurfs')
       .then(res=>{
@@ -28,6 +40,8 @@ function App(){
       
       })
   },[])
+
+  //add to database is used to add new smurfs to the database and to the local state
 
   const addToDatabase = item=>{
 
@@ -42,26 +56,28 @@ function App(){
 
   }
 
-
+// overide is the css for the loading circle 
   const override = css`
   display: block;
-  margin: 25% auto 0  auto;
+  margin:15% auto 0  auto;
   border-color: red;
 `;
-  return(
-    <div>
+  
+return(
+    <div className='App'>
       <Nav />
-
+{/* wrapping the smurfForm and List in DataContext.Provider to extend global state */}
       <DataContext.Provider value={{data,setFetching,addToDatabase}}>
         {!fetching ?
-        <div>
-          <SmurfForm  />
+        <InnerDiv>
+          <SmurfForm className='smurForm'  />
 
           <SmurfList />
 
-        </div>
+        </InnerDiv>
          
         :
+        // Loading circle
         <div className="sweet-loading">
         <p>Loading ....</p>
 
@@ -70,6 +86,7 @@ function App(){
           size={150}
           color={"#123abc"}
           loading={fetching}
+
         />
       </div>
       

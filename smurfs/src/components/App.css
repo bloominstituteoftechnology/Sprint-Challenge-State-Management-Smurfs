@@ -1,3 +1,12 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
 .App {
-  text-align: center;
+  background-image: url('https://wpuploads.appadvice.com/wp-content/uploads/2013/08/Smurfs-Village-for-iPad-11.jpg');
+  background-size: contain;
+  height:100vh;
+  
 }
