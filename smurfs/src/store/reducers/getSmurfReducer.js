@@ -3,12 +3,13 @@ import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS } from '../actions';
 export let initialState = {
     isFetching: false, 
     error: '',
-    smurfs: []
+    smurfs: [],
+    showData: false
     
 }
 
 export let getSmurfReducer = (state = initialState, action) => {
-    console.log(action, 'action loggin inside reducer')
+    // console.log(action, 'action loggin inside reducer')
     switch ( action.type) {
         case FETCH_SMURFS_START:
             return {
@@ -19,10 +20,11 @@ export let getSmurfReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                smurfs: {
+                showData: true,
+                smurfs: [
                     ...state.smurfs, 
-                    // action.payload
-                }
+                    action.payload
+                ]
             }
         default:
             return state

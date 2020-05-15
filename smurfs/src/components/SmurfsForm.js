@@ -1,55 +1,95 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { postData } from '../store/actions'
 
 let initialState = {
     name: '',
-    age: '',
+    age: 0,
     height: '',
+    id: Date.now()
 }
 
 let SmurfsForm = props => {
-    let [input, setinput] = useState(initialState)
+    let [input, setInput] = useState(initialState)
     console.log(input)
 
     let handleChanges = e => {
-        let name = e.target.name;
-        let value = e.target.value;
-        setinput({[name]: value})
+        setInput({...input, [e.target.name]: e.target.value})
     }
 
-    let addSmurf = smurfData => {
-        let newSmurf = {
-            name: smurfData.name,
-            age: smurfData.age,
-            height: smurfData.height,
-            id: Date.now()
-        }
-        axios.post('http://localhost:3333/smurfs', newSmurf)
-        .then(res => {
-            console.log(res, 'res from post')
+    let onSubmit = e =>{
+        e.preventDefault();
+        props.postData(input);
+        setInput({
+            name: '',
+            age: '',
+            height: '',
         })
     }
+    // let newObj = {
+    //     name: 'newname',
+    //     age: 2,
+    //     height: 'newheight',
+    //     id: Date.now()
+    // }
 
-    let onSubmit = e => {
-        e.preventDefault();
-        addSmurf(input);
-        setinput(initialState)
-    }
+    // axios.post('http://localhost:3333/smurfs', newObj)
+
+
+    // let addSmurf = smurfData => {
+    //     let newSmurf = {
+    //         name: smurfData.name,
+    //         age: smurfData.age,
+    //         height: smurfData.height,
+    //     }
+    //     axios.post('http://localhost:3333/smurfs', newSmurf)
+    //     .then(res => {
+    //         console.log(res, 'res from post')
+    //     })
+    // }
+
+    // let onSubmit = e => input => {
+    //     e.preventDefault();
+    //     props.postData(input)
+    //     // addSmurf(input);
+    //     setinput(initialState)
+    // }
 
     return (
-        <form onSubmit={onSubmit} style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <form onSubmit={e => onSubmit(e)} style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <label htmlFor='name'>Name :</label>
-            <input values={input.name} onChange={handleChanges} style={{width: '30%'}} id='name' name='name'/>
+            <input 
+            values={input.name} 
+            onChange={handleChanges} 
+            style={{width: '30%'}} 
+            type='text'
+            id='name' 
+            name='name'
+            />
 
             <label htmlFor='age'>Age :</label>
-            <input values={input.age} onChange={handleChanges} style={{width: '30%'}} id='age' name='age'/>
+            <input 
+            values={input.age} 
+            onChange={handleChanges} 
+            style={{width: '30%'}} 
+            type='number'
+            id='age' 
+            name='age'
+            />
 
             <label htmlFor='height'>Height :</label>
-            <input values={input.height} onChange={handleChanges} style={{width: '30%'}} id='height' name='height'/>
+            <input 
+            values={input.height} 
+            onChange={handleChanges} 
+            style={{width: '30%'}} 
+            id='height' 
+            name='height'
+            type='text'
+            />
 
             <button>Submit</button>
         </form>
     )
 }
 
-export default SmurfsForm;
+export default connect(null, {postData})(SmurfsForm);
