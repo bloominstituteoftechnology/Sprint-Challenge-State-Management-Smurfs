@@ -1,45 +1,35 @@
-import {FETCH_SMURF, ADD_SMURF, SMURF_NAME, SMURF_AGE, SMURF_HEIGHT, SMURF_ID} from './actions/smurfAction';
+import {FETCHING_DATA, FETCHING_COMPLETE, FETCHING_FAIL} from '../actions/action';
 
-// import FETCH_SMURF from './actions/smurfAction';
-// import ADD_SMURF from './actions/smurfAction';
-// import 'SMURF_NAME' from './actions/smurfAction';
-// import 'SMURF_AGE' from './actions/smurfAction';
-// import 'SMURF_HEIGHT' from './actions/smurfAction';
-// export const SMURF_ID ='SMURF_ID';
-export const intitialState = {
-    smurfs: [],
-
-    smurfInfo : {
-        name: '',
-        age: 0,
-        height: '',
-        id: 0,
-    }
+const initialState = {
+    smurfData: [],
+    isFetching: false,
+    error: ""
 }
 
-export const reducer = (state = intitialState, action) => {
-    switch(action.type){
-        case SMURF_NAME:
+const Reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case FETCHING_DATA: 
+        return {
+            ...state,
+            isFetching: true,
+            error: ''
+        };
+        case FETCHING_COMPLETE: 
+        return {
+            ...state,
+            isFetching: false,
+            error: '',
+            smurfData: action.payload
+        }
+        case FETCHING_FAIL:
             return {
                 ...state,
-                smurfInfo: {...state.smurfInfo, name: action.payload}
+                isFetching: false,
+                error: action.payload
             }
-            case SMURF_AGE:
-                return {
-                    ...state,
-                    smurfInfo: {...state.smurfInfo, age: action.payload}
-                }
-            case SMURF_HEIGHT:    
-                return {
-                    ...state,
-                    smurfInfo: {...state.smurfInfo, height: action.payload}
-                }
-            case SMURF_ID:
-                return {
-                    ...state,
-                    smurfInfo: {...state.smurfInfo, id: action.payload}
-                }    
-        default:
-            return state;
+            default:
+                return state;
     }
 }
+
+export default Reducer
