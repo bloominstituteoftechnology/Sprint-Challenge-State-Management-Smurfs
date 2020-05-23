@@ -1,55 +1,55 @@
-import React,{useState} from "react";
+import React,{useState, useContext} from "react";
 import axios from 'axios';
+import FormContext from '../contexts/FormContext.js';
 
 function SmurfForm (){
-const [smurfInfo, setSmurfInfo] = useState({
-    name: '',
-    age: Number,
-    height: '',
-    id: Number
-  })
+
+const addSmurf = useContext(FormContext)
+
+const [smurfInfo, setSmurfInfo] = useState('')
    
     const handleChange = e => {
     setSmurfInfo({ ...smurfInfo, [e.target.name]:e.target.value});
     };
       
     const handleSubmit = (e) => {
-        e.preventDefault();
+       addSmurf(smurfInfo);
         axios
         .post('http://localhost:3333/smurfs', smurfInfo)
         .then(res => {
-            console.log("ADD smurf form", res)
-            
+            console.log("ADD smurf form", res.data)
+            setSmurfInfo(res.data)
         })
         .catch(err => {
             console.log("Erorr in addNewsmurf FORM", err)
         })
     }
+
     console.log("smurfinfo", smurfInfo)
     return (
-        <div className="smurf-form">
+            <div className="smurf-form">
             hello there
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={ event => handleSubmit(event)}>
             <input
                 type='text'
                 name='name'
                 placeholder='Smurf Name'
                 value={smurfInfo.name}
-                onChange ={handleChange}
+                onChange ={event => handleChange(event)}
             />
             <input
                 type='number'
                 name='age'
                 placeholder='smurfInfo age'
                 value={smurfInfo.age}
-                onChange ={handleChange}
+                onChange ={event => handleChange(event)}
             />
             <input
                 type='number'
                 name='height'
                 placeholder='smurfInfo height'
                 value={smurfInfo.height}
-                onChange ={handleChange}
+                onChange ={event => handleChange(event)}
             />
             <button>Add Smurf</button>
             </form>
