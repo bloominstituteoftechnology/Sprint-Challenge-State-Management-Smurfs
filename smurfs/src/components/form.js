@@ -12,9 +12,21 @@ class SmurfForm extends React.Component {
         
     }
 
-    handleChanges = e =>{
+    handleNameChanges = e =>{
 
-        this.setState({name: e.target.value, age: e.target.value, height: e.target.value})
+        this.setState({name: e.target.value})
+    }
+
+    
+    handleAgeChanges = e =>{
+
+        this.setState({ age: e.target.value})
+    }
+
+    
+    handleHeightChanges = e =>{
+
+        this.setState({height: e.target.value})
     }
 
     render(){
@@ -27,7 +39,7 @@ class SmurfForm extends React.Component {
                 <input 
                 type= "text"
                 value={this.state.name}
-                onchange={this.handleChanges}
+                onChange={this.handleNameChanges}
                 placeholder="Name Here"
                 />
             </label>
@@ -36,7 +48,7 @@ class SmurfForm extends React.Component {
               <input 
                type= "text"
                value={this.state.age}
-               onchange={this.handleChanges}
+               onChange={this.handleAgeChanges}
                placeholder="Age Here"
                />
           </label>
@@ -45,7 +57,7 @@ class SmurfForm extends React.Component {
               <input 
                type= "text"
                value={this.state.height}
-               onchange={this.handleChanges}
+               onChange={this.handleHeightChanges}
                placeholder="Height Here"/>
           </label>
           <button onClick={e => {e.preventDefault()
@@ -62,3 +74,16 @@ class SmurfForm extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+
+    return {
+
+        smurf: state.smurf
+
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {postSmurf, getSmurf}
+)(SmurfForm)

@@ -4,11 +4,6 @@ const initialState ={
 
     isLoading: false,
     smurf: [],
-    add: [{
-        name: "",
-        age: "",
-        height: ""
-    }],
     error: ""
 }
 
@@ -30,7 +25,7 @@ export const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 isLoading: false,
-                smurf: [...state.add, action.payload]
+                smurf: [...state.smurf, action.payload]
             }
         case FAILED:
             return{
