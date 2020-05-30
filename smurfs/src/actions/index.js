@@ -5,27 +5,35 @@ export const SUCCESS = "SUCCESS";
 export const ADD = "ADD";
 export const FAILED = "FAILED";
 
-export const getSmurf = () => dispatch => {
+export const getSmurf = data => dispatch => {
 
     dispatch({type: START});
-
-    axios
-    .get("")
-    .then()
-    .catch()
+    axios.get("http://localhost:3333/smurfs")
+    .then(res => {
+        
+        dispatch({type: SUCCESS, payload: res.data})       
+    })
+    .catch(err => {
+        dispatch({type: FAILED, payload: err.response})
+    })
 
 }
 
-export const postSmurf = () => dispatch => {
+export const postSmurf = (data, name, age, height) => dispatch => {
 
     dispatch({type: START});
 
     axios
-    .post("", data)
+    .post("http://localhost:3333/smurfs", data)
     .then(res => {
-        dispatch({type: ADD,})
+        dispatch({type: SUCCESS, payload: res.data})
+        dispatch({type: ADD, payload: {
+            name: name,
+            age: age,
+            height: height}})
     })
-    .catch()
-
+    .catch(err => {
+        dispatch({type: FAILED, payload: err})
+    })
 
 }

@@ -30,7 +30,7 @@ export const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 isLoading: false,
-                add: [...state.add, action.payload]
+                smurf: [...state.add, action.payload]
             }
         case FAILED:
             return{
@@ -38,6 +38,8 @@ export const reducer = (state = initialState, action) => {
                 isLoading: false,
                 error: action.payload
             }
+            default:
+                return state
                 
     }
 }
