@@ -32,9 +32,9 @@ function SmurfForm(){
     }
     return (
         <div >
-            <Title>
+            
                 <h2>Add Your Smurf Info</h2>
-            </Title>
+        
             
             <form onSubmit = {handleSubmit}>
                 <input
