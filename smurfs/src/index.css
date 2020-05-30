@@ -2,4 +2,23 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-image: url('https://mcdn.wallpapersafari.com/medium/28/82/uBsnAh.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 500px;
+}
+
+.smurf-list {
+  text-align: center;
+  margin: 7px;
+}
+
+h1 {
+  font-size: 72px;
+  background: -webkit-linear-gradient(#7CFFF5, #84DEFF, #7EADFF, #726DFF, #6858FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
 }
