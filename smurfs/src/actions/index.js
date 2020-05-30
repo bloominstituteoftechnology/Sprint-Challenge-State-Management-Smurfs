@@ -1,13 +1,12 @@
 import axios from 'axios';
 
-export const START = "START";
 export const SUCCESS = "SUCCESS";
 export const ADD = "ADD";
 export const FAILED = "FAILED";
 
 export const getSmurf = data => dispatch => {
 
-    dispatch({type: START});
+   
     axios.get("http://localhost:3333/smurfs")
     .then(res => {
         
@@ -21,7 +20,7 @@ export const getSmurf = data => dispatch => {
 
 export const postSmurf = (data, name, age, height) => dispatch => {
 
-    dispatch({type: START});
+    
 
     axios
     .post("http://localhost:3333/smurfs", data)
