@@ -1,26 +1,27 @@
 import React, { useState, useContext } from "react";
-import { SmurfContext } from "../contexts/smurfContext";
+import { GlobalContext } from "../contexts/GlobalState";
+import axios from "axios";
 
 const SmurfForm = () => {
-  const { addNewSmurf } = useContext(SmurfContext);
+  const { fetchSuccess, fetchError } = useContext(GlobalContext);
   const [newSmurf, setNewSmurf] = useState({
     name: "",
     age: "",
     height: "",
   });
-
-  const handleChange = (e) => {
-    setNewSmurf({ ...newSmurf, [e.target.name]: e.target.value });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNewSmurf(newSmurf);
-    setNewSmurf({
-      name: "",
-      age: "",
-      height: "",
-    });
+    axios
+      .post("http://localhost:3333/smurfs", newSmurf)
+      .then((response) => {
+        fetchSuccess(response.data);
+      })
+      .catch((error) => {
+        fetchError(error);
+      });
+  };
+  const handleChange = (e) => {
+    setNewSmurf({ ...newSmurf, [e.target.name]: e.target.value });
   };
 
   return (
