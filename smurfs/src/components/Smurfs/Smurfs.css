@@ -1,0 +1,8 @@
+.smurfs {
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  justify-content: center;
+  width: 75%;
+  margin: 0 auto;
+}

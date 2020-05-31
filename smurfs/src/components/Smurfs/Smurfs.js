@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import "./Smurfs.css";
 
 // Components
 import Smurf from "./Smurf";
@@ -10,10 +11,9 @@ const Smurfs = () => {
   const { smurfs, dispatch } = useContext(SmurfContext);
 
   return (
-    <section>
+    <section className="smurfs">
       {smurfs.map((smurf) => {
-        console.log(smurf);
-        return <Smurf key={smurf.id} {...smurf} />;
+        return <Smurf key={smurf.id} dispatch={dispatch} {...smurf} />;
       })}
     </section>
   );

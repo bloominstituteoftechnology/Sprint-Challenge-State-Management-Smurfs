@@ -1,0 +1,36 @@
+.smurf {
+  display: flex;
+  justify-content: space-around;
+  align-content: flex-end;
+
+  min-height: 50px;
+  height: 75px;
+
+  margin: 16px 0;
+}
+
+.smurf > p {
+  width: 75%;
+  align-self: center;
+}
+
+.smurf > span {
+  display: inline-block;
+  height: 48px;
+  line-height: 48px;
+  width: 48px;
+  align-self: center;
+  text-align: center;
+  margin: 6px;
+  color: #cccccc;
+  transition: color 0.2s linear;
+}
+
+.smurf > span:hover {
+  color: #555;
+}
+
+.close {
+  cursor: pointer;
+  min-width: 48px;
+}

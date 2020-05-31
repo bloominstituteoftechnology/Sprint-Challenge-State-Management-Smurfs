@@ -5,7 +5,7 @@ import axios from "axios";
 import { reducer, initialState } from "../reducers";
 
 // Actions
-import { UPDATE_STATE_WITH_SMURFS } from "../actions";
+import { FETCH_SMURF_SUCCESS } from "../actions";
 
 export const useSmurfs = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -13,9 +13,7 @@ export const useSmurfs = () => {
   useEffect(() => {
     axios
       .get("http://localhost:3333/smurfs")
-      .then((res) =>
-        dispatch({ type: UPDATE_STATE_WITH_SMURFS, payload: res.data })
-      )
+      .then((res) => dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data }))
       .catch((err) => console.log(err));
   }, []);
 
