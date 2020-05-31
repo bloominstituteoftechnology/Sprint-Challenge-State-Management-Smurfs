@@ -5,7 +5,7 @@ export default (state, action) => {
     case "FETCH_SUCCESS":
       return {
         ...state,
-        ediding: false,
+        editing: false,
         isFetching: false,
         error: "",
         smurfs: action.payload,
