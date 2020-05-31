@@ -4,7 +4,7 @@ import AppReducer from "./AppReducer";
 
 const initialState = {
   editing: false,
-  loading: true,
+  isFetching: true,
   error: "",
   smurfs: [],
 };
@@ -27,17 +27,22 @@ export const GlobalProvider = ({ children }) => {
   const fetchError = (error) => {
     dispatch({
       type: "FETCH_ERROR",
-      payload: error,
+      payload: `Error ${error.response.status}: ${error.response.data} `,
     });
   };
+
+  const editing = () =>
+    dispatch({
+      type: "EDITING",
+    });
 
   return (
     <GlobalContext.Provider
       value={{
-        smurfs: state.smurfs,
         fetchSuccess,
         fetchError,
         state,
+        editing,
       }}
     >
       {children}

@@ -1,17 +1,19 @@
 import React, { useContext } from "react";
 import SmurfCard from "./SmurfCard";
+import SmurfForm from "./SmurfForm";
 
 import { GlobalContext } from "../contexts/GlobalState";
 
 const SmurfList = () => {
-  const state = useContext(GlobalContext);
-  // console.log({ state });
+  const { state } = useContext(GlobalContext);
+
   return (
     <div>
-      {state.loading ? (
-        <h1>LOADING ...</h1>
-      ) : state.smurfs.lenght < 1 ? (
-        <h1>You have no smurfs</h1>
+      {state.isFetching && "LOADING..."}
+      {state.editing ? (
+        <div>
+          <SmurfForm />
+        </div>
       ) : (
         state.smurfs.map((smurf) => {
           return <SmurfCard key={smurf.id} smurf={smurf} />;

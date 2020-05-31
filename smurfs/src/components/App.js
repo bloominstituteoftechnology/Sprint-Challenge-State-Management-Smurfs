@@ -19,7 +19,7 @@ const App = () => {
         console.log(error.message);
         fetchError(error.message);
       });
-  }, [fetchError, fetchSuccess]);
+  }, []);
 
   return (
     <div>

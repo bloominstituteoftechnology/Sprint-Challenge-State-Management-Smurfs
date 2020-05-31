@@ -11,14 +11,21 @@ const SmurfForm = () => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3333/smurfs", newSmurf)
-      .then((response) => {
-        fetchSuccess(response.data);
-      })
-      .catch((error) => {
-        fetchError(error);
-      });
+    return newSmurf.name === "" || newSmurf.age === "" || newSmurf.height === ""
+      ? null
+      : axios
+          .post("http://localhost:3333/smurfs", newSmurf)
+          .then((response) => {
+            fetchSuccess(response.data);
+            setNewSmurf({
+              name: "",
+              age: "",
+              height: "",
+            });
+          })
+          .catch((error) => {
+            fetchError(error);
+          });
   };
   const handleChange = (e) => {
     setNewSmurf({ ...newSmurf, [e.target.name]: e.target.value });
