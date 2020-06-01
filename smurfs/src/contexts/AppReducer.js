@@ -1,6 +1,6 @@
-// import { createContext, useReducer } from "react";
+import { initialState } from "./GlobalState";
 
-export default (state, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_SUCCESS":
       return {

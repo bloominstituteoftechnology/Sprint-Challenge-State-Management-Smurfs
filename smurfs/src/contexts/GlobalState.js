@@ -2,7 +2,7 @@ import React from "react";
 import { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
 
-const initialState = {
+export const initialState = {
   editing: false,
   isFetching: true,
   error: "",

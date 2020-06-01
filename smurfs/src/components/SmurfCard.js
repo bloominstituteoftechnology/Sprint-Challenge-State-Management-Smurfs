@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../contexts/GlobalState";
 import Axios from "axios";
-
+import MoonLoader from "react-spinners/ClipLoader";
 const SmurfCard = (props) => {
   const [edited, setEdited] = useState({
     name: "",
@@ -39,6 +39,15 @@ const SmurfCard = (props) => {
 
   return (
     <div>
+      {state.isFetching && (
+        <MoonLoader
+          type="Puff"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          // timeout={3000} //3 secs
+        />
+      )}
       {state.editing ? (
         <div>
           <input
