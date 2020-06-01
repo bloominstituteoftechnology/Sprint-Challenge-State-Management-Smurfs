@@ -10,11 +10,11 @@ const SmurfsContainer = () => {
         name: '',
         age: '',
         height: '',
-        id: null
     }
 
     const [form, setForm ] = useState(initialState);
     const [ smurfs, setSmurfs ] = useState([]);
+
 
     useEffect(() => {
         axios
@@ -44,22 +44,18 @@ const SmurfsContainer = () => {
             })
     }
 
-    const deleteSmurfs = id => {
-        axios
-            .delete(`http://localhost:3333/smurfs/${id}`)
-            .then(res => {
-                setSmurfs(res.data)
-            })
-            .catch(err => {
-                console.log('There was an error')
-            })
-    }
 
     return (
         <div>
-        <SmurfsContext.Provider value={{smurfs, form, handleChange, onSubmit, deleteSmurfs}}>
-            <SmurfsForm />
+        <SmurfsContext.Provider value={{smurfs, form, handleChange, onSubmit}}>
+        <div className='header'>
+            <h1>Welcome to Smurf Village!</h1>
+        </div>
             <Smurfs />
+            <div className='footer'>
+                <h1>Join our village!</h1>
+               <SmurfsForm /> 
+            </div>
         </SmurfsContext.Provider>
             
         </div>

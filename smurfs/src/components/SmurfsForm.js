@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { SmurfsContext } from '../contexts/SmurfsContext';
 
 const SmurfsForm = () => {
-    const {form, smurfs, handleChange, onSubmit, deleteSmurfs} = useContext(SmurfsContext);
+    const {form, handleChange, onSubmit} = useContext(SmurfsContext);
     return (
         <form onSubmit={onSubmit}>
             <label htmlFor='name'>

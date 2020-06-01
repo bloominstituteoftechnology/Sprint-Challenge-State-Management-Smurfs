@@ -5,7 +5,8 @@ const Smurfs = () => {
     const {smurfs} = useContext(SmurfsContext);
 
     return (
-        <div>
+                
+        <div className='smurfs-container'>
             {smurfs.map(s => (
                 <div key={s.name} className='smurf'>
                     <p>Name: {s.name}</p>
