@@ -1,3 +1,47 @@
 .App {
   text-align: center;
+  margin: 0px;
+  padding: 0px;
+  background-color: lightgray;
+  opacity: 85%;
+  
+}
+
+body {
+
+  margin: 0px;
+  padding: 0px;
+  background-image: url('/assets/bg.jpg');
+
+}
+
+h1, h4 {
+
+  color: blue;
+  border: aqua 1px dotted;
+}
+
+h4 {
+
+  background-color: aquamarine;
+
+}
+
+#list {
+
+  display: none;
+}
+
+label{
+
+  background-color: lightslategrey;
+
+}
+
+form {
+
+ color: lightblue;
+ font-weight: bolder;
+ 
+
 }
