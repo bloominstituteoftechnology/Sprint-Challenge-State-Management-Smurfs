@@ -33,7 +33,11 @@ class SmurfForm extends React.Component {
 
     return (
         <React.Fragment> 
-        <form>
+            <button  onClick={() => document.getElementById('smurfForm').style.display='block'}>Add Smurf</button>
+            
+
+            <div id="smurfForm" className="w3-modal">
+        <form className="w3-modal-content">
             <label>
               Name:
                 <input 
@@ -60,15 +64,27 @@ class SmurfForm extends React.Component {
                onChange={this.handleHeightChanges}
                placeholder="Height Here"/>
           </label>
-          <button onClick={e => {e.preventDefault()
+          <button className="w3-blue" onClick={e => {e.preventDefault()
         this.props.postSmurf(this.state)}} >Submit</button>
+      
         </form>
-
+        </div>
+          <div className="w3-button w3-block" onClick={() => document.getElementById('list').style.display='block'} >List</div>
+         <article id="list"> 
+        
             {this.props.smurf.map((s, i) => (
-               <h4 key={i}>
-                  Name:  {s.name} | Age: {s.age} | Height: {s.height}
-                   </h4> 
+              <h4 key={i}>
+                 <p> Name:  {s.name} | Age: {s.age} | Height: {s.height} </p>
+                   </h4>
             ))}
+
+            <div className="">{this.props.getSmurf()}</div>
+</article>
+
+
+
+            
+
         </React.Fragment>
     )
     }
