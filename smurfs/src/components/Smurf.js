@@ -10,7 +10,7 @@ import styled from 'styled-components';
 const Smurf = ({smurf}) => {
     // console.log("smurf: ", smurf); //test
 	return (
-		<TheSmurf>
+		<TheSmurf key={smurf.id}>
 			<h3>{smurf.name}</h3>
 			<p>{smurf.age}</p>
 			<p>{smurf.height}</p>
