@@ -23,10 +23,30 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+  Context API solves the problem of keeping your state clean by sharing data betwen components without passing a prop through every level of the tree.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+  Actions are the functions that'll get called in your reducer to modify the state.
+  Reducers take the state, and perform an Action on it returning the new state.
+  Store is where the app level state is held.
+  We refer to the store as the "single source of truth" in a redux application because the store holds the state for the entire application.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+  Application state is where you'll have every bit of state that the entire app will need.
+  Component state is a bit of state that matters to only a single component.
+
+  Application state will be accessable through all components, so naturally you'll only want to use component state when you're working at a level that the application wont require to have access to that bit of state.  I would use component state when you're working with a component that will have it's own state that the Application state will not be reliant on, otherwise you're better off using Application state because it will be accessable through all components already.  A good example could be the state of a form versus the state of the data that's been submitted.. like if you were to edit your username, the application state would hold the actual data, while the component(form) state, would hold the values of the form you used to edit your username.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+  Redux thunk enables us to return function from our action creators instead of an action OR to dispatch it only if a condition is met.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+  Redux is great, and I've loved every bit of it!  Context API is cool, but I like how working with redux it feels similar to how I wrote a Packet Handler for an MMORPG Project a few years ago.  I'll explain this further in the 1 on 1.
 
 ## Project Set Up
 
