@@ -1,3 +1,11 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  padding: 5%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
 }

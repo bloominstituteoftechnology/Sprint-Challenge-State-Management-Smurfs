@@ -10,11 +10,15 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      
+      <div className="app-container">
         <h1>Smurf's 2.0 with Redux</h1>
-          <Smurf/>
-          <SmurfForm />
+          <div className="App">
+            <Smurf/>
+            <SmurfForm />
+          </div>
       </div>
+    
     );
   }
 }

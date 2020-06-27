@@ -34,6 +34,7 @@ class SmurfForm extends React.Component {
     console.log('state, props', this.state, this.props)
     return (
       <div>
+          <h3>Add a Smurf! </h3>
       <form onSubmit={this.handleSubmit}>
         <label>
           Name
@@ -68,7 +69,7 @@ class SmurfForm extends React.Component {
           />
         </label>
 
-        <button type='submit'>Submit</button>
+        <button type='submit'>Add Smurf</button>
       </form>
     </div>
     )

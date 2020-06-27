@@ -1,34 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { connect } from 'react-redux';
 
-export default function Smurf() {
+import { getData } from '../actions/getData';
+import { removeSmurf } from '../actions/removeSmurf';
 
-  const [smurfs, editSmurfs] = useState([])
+class Smurf extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
-  useEffect(() => {
-    axios
-      .get('http://localhost:3333/smurfs')
-      .then(response => {
-        console.log(response.data)
-        editSmurfs(response.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [])
+  componentDidMount() {
+    this.props.getData()
+  }
 
-  return (
-    console.log('smurfs', smurfs),
-    <div>
-      Smurf component
-      {smurfs.map(smurf => {
-        console.log('smurf map', smurf)
-        return (
-          <div key={smurf.id}>
-            <p>{smurf.name}</p>
-          </div>
-        )
-      })}
-    </div>
-  )
-} 
+  
+  render() {
+  console.log('smurf props', this.props)
+    return (
+      <div>
+        <h2>Smurf List</h2>
+        {this.props.smurfs.length > 0 ? this.props.smurfs.map(smurf => {
+          return (
+            <div key={smurf.id}>
+              <p>Name: {smurf.name}</p>
+              <p>Age: {smurf.age}</p>
+              <p>Height: {smurf.height}cm</p>
+              <button onClick={removeSmurf(smurf.id)}>Remove Smurf</button>
+            </div>
+          )
+        }) : <h2>Loading...</h2> }
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = state => {
+  console.log('smurf.js mSTP', state)
+  return {
+    isFetching: state.isFetching,
+    smurfs: state.smurfs,
+    error: state.error
+  }
+}
+
+export default connect(mapStateToProps, { getData, removeSmurf })(Smurf)
