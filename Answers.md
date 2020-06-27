@@ -16,4 +16,4 @@ redux-thunk is a middleware that allows us to use async actions.
 
 1. What is your favorite state management system you've learned and this sprint? Please explain why!
 
-I don't have a favorite, they're both equally confusing :)
+I prefer redux, probably because I don't see the benefits of Context API because my projects so far have been simple enough to not necessitate it.
