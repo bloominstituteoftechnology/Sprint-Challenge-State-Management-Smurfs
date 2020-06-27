@@ -32,11 +32,11 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 Follow these steps to set up your project:
 
-- [ ] `fork & clone` this repository.
-- [ ] `cd` into the forked copy of this repository.
-- [ ] **RUN** `npm install` to retrieve all `server-side` the dependencies.
-- [ ] **RUN** `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
-- [ ] After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an array with one smurf in it returned to you. This is an array that your **API** will be using to store our Smurf Data.
+- [done] `fork & clone` this repository.
+- [done] `cd` into the forked copy of this repository.
+- [done] **RUN** `npm install` to retrieve all `server-side` the dependencies.
+- [done] **RUN** `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
+- [done] After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an array with one smurf in it returned to you. This is an array that your **API** will be using to store our Smurf Data.
 - [ ] **LOOK** at your `smurfs` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
 - [ ] **Open** `src/index.js` to make sure that your app is ready to roll with the proper middleware.
 - [ ] **cd** into `smurfs` and run `npm install` to retrieve the client side dependencies.
