@@ -1,6 +1,16 @@
+//import actions
+import {
+  FETCH_SMURF_START,
+  FETCH_SMURF_SUCCESS,
+  FETCH_SMURF_FAILURE,
+  NEW_SMURF_START,
+  NEW_SMURF_SUCCESS,
+  NEW_SMURF_FAILURE,
+} from "../Actions/actions";
+
 //set intialState reducer
 const initialState = {
-  smurf: [],
+  smurfs: [],
   isFetching: false,
   error: "",
 };
@@ -13,7 +23,7 @@ export const Reducer = (state = initialState, action) => {
       return { ...state, isFetching: true };
     //this case created to create an action if isFetching is successful
     case FETCH_SMURF_SUCCESS:
-      return { ...state, isFetching: false, smurf: action.payload };
+      return { ...state, isFetching: false, smurfs: action.payload };
     //this case created for if pulling from api is not successful
     case FETCH_SMURF_FAILURE:
       return { ...state, isFetching: false };
@@ -22,7 +32,7 @@ export const Reducer = (state = initialState, action) => {
       return { ...state, isFetching: true };
     //case created fr when adding new smurf is successful , and to complete action when successful
     case NEW_SMURF_SUCCESS:
-      return { ...state, isFetching: false, smurf: action.payload };
+      return { ...state, isFetching: false, smurfs: action.payload };
     //case created for if adding smurfs fails
     case NEW_SMURF_FAILURE:
       return { ...state, isFetching: false };

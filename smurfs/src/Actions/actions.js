@@ -13,7 +13,7 @@ export const NEW_SMURF_FAILURE = "NEW_DATA_FAILURE";
 //export fetchSmurf component to dispatch actions of pulling data from api and show if success or fail
 
 export const fetchSmurf = () => (dispatch) => {
-  dispatch({ type: FETCH_SMURF_START });
+  dispatch({ type: "FETCH_SMURF_START" });
   axios
     .get("http://localhost:3333/smurfs")
     .then((response) => {
@@ -27,7 +27,7 @@ export const fetchSmurf = () => (dispatch) => {
 //export newSmurf component to dispatch actions for adding new smurf with success or if failed
 
 export const newSmurf = (smurf) => (dispatch) => {
-  dispatch({ type: NEW_SMURF_START });
+  dispatch({ type: "NEW_SMURF_START" });
   axios
     .post("http://localhost:3333/smurfs", smurf)
     .then((response) => {
