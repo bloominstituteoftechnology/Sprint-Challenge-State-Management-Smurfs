@@ -7,8 +7,10 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import { Reducer } from "./Reducers/reducers";
 
+//enhance redux tools
 const composeEnhance = window._REDUX_DEVTOOLS_EXTENTION_COMPOSE__ || compose;
 
+//create store to save state from reducers to use when needed
 const store = createStore(Reducer, composeEnhance(applyMiddleware(thunk)));
 
 ReactDOM.render(

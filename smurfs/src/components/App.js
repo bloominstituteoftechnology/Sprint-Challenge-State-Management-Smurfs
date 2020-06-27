@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { connect } from "reeact-redux";
+import { connect } from "react-redux";
 import { fetchSmurf } from "../Actions/actions";
-import SmurfForm from "./SmurfForm";
-import SmurfList from "./SmurfList";
+import SmurfForm from "./smurfForm";
+import SmurfList from "./smurfList";
 
+//useEffect hook to fetch smurfs action
 const App = ({ fetchSmurf }) => {
   useEffect(() => {
     fetchSmurf();
@@ -20,7 +21,7 @@ const App = ({ fetchSmurf }) => {
   );
 };
 
-const mapToStateProps = (state) => {
+const mapStateToProps = (state) => {
   return {
     smurfs: state.smurf,
     message: state.message,

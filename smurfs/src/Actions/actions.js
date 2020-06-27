@@ -1,9 +1,10 @@
 import axios from "axios";
+import Axios from "axios";
 
 //EXPORT ACTIONS FOR FETCHING SMURF INFORMATION
 export const FETCH_SMURF_START = "FETCH_SMURF START";
 export const FETCH_SMURF_SUCCESS = "FETCH_SMURF_SUCCESS";
-export const FETCH_SMURF_SUCCESS = "FETCH_DATA_FAILURE";
+export const FETCH_SMURF_FAILURE = "FETCH_DATA_FAILURE";
 
 //EXPORT ACTIONS FOR ADDING SMURF DATA
 export const NEW_SMURF_START = "NEW_SMURF_START";
@@ -37,3 +38,12 @@ export const newSmurf = (smurf) => (dispatch) => {
       dispatch({ type: NEW_SMURF_FAILURE, payload: error });
     });
 };
+
+/*//attempt at stretch 
+export const deleteSmurf = smurfID => dispatch => {
+  dispatch({ type: DELETE_SMURF });
+
+
+  axios.delete(`http://localhost:3333`)
+}
+*/
