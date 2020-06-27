@@ -1,5 +1,6 @@
 import { FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL } from "../actions/getData"
-import { ADD_SMURF } from '../actions/addSmurf';
+// import { UPDATE_LIST_START, UPDATE_LIST_SUCCESS, UPDATE_LIST_FAIL } from "../actions/updateList"
+import { ADD_SMURF } from "../actions/addSmurf";
 import { REMOVE_SMURF } from "../actions/removeSmurf";
 
 const initialState = {
@@ -51,6 +52,27 @@ export default function reducer(state = initialState, action) {
             } else return state.smurfs
           })
         }
+
+    //     case UPDATE_LIST_START:
+    //   return {
+    //     ...state,
+    //     isFetching: true,
+    //     error: ''
+    //   }
+
+    //   case UPDATE_LIST_SUCCESS:
+    //     return {
+    //       ...state,
+    //       smurfs: action.payload,
+    //       isFetching: false,
+    //       error: ''
+    //     }
+
+    //   case UPDATE_LIST_FAIL:
+    //     return {
+    //       error: action.payload
+    //     }
+
 
     default:
       return state
