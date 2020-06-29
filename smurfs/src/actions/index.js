@@ -29,7 +29,7 @@ export const send_smurf = (smurf)  => {
     console.log('inside send smurf')
     axios
         .post('http://localhost:3333/smurfs',{
-            name:smurf.name + '5',
+            name:smurf.name,
             age:parseInt(smurf.age),
             height: smurf.height,
             id: Math.floor(Math.random()* 100000)

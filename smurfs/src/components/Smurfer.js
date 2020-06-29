@@ -20,8 +20,10 @@ const Smurfer = props =>{
             <>
                 {props.names.map(item=>{
                     return(
-                        <>
-                        <p key={item.id}>{item.name}</p>
+                        <div key={item.id}>
+                        <p >Name: {item.name}</p>
+                            <p>Age: {item.age}</p>
+                            <p>Height: {item.height}</p>
                             {edit && `${item.id}` === edit.id ?
                                 <form onSubmit={handleSubmitEdit(item)} >
                             <input
@@ -56,7 +58,7 @@ const Smurfer = props =>{
 
                             }
                         <button key={item.id} onClick={()=>setEdit({ready:true, id:`${item.id}`})}>edit</button>
-                        </>
+                        </div>
                     )
                 })}
                 </>
