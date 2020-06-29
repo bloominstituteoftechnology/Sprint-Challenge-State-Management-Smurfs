@@ -22,6 +22,8 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5"
   }
 }
