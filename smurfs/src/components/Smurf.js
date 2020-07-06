@@ -23,9 +23,9 @@ class Smurf extends React.Component {
           return (
             <div key={smurf.id}>
               <p>Name: {smurf.name}</p>
-              <p>Age: {smurf.age}</p>
-              <p>Height: {smurf.height}cm</p>
-              <button onClick={removeSmurf(smurf.id)}>Remove Smurf</button>
+              <p>Age: {smurf.age} yr(s)</p>
+              <p>Height: {smurf.height} cm</p>
+              <button onClick={() => this.props.removeSmurf(smurf.id)}>Remove Smurf</button>
             </div>
           )
         }) : <h2>Loading...</h2> }
