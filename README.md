@@ -23,10 +23,27 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+Ans:- Context API allows us to no longer have to pass props down from component to component - what React devs call “prop drilling”. We can now store data on a context object, and retrieve that data in the necessary components from the context object, not props!
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+Ans: => Redux is a predictable state container for JavaScript apps.
+An action is an object defining what happened. If you’re going to get any money from the bank, you’re going to have to go in with some intent or action to withdraw money.
+Reducers: Reducers are the place where we convey our action into, it also knows what state/ action to perform and always returns a new state.
+store: ONE APPLICATION STATE OBJECT managed by ONE STORE. Have a single source of truth: The state of your whole application is stored in an object tree within a single Redux store.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Ans:=> Application State global and component state are local
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Ans: => Ans: -> Redux Thunk is a middleware that lets you call action creators that return a function instead of an action object. That function receives the store's dispatch method, which is then used to dispatch regular synchronous actions inside the body of the function once the asynchronous operations have completed.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+Ans: useContext, because it's easy to understand .
 
 ## Project Set Up
 
@@ -64,8 +81,8 @@ Follow these steps to set up your project:
     name: "Brainey",
     age: 200,
     height: "5cm",
-    id: 0
-  }
+    id: 0,
+  },
 ];
 ```
 
@@ -97,14 +114,14 @@ Example of object created in Smurf DB:
     name: "Brainey",
     age: 200,
     height: "5cm",
-    id: 0
+    id: 0,
   },
   {
     name: "Sleepy",
     age: 200,
     height: "5cm",
-    id: 1
-  }
+    id: 1,
+  },
 ];
 ```
 
@@ -157,7 +174,7 @@ output: [
     name: "Sleepy",
     age: 200,
     height: "5cm",
-    id: 1
-  }
+    id: 1,
+  },
 ];
 ```
