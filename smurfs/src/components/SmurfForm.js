@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addSmurf } from "../actions";
+import "./App.css";
 
 const initialState = {
   name: "",
@@ -31,8 +32,8 @@ const SmurfForm = () => {
   const { name, age, height } = values;
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form className="dk1" onSubmit={handleSubmit}>
+      <label className="dk">
         Name:
         <input
           className="dk"
@@ -42,7 +43,7 @@ const SmurfForm = () => {
           value={name}
         />
       </label>
-      <label>
+      <label className="dk">
         Age:
         <input
           className="dk"
@@ -52,7 +53,7 @@ const SmurfForm = () => {
           value={age}
         />
       </label>
-      <label>
+      <label className="dk">
         Height:
         <input
           className="dk"

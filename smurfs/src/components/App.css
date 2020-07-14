@@ -1,3 +1,31 @@
 .App {
   text-align: center;
 }
+
+.dk {
+  padding: 5px;
+  /* border: 2px solid blue; */
+  display: flex;
+  margin: 7px;
+  justify-content: center;
+}
+
+.dk1 {
+  background: #98f199;
+}
+
+.dk2 {
+  width: 100%;
+  margin: 2%;
+  display: flex;
+
+  flex-wrap: wrap;
+  background: dodgerblue;
+}
+
+.dk3 {
+  margin: 15px;
+  background: tomato;
+  display: flex;
+  flex-direction: column;
+}

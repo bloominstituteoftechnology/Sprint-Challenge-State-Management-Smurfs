@@ -15,7 +15,7 @@ const Smurfs = () => {
   console.log("SMURFS", smurfs);
 
   return (
-    <div>
+    <div className="dk2">
       {smurfs.map((smurf) => (
         <Smurf key={smurf.id} {...smurf} />
       ))}
