@@ -12,6 +12,7 @@
 
 .dk1 {
   background: #98f199;
+  padding: 8px;
 }
 
 .dk2 {
@@ -24,8 +25,9 @@
 }
 
 .dk3 {
-  margin: 15px;
+  margin: 10px;
   background: tomato;
   display: flex;
   flex-direction: column;
+  border: 3px inset green;
 }
