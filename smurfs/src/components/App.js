@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { fetchSmurfs } from '../actions';
 import { postSmurfs } from '../actions/actionreducer';
 import { connect } from 'react-redux';
 import './App.css';
 import styled from 'styled-components';
+import Form from "../Form";
 
 const Smurfed = styled.div`
 	align-items: center;
@@ -11,33 +12,52 @@ const Smurfed = styled.div`
 	height: 70px;
 	justify-content: space-between;
 	padding: 0 3%;
-	width: 400px;
+	width: 100vw;
 	-webkit-box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
 	-moz-box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
 	box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
 	text-align: center;
 	margin: auto;
 `;
+const H1 = styled.h1`
+	align-item: center;
+	color: #f5ea74;
+	font-size: 4rem
+`;
+
+const Card = styled.div`
+	width: 300px;
+	color: white;
+	background-color: green;
+	height: 100px;
+	opacity: 80%;
+	text-align: center;
+	border-radius: 20px;
+	margin: auto;
+	padding:10px;
+	font-size: 1.5rem
+`;
+
 
 function App(props) {
-	const [ newSmurf, setNewSmurf ] = useState({
-		name: '',
-		age: '0',
-		height: ''
-	});
+	// const [ newSmurf, setNewSmurf ] = useState({
+	// 	name: '',
+	// 	age: '0',
+	// 	height: ''
+	// });
 
-	const handleChanges = (e) => {
-		setNewSmurf({
-			...newSmurf,
-			[e.target.name]: e.target.value
-		});
-	};
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		props.postSmurfs(newSmurf);
-		setNewSmurf();
-	};
+	// const handleChanges = (e) => {
+	// 	setNewSmurf({
+	// 		...newSmurf,
+	// 		[e.target.name]: e.target.value
+	// 	});
+	// };
+	//
+	// const handleSubmit = (e) => {
+	// 	e.preventDefault();
+	// 	props.postSmurfs(newSmurf);
+	// 	setNewSmurf();
+	// };
 
 	const { fetchSmurfs } = props;
 	useEffect(
@@ -48,32 +68,19 @@ function App(props) {
 	);
 	return (
 		<Smurfed>
-			<h1>WELCOME TO THE SMURFVILLE!!</h1>
-			<div className="work">
-				<form onSubmit={handleSubmit}>
-					<label>Name </label>
-					<input type="text" name="name" placeholder="Name" onClick={handleChanges} />
-					<br />
-					<label>Age </label>
-					<input type="number" name="age" placeholder="Age" onClick={handleChanges} />
-					<br />
-					<label>Height </label>
-					<input type="text" name="height" placeholder="Height" onClick={handleChanges} />
-					<br />
-					<button>Add</button>
-				</form>
-			</div>
+			<H1>WELCOME TO THE SMURFVILLE!!</H1>
+			<Form />
 			<div>
 				{props.smurfError && <p>Error: {props.smurfError} </p>}
 				{props.isSmurfLoading ? (
 					<div>Smurf is Loading...</div>
 				) : (
 					props.smurfFilm.map((smurf) => (
-						<Smurfed key={smurf.name}>
+						<Card key={smurf.name}>
 							Name: {smurf.name} <br />
 							Age: {smurf.age} <br />
 							Height: {smurf.height}
-						</Smurfed>
+						</Card>
 					))
 				)}
 			</div>

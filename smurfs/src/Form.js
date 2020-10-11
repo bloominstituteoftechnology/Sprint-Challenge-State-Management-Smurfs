@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { postSmurfs } from './actions/actionreducer';
 import { connect } from 'react-redux';
 
+
+
+
 const Form = (props) => {
 	const [ newSmurf, setNewSmurf ] = useState('');
 
@@ -19,24 +22,22 @@ const Form = (props) => {
 	};
 
 	return (
+		<div className='container'>
 		<div className="work">
+			<h1>Add a Smurf:</h1>
 			<form onSubmit={handleSubmit}>
-				<input type="text" name="name" placeholder="Name" value={newSmurf.name} onChange={handleChanges} />
+
+				<input type="text" name="name" placeholder="Name" onClick={handleChanges} />
 				<br />
-				<input type="text" name="age" placeholder="Age" value={newSmurf.age} onChange={handleChanges} />
+
+				<input type="number" name="age" placeholder="Age" onClick={handleChanges} />
 				<br />
-				<input
-					type="text"
-					name="height"
-					placeholder="Height"
-					value={newSmurf.height}
-					onChange={handleChanges}
-				/>
+
+				<input type="text" name="height" placeholder="Height" onClick={handleChanges} />
 				<br />
-				<button type="submit" onClick={handleSubmit}>
-					Add
-				</button>
+				<button>Add</button>
 			</form>
+		</div>
 		</div>
 	);
 };
