@@ -11,7 +11,7 @@ const Card = styled.div`
 	text-align: center;
 	border-radius: 20px;
 	margin: auto;
-	font-size: 1.4rem
+	font-size: 1.5rem
 `;
 
 const Smurf = props => {
