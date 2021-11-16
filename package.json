@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LambdaSchool/Sprint-Challenge--Redux.git"
+    "url": "git+https://github.com/BloomInstituteOfTechnology/Sprint-Challenge--Redux.git"
   },
   "keywords": [],
-  "author": "Lambda School",
+  "author": "BloomTech",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LambdaSchool/Sprint-Challenge--Redux/issues"
+    "url": "https://github.com/BloomInstituteOfTechnology/Sprint-Challenge--Redux/issues"
   },
-  "homepage": "https://github.com/LambdaSchool/Sprint-Challenge--Redux#readme",
+  "homepage": "https://github.com/BloomInstituteOfTechnology/Sprint-Challenge--Redux#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1"
